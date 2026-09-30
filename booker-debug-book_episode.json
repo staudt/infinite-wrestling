@@ -1,0 +1,389 @@
+{
+  "title": "Episode 4: The Surgeon's Apprentice",
+  "storySoFar": "The Warehouse Wars heat up in the bingo hall. Boss Chain and his Warehouse Faction (Cargo Crusher, Ragged Ray, Tiny Terrorizer) battle The Clinic's methodical assault: Spike Surgeon has targeted Chain's arm, while Doc Carnage continues softening up Crusher. Cargo Crusher fights Trash King in an escalating garbage war. Lady Mayhem holds the Scarlet Throne against Scarlet Skull's theatrical brutality. Chrome Viper hunts unpredictable champion Neon Nightmare, who holds the Warehouse Championship under Velvet Rope's management. A mysterious newcomer arrives, aligned with Spike—the Surgeon gains an apprentice.",
+  "debuts": [
+    {
+      "id": "scalpel_kid",
+      "name": "Scalpel Kid",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "men",
+      "style": "technician",
+      "gimmick": "A lanky, eager surgical prodigy in a white coat and mask. Moves with clinical precision, obsesses over 'perfect form,' and worships Spike Surgeon as his mentor. Treats every match like an anatomy lesson.",
+      "entrance": "to the sharp hiss of a surgical drill",
+      "finisherName": "The Incision",
+      "finisherMove": "ddt"
+    }
+  ],
+  "beats": [
+    {
+      "type": "segment",
+      "title": "Opening: The Clinic Expands",
+      "recap": "Spike Surgeon arrives with a mysterious apprentice—Scalpel Kid—and declares war on the Warehouse Faction."
+    },
+    {
+      "type": "entrance",
+      "who": "spike_surgeon",
+      "mood": "menacing",
+      "escorts": [
+        "doc_carnage"
+      ]
+    },
+    {
+      "type": "promo",
+      "who": "spike_surgeon",
+      "where": "ring",
+      "mood": "menacing",
+      "lines": [
+        "The arm is just the beginning.",
+        "Boss Chain, your body is my operating table.",
+        "Meet my apprentice: Scalpel Kid.",
+        "Two surgeons. One mission.",
+        "The Clinic cuts deep."
+      ]
+    },
+    {
+      "type": "entrance",
+      "who": "scalpel_kid",
+      "mood": "cocky",
+      "escorts": []
+    },
+    {
+      "type": "promo",
+      "who": "scalpel_kid",
+      "where": "ring",
+      "mood": "cocky",
+      "lines": [
+        "I learned from the best.",
+        "Chain's arm? Just my first patient.",
+        "Precision. Perfection. Pain."
+      ]
+    },
+    {
+      "type": "segment",
+      "title": "Interview: Cargo Crusher Fires Back",
+      "recap": "Cargo Crusher interrupts the interview segment to challenge Spike and his new apprentice."
+    },
+    {
+      "type": "entrance",
+      "who": "cargo_crusher",
+      "mood": "angry",
+      "escorts": [
+        "tiny_terrorizer"
+      ]
+    },
+    {
+      "type": "promo",
+      "who": "cargo_crusher",
+      "where": "aisle",
+      "mood": "angry",
+      "lines": [
+        "You want pain, kid? I'll show you the weight of a real man!",
+        "The Clinic's done operating. Time to shut down."
+      ]
+    },
+    {
+      "type": "confrontation",
+      "a": "cargo_crusher",
+      "b": "spike_surgeon",
+      "where": "ring",
+      "exchange": [
+        {
+          "speaker": "spike_surgeon",
+          "text": "Your arm is next, Crusher."
+        },
+        {
+          "speaker": "cargo_crusher",
+          "text": "Bring it on, you butcher!"
+        }
+      ],
+      "escalation": "separated"
+    },
+    {
+      "type": "segment",
+      "title": "Women's Division: The Phantom Rises",
+      "recap": "Phantom Jenny faces Chrome Viper in a technical showcase that ends in controversy."
+    },
+    {
+      "type": "entrance",
+      "who": "phantom_jenny",
+      "mood": "calm",
+      "escorts": []
+    },
+    {
+      "type": "entrance",
+      "who": "chrome_viper",
+      "mood": "cocky",
+      "escorts": []
+    },
+    {
+      "type": "match",
+      "wrestlers": [
+        "phantom_jenny",
+        "chrome_viper"
+      ],
+      "winner": "chrome_viper",
+      "finish": "cheat_pin",
+      "story": "back_and_forth",
+      "length": "medium",
+      "titleOnLine": "none",
+      "spots": [
+        {
+          "phase": "finish",
+          "type": "distraction",
+          "who": "velvet_rope",
+          "target": "phantom_jenny",
+          "lines": [
+            "You're in my way!"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "segment",
+      "title": "Velvet Rope's Power Play",
+      "recap": "Velvet Rope corners Phantom Jenny and makes a shocking demand about her allegiance."
+    },
+    {
+      "type": "interview",
+      "guest": "velvet_rope",
+      "exchange": [
+        {
+          "speaker": "frankie_chrome",
+          "text": "Velvet, you just cost Phantom Jenny the match. Why?"
+        },
+        {
+          "speaker": "velvet_rope",
+          "text": "Because I own this company. And Jenny needs to understand who's in charge."
+        },
+        {
+          "speaker": "frankie_chrome",
+          "text": "Are you offering her an opportunity?"
+        },
+        {
+          "speaker": "velvet_rope",
+          "text": "I'm offering her a choice: join me, or stay irrelevant. Neon Nightmare didn't waste time picking sides."
+        }
+      ]
+    },
+    {
+      "type": "react",
+      "who": "phantom_jenny",
+      "reaction": "anger"
+    },
+    {
+      "type": "segment",
+      "title": "The Hardcore Crown Match",
+      "recap": "Cargo Crusher McGraw defends the Hardcore Crown against Trash King Donny in a brutal garbage-filled brawl."
+    },
+    {
+      "type": "entrance",
+      "who": "cargo_crusher",
+      "mood": "excited",
+      "escorts": [
+        "tiny_terrorizer"
+      ]
+    },
+    {
+      "type": "entrance",
+      "who": "trash_king",
+      "mood": "crazy",
+      "escorts": [
+        "barbed_buddha",
+        "scarlet_skull"
+      ]
+    },
+    {
+      "type": "match",
+      "wrestlers": [
+        "cargo_crusher",
+        "trash_king"
+      ],
+      "winner": "cargo_crusher",
+      "finish": "pin",
+      "story": "winner_dominates",
+      "length": "long",
+      "titleOnLine": "hardcore_crown",
+      "spots": [
+        {
+          "phase": "mid",
+          "type": "weapon",
+          "who": "trash_king",
+          "target": "cargo_crusher",
+          "lines": [
+            "Garbage for the garbage man!"
+          ]
+        },
+        {
+          "phase": "late",
+          "type": "weapon",
+          "who": "cargo_crusher",
+          "target": "trash_king",
+          "lines": [
+            "You want trash? Here it is!"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "celebrate",
+      "who": [
+        "cargo_crusher",
+        "tiny_terrorizer"
+      ]
+    },
+    {
+      "type": "attack",
+      "attackers": [
+        "barbed_buddha",
+        "scarlet_skull"
+      ],
+      "victim": "cargo_crusher",
+      "where": "ring",
+      "style": "beatdown"
+    },
+    {
+      "type": "narrate",
+      "text": "Darkness attacks after the bell! Where's the Warehouse Faction?!",
+      "style": "shock"
+    },
+    {
+      "type": "run_in",
+      "who": "boss_chain",
+      "target": "barbed_buddha",
+      "intent": "save"
+    },
+    {
+      "type": "run_in",
+      "who": "ragged_ray",
+      "target": "scarlet_skull",
+      "intent": "save"
+    },
+    {
+      "type": "exit",
+      "who": [
+        "barbed_buddha",
+        "scarlet_skull"
+      ],
+      "how": "storm_off"
+    },
+    {
+      "type": "segment",
+      "title": "Main Event: The Surgeon's Test",
+      "recap": "Boss Chain faces Scalpel Kid in a shocking debut match, with Spike Surgeon orchestrating every brutal move from ringside."
+    },
+    {
+      "type": "entrance",
+      "who": "boss_chain",
+      "mood": "angry",
+      "escorts": [
+        "ragged_ray"
+      ]
+    },
+    {
+      "type": "entrance",
+      "who": "scalpel_kid",
+      "mood": "cocky",
+      "escorts": [
+        "spike_surgeon",
+        "doc_carnage"
+      ]
+    },
+    {
+      "type": "match",
+      "wrestlers": [
+        "boss_chain",
+        "scalpel_kid"
+      ],
+      "winner": "scalpel_kid",
+      "finish": "submission",
+      "story": "loser_dominates",
+      "length": "long",
+      "titleOnLine": "none",
+      "spots": [
+        {
+          "phase": "early",
+          "type": "distraction",
+          "who": "spike_surgeon",
+          "target": "boss_chain",
+          "lines": [
+            "Watch his left arm, kid!"
+          ]
+        },
+        {
+          "phase": "mid",
+          "type": "weapon",
+          "who": "doc_carnage",
+          "target": "boss_chain",
+          "lines": [
+            "Surgical precision!"
+          ]
+        },
+        {
+          "phase": "finish",
+          "type": "interrupt",
+          "who": "spike_surgeon",
+          "target": "boss_chain",
+          "lines": [
+            "That's it, apprentice! The lesson is complete!"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "narrate",
+      "text": "Scalpel Kid has the Phantom Lock locked in! Boss Chain won't tap—he can't!",
+      "style": "shock"
+    },
+    {
+      "type": "react",
+      "who": "boss_chain",
+      "reaction": "anger"
+    },
+    {
+      "type": "promo",
+      "who": "spike_surgeon",
+      "where": "ring",
+      "mood": "menacing",
+      "lines": [
+        "Boss Chain, your reign ends when the Clinic decides.",
+        "The Surgeon and his apprentice just proved it.",
+        "You're next, Crusher."
+      ]
+    },
+    {
+      "type": "exit",
+      "who": [
+        "scalpel_kid",
+        "spike_surgeon",
+        "doc_carnage"
+      ],
+      "how": "walk"
+    },
+    {
+      "type": "narrate",
+      "text": "The Clinic leaves the bingo hall in control. The Warehouse Faction's grip is slipping!",
+      "style": "big"
+    }
+  ],
+  "stateChanges": [
+    {
+      "type": "feud_start",
+      "a": "boss_chain",
+      "b": "scalpel_kid",
+      "reason": "Scalpel Kid humiliated Boss Chain in his debut match, submitting the faction leader with the Phantom Lock."
+    },
+    {
+      "type": "storyline_note",
+      "text": "Velvet Rope openly recruiting talent away from the Warehouse Faction, using her ownership stake to sway wrestlers to her side."
+    },
+    {
+      "type": "storyline_note",
+      "text": "The Clinic now has two surgeons: Spike Surgeon and his new apprentice Scalpel Kid. They're systematically dismantling the Warehouse Faction's credibility."
+    },
+    {
+      "type": "storyline_note",
+      "text": "Phantom Jenny angered by Velvet Rope's power play and mysterious recruitment pitch. Her allegiance is now uncertain."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "width": 78,
+  "depth": 9,
+  "curtain": { "x": 3, "depth": 4 },
+  "stage": { "x0": 0, "x1": 8, "spot": { "x": 6, "depth": 4 } },
+  "aisle": { "x0": 8, "x1": 45, "depth": 4, "spot": { "x": 20, "depth": 4 } },
+  "podium": { "x0": 25, "x1": 31, "interviewer": { "x": 26, "depth": 1 }, "guest": { "x": 29, "depth": 1 } },
+  "ringside": { "x0": 39, "x1": 46 },
+  "ring": { "x0": 47, "x1": 75, "d0": 0, "d1": 8 },
+  "ringEntry": { "x": 45, "depth": 4 },
+  "ringSpots": [
+    { "x": 55, "depth": 4 }, { "x": 67, "depth": 4 }, { "x": 61, "depth": 3 },
+    { "x": 52, "depth": 6 }, { "x": 70, "depth": 2 }, { "x": 61, "depth": 6 }
+  ],
+  "refSpot": { "x": 61, "depth": 1.5 },
+  "corners": [ { "x": 48.5, "depth": 1 }, { "x": 73.5, "depth": 1 }, { "x": 48.5, "depth": 7 }, { "x": 73.5, "depth": 7 } ]
+}

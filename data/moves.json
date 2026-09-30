@@ -1,0 +1,3756 @@
+[
+ {
+  "id": "punch",
+  "name": "right hand",
+  "kind": "strike",
+  "damage": 3,
+  "styles": [
+   "brawler"
+  ],
+  "text": [
+   "{A} fires a right hand at {D}!",
+   "{A} rocks {D} with a haymaker!",
+   "{A} lands a stiff right hand!",
+   "Closed fist from {A}! The ref warns about that!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "standing"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "punch",
+     "head": "shout"
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "upper": "guard",
+     "head": "neutral",
+     "dx": 2.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "chop",
+  "name": "knife-edge chop",
+  "kind": "strike",
+  "damage": 3,
+  "styles": [
+   "technician",
+   "showman"
+  ],
+  "text": [
+   "WOOO! {A} lays in a knife-edge chop!",
+   "{A} chops {D} across the chest. You can hear that in the cheap seats!",
+   "Chop from {A}! The crowd goes WOOO!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing",
+    "corner"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "standing"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "chop",
+     "head": "shout"
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "upper": "guard",
+     "head": "neutral",
+     "dx": 2.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "forearm",
+  "name": "forearm smash",
+  "kind": "strike",
+  "damage": 4,
+  "styles": [
+   "brawler",
+   "powerhouse"
+  ],
+  "text": [
+   "{A} clubs {D} with a forearm smash!",
+   "Big forearm from {A}!",
+   "{A} rattles {D} with a forearm to the jaw!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "standing"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "punch",
+     "head": "shout"
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "upper": "guard",
+     "head": "neutral",
+     "dx": 2.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "headbutt",
+  "name": "headbutt",
+  "kind": "strike",
+  "damage": 4,
+  "styles": [
+   "brawler"
+  ],
+  "text": [
+   "Headbutt from {A}! Both of them felt that one!",
+   "{A} rears back and headbutts {D}!",
+   "{A} with a skull-rattling headbutt!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "standing"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "grab",
+     "head": "shout"
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "upper": "guard",
+     "head": "neutral",
+     "dx": 2.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "kick_gut",
+  "name": "kick to the gut",
+  "kind": "strike",
+  "damage": 3,
+  "styles": [],
+  "text": [
+   "{A} kicks {D} in the midsection!",
+   "{A} with a boot to the gut!",
+   "Kick to the stomach by {A} doubles {D} over!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "standing"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "guard",
+     "head": "shout"
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "upper": "guard",
+     "head": "neutral",
+     "dx": 2.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "knee_lift",
+  "name": "knee lift",
+  "kind": "strike",
+  "damage": 4,
+  "styles": [
+   "technician",
+   "brawler"
+  ],
+  "text": [
+   "{A} drives a knee into {D}!",
+   "Knee lift from {A} snaps {D} upright!",
+   "{A} with a sharp knee lift!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "standing"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "grab",
+     "head": "shout"
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "upper": "guard",
+     "head": "neutral",
+     "dx": 2.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "uppercut",
+  "name": "European uppercut",
+  "kind": "strike",
+  "damage": 4,
+  "styles": [
+   "technician"
+  ],
+  "text": [
+   "European uppercut from {A}!",
+   "{A} snaps {D}'s head back with an uppercut!",
+   "{A} with a textbook European uppercut!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing",
+    "corner"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "standing"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "punch",
+     "head": "shout"
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "upper": "guard",
+     "head": "neutral",
+     "dx": 2.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "slap",
+  "name": "slap",
+  "kind": "strike",
+  "damage": 1,
+  "styles": [
+   "showman"
+  ],
+  "text": [
+   "{A} slaps {D} across the face! The disrespect!",
+   "SLAP! {A} just slapped {D}!",
+   "{A} with a stinging slap!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "standing"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "chop",
+     "head": "shout"
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "upper": "guard",
+     "head": "neutral",
+     "dx": 2.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "clothesline",
+  "name": "clothesline",
+  "kind": "strike",
+  "damage": 7,
+  "styles": [
+   "brawler",
+   "powerhouse"
+  ],
+  "text": [
+   "{A} takes {D}'s head off with a clothesline!",
+   "Clothesline from {A}! Down goes {D}!",
+   "{A} levels {D} with a running clothesline!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing",
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "run",
+     "dx": -3
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.45,
+    "att": {
+     "upper": "punch",
+     "lower": "stand",
+     "dx": 0.8,
+     "dy": 0
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "upper": "idle",
+     "dx": 1
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 3.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "dropkick",
+  "name": "dropkick",
+  "kind": "strike",
+  "damage": 7,
+  "styles": [
+   "highflyer",
+   "technician"
+  ],
+  "text": [
+   "Beautiful dropkick by {A}!",
+   "{A} leaps up and dropkicks {D} square in the chest!",
+   "Picture-perfect dropkick from {A}!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing",
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "grounded",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "run",
+     "dx": -3
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.45,
+    "att": {
+     "upper": "guard",
+     "lower": "jump",
+     "dx": 0.8,
+     "dy": 1
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "lower": "lying",
+     "rot": 90,
+     "dy": 0,
+     "dx": 1
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 3.5
+    }
+   },
+   {
+    "t": 1.4,
+    "att": {
+     "lower": "kneel",
+     "rot": 0
+    }
+   }
+  ]
+ },
+ {
+  "id": "big_boot",
+  "name": "big boot",
+  "kind": "strike",
+  "damage": 8,
+  "styles": [
+   "powerhouse"
+  ],
+  "text": [
+   "Big boot from {A} flattens {D}!",
+   "{A} plants a size-15 boot in {D}'s face!",
+   "BIG BOOT! {A} nearly takes {D}'s head off!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing",
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "run",
+     "dx": -3
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.45,
+    "att": {
+     "upper": "guard",
+     "lower": "stand",
+     "dx": 0.8,
+     "dy": 0
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "upper": "idle",
+     "dx": 1
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 3.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "lariat",
+  "name": "lariat",
+  "kind": "strike",
+  "damage": 10,
+  "big": true,
+  "styles": [
+   "brawler",
+   "powerhouse"
+  ],
+  "text": [
+   "{A} turns {D} inside out with a lariat!",
+   "LARIAT! {A} just about decapitated {D}!",
+   "A thunderous lariat from {A}!"
+  ],
+  "requires": {
+   "def": [
+    "standing",
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "run",
+     "dx": -3
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.45,
+    "att": {
+     "upper": "punch",
+     "lower": "stand",
+     "dx": 0.8,
+     "dy": 0
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "upper": "idle",
+     "dx": 1
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 3.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "spear",
+  "name": "spear",
+  "kind": "strike",
+  "damage": 12,
+  "big": true,
+  "styles": [
+   "powerhouse"
+  ],
+  "text": [
+   "SPEAR! {A} nearly cuts {D} in half!",
+   "{A} explodes out of nowhere with a spear!",
+   "A devastating spear by {A}!"
+  ],
+  "requires": {
+   "def": [
+    "standing",
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "run",
+     "dx": -3
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.45,
+    "att": {
+     "upper": "grab",
+     "lower": "stand",
+     "dx": 0.8,
+     "dy": 0
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "upper": "idle",
+     "dx": 1
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 3.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "shoulder_block",
+  "name": "shoulder block",
+  "kind": "strike",
+  "damage": 5,
+  "styles": [
+   "powerhouse",
+   "brawler"
+  ],
+  "text": [
+   "{A} runs {D} over with a shoulder block!",
+   "Shoulder tackle by {A} sends {D} sprawling!",
+   "{A} bowls {D} over!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing",
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "run",
+     "dx": -3
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.45,
+    "att": {
+     "upper": "guard",
+     "lower": "stand",
+     "dx": 0.8,
+     "dy": 0
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "upper": "idle",
+     "dx": 1
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 3.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "crossbody",
+  "name": "flying crossbody",
+  "kind": "strike",
+  "damage": 8,
+  "styles": [
+   "highflyer"
+  ],
+  "text": [
+   "Flying crossbody from {A}!",
+   "{A} launches with a crossbody!",
+   "{A} flies through the air and wipes out {D}!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing",
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "grounded",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "run",
+     "dx": -3
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.45,
+    "att": {
+     "upper": "arms_up",
+     "lower": "jump",
+     "dx": 0.8,
+     "dy": 1
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "lower": "lying",
+     "rot": 90,
+     "dy": 0,
+     "dx": 1
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 3.5
+    }
+   },
+   {
+    "t": 1.4,
+    "att": {
+     "lower": "kneel",
+     "rot": 0
+    }
+   }
+  ]
+ },
+ {
+  "id": "body_slam",
+  "name": "body slam",
+  "kind": "grapple",
+  "damage": 6,
+  "styles": [
+   "powerhouse",
+   "brawler"
+  ],
+  "text": [
+   "{A} scoops up {D}... body slam!",
+   "Body slam by {A}! The whole ring shook!",
+   "{A} lifts {D} and slams {D} down hard!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.35,
+    "att": {
+     "upper": "lift",
+     "lower": "crouch"
+    },
+    "def": {
+     "dy": 1,
+     "rot": -45,
+     "dx": 1.2
+    }
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "overhead",
+     "lower": "stand"
+    },
+    "def": {
+     "dy": 2.5,
+     "rot": -90,
+     "dx": 0.8
+    }
+   },
+   {
+    "t": 1,
+    "att": {
+     "upper": "idle",
+     "lower": "crouch",
+     "head": "shout"
+    },
+    "def": {
+     "dy": 0,
+     "rot": 90,
+     "lower": "lying",
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 1.4,
+    "att": {
+     "lower": "stand",
+     "head": "neutral"
+    }
+   }
+  ]
+ },
+ {
+  "id": "suplex",
+  "name": "vertical suplex",
+  "kind": "grapple",
+  "damage": 9,
+  "big": true,
+  "styles": [
+   "technician",
+   "powerhouse"
+  ],
+  "text": [
+   "{A} hoists {D} up... holds it... VERTICAL SUPLEX!",
+   "Delayed vertical suplex from {A}! The blood is rushing to {D}'s head!",
+   "{A} drops {D} with a textbook suplex!"
+  ],
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.2
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "upper": "lift"
+    },
+    "def": {
+     "dy": 1.5,
+     "rot": -90,
+     "dx": 0.8
+    }
+   },
+   {
+    "t": 1.4,
+    "att": {
+     "upper": "overhead",
+     "head": "look_up"
+    },
+    "def": {
+     "dy": 3,
+     "rot": -180,
+     "dx": 0
+    }
+   },
+   {
+    "t": 1.75,
+    "att": {
+     "lower": "lying",
+     "rot": -90,
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "dy": 0,
+     "rot": -270,
+     "lower": "lying",
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": -2
+    },
+    "impact": true
+   },
+   {
+    "t": 2.4,
+    "att": {
+     "lower": "kneel",
+     "rot": 0
+    }
+   },
+   {
+    "t": 2.7,
+    "att": {
+     "lower": "stand"
+    }
+   }
+  ]
+ },
+ {
+  "id": "snap_suplex",
+  "name": "snap suplex",
+  "kind": "grapple",
+  "damage": 7,
+  "styles": [
+   "technician"
+  ],
+  "text": [
+   "Snap suplex by {A}!",
+   "{A} whips {D} over with a snap suplex!",
+   "Quick snap suplex from {A}!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.2
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "upper": "lift"
+    },
+    "def": {
+     "dy": 1.5,
+     "rot": -90,
+     "dx": 0.8
+    }
+   },
+   {
+    "t": 0.8,
+    "att": {
+     "upper": "overhead",
+     "head": "look_up"
+    },
+    "def": {
+     "dy": 3,
+     "rot": -180,
+     "dx": 0
+    }
+   },
+   {
+    "t": 1.15,
+    "att": {
+     "lower": "lying",
+     "rot": -90,
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "dy": 0,
+     "rot": -270,
+     "lower": "lying",
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": -2
+    },
+    "impact": true
+   },
+   {
+    "t": 1.8,
+    "att": {
+     "lower": "kneel",
+     "rot": 0
+    }
+   },
+   {
+    "t": 2.1,
+    "att": {
+     "lower": "stand"
+    }
+   }
+  ]
+ },
+ {
+  "id": "ddt",
+  "name": "DDT",
+  "kind": "grapple",
+  "damage": 11,
+  "big": true,
+  "styles": [
+   "technician",
+   "showman"
+  ],
+  "text": [
+   "DDT! {A} spikes {D} right on the head!",
+   "{A} plants {D} with a DDT!",
+   "DDT!! {D} is out cold!"
+  ],
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.2,
+     "upper": "hurt"
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "lower": "jump",
+     "dy": 0.5
+    },
+    "def": {
+     "rot": 30
+    }
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "lower": "lying",
+     "rot": 90,
+     "dy": 0
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 110,
+     "head": "hurt",
+     "dx": 1.5
+    },
+    "impact": true
+   },
+   {
+    "t": 1.3,
+    "att": {
+     "lower": "kneel",
+     "rot": 0
+    },
+    "def": {
+     "rot": 90
+    }
+   },
+   {
+    "t": 1.6,
+    "att": {
+     "lower": "stand",
+     "upper": "idle"
+    }
+   }
+  ]
+ },
+ {
+  "id": "piledriver",
+  "name": "piledriver",
+  "kind": "grapple",
+  "damage": 14,
+  "big": true,
+  "styles": [
+   "brawler",
+   "powerhouse"
+  ],
+  "text": [
+   "PILEDRIVER! {A} drives {D}'s skull into the canvas!",
+   "Oh no... {A} sets up the piledriver... AND DRILLS {D}!",
+   "A sickening piledriver by {A}!"
+  ],
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.2
+    }
+   },
+   {
+    "t": 0.5,
+    "att": {
+     "upper": "lift",
+     "lower": "crouch"
+    },
+    "def": {
+     "rot": 180,
+     "dy": 1.5,
+     "dx": 0.8
+    }
+   },
+   {
+    "t": 1,
+    "att": {
+     "upper": "overhead",
+     "lower": "stand",
+     "head": "shout"
+    },
+    "def": {
+     "rot": 180,
+     "dy": 2,
+     "dx": 0.6
+    }
+   },
+   {
+    "t": 1.3,
+    "att": {
+     "lower": "kneel"
+    },
+    "def": {
+     "dy": 0.3,
+     "head": "hurt"
+    },
+    "impact": true
+   },
+   {
+    "t": 1.8,
+    "att": {
+     "lower": "stand",
+     "upper": "arms_up"
+    },
+    "def": {
+     "rot": 90,
+     "dy": 0,
+     "lower": "lying",
+     "upper": "hurt",
+     "dx": 1.8
+    }
+   },
+   {
+    "t": 2.2,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    }
+   }
+  ]
+ },
+ {
+  "id": "powerbomb",
+  "name": "powerbomb",
+  "kind": "grapple",
+  "damage": 14,
+  "big": true,
+  "styles": [
+   "powerhouse"
+  ],
+  "text": [
+   "POWERBOMB! {A} folds {D} in half!",
+   "{A} lifts {D} sky-high... POWERBOMB!",
+   "A crushing powerbomb from {A}!"
+  ],
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.35,
+    "att": {
+     "upper": "lift",
+     "lower": "crouch"
+    },
+    "def": {
+     "dy": 1,
+     "rot": -45,
+     "dx": 1.2
+    }
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "upper": "overhead",
+     "lower": "stand"
+    },
+    "def": {
+     "dy": 2.5,
+     "rot": -90,
+     "dx": 0.8
+    }
+   },
+   {
+    "t": 1.25,
+    "att": {
+     "upper": "idle",
+     "lower": "crouch",
+     "head": "shout"
+    },
+    "def": {
+     "dy": 0,
+     "rot": 90,
+     "lower": "lying",
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 1.7,
+    "att": {
+     "lower": "stand",
+     "head": "neutral"
+    }
+   }
+  ]
+ },
+ {
+  "id": "bulldog",
+  "name": "bulldog",
+  "kind": "grapple",
+  "damage": 10,
+  "big": true,
+  "styles": [
+   "showman",
+   "highflyer"
+  ],
+  "text": [
+   "Running bulldog by {A}! Face-first into the mat!",
+   "{A} grabs {D}'s head and BULLDOGS {D}!",
+   "Bulldog out of nowhere from {A}!"
+  ],
+  "requires": {
+   "def": [
+    "standing",
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.2,
+     "upper": "hurt"
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "lower": "jump",
+     "dy": 0.5
+    },
+    "def": {
+     "rot": 30
+    }
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "lower": "lying",
+     "rot": 90,
+     "dy": 0
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 110,
+     "head": "hurt",
+     "dx": 1.5
+    },
+    "impact": true
+   },
+   {
+    "t": 1.3,
+    "att": {
+     "lower": "kneel",
+     "rot": 0
+    },
+    "def": {
+     "rot": 90
+    }
+   },
+   {
+    "t": 1.6,
+    "att": {
+     "lower": "stand",
+     "upper": "idle"
+    }
+   }
+  ]
+ },
+ {
+  "id": "neckbreaker",
+  "name": "neckbreaker",
+  "kind": "grapple",
+  "damage": 8,
+  "styles": [
+   "technician",
+   "showman"
+  ],
+  "text": [
+   "Neckbreaker by {A}!",
+   "{A} snaps {D}'s neck with a neckbreaker!",
+   "{A} with a swinging neckbreaker!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.2,
+     "upper": "hurt"
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "lower": "jump",
+     "dy": 0.5
+    },
+    "def": {
+     "rot": 30
+    }
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "lower": "lying",
+     "rot": 90,
+     "dy": 0
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 110,
+     "head": "hurt",
+     "dx": 1.5
+    },
+    "impact": true
+   },
+   {
+    "t": 1.3,
+    "att": {
+     "lower": "kneel",
+     "rot": 0
+    },
+    "def": {
+     "rot": 90
+    }
+   },
+   {
+    "t": 1.6,
+    "att": {
+     "lower": "stand",
+     "upper": "idle"
+    }
+   }
+  ]
+ },
+ {
+  "id": "backbreaker",
+  "name": "backbreaker",
+  "kind": "grapple",
+  "damage": 10,
+  "big": true,
+  "styles": [
+   "powerhouse"
+  ],
+  "text": [
+   "{A} drops {D} across a knee — BACKBREAKER!",
+   "Backbreaker by {A}! {D}'s spine bent like a pretzel!",
+   "{A} snaps {D} over a knee!"
+  ],
+  "requires": {
+   "def": [
+    "standing",
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.35,
+    "att": {
+     "upper": "lift",
+     "lower": "crouch"
+    },
+    "def": {
+     "dy": 1,
+     "rot": -45,
+     "dx": 1.2
+    }
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "overhead",
+     "lower": "stand"
+    },
+    "def": {
+     "dy": 2.5,
+     "rot": -90,
+     "dx": 0.8
+    }
+   },
+   {
+    "t": 1,
+    "att": {
+     "upper": "idle",
+     "lower": "crouch",
+     "head": "shout"
+    },
+    "def": {
+     "dy": 0,
+     "rot": 90,
+     "lower": "lying",
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 1.4,
+    "att": {
+     "lower": "stand",
+     "head": "neutral"
+    }
+   }
+  ]
+ },
+ {
+  "id": "belly_to_belly",
+  "name": "belly-to-belly suplex",
+  "kind": "grapple",
+  "damage": 11,
+  "big": true,
+  "styles": [
+   "technician",
+   "powerhouse"
+  ],
+  "text": [
+   "Belly-to-belly suplex by {A}! What a throw!",
+   "{A} launches {D} with a belly-to-belly!",
+   "{A} tosses {D} overhead with a belly-to-belly!"
+  ],
+  "requires": {
+   "def": [
+    "standing",
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.2
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "upper": "lift"
+    },
+    "def": {
+     "dy": 1.5,
+     "rot": -90,
+     "dx": 0.8
+    }
+   },
+   {
+    "t": 0.8,
+    "att": {
+     "upper": "overhead",
+     "head": "look_up"
+    },
+    "def": {
+     "dy": 3,
+     "rot": -180,
+     "dx": 0
+    }
+   },
+   {
+    "t": 1.15,
+    "att": {
+     "lower": "lying",
+     "rot": -90,
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "dy": 0,
+     "rot": -270,
+     "lower": "lying",
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": -2
+    },
+    "impact": true
+   },
+   {
+    "t": 1.8,
+    "att": {
+     "lower": "kneel",
+     "rot": 0
+    }
+   },
+   {
+    "t": 2.1,
+    "att": {
+     "lower": "stand"
+    }
+   }
+  ]
+ },
+ {
+  "id": "hip_toss",
+  "name": "hip toss",
+  "kind": "grapple",
+  "damage": 4,
+  "styles": [],
+  "text": [
+   "{A} with a hip toss!",
+   "Hip toss by {A} sends {D} flying!",
+   "{A} flips {D} over with a hip toss!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing",
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.35,
+    "att": {
+     "upper": "lift",
+     "lower": "crouch"
+    },
+    "def": {
+     "dy": 1,
+     "rot": -45,
+     "dx": 1.2
+    }
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "overhead",
+     "lower": "stand"
+    },
+    "def": {
+     "dy": 2.5,
+     "rot": -90,
+     "dx": 0.8
+    }
+   },
+   {
+    "t": 1,
+    "att": {
+     "upper": "idle",
+     "lower": "crouch",
+     "head": "shout"
+    },
+    "def": {
+     "dy": 0,
+     "rot": 90,
+     "lower": "lying",
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 1.4,
+    "att": {
+     "lower": "stand",
+     "head": "neutral"
+    }
+   }
+  ]
+ },
+ {
+  "id": "headlock_takeover",
+  "name": "headlock takeover",
+  "kind": "grapple",
+  "damage": 2,
+  "styles": [
+   "technician"
+  ],
+  "text": [
+   "{A} takes {D} down with a headlock takeover.",
+   "Headlock takeover by {A}, wearing {D} down.",
+   "{A} grinds {D} to the mat with a headlock."
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.2,
+     "upper": "hurt"
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "lower": "jump",
+     "dy": 0.5
+    },
+    "def": {
+     "rot": 30
+    }
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "lower": "lying",
+     "rot": 90,
+     "dy": 0
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 110,
+     "head": "hurt",
+     "dx": 1.5
+    },
+    "impact": true
+   },
+   {
+    "t": 1.3,
+    "att": {
+     "lower": "kneel",
+     "rot": 0
+    },
+    "def": {
+     "rot": 90
+    }
+   },
+   {
+    "t": 1.6,
+    "att": {
+     "lower": "stand",
+     "upper": "idle"
+    }
+   }
+  ]
+ },
+ {
+  "id": "irish_whip",
+  "name": "Irish whip",
+  "kind": "whip",
+  "damage": 0,
+  "styles": [],
+  "text": [
+   "{A} whips {D} into the ropes...",
+   "{A} sends {D} off the ropes...",
+   "Irish whip by {A}..."
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "reeling"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "upper": "point"
+    },
+    "def": {
+     "lower": "run",
+     "dx": 3
+    },
+    "impact": true
+   },
+   {
+    "t": 1.2,
+    "att": {
+     "upper": "guard"
+    },
+    "def": {
+     "lower": "run",
+     "upper": "idle",
+     "dx": 7
+    }
+   }
+  ]
+ },
+ {
+  "id": "corner_whip",
+  "name": "whip into the corner",
+  "kind": "whip",
+  "damage": 2,
+  "styles": [],
+  "text": [
+   "{A} sends {D} hard into the turnbuckle!",
+   "{A} whips {D} chest-first into the corner!",
+   "Into the buckles goes {D}!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "corner"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "upper": "point"
+    },
+    "def": {
+     "lower": "run",
+     "dx": 3
+    },
+    "impact": true
+   },
+   {
+    "t": 1.2,
+    "att": {
+     "upper": "guard"
+    },
+    "def": {
+     "lower": "stand",
+     "upper": "hurt",
+     "dx": 9
+    }
+   }
+  ]
+ },
+ {
+  "id": "back_body_drop",
+  "name": "back body drop",
+  "kind": "grapple",
+  "damage": 7,
+  "styles": [],
+  "text": [
+   "{D} comes off the ropes... BACK BODY DROP by {A}!",
+   "{A} ducks and back body drops {D} sky-high!",
+   "Back body drop from {A}!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard"
+    },
+    "def": {
+     "dx": 7,
+     "lower": "run"
+    }
+   },
+   {
+    "t": 0.5,
+    "att": {
+     "upper": "lift",
+     "lower": "stand"
+    },
+    "def": {
+     "dx": 1.5,
+     "dy": 0.5,
+     "rot": 30,
+     "upper": "hurt",
+     "head": "hurt"
+    }
+   },
+   {
+    "t": 0.85,
+    "att": {
+     "upper": "idle",
+     "lower": "stand"
+    },
+    "def": {
+     "dx": 2.5,
+     "dy": 0,
+     "rot": 90,
+     "lower": "lying"
+    },
+    "impact": true
+   },
+   {
+    "t": 1.3
+   }
+  ]
+ },
+ {
+  "id": "powerslam",
+  "name": "powerslam",
+  "kind": "grapple",
+  "damage": 10,
+  "big": true,
+  "styles": [
+   "powerhouse"
+  ],
+  "text": [
+   "{A} catches {D} off the ropes... POWERSLAM!",
+   "Running powerslam by {A}!",
+   "{A} catches {D} and plants {D} with a powerslam!"
+  ],
+  "requires": {
+   "def": [
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard"
+    },
+    "def": {
+     "dx": 7,
+     "lower": "run"
+    }
+   },
+   {
+    "t": 0.5,
+    "att": {
+     "upper": "lift",
+     "lower": "crouch"
+    },
+    "def": {
+     "dx": 1.5,
+     "dy": 2,
+     "rot": -90,
+     "upper": "hurt",
+     "head": "hurt"
+    }
+   },
+   {
+    "t": 0.85,
+    "att": {
+     "upper": "idle",
+     "lower": "stand"
+    },
+    "def": {
+     "dx": 2.5,
+     "dy": 0,
+     "rot": 90,
+     "lower": "lying"
+    },
+    "impact": true
+   },
+   {
+    "t": 1.3
+   }
+  ]
+ },
+ {
+  "id": "rebound_clothesline",
+  "name": "clothesline",
+  "kind": "strike",
+  "damage": 7,
+  "styles": [
+   "brawler"
+  ],
+  "text": [
+   "{D} bounces off the ropes right into a clothesline from {A}!",
+   "{A} meets {D} with a clothesline!",
+   "Off the ropes... CLOTHESLINE by {A}!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard"
+    },
+    "def": {
+     "dx": 7,
+     "lower": "run"
+    }
+   },
+   {
+    "t": 0.5,
+    "att": {
+     "upper": "punch",
+     "lower": "stand"
+    },
+    "def": {
+     "dx": 1.5,
+     "dy": 0.5,
+     "rot": 30,
+     "upper": "hurt",
+     "head": "hurt"
+    }
+   },
+   {
+    "t": 0.85,
+    "att": {
+     "upper": "idle",
+     "lower": "stand"
+    },
+    "def": {
+     "dx": 2.5,
+     "dy": 0,
+     "rot": 90,
+     "lower": "lying"
+    },
+    "impact": true
+   },
+   {
+    "t": 1.3
+   }
+  ]
+ },
+ {
+  "id": "corner_splash",
+  "name": "corner splash",
+  "kind": "strike",
+  "damage": 8,
+  "styles": [
+   "powerhouse",
+   "brawler"
+  ],
+  "text": [
+   "{A} charges in with a running splash in the corner!",
+   "Avalanche by {A}! {D} is crushed in the corner!",
+   "{A} squashes {D} in the buckles!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "corner"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "standing"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "run",
+     "dx": -4
+    },
+    "def": {
+     "dx": 2,
+     "upper": "hurt"
+    }
+   },
+   {
+    "t": 0.5,
+    "att": {
+     "upper": "arms_up",
+     "lower": "stand",
+     "dx": 0.8,
+     "head": "shout"
+    },
+    "def": {
+     "head": "hurt"
+    },
+    "impact": true
+   },
+   {
+    "t": 1,
+    "att": {
+     "upper": "idle",
+     "head": "neutral",
+     "dx": 0
+    },
+    "def": {
+     "lower": "kneel",
+     "dx": 2
+    }
+   }
+  ]
+ },
+ {
+  "id": "ten_punches",
+  "name": "ten punches",
+  "kind": "strike",
+  "damage": 7,
+  "styles": [
+   "showman",
+   "brawler"
+  ],
+  "text": [
+   "{A} climbs up for the ten punches! The crowd counts along! 1! 2! 3! 4! 5! 6! 7! 8! 9! 10!",
+   "{A} mounts {D} in the corner... the crowd counts to TEN!",
+   "Ten punches in the corner from {A}!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "corner"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "stand",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2,
+     "upper": "hurt"
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "punch",
+     "lower": "stand",
+     "dx": 0.3,
+     "head": "shout"
+    },
+    "def": {
+     "head": "hurt"
+    },
+    "impact": true
+   },
+   {
+    "t": 0.8,
+    "att": {
+     "upper": "idle",
+     "head": "neutral",
+     "dx": 0
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 2.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "corner_chops",
+  "name": "corner chops",
+  "kind": "strike",
+  "damage": 4,
+  "styles": [
+   "technician",
+   "showman"
+  ],
+  "text": [
+   "{A} lights up {D}'s chest with chops in the corner!",
+   "Chop! Chop! Chop! {A} is peeling the skin off {D}!",
+   "{A} unloads chops in the corner!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "corner"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "corner"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "stand",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2,
+     "upper": "hurt"
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "chop",
+     "lower": "stand",
+     "dx": 0.3,
+     "head": "shout"
+    },
+    "def": {
+     "head": "hurt"
+    },
+    "impact": true
+   },
+   {
+    "t": 0.8,
+    "att": {
+     "upper": "idle",
+     "head": "neutral",
+     "dx": 0
+    },
+    "def": {
+     "lower": "kneel",
+     "dx": 2
+    }
+   }
+  ]
+ },
+ {
+  "id": "monkey_flip",
+  "name": "monkey flip",
+  "kind": "grapple",
+  "damage": 6,
+  "styles": [
+   "highflyer"
+  ],
+  "text": [
+   "{A} monkey flips {D} out of the corner!",
+   "Monkey flip by {A}!",
+   "{A} catapults {D} across the ring with a monkey flip!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "corner"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "stand",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2,
+     "upper": "hurt"
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "grab",
+     "lower": "stand",
+     "dx": 0.3,
+     "head": "shout"
+    },
+    "def": {
+     "head": "hurt"
+    },
+    "impact": true
+   },
+   {
+    "t": 0.8,
+    "att": {
+     "upper": "idle",
+     "head": "neutral",
+     "dx": 0
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 2.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "elbow_drop",
+  "name": "elbow drop",
+  "kind": "ground",
+  "damage": 6,
+  "styles": [],
+  "text": [
+   "Elbow drop by {A}!",
+   "{A} drops the elbow on {D}!",
+   "Pointy elbow drop from {A}!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "grounded"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard"
+    },
+    "def": {
+     "dx": 1.5,
+     "lower": "lying",
+     "rot": 90
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "lower": "jump",
+     "dy": 1,
+     "head": "shout"
+    }
+   },
+   {
+    "t": 0.75,
+    "att": {
+     "lower": "kneel",
+     "dy": 0
+    },
+    "def": {
+     "head": "hurt",
+     "upper": "hurt"
+    },
+    "impact": true
+   },
+   {
+    "t": 1.3,
+    "att": {
+     "lower": "stand",
+     "upper": "idle",
+     "head": "neutral",
+     "rot": 0
+    }
+   }
+  ]
+ },
+ {
+  "id": "leg_drop",
+  "name": "leg drop",
+  "kind": "ground",
+  "damage": 8,
+  "styles": [
+   "showman",
+   "brawler"
+  ],
+  "text": [
+   "Leg drop by {A}!",
+   "{A} comes down with a leg drop across the throat!",
+   "Big leg drop from {A}!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "grounded"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard"
+    },
+    "def": {
+     "dx": 1.5,
+     "lower": "lying",
+     "rot": 90
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "lower": "jump",
+     "dy": 1,
+     "head": "shout"
+    }
+   },
+   {
+    "t": 0.75,
+    "att": {
+     "lower": "lying",
+     "dy": 0
+    },
+    "def": {
+     "head": "hurt",
+     "upper": "hurt"
+    },
+    "impact": true
+   },
+   {
+    "t": 1.3,
+    "att": {
+     "lower": "stand",
+     "upper": "idle",
+     "head": "neutral",
+     "rot": 0
+    }
+   }
+  ]
+ },
+ {
+  "id": "stomp",
+  "name": "stomps",
+  "kind": "ground",
+  "damage": 3,
+  "styles": [
+   "brawler"
+  ],
+  "text": [
+   "{A} stomps away at {D}!",
+   "{A} puts the boots to {D}!",
+   "Stomp! Stomp! Stomp! {A} is relentless!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "grounded"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard"
+    },
+    "def": {
+     "dx": 1.5,
+     "lower": "lying",
+     "rot": 90
+    }
+   },
+   {
+    "t": 0.35,
+    "att": {
+     "lower": "stand",
+     "dy": 0
+    },
+    "def": {
+     "head": "hurt",
+     "upper": "hurt"
+    },
+    "impact": true
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "lower": "stand",
+     "upper": "idle",
+     "head": "neutral",
+     "rot": 0
+    }
+   }
+  ]
+ },
+ {
+  "id": "knee_drop",
+  "name": "knee drop",
+  "kind": "ground",
+  "damage": 5,
+  "styles": [
+   "technician"
+  ],
+  "text": [
+   "Knee drop by {A}!",
+   "{A} drops a knee across {D}'s forehead!",
+   "{A} with a knee drop!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "grounded"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard"
+    },
+    "def": {
+     "dx": 1.5,
+     "lower": "lying",
+     "rot": 90
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "lower": "jump",
+     "dy": 1,
+     "head": "shout"
+    }
+   },
+   {
+    "t": 0.75,
+    "att": {
+     "lower": "kneel",
+     "dy": 0
+    },
+    "def": {
+     "head": "hurt",
+     "upper": "hurt"
+    },
+    "impact": true
+   },
+   {
+    "t": 1.3,
+    "att": {
+     "lower": "stand",
+     "upper": "idle",
+     "head": "neutral",
+     "rot": 0
+    }
+   }
+  ]
+ },
+ {
+  "id": "big_splash",
+  "name": "big splash",
+  "kind": "ground",
+  "damage": 12,
+  "big": true,
+  "styles": [
+   "brawler",
+   "powerhouse"
+  ],
+  "text": [
+   "BIG SPLASH! {A} squashes {D} flat!",
+   "{A} comes down with every pound on {D}!",
+   "Splash by {A}! {D} may be flattened for good!"
+  ],
+  "requires": {
+   "def": [
+    "grounded"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard"
+    },
+    "def": {
+     "dx": 1.5,
+     "lower": "lying",
+     "rot": 90
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "lower": "jump",
+     "dy": 1,
+     "head": "shout"
+    }
+   },
+   {
+    "t": 0.75,
+    "att": {
+     "lower": "lying",
+     "dy": 0
+    },
+    "def": {
+     "head": "hurt",
+     "upper": "hurt"
+    },
+    "impact": true
+   },
+   {
+    "t": 1.3,
+    "att": {
+     "lower": "stand",
+     "upper": "idle",
+     "head": "neutral",
+     "rot": 0
+    }
+   }
+  ]
+ },
+ {
+  "id": "top_rope_splash",
+  "name": "top rope splash",
+  "kind": "aerial",
+  "damage": 13,
+  "big": true,
+  "styles": [
+   "highflyer"
+  ],
+  "text": [
+   "{A} goes up top... SPLASH FROM THE TOP ROPE!",
+   "{A} flies off the top rope and crashes onto {D}!",
+   "From the heavens! {A} hits the top rope splash!"
+  ],
+  "requires": {
+   "def": [
+    "grounded"
+   ]
+  },
+  "result": {
+   "att": "grounded",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "stand",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2.5,
+     "lower": "lying",
+     "rot": 90
+    }
+   },
+   {
+    "t": 0.8,
+    "att": {
+     "lower": "crouch",
+     "dx": -3,
+     "dy": 2,
+     "head": "look_up"
+    }
+   },
+   {
+    "t": 1.4,
+    "att": {
+     "upper": "arms_up",
+     "lower": "stand",
+     "dy": 2.5,
+     "head": "shout"
+    }
+   },
+   {
+    "t": 1.9,
+    "att": {
+     "lower": "jump",
+     "dy": 3.5,
+     "dx": 0,
+     "rot": 0
+    }
+   },
+   {
+    "t": 2.3,
+    "att": {
+     "lower": "lying",
+     "dy": 0,
+     "dx": 2,
+     "rot": 90,
+     "upper": "idle"
+    },
+    "def": {
+     "head": "hurt",
+     "upper": "hurt"
+    },
+    "impact": true
+   },
+   {
+    "t": 3,
+    "att": {
+     "lower": "lying"
+    }
+   }
+  ]
+ },
+ {
+  "id": "moonsault",
+  "name": "moonsault",
+  "kind": "aerial",
+  "damage": 13,
+  "big": true,
+  "styles": [
+   "highflyer"
+  ],
+  "text": [
+   "{A} climbs up... MOONSAULT! INCREDIBLE!",
+   "Backflip off the top by {A}! Moonsault connects!",
+   "{A} with a breathtaking moonsault!"
+  ],
+  "requires": {
+   "def": [
+    "grounded"
+   ]
+  },
+  "result": {
+   "att": "grounded",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "stand",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2.5,
+     "lower": "lying",
+     "rot": 90
+    }
+   },
+   {
+    "t": 0.8,
+    "att": {
+     "lower": "crouch",
+     "dx": -3,
+     "dy": 2,
+     "head": "look_up"
+    }
+   },
+   {
+    "t": 1.4,
+    "att": {
+     "upper": "arms_up",
+     "lower": "stand",
+     "dy": 2.5,
+     "head": "shout"
+    }
+   },
+   {
+    "t": 1.9,
+    "att": {
+     "lower": "jump",
+     "dy": 3.5,
+     "dx": 0,
+     "rot": 180
+    }
+   },
+   {
+    "t": 2.3,
+    "att": {
+     "lower": "lying",
+     "dy": 0,
+     "dx": 2,
+     "rot": 90,
+     "upper": "idle"
+    },
+    "def": {
+     "head": "hurt",
+     "upper": "hurt"
+    },
+    "impact": true
+   },
+   {
+    "t": 3,
+    "att": {
+     "lower": "lying"
+    }
+   }
+  ]
+ },
+ {
+  "id": "top_rope_elbow",
+  "name": "flying elbow",
+  "kind": "aerial",
+  "damage": 11,
+  "big": true,
+  "styles": [
+   "showman",
+   "highflyer"
+  ],
+  "text": [
+   "{A} points to the sky... FLYING ELBOW!",
+   "Flying elbow off the top by {A}!",
+   "{A} comes off the top with the elbow!"
+  ],
+  "requires": {
+   "def": [
+    "grounded"
+   ]
+  },
+  "result": {
+   "att": "grounded",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "stand",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2.5,
+     "lower": "lying",
+     "rot": 90
+    }
+   },
+   {
+    "t": 0.8,
+    "att": {
+     "lower": "crouch",
+     "dx": -3,
+     "dy": 2,
+     "head": "look_up"
+    }
+   },
+   {
+    "t": 1.4,
+    "att": {
+     "upper": "arms_up",
+     "lower": "stand",
+     "dy": 2.5,
+     "head": "shout"
+    }
+   },
+   {
+    "t": 1.9,
+    "att": {
+     "lower": "jump",
+     "dy": 3.5,
+     "dx": 0,
+     "rot": 0
+    }
+   },
+   {
+    "t": 2.3,
+    "att": {
+     "lower": "kneel",
+     "dy": 0,
+     "dx": 2,
+     "rot": 90,
+     "upper": "idle"
+    },
+    "def": {
+     "head": "hurt",
+     "upper": "hurt"
+    },
+    "impact": true
+   },
+   {
+    "t": 3,
+    "att": {
+     "lower": "lying"
+    }
+   }
+  ]
+ },
+ {
+  "id": "figure_four",
+  "name": "figure-four leglock",
+  "kind": "submission",
+  "damage": 10,
+  "styles": [
+   "technician"
+  ],
+  "text": [
+   "{A} locks in the figure-four leglock!",
+   "Figure-four! {D} is screaming!",
+   "{A} twists {D} into a figure-four!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "grounded"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.5,
+    "att": {
+     "lower": "kneel",
+     "upper": "grab"
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "head": "shout",
+     "upper": "hurt",
+     "dx": 1
+    },
+    "impact": true
+   },
+   {
+    "t": 1.2,
+    "def": {
+     "head": "hurt"
+    }
+   }
+  ]
+ },
+ {
+  "id": "boston_crab",
+  "name": "Boston crab",
+  "kind": "submission",
+  "damage": 9,
+  "styles": [
+   "technician",
+   "powerhouse"
+  ],
+  "text": [
+   "{A} turns {D} over into a Boston crab!",
+   "Boston crab by {A}! {D}'s back is bent in half!",
+   "{A} sits back on a Boston crab!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "grounded"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.5,
+    "att": {
+     "lower": "crouch",
+     "upper": "grab"
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "head": "shout",
+     "upper": "hurt",
+     "dx": 1
+    },
+    "impact": true
+   },
+   {
+    "t": 1.2,
+    "def": {
+     "head": "hurt"
+    }
+   }
+  ]
+ },
+ {
+  "id": "sleeper",
+  "name": "sleeper hold",
+  "kind": "submission",
+  "damage": 8,
+  "styles": [
+   "technician",
+   "showman"
+  ],
+  "text": [
+   "{A} slaps on a sleeper hold!",
+   "Sleeper hold by {A}! {D} is fading!",
+   "{A} wraps up {D} in a sleeper!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.5,
+    "att": {
+     "lower": "stand",
+     "upper": "grab"
+    },
+    "def": {
+     "lower": "kneel",
+     "rot": 0,
+     "head": "shout",
+     "upper": "hurt",
+     "dx": 1
+    },
+    "impact": true
+   },
+   {
+    "t": 1.2,
+    "def": {
+     "head": "hurt"
+    }
+   }
+  ]
+ },
+ {
+  "id": "camel_clutch",
+  "name": "camel clutch",
+  "kind": "submission",
+  "damage": 9,
+  "styles": [
+   "brawler",
+   "powerhouse"
+  ],
+  "text": [
+   "{A} sits on {D}'s back and pulls — CAMEL CLUTCH!",
+   "Camel clutch by {A}!",
+   "{A} cranks back on a camel clutch!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "grounded"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.5,
+    "att": {
+     "lower": "kneel",
+     "upper": "grab"
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "head": "shout",
+     "upper": "hurt",
+     "dx": 1
+    },
+    "impact": true
+   },
+   {
+    "t": 1.2,
+    "def": {
+     "head": "hurt"
+    }
+   }
+  ]
+ },
+ {
+  "id": "armbar",
+  "name": "armbar",
+  "kind": "submission",
+  "damage": 7,
+  "styles": [
+   "technician"
+  ],
+  "text": [
+   "{A} traps {D} in an armbar!",
+   "Armbar by {A}! Wrenching that arm!",
+   "{A} hyperextends {D}'s arm!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "grounded"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.5,
+    "att": {
+     "lower": "lying",
+     "upper": "grab"
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "head": "shout",
+     "upper": "hurt",
+     "dx": 1
+    },
+    "impact": true
+   },
+   {
+    "t": 1.2,
+    "def": {
+     "head": "hurt"
+    }
+   }
+  ]
+ },
+ {
+  "id": "eye_rake",
+  "name": "eye rake",
+  "kind": "cheat",
+  "damage": 3,
+  "styles": [],
+  "text": [
+   "{A} rakes the eyes of {D}! That's illegal!",
+   "Thumb to the eye by {A}!",
+   "{A} gouges {D}'s eyes behind the ref's back!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "standing"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "grab",
+     "head": "shout"
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "upper": "guard",
+     "head": "neutral",
+     "dx": 2.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "low_blow",
+  "name": "low blow",
+  "kind": "cheat",
+  "damage": 7,
+  "styles": [],
+  "text": [
+   "LOW BLOW by {A}! The referee didn't see it!",
+   "{A} goes low! Right in front of everybody but the ref!",
+   "Oh, that was below the belt! {A} with a low blow!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "guard",
+     "head": "shout"
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 3.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "choke_ropes",
+  "name": "choke on the ropes",
+  "kind": "cheat",
+  "damage": 4,
+  "styles": [],
+  "text": [
+   "{A} chokes {D} on the ropes! The ref counts... 1... 2... 3... 4...",
+   "{A} is strangling {D} on the ropes!",
+   "{A} chokes {D} and breaks at four!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing",
+    "corner"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "standing"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.5,
+    "att": {
+     "lower": "stand",
+     "upper": "grab"
+    },
+    "def": {
+     "lower": "kneel",
+     "rot": 0,
+     "head": "shout",
+     "upper": "hurt",
+     "dx": 1
+    },
+    "impact": true
+   },
+   {
+    "t": 1.2,
+    "def": {
+     "head": "hurt"
+    }
+   }
+  ]
+ },
+ {
+  "id": "chair_shot",
+  "name": "weapon shot",
+  "kind": "weapon",
+  "damage": 12,
+  "styles": [],
+  "text": [
+   "{A} has a steel chair... CHAIR SHOT! Oh my!",
+   "BANG! {A} wraps a chair around {D}!",
+   "Steel chair! {A} has lost it!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing",
+    "grounded",
+    "kneeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "overhead",
+     "head": "shout"
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 3.5
+    }
+   }
+  ]
+ },
+ {
+  "id": "cover",
+  "name": "cover",
+  "kind": "pin",
+  "damage": 0,
+  "styles": [],
+  "text": [
+   "{A} covers {D}!",
+   "{A} hooks the leg!",
+   "Cover by {A}!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "grounded"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "kneel"
+    },
+    "def": {
+     "dx": 1.5,
+     "lower": "lying",
+     "rot": 90
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "lower": "lying",
+     "rot": 90,
+     "upper": "grab"
+    }
+   }
+  ]
+ },
+ {
+  "id": "rollup",
+  "name": "roll-up",
+  "kind": "pin",
+  "damage": 0,
+  "styles": [],
+  "text": [
+   "{A} rolls {D} up out of nowhere!",
+   "SMALL PACKAGE by {A}!",
+   "{A} cradles {D}!"
+  ],
+  "big": false,
+  "requires": {
+   "def": [
+    "standing",
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "grounded",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.2,
+     "upper": "hurt"
+    }
+   },
+   {
+    "t": 0.4,
+    "att": {
+     "lower": "jump",
+     "dy": 0.5
+    },
+    "def": {
+     "rot": 30
+    }
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "lower": "lying",
+     "rot": 90,
+     "dy": 0
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 110,
+     "head": "hurt",
+     "dx": 1.5
+    },
+    "impact": true
+   },
+   {
+    "t": 1.3,
+    "att": {
+     "lower": "kneel",
+     "rot": 0
+    },
+    "def": {
+     "rot": 90
+    }
+   },
+   {
+    "t": 1.6,
+    "att": {
+     "lower": "stand",
+     "upper": "idle"
+    }
+   }
+  ]
+ }
+]

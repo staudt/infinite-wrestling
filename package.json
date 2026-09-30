@@ -1,0 +1,26 @@
+{
+  "name": "gptww",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A never-ending, AI-booked, NWA-style wrestling TV show rendered in ASCII.",
+  "scripts": {
+    "dev": "vite",
+    "server": "tsx server/index.ts",
+    "preview": "tsx src/cli/preview.ts",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.129.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2"
+  }
+}

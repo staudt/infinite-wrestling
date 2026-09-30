@@ -1,0 +1,303 @@
+{
+  "showName": "GPTWW Saturday Night",
+  "shortName": "GPTWW",
+  "characters": [
+    {
+      "id": "rex",
+      "name": "Rex \"The Titan\" Tolliver",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "men",
+      "style": "powerhouse",
+      "gimmick": "Small-town hero with a heart of gold and arms like tree trunks. Never backs down.",
+      "entrance": "to a thundering drum anthem",
+      "finisher": {
+        "name": "Titan Bomb",
+        "move": "powerbomb"
+      },
+      "color": "#4fa3ff"
+    },
+    {
+      "id": "vega",
+      "name": "\"Slick\" Vic Vega",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "men",
+      "style": "showman",
+      "gimmick": "Arrogant Vegas playboy champion in a sequined robe. Cheats, gloats, and never shuts up.",
+      "entrance": "to a slot-machine jingle and saxophone",
+      "finisher": {
+        "name": "Vegas Jackpot",
+        "move": "ddt"
+      },
+      "color": "#ff4f7b"
+    },
+    {
+      "id": "lightning",
+      "name": "Johnny Lightning",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "men",
+      "style": "highflyer",
+      "gimmick": "Neon-clad daredevil who lives on the top rope. Fans adore him.",
+      "entrance": "to screaming synth-rock",
+      "finisher": {
+        "name": "Lightning Strike",
+        "move": "top_rope_splash"
+      },
+      "color": "#ffe14f"
+    },
+    {
+      "id": "krank",
+      "name": "Baron von Krank",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "men",
+      "style": "technician",
+      "gimmick": "Monocled European aristocrat who considers the fans peasants.",
+      "entrance": "to a pompous military march",
+      "finisher": {
+        "name": "Baron's Lock",
+        "move": "figure_four"
+      },
+      "color": "#b07cff"
+    },
+    {
+      "id": "earl",
+      "name": "Big Earl Mosley",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "men",
+      "style": "brawler",
+      "gimmick": "400-pound trucker who loves barbecue and hates bullies.",
+      "entrance": "to a honking big-rig horn",
+      "finisher": {
+        "name": "The Earlquake",
+        "move": "big_splash"
+      },
+      "color": "#ff9d3b"
+    },
+    {
+      "id": "maddog",
+      "name": "Mad Dog McGraw",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "men",
+      "style": "brawler",
+      "gimmick": "Unhinged brawler who barks at the crowd and bites opponents.",
+      "entrance": "to howling dogs and chains",
+      "finisher": {
+        "name": "Dog Pound Driver",
+        "move": "piledriver"
+      },
+      "color": "#c9372c"
+    },
+    {
+      "id": "sterling",
+      "name": "Tommy \"Hollywood\" Sterling",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "men",
+      "style": "showman",
+      "gimmick": "Flashy B-movie star who thinks every match is a screen test.",
+      "entrance": "under a spotlight to a movie fanfare",
+      "finisher": {
+        "name": "Hollywood Ending",
+        "move": "bulldog"
+      },
+      "color": "#4fffd0"
+    },
+    {
+      "id": "stryker",
+      "name": "Sgt. Sam Stryker",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "men",
+      "style": "technician",
+      "gimmick": "Drill-sergeant patriot who salutes the crowd and demands discipline.",
+      "entrance": "to a bugle call",
+      "finisher": {
+        "name": "Boot Camp Suplex",
+        "move": "belly_to_belly"
+      },
+      "color": "#8fd14f"
+    },
+    {
+      "id": "kaos",
+      "name": "Kid Kaos",
+      "role": "wrestler",
+      "alignment": "tweener",
+      "division": "men",
+      "style": "highflyer",
+      "gimmick": "Skateboarding punk with a mohawk who answers to nobody.",
+      "entrance": "to a punk riff and a skateboard clatter",
+      "finisher": {
+        "name": "Kaos Theory",
+        "move": "moonsault"
+      },
+      "color": "#f0f0f0"
+    },
+    {
+      "id": "bane",
+      "name": "Brutus Bane",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "men",
+      "style": "powerhouse",
+      "gimmick": "Silent masked monster with a mysterious past, led by Sir Reginald.",
+      "entrance": "as the lights go red and a gong sounds",
+      "finisher": {
+        "name": "Bane Breaker",
+        "move": "backbreaker"
+      },
+      "color": "#9a9a9a"
+    },
+    {
+      "id": "clint",
+      "name": "\"Cowboy\" Clint Harlan",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "men",
+      "style": "brawler",
+      "gimmick": "Rodeo cowboy and Rex's best friend. Tag partners as The Heartland Express.",
+      "entrance": "to a honky-tonk fiddle",
+      "finisher": {
+        "name": "Stampede Lariat",
+        "move": "lariat"
+      },
+      "color": "#d9a066"
+    },
+    {
+      "id": "roxy",
+      "name": "Roxy Rebel",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "women",
+      "style": "highflyer",
+      "gimmick": "Leather-jacket rock chick with a fearless streak.",
+      "entrance": "to a crunching glam-metal anthem",
+      "finisher": {
+        "name": "Rebel Yell",
+        "move": "bulldog"
+      },
+      "color": "#ff7ae0"
+    },
+    {
+      "id": "viper",
+      "name": "Lady Viper",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "women",
+      "style": "technician",
+      "gimmick": "Venomous women's champion who hisses at opponents.",
+      "entrance": "to a rattlesnake hiss and a dark bassline",
+      "finisher": {
+        "name": "Viper's Kiss",
+        "move": "sleeper"
+      },
+      "color": "#5ee05e"
+    },
+    {
+      "id": "pemberton",
+      "name": "Sir Reginald Pemberton",
+      "role": "manager",
+      "alignment": "heel",
+      "division": "men",
+      "style": "showman",
+      "gimmick": "Posh, scheming manager with an umbrella and a checkbook. Manages Krank and Bane as The Pemberton Establishment.",
+      "entrance": "twirling an umbrella",
+      "finisher": {
+        "name": "Umbrella Shot",
+        "move": "punch"
+      },
+      "color": "#e0c35e"
+    },
+    {
+      "id": "debbie",
+      "name": "Debbie Divine",
+      "role": "valet",
+      "alignment": "heel",
+      "division": "women",
+      "style": "showman",
+      "gimmick": "Vic Vega's glamorous valet. Loyal to Vega... for now.",
+      "entrance": "blowing kisses",
+      "finisher": {
+        "name": "Divine Slap",
+        "move": "slap"
+      },
+      "color": "#ffb3c7"
+    },
+    {
+      "id": "lance",
+      "name": "Lance Holloway",
+      "role": "interviewer",
+      "alignment": "tweener",
+      "division": "men",
+      "style": "technician",
+      "gimmick": "Veteran interviewer in a brown suit. Seen it all, still shocked every week.",
+      "entrance": "",
+      "finisher": {
+        "name": "",
+        "move": "punch"
+      },
+      "color": "#dddddd"
+    }
+  ],
+  "titles": [
+    {
+      "id": "world",
+      "name": "GPTWW World Heavyweight Championship",
+      "division": "men",
+      "holder": "vega"
+    },
+    {
+      "id": "tv",
+      "name": "GPTWW Television Championship",
+      "division": "men",
+      "holder": "lightning"
+    },
+    {
+      "id": "women",
+      "name": "GPTWW Women's Championship",
+      "division": "women",
+      "holder": "viper"
+    }
+  ],
+  "feuds": [
+    {
+      "a": "rex",
+      "b": "vega",
+      "reason": "Vega stole the world title from Rex with his feet on the ropes."
+    },
+    {
+      "a": "earl",
+      "b": "maddog",
+      "reason": "Mad Dog bit Earl and ate his barbecue."
+    }
+  ],
+  "alliances": [
+    {
+      "name": "The Heartland Express",
+      "members": [
+        "rex",
+        "clint"
+      ]
+    },
+    {
+      "name": "The Pemberton Establishment",
+      "members": [
+        "pemberton",
+        "krank",
+        "bane"
+      ]
+    },
+    {
+      "name": "Vega & Debbie",
+      "members": [
+        "vega",
+        "debbie"
+      ]
+    }
+  ],
+  "storySoFar": "Slick Vic Vega is the World Champion after cheating Rex Tolliver with his feet on the ropes. Rex wants a rematch. Mad Dog McGraw has been terrorizing Big Earl Mosley. Sir Reginald Pemberton's Establishment is hunting for gold. Lady Viper rules the women's division with an iron fist."
+}

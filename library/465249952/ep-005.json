@@ -1,0 +1,338 @@
+{
+  "title": "Charity's Theft and the Gunner's Reckoning",
+  "storySoFar": "Vic Stone's Four Saddles empire dominates, but fractures widen. Silver Streak claws toward a title shot, masked and defiant against Stone's obsession with unmasking him. Colt Brady's blood war with Rex Creed escalates—Creed has now desecrated a charity collection tied to Brady's hometown, enraging the coal miner further. Hank Luther hunts Blackthorn Blake, who ambushed him backstage with his riding crop, busting him open. Jenny Crossfire battles Crystal Moon's psychological warfare and mystical fraud. Gunner Gates remains under suspicion as the mystery attacker; his cryptic denials and evasiveness plant growing doubt within the Four Saddles. A new player emerges: Blackjack Torres, a scarred drifter and gambler, has just arrived in the STW with his own hidden agenda. The Blue-Collar Brotherhood stands ready to fight back.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "Opening: The Charity Desecration",
+      "beats": [
+        {
+          "type": "promo",
+          "who": "rex_creed",
+          "where": "ring",
+          "mood": "smug",
+          "lines": [
+            "This charity? A fool's gamble!",
+            "The poor give, the Sermon takes—it's God's will!",
+            "Colt Brady, your charity is now MY collection plate!",
+            "Bow before the Sermon or lose everything!"
+          ]
+        },
+        {
+          "type": "react",
+          "who": "colt_brady",
+          "reaction": "anger"
+        },
+        {
+          "type": "interrupt",
+          "who": "colt_brady",
+          "where": "aisle",
+          "lines": [
+            "Creed, you son of a bitch! That money was for my people!",
+            "I'm comin' for you at Steel & Scripture, and I'm takin' EVERYTHING!"
+          ],
+          "then": "attacks",
+          "target": "rex_creed"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "rev_darkside"
+          ],
+          "how": "storm_off"
+        },
+        {
+          "type": "narrate",
+          "text": "Colt Brady sees RED! The coal miner will NOT stand for such disrespect!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Rex Creed brazenly desecrates a charity collection box tied to Colt Brady's hometown on live television, igniting Brady's fury and setting the stage for escalating bloodshed."
+    },
+    {
+      "title": "Segment Two: The Television Champion's Warning",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "hank_luther",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Hank, Blake's been silent since he busted you open backstage. What's on your mind?"
+            },
+            {
+              "speaker": "hank_luther",
+              "text": "Blake thinks he's untouchable, but I know what he's run from. The reckoning's comin'."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Are you saying you've identified him?"
+            },
+            {
+              "speaker": "hank_luther",
+              "text": "A man like that leaves a trail, Reverend. And I'm gonna follow it straight to justice."
+            }
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Hank Luther warns Blackthorn Blake that his criminal past will catch up with him, foreshadowing their inevitable clash."
+    },
+    {
+      "title": "Segment Three: Marcus Gray's Suspicion",
+      "beats": [
+        {
+          "type": "confrontation",
+          "a": "marcus_gray",
+          "b": "gunner_gates",
+          "where": "stage",
+          "exchange": [
+            {
+              "speaker": "marcus_gray",
+              "text": "You've been evasive for weeks, Gunner. The Bombardier works alone—or does he?"
+            },
+            {
+              "speaker": "gunner_gates",
+              "text": "I don't know what you're talkin' about, Gray. The house always wins when you don't show your hand."
+            },
+            {
+              "speaker": "marcus_gray",
+              "text": "That's not an answer. Vic's beginning to wonder where your loyalty lies."
+            },
+            {
+              "speaker": "gunner_gates",
+              "text": "My loyalty? I've always played by my own rules, Mathematician. Maybe that scares you."
+            }
+          ],
+          "escalation": "stare_down"
+        },
+        {
+          "type": "narrate",
+          "text": "The cracks in the Four Saddles are WIDENING! Gunner Gates has gone from ally to question mark!",
+          "style": "shock",
+          "speaker": "color"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Marcus Gray publicly confronts Gunner Gates about the mystery attacks, demanding answers as the Four Saddles begin to splinter from internal paranoia."
+    },
+    {
+      "title": "Segment Four: Main Event Tag Match – The Blue-Collar Brotherhood Tested",
+      "beats": [
+        {
+          "type": "match",
+          "stipulation": "tag",
+          "wrestlers": [
+            "colt_brady",
+            "hank_luther",
+            "rex_creed",
+            "blackthorn_blake"
+          ],
+          "winner": "none",
+          "finish": "no_contest",
+          "story": "even",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "late",
+              "type": "run_in",
+              "who": "gunner_gates",
+              "target": "colt_brady",
+              "lines": [
+                "The Bombardier's got a score to settle!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "distraction",
+              "who": "madame_magnolia",
+              "target": "hank_luther",
+              "lines": [
+                "Finish him, boys!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "colt_brady",
+              "line": "For my people, Blake! For the charity you THIEVES stole!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "pbp",
+              "line": "Brady and Luther working the arms—testing the heel side early!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "That Creed's got the endurance of a desert preacher; he won't break easy."
+            },
+            {
+              "phase": "late",
+              "speaker": "hank_luther",
+              "line": "You're goin' DOWN, Blake! Justice finds all men!"
+            },
+            {
+              "phase": "late",
+              "speaker": "madame_magnolia",
+              "line": "DESTROY THEM, REX!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "Complete chaos! Gunner Gates and the Magnolia have turned this into a street fight!"
+            }
+          ]
+        },
+        {
+          "type": "exit",
+          "who": [
+            "gunner_gates",
+            "madame_magnolia",
+            "rev_darkside"
+          ],
+          "how": "storm_off"
+        },
+        {
+          "type": "react",
+          "who": "colt_brady",
+          "reaction": "anger"
+        },
+        {
+          "type": "react",
+          "who": "hank_luther",
+          "reaction": "shock"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Colt Brady and Hank Luther team to face Rex Creed and Blackthorn Blake, but Gunner Gates' interference causes a no-contest finish, further fracturing the Four Saddles and leaving Brady frustrated."
+    },
+    {
+      "title": "Segment Five: The Mysterious Newcomer Arrives",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "blackjack_torres",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "blackjack_torres",
+          "where": "ring",
+          "mood": "smug",
+          "lines": [
+            "I'm Blackjack Torres, and I play for nobody but myself.",
+            "The house always wins when you don't show your hand.",
+            "In this Southern Territory, I'm collectin' old debts—and NEW ones.",
+            "By Steel & Scripture, everybody's gonna know the name TORRES."
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Who IS this Torres character? And what old scores is he here to settle?",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "interrupt",
+          "who": "silver_streak",
+          "where": "aisle",
+          "lines": [
+            "Torres! You want to make waves in THIS territory? You answer to the people first!",
+            "The masked tradition stands against ALL predators!"
+          ],
+          "then": "walks_to_ring",
+          "target": "none"
+        },
+        {
+          "type": "confrontation",
+          "a": "silver_streak",
+          "b": "blackjack_torres",
+          "where": "ring",
+          "exchange": [
+            {
+              "speaker": "silver_streak",
+              "text": "This Southern Territory belongs to those who fight for the common man, not gamblers and drifters."
+            },
+            {
+              "speaker": "blackjack_torres",
+              "text": "The masked man speaks? How noble. But masks hide cowards, Streak. I hide NOTHING."
+            },
+            {
+              "speaker": "silver_streak",
+              "text": "Then let's find out what you're made of, Torres. At Steel & Scripture, I challenge you!"
+            },
+            {
+              "speaker": "blackjack_torres",
+              "text": "You're ON, Streak. Prepare to lose."
+            }
+          ],
+          "escalation": "shove"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Blackjack Torres makes a stunning announcement in the ring: he's come to the STW to settle old scores, and he's got his eye on the Blue-Collar Brotherhood and the Four Saddles alike."
+    },
+    {
+      "title": "Closing: The Gunner's Shadow",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "Wait—is that Gunner Gates lurking by Stone's car? With his gear?!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "reveal",
+          "who": "gunner_gates",
+          "line": "Stone thinks he can buy loyalty. But the Bombardier answers to NO MAN.",
+          "reactions": [
+            {
+              "who": "vic_stone",
+              "reaction": "shock"
+            }
+          ]
+        },
+        {
+          "type": "exit",
+          "who": [
+            "gunner_gates"
+          ],
+          "how": "walk"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "feud_start",
+          "a": "colt_brady",
+          "b": "rex_creed",
+          "reason": "Creed desecrates a charity collection tied to Brady's hometown, escalating their blood debt beyond the Magnolia Mayhem Steel Cage into a personal vendetta."
+        },
+        {
+          "type": "feud_start",
+          "a": "silver_streak",
+          "b": "blackjack_torres",
+          "reason": "Torres arrives in the STW claiming to settle old scores; Streak challenges him to prove his worth by fighting for the people, not greed."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Gunner Gates' evasiveness reaches a breaking point. He was spotted near Vic Stone's limousine with explosives gear, confirming he IS the mystery attacker. His loyalty to the Four Saddles is now visibly shattered; next week he may openly reveal his turn or commit a major act against Stone."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Blackjack Torres has arrived as a tweener wildcard. His cryptic line 'The house always wins when you don't show your hand' echoes Gunner Gates' catchphrase—suggesting a possible hidden connection or past allegiance. Plant for future exploration."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Marcus Gray's suspicion of Gunner Gates is now public, fracturing the Four Saddles from within. Vic Stone's control over the stable is being tested by internal paranoia and betrayal."
+        }
+      ],
+      "recap": "As the episode ends, Gunner Gates is spotted in the parking lot near Vic Stone's limousine with his explosives gear, reigniting suspicions about the mystery attacker and planting a cliffhanger for next week."
+    }
+  ]
+}

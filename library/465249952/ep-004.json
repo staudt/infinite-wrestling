@@ -1,0 +1,783 @@
+{
+  "title": "Magnolia Mayhem",
+  "storySoFar": "Vic Stone's Four Saddles empire tightens its grip, but cracks are forming. Silver Streak claws toward a title shot, masked and defiant. Colt Brady's blood war with Rex Creed escalates into a Steel Cage at Magnolia Mayhem, where Reverend Doc Darkside's interference prevents a clean finish. Hank Luther hunts Blackthorn Blake in a No-DQ brawl that ends frustratingly without closure. Jenny Crossfire and Georgia Storm defeat Crystal Moon and Madame Magnolia in a Women's Tag, but Moon's mystical threats linger. Marcus Gray faces Gunner Gates as mystery-attacker suspicions boil over. The mystery assailant strikes Vic Stone backstage before his non-title match with Silver Streak, rattling the champion. Four Saddles remains dominant but visibly fractured.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "The Assassin's Shadow Falls",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "Welcome to Magnolia Mayhem, the biggest night in Southern Territory Wrestling!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "interview",
+          "guest": "vic_stone",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Vic Stone, you're about to face Silver Streak in a non-title grudge match. Your thoughts?"
+            },
+            {
+              "speaker": "vic_stone",
+              "text": "That masked coward will fall tonight, Reverend. I will unmask him, break him, and show this territory who truly rules."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Bold words. But first you have to—"
+            },
+            {
+              "speaker": "vic_stone",
+              "text": "I have to? I will dominate him like I dominate everyone who steps into my ring."
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Wait—security is rushing backstage!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "The STW World Heavyweight Champion has been laid out! Who is responsible?!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "react",
+          "who": "reverend_tate_chambers",
+          "reaction": "shock"
+        },
+        {
+          "type": "narrate",
+          "text": "Stone is being helped up, but he's visibly shaken. The mystery attacker strikes again—and this time, the target is the champion himself!",
+          "style": "big",
+          "speaker": "color"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Vic Stone arrives at the arena for his non-title match with Silver Streak, but a vicious backstage attack shakes him and the Four Saddles to their core."
+    },
+    {
+      "title": "Steel Cage: Brady vs Creed",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "The following contest is a Steel Cage Match with no disqualifications, no count-outs, and one man must pin or submit!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "colt_brady",
+          "mood": "angry",
+          "escorts": [
+            "cornerman_ed",
+            "dusty_mason",
+            "hank_luther"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "rex_creed",
+          "mood": "cocky",
+          "escorts": [
+            "rev_darkside",
+            "madame_magnolia"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "cage",
+          "wrestlers": [
+            "colt_brady",
+            "rex_creed"
+          ],
+          "winner": "none",
+          "finish": "no_contest",
+          "story": "back_and_forth",
+          "length": "long",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "late",
+              "type": "run_in",
+              "who": "rev_darkside",
+              "target": "colt_brady",
+              "lines": [
+                "Darkside is unleashing hellfire!",
+                "The Sermon demands a reckoning!"
+              ]
+            },
+            {
+              "phase": "finish",
+              "type": "weapon",
+              "who": "madame_magnolia",
+              "target": "colt_brady",
+              "lines": [
+                "That's my man! Finish him!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "cornerman_ed",
+              "line": "Let 'im have it, Colt! That swindler's got it comin'!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "pbp",
+              "line": "Brady is tearing into Creed's midsection—those chops echo like an axe in a coal mine!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Creed's using those cage bars to his advantage, keeping Brady grounded like the preacher he is."
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Brady has Creed up—he's going for the Pickaxe! But Darkside is in the cage!"
+            },
+            {
+              "phase": "after",
+              "speaker": "hank_luther",
+              "line": "That ain't justice! That's a setup, and I'm witnessing it!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The referee calls for the bell—it's a no-contest! Darkside and Magnolia attack Brady as security rushes in!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "rev_darkside",
+            "madame_magnolia"
+          ],
+          "victim": "colt_brady",
+          "where": "ring",
+          "style": "beatdown"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "rev_darkside",
+            "madame_magnolia",
+            "rex_creed"
+          ],
+          "how": "walk"
+        },
+        {
+          "type": "narrate",
+          "text": "Colt Brady's victory stolen by the Four Saddles' numbers game! The blood debt grows deeper!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Colt Brady and Rex Creed settle into a brutal Steel Cage Match, but Reverend Doc Darkside's interference prevents Brady's clean victory and leaves the feud unresolved."
+    },
+    {
+      "title": "No-DQ: Luther vs Blake",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "The following is a No-Disqualification Match for the Television Championship!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "hank_luther",
+          "mood": "angry",
+          "escorts": [
+            "dusty_mason"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "blackthorn_blake",
+          "mood": "menacing",
+          "escorts": [
+            "madame_magnolia"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "hank_luther",
+            "blackthorn_blake"
+          ],
+          "winner": "hank_luther",
+          "finish": "countout",
+          "story": "back_and_forth",
+          "length": "long",
+          "titleOnLine": "stw_television",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "weapon",
+              "who": "blackthorn_blake",
+              "target": "hank_luther",
+              "lines": [
+                "Taste my crop, lawman!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "distraction",
+              "who": "madame_magnolia",
+              "target": "hank_luther",
+              "lines": [
+                "That's my man, Blackthorn!",
+                "The champion is slipping!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Both men immediately to the floor—this is a brawl!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "hank_luther",
+              "line": "I know what you are, Blake! Justice is coming for you!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Luther's got the experience, but Blake's savage and ruthless—that's an advantage with no ref authority."
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Luther's been counted out! The Television Champion is down and out!"
+            },
+            {
+              "phase": "after",
+              "speaker": "dusty_mason",
+              "line": "That ain't right! Blake used the numbers game again!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "A double countout! Both men are down on the floor! The Television Championship stays with Hank Luther, but Blake's antics go unpunished!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "hank_luther",
+            "dusty_mason"
+          ],
+          "how": "stagger"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "blackthorn_blake",
+            "madame_magnolia"
+          ],
+          "how": "walk"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Hank Luther and Blackthorn Blake wage war without rules, but a double countout leaves the Television Champion frustrated and the feud unresolved."
+    },
+    {
+      "title": "Women's Tag: Storm & Crossfire vs Moon & Magnolia",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "jenny_crossfire",
+          "mood": "angry",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "georgia_storm",
+          "mood": "cocky",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "crystal_moon",
+          "mood": "crazy",
+          "escorts": [
+            "madame_magnolia"
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "jenny_crossfire",
+            "georgia_storm"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Jenny Crossfire and Georgia Storm stand tall as the Women's Champion retains her dominance!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "crystal_moon",
+            "madame_magnolia"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Jenny Crossfire and Georgia Storm, the Women's Champion, overcome the mystical fraud Crystal Moon and her manager Madame Magnolia in a hard-fought tag match."
+    },
+    {
+      "title": "Marcus Gray vs Gunner Gates: The Reckoning Looms",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "marcus_gray",
+          "mood": "smug",
+          "escorts": [
+            "vic_stone"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "gunner_gates",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "gunner_gates",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "Stone, Gray—the house is closing down. Your time is up.",
+            "I know your game, and I ain't playing anymore."
+          ]
+        },
+        {
+          "type": "react",
+          "who": "marcus_gray",
+          "reaction": "disbelief"
+        },
+        {
+          "type": "react",
+          "who": "vic_stone",
+          "reaction": "anger"
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "marcus_gray",
+            "gunner_gates"
+          ],
+          "winner": "gunner_gates",
+          "finish": "pin",
+          "story": "winner_dominates",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "vic_stone",
+              "target": "gunner_gates",
+              "lines": [
+                "You're nothing, Gates!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Gunner Gates with a visceral intensity—he's got something to prove tonight!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "marcus_gray",
+              "line": "Your temper blinds you, Gates. Mathematics never lie."
+            },
+            {
+              "phase": "mid",
+              "speaker": "gunner_gates",
+              "line": "Neither do explosives, Calculator. And you're about to detonate."
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Gunner is hammering away—The Detonation is coming!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "pbp",
+              "line": "The Detonation connects! Gunner pins Marcus Gray clean!"
+            },
+            {
+              "phase": "after",
+              "speaker": "color",
+              "line": "The mystery attacker just defeated Vic Stone's favorite lieutenant in dominant fashion—coincidence? I think not!"
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "gunner_gates"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Gunner Gates' cryptic threats seem to be manifesting into domination! Is he the mystery attacker?",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "marcus_gray",
+            "vic_stone"
+          ],
+          "how": "stagger"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Marcus Gray and Gunner Gates clash as suspicions about the mystery attacker reach a fever pitch, with Gates' evasive behavior and cryptic threats boiling over."
+    },
+    {
+      "title": "The Non-Title Assassin's Duel: Stone vs Streak",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "The next match is a Non-Title Grudge Match! The STW World Heavyweight Champion Vic Stone faces the masked avenger, Silver Streak!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "vic_stone",
+          "mood": "furious",
+          "escorts": [
+            "blackthorn_blake"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Vic Stone's entrance is flanked by Blackthorn Blake—the Four Saddles are tightening ranks after the backstage assault!",
+          "style": "call",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "silver_streak",
+          "mood": "excited",
+          "escorts": []
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "vic_stone",
+            "silver_streak"
+          ],
+          "winner": "none",
+          "finish": "no_contest",
+          "story": "back_and_forth",
+          "length": "long",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "late",
+              "type": "run_in",
+              "who": "blackthorn_blake",
+              "target": "silver_streak",
+              "lines": [
+                "Four Saddles forever!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "silver_streak",
+              "line": "You want my mask, Stone? Come take it, if you can."
+            },
+            {
+              "phase": "mid",
+              "speaker": "pbp",
+              "line": "Streak is using his speed and aerial prowess against Stone's calculated precision!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Stone's still rattled from that backstage attack—Streak's got momentum!"
+            },
+            {
+              "phase": "late",
+              "speaker": "vic_stone",
+              "line": "You're mine, Streak. Your mask, your mystique—all of it!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Blackthorn Blake slides into the ring! This match is falling apart!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "Stone and Blake are tearing into Silver Streak! His mask is tearing at the seams—Stone's grabbing for his face!"
+            },
+            {
+              "phase": "after",
+              "speaker": "color",
+              "line": "The mystery attacker may have won the battle backstage, but Stone's taking his frustration out on Streak in the worst way!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "It's a no-contest! The Four Saddles swarm Silver Streak with numbers and brutality!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "vic_stone",
+            "blackthorn_blake"
+          ],
+          "victim": "silver_streak",
+          "where": "ring",
+          "style": "beatdown"
+        },
+        {
+          "type": "narrate",
+          "text": "Silver Streak is bleeding beneath his mask! Vic Stone is clawing at the fabric, trying to expose the Streak's identity!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "run_in",
+          "who": "colt_brady",
+          "target": "vic_stone",
+          "intent": "save"
+        },
+        {
+          "type": "run_in",
+          "who": "hank_luther",
+          "target": "blackthorn_blake",
+          "intent": "save"
+        },
+        {
+          "type": "narrate",
+          "text": "Colt Brady and Hank Luther charge to the ring! The Blue-Collar Brotherhood saves their masked ally!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "vic_stone",
+            "blackthorn_blake"
+          ],
+          "how": "walk"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "colt_brady",
+            "hank_luther",
+            "silver_streak"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Silver Streak survives Magnolia Mayhem, but at what cost? The Four Saddles' obsession with his identity grows more dangerous by the night!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Vic Stone, shaken by the backstage attack, faces Silver Streak in a non-title grudge match that turns into a Four Saddles ambush, leaving Streak bloodied and his mask nearly torn."
+    },
+    {
+      "title": "The Reckoning Closes: Dusty Mason vs The Newcomer",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "The final match of Magnolia Mayhem! Dusty Mason, representing the Blue-Collar Brotherhood, faces a mystery opponent!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "dusty_mason",
+          "mood": "excited",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "blackjack_torres",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "blackjack_torres",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "I'm Blackjack Torres, and I've come to settle accounts in this territory.",
+            "The house always wins when you don't show your hand—and I'm about to flip the table."
+          ]
+        },
+        {
+          "type": "react",
+          "who": "dusty_mason",
+          "reaction": "disbelief"
+        },
+        {
+          "type": "narrate",
+          "text": "A new face appears at Magnolia Mayhem! Blackjack Torres is staking his claim!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "dusty_mason",
+            "blackjack_torres"
+          ],
+          "winner": "dusty_mason",
+          "finish": "pin",
+          "story": "back_and_forth",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "dusty_mason",
+              "line": "Who the hell are you, and why should I care?"
+            },
+            {
+              "phase": "mid",
+              "speaker": "pbp",
+              "line": "Torres is all brawl and aggression—he's got something to prove!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "blackjack_torres",
+              "line": "You're just a stepping stone to settling what's owed in the STW!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Dusty fires back with the Roundhouse! Mason is in control!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "pbp",
+              "line": "The Roundhouse Kick connects! Dusty Mason pins Torres with authority!"
+            },
+            {
+              "phase": "after",
+              "speaker": "cornerman_ed",
+              "line": "Yeah! Blue-Collar Brotherhood don't back down from nobody!"
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "dusty_mason",
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Dusty Mason defeats the newcomer Blackjack Torres in his debut—but who is Torres, and what 'accounts' does he claim to settle?",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "blackjack_torres"
+          ],
+          "how": "stagger"
+        },
+        {
+          "type": "narrate",
+          "text": "Magnolia Mayhem is in the books! The feuds are unresolved, the mystery deepens, and the STW landscape fractures further!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "Next week on Southern Territory Wrestling Championship: Vic Stone attempts to unmask Silver Streak after a tag match; Streak stands alone against the entire Four Saddles, earning massive crowd sympathy and proving he belongs at the top of this company!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Dusty Mason faces off against a mysterious newcomer tied to the escalating chaos—Blackjack Torres makes his shocking debut, claiming he's come to settle old scores with the STW."
+    },
+    {
+      "title": "The Mystery Attacker's Shadow Looms",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "Who attacked Vic Stone backstage? Who is the mystery assailant striking fear into the Four Saddles?",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "And what does Blackjack Torres' arrival mean for the territorial balance of power?",
+          "style": "shock",
+          "speaker": "color"
+        },
+        {
+          "type": "narrate",
+          "text": "Find out next week, when the Blue-Collar Brotherhood faces the Four Saddles' wrath, and Silver Streak's mask hangs by a thread!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "colt_brady",
+            "hank_luther",
+            "dusty_mason",
+            "cornerman_ed",
+            "silver_streak"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "As the show closes, the identity of the mystery attacker remains unknown, but suspicions about Gunner Gates grow stronger—while Blackjack Torres' sudden appearance hints at a larger reckoning coming to the STW."
+    }
+  ]
+}

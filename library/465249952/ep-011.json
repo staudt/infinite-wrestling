@@ -1,0 +1,458 @@
+{
+  "title": "The Steel Awaits",
+  "storySoFar": "The Blue-Collar Brotherhood (Brady, Luther, Mason, Gates) faces the fracturing Four Saddles in next week's finale. Silver Streak, injured but defiant, prepares for a Steel Cage World Title match against Vic Stone at Dixie Thunderdome. Colt Brady has dismantled Rex Creed's empire and faces him in a 3-on-3 war. Hank Luther's TV title stands against Blackthorn Blake's criminal exposure. Georgia Storm and Jenny Crossfire mentor and mentor-student bond promises future title contention. Marcus Gray's loyalty to Stone wavers visibly. Gunner Gates stands fully revealed as the Brotherhood's fourth pillar. Dixie Thunderdome's cage looms—a reckoning for all.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "Steel Cage Contract Signing",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "vic_stone",
+          "mood": "menacing",
+          "escorts": [
+            "marcus_gray",
+            "madame_magnolia"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "vic_stone",
+          "where": "ring",
+          "mood": "cocky",
+          "lines": [
+            "Next week, the steel cage falls, and Silver Streak's mask comes OFF—whether he's breathing or not.",
+            "The Assassin always collects his due. Always.",
+            "Tonight, you sign away your last shred of hope, boy."
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "silver_streak",
+          "mood": "angry",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "silver_streak",
+          "where": "ring",
+          "mood": "angry",
+          "lines": [
+            "This mask isn't who I am, Stone—it's what I STAND FOR.",
+            "The people's champion doesn't fear cages or cowards.",
+            "Sign the paper. At Dixie Thunderdome, I take back what's mine."
+          ]
+        },
+        {
+          "type": "interview",
+          "guest": "vic_stone",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Vic, you've dominated the STW World Heavyweight Championship with cold precision. Are you ready to finally unmask the mystery behind Silver Streak?"
+            },
+            {
+              "speaker": "vic_stone",
+              "text": "The mask is a fraud, Reverend. Behind it is nothing but hope and weakness—and I will destroy both."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Silver Streak, you've climbed from victim to challenger in one season. Do you believe you can escape the cage with the title?"
+            },
+            {
+              "speaker": "silver_streak",
+              "text": "I don't just believe it, Reverend—I know it. The fans believe in me. That's all the strength I need."
+            }
+          ]
+        },
+        {
+          "type": "confrontation",
+          "a": "vic_stone",
+          "b": "silver_streak",
+          "where": "ring",
+          "exchange": [
+            {
+              "speaker": "vic_stone",
+              "text": "You're already broken, Streak. Your arm is damaged. Your hope is false. And next week, your mask comes OFF."
+            },
+            {
+              "speaker": "silver_streak",
+              "text": "You fear what's behind this mask because you fear what it represents—that the people matter more than profit."
+            },
+            {
+              "speaker": "vic_stone",
+              "text": "Then let's end this FOREVER."
+            }
+          ],
+          "escalation": "brawl"
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "marcus_gray",
+            "madame_magnolia"
+          ],
+          "victim": "silver_streak",
+          "where": "ring",
+          "style": "beatdown"
+        },
+        {
+          "type": "run_in",
+          "who": "gunner_gates",
+          "target": "marcus_gray",
+          "intent": "save"
+        },
+        {
+          "type": "narrate",
+          "text": "Gunner Gates storms the ring to save his ally! The Four Saddles scatters!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "vic_stone",
+            "marcus_gray",
+            "madame_magnolia"
+          ],
+          "how": "storm_off"
+        },
+        {
+          "type": "react",
+          "who": "silver_streak",
+          "reaction": "cheer"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Vic Stone and Silver Streak sign the World Title match contract at the announce desk, but tension explodes into a brawl when Stone's arrogance crosses a line."
+    },
+    {
+      "title": "Steel Cage Preview",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "There it is—the same steel cage that will seal Vic Stone and Silver Streak's fate at Dixie Thunderdome!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "One man leaves a champion. The other leaves UNMASKED—if he leaves at all.",
+          "style": "big",
+          "speaker": "color"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "gunner_gates",
+            "silver_streak"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "The production crew lowers the steel cage into the ring as an ominous foreshadowing of next week's main event."
+    },
+    {
+      "title": "Brotherhood War Room",
+      "beats": [
+        {
+          "type": "promo",
+          "who": "colt_brady",
+          "where": "stage",
+          "mood": "angry",
+          "lines": [
+            "Next week, we FINISH the Four Saddles—every last one of them.",
+            "Rex Creed, Marcus Gray, Blackthorn Blake: they all bleed the same color as you and me.",
+            "And we're bringing the HAMMER down."
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "hank_luther",
+          "where": "stage",
+          "mood": "angry",
+          "lines": [
+            "Blackthorn Blake's got a rap sheet longer than my arm. Next week, he gets handcuffed.",
+            "Justice always wins, boys. Always."
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "dusty_mason",
+          "where": "stage",
+          "mood": "excited",
+          "lines": [
+            "We're gonna burn that empire to the GROUND!",
+            "*spits* Let's GO!"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "gunner_gates",
+          "where": "stage",
+          "mood": "menacing",
+          "lines": [
+            "Stone blackballed me. Tried to bury me. But I'm still STANDING.",
+            "At Dixie Thunderdome, the Assassin learns what happens when you light a fuse you can't defuse."
+          ]
+        },
+        {
+          "type": "interview",
+          "guest": "gunner_gates",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Gunner, you've fully committed to the Blue-Collar Brotherhood. What changed your mind about fighting alongside these men?"
+            },
+            {
+              "speaker": "gunner_gates",
+              "text": "Pride, Reverend. I was hungry for power, but these men showed me something better—honor. Next week, I detonate."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "And if Vic Stone tries to intimidate you?"
+            },
+            {
+              "speaker": "gunner_gates",
+              "text": "Then he'll learn that some explosions can't be stopped. *cracks knuckles*"
+            }
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Colt Brady, Hank Luther, and Dusty Mason meet with Cornerman Ed and Gunner Gates to finalize their strategy for the 3-on-3 elimination match at Dixie Thunderdome."
+    },
+    {
+      "title": "The Fracture Deepens",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "Marcus Gray watches Stone's promo on a monitor... and he's SMILING.",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "The Mathematician calculates every angle, including abandonment. Is Gray weighing his options before next week?",
+          "style": "big",
+          "speaker": "color"
+        },
+        {
+          "type": "react",
+          "who": "marcus_gray",
+          "reaction": "smirk"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Marcus Gray sits alone backstage, watching footage of Vic Stone's obsession with unmasking Silver Streak. A quiet smirk crosses his face—a betrayal in the making."
+    },
+    {
+      "title": "Women's Division: Jenny's Future",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "jenny_crossfire",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Jenny, you've earned Georgia Storm's respect and mentorship. What's next for Crossfire?"
+            },
+            {
+              "speaker": "jenny_crossfire",
+              "text": "Next season, Reverend, I'm coming for Georgia's title. But I'm doing it the RIGHT way—with hard work and grit."
+            },
+            {
+              "speaker": "georgia_storm",
+              "text": "And I'll be waiting for you, honey. You've proven yourself. Next season, the Women's Championship is yours to chase."
+            },
+            {
+              "speaker": "jenny_crossfire",
+              "text": "Tonight at Dixie Thunderdome, I stand in your corner. But next season? We dance for that title."
+            }
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Jenny Crossfire meets with Georgia Storm to prepare for her future title contention, as Georgia personally vows to mentor her rise in next season."
+    },
+    {
+      "title": "Main Event: Hank Luther vs Blackthorn Blake (Non-Title)",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "hank_luther",
+          "mood": "angry",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "hank_luther",
+          "where": "ring",
+          "mood": "angry",
+          "lines": [
+            "Blake, your time is UP. Next week in that cage, your past comes out.",
+            "You can run from the law, but you can't run from Luther.",
+            "Justice ALWAYS finds a way."
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "blackthorn_blake",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "blackthorn_blake",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "You think you're a cop, Luther? You ain't NOTHING.",
+            "And next week, that cage becomes your TOMB.",
+            "*cracks riding crop*"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "hank_luther",
+            "blackthorn_blake"
+          ],
+          "winner": "hank_luther",
+          "finish": "pin",
+          "story": "back_and_forth",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "late",
+              "type": "distraction",
+              "who": "madame_magnolia",
+              "target": "hank_luther",
+              "lines": [
+                "LUTHER! Your time ENDS!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Both men came to FIGHT tonight—this is a preview of next week's cage match!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "hank_luther",
+              "line": "You're DONE, Blake! The law catches up to EVERYONE!"
+            },
+            {
+              "phase": "late",
+              "speaker": "color",
+              "line": "Luther's too smart for Blake's sadistic tricks—he's reading every move!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Luther sets it up—THE COLLAR GRAB! Blake is FINISHED!"
+            },
+            {
+              "phase": "after",
+              "speaker": "cornerman_ed",
+              "line": "YES! Luther retains! JUSTICE!"
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "hank_luther",
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "exit",
+          "who": [
+            "blackthorn_blake",
+            "madame_magnolia"
+          ],
+          "how": "stagger"
+        },
+        {
+          "type": "narrate",
+          "text": "Luther stands tall! But next week, the cage CLOSES on this feud!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "The Television Champion faces his criminal nemesis in a brutal non-title match as Luther vows to expose Blake's criminal past at Dixie Thunderdome."
+    },
+    {
+      "title": "The Closing Gauntlet",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "vic_stone",
+          "mood": "menacing",
+          "escorts": [
+            "marcus_gray"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "vic_stone",
+          "where": "stage",
+          "mood": "menacing",
+          "lines": [
+            "Silver Streak, your arm is broken. Your hope is BROKEN. Your mask comes OFF at Dixie Thunderdome.",
+            "The Assassin always collects his contract. Always.",
+            "Steel. Cage. Reckoning. Next week, the masked fraud DIES."
+          ]
+        },
+        {
+          "type": "react",
+          "who": "marcus_gray",
+          "reaction": "smirk"
+        },
+        {
+          "type": "narrate",
+          "text": "Stone's obsession deepens—but Marcus Gray's smile suggests the Mathematician is calculating a VERY different ending.",
+          "style": "shock",
+          "speaker": "color"
+        },
+        {
+          "type": "narrate",
+          "text": "Next week: DIXIE THUNDERDOME! Steel Cage for the WORLD TITLE! The 3-on-3 Elimination War! TV Championship Cage Match! And the Women's title on the line!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "storyline_note",
+          "text": "Marcus Gray's repeated smirks and silent inaction suggest a potential face turn or betrayal of Vic Stone in the Season 2 finale. Plant this seed for next season's booking: Gray may refuse to assist Stone in the Steel Cage, or outright turns during the 3-on-3 match."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Gunner Gates now stands fully as the fourth pillar of the Blue-Collar Brotherhood. His character arc from tweener mystery attacker to face allies is complete. He is positioned as the wild-card fourth member of the 3-on-3 match at Dixie Thunderdome."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Jenny Crossfire and Georgia Storm's mentor-student bond is now publicly formalized for Season 2: Jenny will challenge for the Women's Championship after Georgia retains at Dixie Thunderdome, with Crystal Moon's fraud angle fully closed."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Hank Luther's TV Championship remains secure against Blackthorn Blake. Luther retains in a non-title match this week, setting up the Steel Cage TV Title Match at Dixie Thunderdome where Blake's criminal past will be fully exposed."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Dixie Thunderdome main event confirmed: Steel Cage Match for the STW World Heavyweight Championship—Vic Stone (c) vs Silver Streak. The cage is now lowered as an ominous foreshadowing. Stone's obsession with unmasking Streak reaches fever pitch."
+        }
+      ],
+      "recap": "As the show closes, Vic Stone appears via the stage to deliver a chilling reminder to Silver Streak: the Steel Cage awaits at Dixie Thunderdome, and only one man leaves with the mask intact—or alive."
+    }
+  ]
+}

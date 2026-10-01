@@ -1,0 +1,304 @@
+{
+  "title": "THE RECKONING BREAKS",
+  "storySoFar": "Vic Stone's Four Saddles empire fractures under internal paranoia. Silver Streak claws toward a title shot against the STW World Heavyweight Champion, defiant and masked. Colt Brady's blood war with Rex Creed escalates—Creed's desecration of a charity box enrages Brady further, with the feud folding into a Blue-Collar Brotherhood vs Four Saddles war. Hank Luther hunts Blackthorn Blake, recognizing him as a wanted criminal; Blake taunts with his riding crop. Jenny Crossfire battles Crystal Moon's mystical fraud, earning Georgia Storm's mentorship and respect. Gunner Gates' evasiveness confirms he is the mystery attacker; his loyalty to the Four Saddles is shattered, and Madame Magnolia publicly accuses him. Blackjack Torres, a scarred drifter and gambler, has arrived playing both sides. The Blue-Collar Brotherhood stands ready.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "OPENING: THE ACCUSATION",
+      "beats": [
+        {
+          "type": "interrupt",
+          "who": "madame_magnolia",
+          "where": "ring",
+          "lines": [
+            "Gunner Gates! The house always wins when you don't show your hand—but your hand is EXPOSED!",
+            "You've been sabotaging this stable for weeks, haven't you?",
+            "Vic Stone demands answers, or you're FINISHED in the Southern Territory!"
+          ],
+          "then": "stays",
+          "target": "none"
+        },
+        {
+          "type": "run_in",
+          "who": "gunner_gates",
+          "target": "madame_magnolia",
+          "intent": "attack"
+        },
+        {
+          "type": "react",
+          "who": "gunner_gates",
+          "reaction": "anger"
+        },
+        {
+          "type": "promo",
+          "who": "gunner_gates",
+          "where": "ring",
+          "mood": "furious",
+          "lines": [
+            "You want to know the truth, Magnolia?",
+            "The Four Saddles BLACKBALLED me years ago—called me unstable, unpredictable!",
+            "Well, I've been DETONATING your empire piece by piece, and it feels GOOD!",
+            "The house always wins—and I'm burning this house DOWN!"
+          ]
+        },
+        {
+          "type": "react",
+          "who": "madame_magnolia",
+          "reaction": "shock"
+        },
+        {
+          "type": "narrate",
+          "text": "Gunner Gates has CONFESSED! The mystery attacker is one of their own—and the Four Saddles are FRACTURING!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "gunner_gates"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Madame Magnolia publicly demands answers about Gunner Gates' role in the Four Saddles' attacks, fracturing the stable on live television."
+    },
+    {
+      "title": "TRAINING GROUND: JENNY'S FIRE",
+      "beats": [
+        {
+          "type": "promo",
+          "who": "georgia_storm",
+          "where": "stage",
+          "mood": "calm",
+          "lines": [
+            "Jenny, you've got fire—raw, honest fire.",
+            "But fire needs direction, discipline, PURPOSE.",
+            "You're going to be a Women's Champion one day, mark my words.",
+            "And I'm going to teach you how."
+          ]
+        },
+        {
+          "type": "react",
+          "who": "jenny_crossfire",
+          "reaction": "cheer"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Georgia Storm privately trains Jenny Crossfire, teaching her the discipline and mentorship the Women's Champion believes will elevate her into title contention."
+    },
+    {
+      "title": "BACKSTAGE: THE CALCULATION CRUMBLES",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "vic_stone",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Vic, Gunner Gates has confessed to sabotaging your stable. How does the Four Saddles respond?"
+            },
+            {
+              "speaker": "vic_stone",
+              "text": "Gates was weak. Expendable. We've already moved past him—our focus remains on Silver Streak and the STW World Title."
+            },
+            {
+              "speaker": "marcus_gray",
+              "text": "But Vic... if Gates could deceive us that thoroughly, what about the others? What about—"
+            },
+            {
+              "speaker": "vic_stone",
+              "text": "Don't question me, Gray. You're starting to sound paranoid. Stay focused on YOUR role."
+            },
+            {
+              "speaker": "marcus_gray",
+              "text": "Of course. My apologies, sir."
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The Assassin is losing control—and the Mathematician is beginning to notice the cracks.",
+          "style": "big",
+          "speaker": "color"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Marcus Gray confronts Vic Stone about Gunner Gates' betrayal, and their conversation reveals cracks forming in the Four Saddles' alliance."
+    },
+    {
+      "title": "MAIN EVENT TAG MATCH: STREAK'S SOLDIERS vs THE SADDLES' WRATH",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "silver_streak",
+          "mood": "excited",
+          "escorts": [
+            "colt_brady",
+            "hank_luther"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "vic_stone",
+          "mood": "menacing",
+          "escorts": [
+            "rex_creed",
+            "blackthorn_blake",
+            "madame_magnolia"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "tag",
+          "wrestlers": [
+            "silver_streak",
+            "colt_brady",
+            "vic_stone",
+            "rex_creed"
+          ],
+          "winner": "none",
+          "finish": "no_contest",
+          "story": "back_and_forth",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "run_in",
+              "who": "blackthorn_blake",
+              "target": "colt_brady",
+              "lines": [
+                "The Hammer gets BROKEN!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "distraction",
+              "who": "madame_magnolia",
+              "target": "hank_luther",
+              "lines": [
+                "Hank Luther, you CRIMINAL! I'm calling the police!",
+                "That badge means NOTHING!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Silver Streak and Colt Brady firing on all cylinders—the Blue-Collar Brotherhood and the masked avenger are IN SYNC!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "silver_streak",
+              "line": "This is for the PEOPLE of the Southern Territory!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Stone's got the numbers, but he can't trust his own team anymore—the paranoia is EATING him alive!"
+            },
+            {
+              "phase": "late",
+              "speaker": "colt_brady",
+              "line": "Come on, Streak! We got 'em on the ropes!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "But Blackthorn Blake and Madame Magnolia create total chaos—the referee's lost control!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "NO CONTEST! The Four Saddles teamwork is CRUMBLING, but they're dragging the whole arena down with them!"
+            }
+          ]
+        },
+        {
+          "type": "exit",
+          "who": [
+            "silver_streak",
+            "colt_brady",
+            "hank_luther"
+          ],
+          "how": "stagger"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Silver Streak teams with the Blue-Collar Brotherhood against a Four Saddles trio in a pivotal non-title match that sets the stage for Steel & Scripture."
+    },
+    {
+      "title": "CLOSING: THE INTERROGATION",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "rex_creed",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Rex, your Four Saddles stable is collapsing. With Gunner Gates exposed and Vic Stone's control slipping, where does that leave YOU?"
+            },
+            {
+              "speaker": "rex_creed",
+              "text": "And Colt Brady... that coal miner's blood debt will be SETTLED at Steel & Scripture in a Falls Count Anywhere Match."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "You seem confident."
+            },
+            {
+              "speaker": "rex_creed",
+              "text": "DAMN RIGHT I'm confident. By then, Brady will be broken, the Four Saddles will RULE, and Silver Streak will be unmasked by Vic Stone himself!"
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "And if you're wrong?"
+            },
+            {
+              "speaker": "rex_creed",
+              "text": "Then HELLFIRE will rain down on ALL of you!"
+            }
+          ]
+        },
+        {
+          "type": "exit",
+          "who": [
+            "rex_creed"
+          ],
+          "how": "storm_off"
+        },
+        {
+          "type": "narrate",
+          "text": "The preacher BELLOWS his confidence—but cracks are forming in the Four Saddles that even FAITH can't repair.",
+          "style": "call",
+          "speaker": "color"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "storyline_note",
+          "text": "Gunner Gates has PUBLICLY CONFESSED to being the mystery attacker, revealing he was blackballed by the Four Saddles years ago and has been sabotaging them as revenge. His turn to face is now imminent—he will openly fight alongside the Blue-Collar Brotherhood at Steel & Scripture. This closes the mystery attacker arc and sets Gunner up as a key ally in the final war."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Marcus Gray is showing visible doubt in Vic Stone's leadership. Stone's harsh rebuke ('Don't question me, Gray. You're starting to sound paranoid.') plants a seed for next season's long-term betrayal: Gray will begin to turn on Stone, leading to a potential face turn or tweener role in Season 2. Plant this for later exploration."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Rex Creed has explicitly booked himself in a Falls Count Anywhere Match against Colt Brady at Steel & Scripture (PPV Ep 8), with Reverend Doc Darkside at his side. This is the escalation of the Blood Debt feud toward the PPV blow-off, which will culminate in a 3-on-3 elimination match at the season finale. Creed is attempting to reassert control of his own fate after Stone's paranoia threatens the stable."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Georgia Storm's mentorship of Jenny Crossfire is now publicly recognized and formalized. Jenny has earned her respect through raw grit and hard work, positioning her as the next challenger to Georgia's Women's Championship after Crystal Moon is defeated at Steel & Scripture. This elevates Jenny toward title contention."
+        },
+        {
+          "type": "storyline_note",
+          "text": "The Four Saddles stable is visibly fracturing: Gunner Gates has confessed and turned, Marcus Gray is doubting Vic Stone's paranoia, and Rex Creed is attempting to operate independently with his Flock. At Steel & Scripture, the stable will face a tag/trios against the Blue-Collar Brotherhood and their allies. The full implosion will occur at Dixie Thunderdome (Ep 12) in the 3-on-3 elimination match."
+        }
+      ],
+      "recap": "Reverend Tate Chambers corners Rex Creed backstage, asking pointed questions about Creed's role in the Four Saddles' fracture and his next move against Colt Brady."
+    }
+  ]
+}

@@ -1,0 +1,364 @@
+{
+  "title": "The Reckoning Approaches",
+  "storySoFar": "Silver Streak returns to action with a kayfabe arm injury, dedicate his fight to the fans as he prepares for the Steel Cage title shot against Vic Stone at Dixie Thunderdome. The Blue-Collar Brotherhood (Colt Brady, Hank Luther, Dusty Mason, Gunner Gates) faces a final test before the 3-on-3 elimination war, while the Four Saddles fractures further—Rex Creed is humiliated and dependent on Stone, Marcus Gray shows visible doubt, and Blackthorn Blake's criminal exposure looms. Jenny Crossfire proves herself Georgia Storm's worthy successor; Georgia trains her for future title contention. Hank Luther's TV Title remains secure against Blake's sadistic challenges. The Women's Championship is defended tonight as Georgia faces a rising challenger. Dixie Thunderdome is two weeks away: the cage awaits Stone and Streak, and the Brotherhood prepares for all-out war.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "The Masked Hero's Return",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "silver_streak",
+          "mood": "calm",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "silver_streak",
+          "where": "ring",
+          "mood": "calm",
+          "lines": [
+            "They broke my arm trying to break my spirit—but the people's hope is stronger than stone!",
+            "Vic Stone hides behind his empire; I wear THIS mask for every working man who's been forgotten.",
+            "At Dixie Thunderdome, I'm caging that assassin and leaving with the STW World Heavyweight Championship!",
+            "This fight is for you—for every blue-collar soul who refused to believe the lie!"
+          ]
+        },
+        {
+          "type": "react",
+          "who": "cornerman_ed",
+          "reaction": "cheer"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Silver Streak makes his defiant return to address the crowd despite his arm injury, vowing to dedicate his Steel Cage victory to the fans who believe in him."
+    },
+    {
+      "title": "Women's Division Spotlight: Challenge for the Title",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "jenny_crossfire",
+          "mood": "angry",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "jenny_crossfire",
+          "where": "ring",
+          "mood": "angry",
+          "lines": [
+            "Georgia, you believed in me, and I will NOT let you down!",
+            "I'm challenging you for that Women's Championship—TONIGHT!",
+            "I've paid my dues, broken my back, and clawed my way here. Let's do this!"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "georgia_storm",
+          "mood": "calm",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "georgia_storm",
+          "where": "ring",
+          "mood": "calm",
+          "lines": [
+            "Honey, you've got the fire, but the Peach isn't ripe for picking just yet.",
+            "You want this title? Earn it the right way—beat me, fair and square, at a bigger stage.",
+            "But tonight? I'll give you a match that proves you belong in this ring."
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Jenny Crossfire confronts Georgia Storm with a challenge: she wants to face the Women's Champion tonight, ready or not, proving her rise is earned not given."
+    },
+    {
+      "title": "The Coward Emerges: Blackthorn Blake's Sneak Attack",
+      "beats": [
+        {
+          "type": "attack",
+          "attackers": [
+            "blackthorn_blake"
+          ],
+          "victim": "hank_luther",
+          "where": "stage",
+          "style": "from_behind"
+        },
+        {
+          "type": "narrate",
+          "text": "Blackthorn Blake with a vicious attack on the Television Champion!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "promo",
+          "who": "blackthorn_blake",
+          "where": "aisle",
+          "mood": "menacing",
+          "lines": [
+            "That badge don't mean nothing to me, old man!",
+            "I'm taking that TV Title, and then your knee goes next!"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Blackthorn Blake ambushes Hank Luther backstage before he can prepare, targeting Luther's knee to gain a dangerous edge heading into their televised match."
+    },
+    {
+      "title": "Women's Championship: Storm vs Crossfire",
+      "beats": [
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "georgia_storm",
+            "jenny_crossfire"
+          ],
+          "winner": "georgia_storm",
+          "finish": "pin",
+          "story": "winner_dominates",
+          "length": "medium",
+          "titleOnLine": "stw_women_championship",
+          "spots": [],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Jenny Crossfire throwing everything at the Women's Champion!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Georgia's too smart for this tomboy. She's reading every move like a book."
+            },
+            {
+              "phase": "mid",
+              "speaker": "jenny_crossfire",
+              "line": "I'm coming for that belt, Peach!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Georgia Storm setting up the Southern Comfort!"
+            },
+            {
+              "phase": "after",
+              "speaker": "georgia_storm",
+              "line": "You earned this, Jenny. Keep climbing—that title will be yours."
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "georgia_storm"
+          ]
+        },
+        {
+          "type": "react",
+          "who": "jenny_crossfire",
+          "reaction": "cheer"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Jenny Crossfire fights valiantly but Georgia Storm's experience and Southern Comfort finisher prove too much; Georgia retains as Jenny earns her respect and a future title shot."
+    },
+    {
+      "title": "The Brotherhood Stands Firm",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "colt_brady",
+          "mood": "cocky",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "colt_brady",
+          "where": "ring",
+          "mood": "angry",
+          "lines": [
+            "Blackthorn Blake just woke up the wrong bear!",
+            "Hank Luther's got four brothers standing with him—and Dixie Thunderdome is gonna be their reckoning!",
+            "Stone, Creed, Blake—your empire crumbles in two weeks!"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "dusty_mason",
+          "mood": "angry",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "dusty_mason",
+          "where": "aisle",
+          "mood": "angry",
+          "lines": [
+            "*spits* I didn't win that Battle Royal just to watch from the sidelines!",
+            "In two weeks, I'm taking down Rex Creed, and that whole rotten stable burns!"
+          ]
+        },
+        {
+          "type": "interrupt",
+          "who": "gunner_gates",
+          "where": "stage",
+          "lines": [
+            "You want firepower? The Bombardier is locked and loaded!",
+            "This Brotherhood didn't need me a week ago—but NOW? I'm THE difference-maker!"
+          ],
+          "then": "walks_to_ring",
+          "target": "none"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Colt Brady and Dusty Mason vow to stand alongside Hank Luther and Gunner Gates as they prepare for the final war at Dixie Thunderdome against the fracturing Four Saddles."
+    },
+    {
+      "title": "The Main Event: Television Championship Grudge Match",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "hank_luther",
+          "mood": "angry",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "blackthorn_blake",
+          "mood": "menacing",
+          "escorts": [
+            "madame_magnolia"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "hank_luther",
+            "blackthorn_blake"
+          ],
+          "winner": "hank_luther",
+          "finish": "pin",
+          "story": "back_and_forth",
+          "length": "long",
+          "titleOnLine": "stw_television",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "madame_magnolia",
+              "target": "hank_luther",
+              "lines": [
+                "Luther, you fool! That badge means nothing to me!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Hank Luther limping but defiant—he's not backing down from this criminal!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Blake's targeting that injured knee like a vulture. Smart strategy."
+            },
+            {
+              "phase": "mid",
+              "speaker": "hank_luther",
+              "line": "You're going down, Blake—justice is coming!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Luther measuring Blake for the Collar Grab—he's drawing the line!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "Hank Luther retains! And two weeks from now, in that steel cage, Blake's past will catch up with him!"
+            }
+          ]
+        },
+        {
+          "type": "exit",
+          "who": [
+            "hank_luther"
+          ],
+          "how": "stagger"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "blackthorn_blake"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Despite his backstage injury, Hank Luther faces Blackthorn Blake in a brutal Television Championship match; Luther perseveres through pain to retain as his criminal nemesis grows closer to exposure."
+    },
+    {
+      "title": "The Closing Shot: Stone's Warning",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "vic_stone",
+          "mood": "menacing",
+          "escorts": [
+            "marcus_gray"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "vic_stone",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "Silver Streak, that broken arm is just the beginning of your pain.",
+            "In two weeks, inside that cage, I will unmask you and show the world who hides beneath that pathetic silver.",
+            "No escape. No mercy. Only the Assassin and his contract written in your blood."
+          ]
+        },
+        {
+          "type": "react",
+          "who": "marcus_gray",
+          "reaction": "smirk"
+        },
+        {
+          "type": "narrate",
+          "text": "The stage is set for Dixie Thunderdome! Silver Streak vs Vic Stone in a Steel Cage Match for the STW World Heavyweight Championship! The Blue-Collar Brotherhood vs the Four Saddles in a 3-on-3 elimination war! Two weeks away—NEXT TIME on Southern Territory Wrestling Championship!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "storyline_note",
+          "text": "Blackthorn Blake's backstage ambush on Hank Luther plants a desperation seed: Blake is growing increasingly reckless as his criminal exposure approaches. His cowardice (attacking from behind) foreshadows his eventual cage imprisonment at Dixie Thunderdome."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Jenny Crossfire's challenge to Georgia Storm for the Women's Championship tonight (ep 10) establishes her as the legitimate rising challenger, earning a future title shot after Georgia retains. Their mutual respect and mentor/student dynamic elevates Jenny toward Season 2 title contention."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Marcus Gray's continued alliance with Vic Stone masks growing internal doubt. His smirk during Stone's closing promo suggests he is carefully observing the Assassin's obsession with unmasking Streak—planting the seed for a potential face turn or tweener shift in Season 2."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Gunner Gates' explosive interruption during the Brotherhood's promo cements his position as the fourth pillar of the Blue-Collar Brotherhood. He is now positioned as a key force in the 3-on-3 elimination match at Dixie Thunderdome, though his explosive nature foreshadows a potential plot twist in Season 2."
+        }
+      ],
+      "recap": "Vic Stone appears in the ring to address Silver Streak directly, vowing that the steel cage at Dixie Thunderdome will not only strip the masked hero of his title shot but of his very identity."
+    }
+  ]
+}

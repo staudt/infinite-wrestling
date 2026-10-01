@@ -1,0 +1,212 @@
+{
+  "title": "Go-Home Fury",
+  "storySoFar": "Vic Stone's Four Saddles empire tightens its grip as Silver Streak claws toward a title shot, his masked defiance carrying the hopes of the common people. Colt Brady's blood war against Rex Creed escalates when Cornerman Ed is roughed up backstage, signaling the heels' contempt. Jenny Crossfire suffers a bitter loss to Crystal Moon's mystical fraud but earns Georgia Storm's mentorship and respect. Hank Luther's Television Championship stands firm as he hunts Blackthorn Blake, a wanted fugitive in hiding. A mysterious attacker continues ambushing Four Saddles members—suspicion falls on the evasive Gunner Gates, whose own motives remain clouded. Next week at Magnolia Mayhem PPV, the feuds ignite into cage matches, no-DQ warfare, and a final reckoning that will reshape the STW landscape.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "Opening: The Message in Blood",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "Welcome back to Southern Territory Wrestling Championship! We're just one week away from Magnolia Mayhem PPV, and the tension is SUFFOCATING!",
+          "style": "call",
+          "speaker": "pbp"
+        },
+        {
+          "type": "promo",
+          "who": "colt_brady",
+          "where": "ring",
+          "mood": "furious",
+          "lines": [
+            "Creed, you coward! You can't beat me in the ring, so you hide behind your goons!",
+            "Next week in that steel cage, it's just you and me—nowhere to run, nowhere to hide!",
+            "I'm coming for you with blood in my eyes and vengeance in my fists!"
+          ]
+        },
+        {
+          "type": "react",
+          "who": "cornerman_ed",
+          "reaction": "anger"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Colt Brady arrives at the arena to discover Cornerman Ed has been attacked, and vows vengeance on Rex Creed at Magnolia Mayhem."
+    },
+    {
+      "title": "Segment Two: The Mathematician's Cold Calculation",
+      "beats": [
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "silver_streak",
+            "marcus_gray"
+          ],
+          "winner": "silver_streak",
+          "finish": "dq",
+          "story": "back_and_forth",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "late",
+              "type": "run_in",
+              "who": "vic_stone",
+              "target": "silver_streak",
+              "lines": [
+                "You won't escape me forever, Streak!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Silver Streak and Marcus Gray, two of the finest technical minds in the Southern Territory, locking up!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "marcus_gray",
+              "line": "The equation is simple, masked man—you lose!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Gray's precision is *surgical*—Vic Stone's got the right guy working for him."
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Streak's about to pull it off—NO! Vic Stone storms the ring!"
+            },
+            {
+              "phase": "after",
+              "speaker": "silver_streak",
+              "line": "You can't stop me, Stone! One week, and the whole world will know the truth!"
+            }
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Marcus Gray faces Silver Streak in a technical masterclass, but Vic Stone's interference ensures Streak escapes without a clean win."
+    },
+    {
+      "title": "Segment Three: Reverend Tate's Inquisition",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "gunner_gates",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Brother Gunner, four members of the Four Saddles have been attacked this season. Where were you?"
+            },
+            {
+              "speaker": "gunner_gates",
+              "text": "The house always wins when you don't show your hand, Reverend."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "That's not an answer! The people deserve to know—are you the mysterious attacker?"
+            },
+            {
+              "speaker": "gunner_gates",
+              "text": "I'm my own man. Nobody controls the Bombardier."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Is that a yes or a no?"
+            },
+            {
+              "speaker": "gunner_gates",
+              "text": "Next week at Magnolia Mayhem, everyone finds out whose side I'm really on."
+            }
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Reverend Tate Chambers interviews Gunner Gates about the mysterious attacks, but Gates' evasive answers only deepen suspicion."
+    },
+    {
+      "title": "Segment Four: The Women's Fire Burns Brighter",
+      "beats": [
+        {
+          "type": "promo",
+          "who": "georgia_storm",
+          "where": "ring",
+          "mood": "cocky",
+          "lines": [
+            "Crystal Moon, you can dress up all you want in sparkles and nonsense, but the truth is simple—you're a con artist.",
+            "Jenny Crossfire has proven herself, and she's earned a place in my corner.",
+            "Next week, when I retain my title with Jenny by my side, the mystical fraud ends!"
+          ]
+        },
+        {
+          "type": "react",
+          "who": "jenny_crossfire",
+          "reaction": "cheer"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Georgia Storm cuts a promo supporting Jenny Crossfire and declaring the Women's Champion will stand beside her at Magnolia Mayhem against Crystal Moon and Madame Magnolia."
+    },
+    {
+      "title": "Segment Six: Contract Signed in Blood",
+      "beats": [
+        {
+          "type": "confrontation",
+          "a": "vic_stone",
+          "b": "silver_streak",
+          "where": "podium",
+          "exchange": [
+            {
+              "speaker": "vic_stone",
+              "text": "Sign it, Streak. Next week, I tear that mask off your face and expose you as a fraud."
+            },
+            {
+              "speaker": "silver_streak",
+              "text": "I'm signing this because I want the whole world watching when I hurt you, Stone."
+            },
+            {
+              "speaker": "vic_stone",
+              "text": "The only thing you'll expose is your cowardice beneath that rubber."
+            },
+            {
+              "speaker": "silver_streak",
+              "text": "Then I'll see you in one week, and we'll settle it in front of 10,000 screaming fans!"
+            }
+          ],
+          "escalation": "shove"
+        },
+        {
+          "type": "react",
+          "who": "marcus_gray",
+          "reaction": "anger"
+        },
+        {
+          "type": "narrate",
+          "text": "What a contract signing! Next week at Magnolia Mayhem, all hell breaks loose! Steel Cage, No-DQ brawls, and the future of the STW Championship on the line!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "The Four Saddles better bring their A-game—the common people are HUNGRY for justice!",
+          "style": "crowd",
+          "speaker": "color"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "storyline_note",
+          "text": "Magnolia Mayhem PPV card locked in: Steel Cage – Colt Brady vs Rex Creed (w/ Rev Darkside); STW World Title non-title grudge – Vic Stone vs Silver Streak (Four Saddles ringside); No-DQ brawl – Hank Luther vs Blackthorn Blake; Women's Tag – Jenny Crossfire & Georgia Storm (c) vs Crystal Moon & Madame Magnolia; Marcus Gray vs Gunner Gates (mystery attacker identity unresolved); Dusty Mason vs Four Saddles enforcer (TBD). Stone obsessed with unmasking Streak; Brady's blood debt escalates with Cornerman Ed's attack; Luther warns Blake of judgment in steel cage."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Gunner Gates' evasiveness plants suspicion—his line 'The house always wins when you don't show your hand' echoes, and he hints at revealing his true allegiance next week at Magnolia Mayhem. Possible connection to Blackjack Torres' influence still unknown."
+        }
+      ],
+      "recap": "Vic Stone and Silver Streak meet face-to-face at the announce desk to sign the contract for their non-title Magnolia Mayhem grudge match, and Stone threatens to unmask the Streak for good."
+    }
+  ]
+}

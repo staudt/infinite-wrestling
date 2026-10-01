@@ -1,0 +1,440 @@
+{
+  "title": "The Reckoning Deepens",
+  "storySoFar": "Vic Stone's Four Saddles tighten their grip on the STW with cold precision. Silver Streak rises as the masked challenger, his every match a referendum on Stone's supremacy. Colt Brady wages a blood war against Rex Creed's gospel swindling, drawing Dusty Mason and Hank Luther into the fight. Jenny Crossfire chases Crystal Moon's mystical fraud with Georgia Storm's emerging mentorship. A mysterious attacker (identity unknown) ambushes Four Saddles members—suspicion falls on outsider Gunner Gates. In two weeks, Magnolia Mayhem PPV will ignite the rivalries into cage matches and no-quarter warfare.",
+  "debuts": [
+    {
+      "id": "blackjack_torres",
+      "name": "Blackjack Torres",
+      "role": "wrestler",
+      "alignment": "tweener",
+      "division": "men",
+      "style": "brawler",
+      "gimmick": "A scarred drifter in a black Stetson and spurred boots, with a gambler's cold stare and a whip coiled at his hip. He plays both sides of the tracks, always one card away from turning on anyone. Wild rumors swirl about his past: jailbird, mercenary, or something worse.",
+      "entrance": "to wailing harmonica and the scrape of spurs",
+      "finisherName": "The Dead Man's Hand",
+      "finisherMove": "piledriver",
+      "hometown": "Tombstone, Arizona",
+      "weight": 245,
+      "catchphrase": "The house always wins!",
+      "finisherDescription": "a punishing two-handed piledriver from the second rope that drives his opponent headfirst into the mat",
+      "finisherCall": "He's setting up the Dead Man's Hand!"
+    }
+  ],
+  "segments": [
+    {
+      "title": "Segment 1: Stone's Cold Doctrine",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "vic_stone",
+          "mood": "menacing",
+          "escorts": [
+            "marcus_gray",
+            "madame_magnolia"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "vic_stone",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "Silver Streak thinks a mask makes him a hero. It makes him a liar.",
+            "I will unmask him. I will break him. And I will make this Territory mine.",
+            "The Four Saddles do not tolerate hope, weakness, or masked cowards.",
+            "Magnolia Mayhem will be his funeral. He will die in that cage knowing I was always the stronger man."
+          ]
+        },
+        {
+          "type": "react",
+          "who": "marcus_gray",
+          "reaction": "smirk"
+        },
+        {
+          "type": "react",
+          "who": "madame_magnolia",
+          "reaction": "cheer"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "vic_stone",
+            "marcus_gray",
+            "madame_magnolia"
+          ],
+          "how": "walk"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Vic Stone, flanked by his Four Saddles lieutenants, delivers a calculated promo vowing to unmask Silver Streak and erase the myth."
+    },
+    {
+      "title": "Segment 2: Brady's Blood Oath",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "colt_brady",
+          "mood": "furious",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "colt_brady",
+          "where": "ring",
+          "mood": "furious",
+          "lines": [
+            "Rex Creed, you've bilked the poor, the sick, and the faithful for your gold robe!",
+            "Every coin you stole came from somebody's child, somebody's rent, somebody's hope!",
+            "Next week, you and Blake step in this ring with Dusty and me—and we settle accounts.",
+            "Blood debt doesn't forgive. It only bleeds."
+          ]
+        },
+        {
+          "type": "react",
+          "who": "cornerman_ed",
+          "reaction": "cheer"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "colt_brady",
+            "cornerman_ed"
+          ],
+          "how": "walk"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Colt Brady cuts a fiery promo swearing vengeance on Rex Creed and his swindling revival scam, calling out Creed for next week's tag-team bout."
+    },
+    {
+      "title": "Segment 3: Women's Fire",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "crystal_moon",
+          "mood": "cocky",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "crystal_moon",
+          "where": "ring",
+          "mood": "cocky",
+          "lines": [
+            "I sense a troubled spirit in this arena... Jenny Crossfire, still burning with rage and confusion.",
+            "Your essence was mine, child. You will never reclaim what I have stolen.",
+            "The spirits whisper your name—they call you broken, powerless, lost."
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "jenny_crossfire",
+          "mood": "furious",
+          "escorts": []
+        },
+        {
+          "type": "interrupt",
+          "who": "jenny_crossfire",
+          "where": "ring",
+          "lines": [
+            "The only spirit I sense is your con, Moon! You're a thief and a liar!",
+            "I'm calling you out: singles match next week. No séance, no tricks—just you and me."
+          ],
+          "then": "attacks",
+          "target": "crystal_moon"
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "jenny_crossfire"
+          ],
+          "victim": "crystal_moon",
+          "where": "ring",
+          "style": "beatdown"
+        },
+        {
+          "type": "entrance",
+          "who": "georgia_storm",
+          "mood": "angry",
+          "escorts": []
+        },
+        {
+          "type": "run_in",
+          "who": "georgia_storm",
+          "target": "crystal_moon",
+          "intent": "save"
+        },
+        {
+          "type": "narrate",
+          "text": "Georgia Storm races to Jenny's aid! The Women's Champion stands for her protégé!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "jenny_crossfire",
+            "georgia_storm"
+          ],
+          "how": "walk"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "crystal_moon"
+          ],
+          "how": "stagger"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Crystal Moon claims to sense Jenny Crossfire's dark aura in the arena; Jenny interrupts and physically attacks Moon, declaring war on her mystical fraud."
+    },
+    {
+      "title": "Segment 4: The Television Champion Investigates",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "gunner_gates",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "interview",
+          "guest": "gunner_gates",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Gunner Gates, we've had two attacks on Four Saddles members now. Where were you last night when Blackthorn Blake was ambushed in the parking lot?"
+            },
+            {
+              "speaker": "gunner_gates",
+              "text": "Maybe Blake finally got caught up to. Maybe karma collects its debts."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "That's not an answer, Gunner. Some folks are saying you want back in the Saddles—that you're clearing a path."
+            },
+            {
+              "speaker": "gunner_gates",
+              "text": "I don't need nobody's permission to be great. The Bombardier explodes on his own timeline."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "You didn't answer the question."
+            },
+            {
+              "speaker": "gunner_gates",
+              "text": "And I won't. The house always wins when you don't show your hand."
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Stone's spies are closing in! Gunner Gates knows something—or is hiding something big!",
+          "style": "shock",
+          "speaker": "color"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "gunner_gates"
+          ],
+          "how": "walk"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Hank Luther interviews an anxious Gunner Gates about the mysterious attacks on Four Saddles members, but Gates remains evasive and suspicious."
+    },
+    {
+      "title": "Segment 5: Main Event – Tag Wars",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "colt_brady",
+          "mood": "angry",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "dusty_mason",
+          "mood": "angry",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "rex_creed",
+          "mood": "cocky",
+          "escorts": [
+            "rev_darkside"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "blackthorn_blake",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "match",
+          "stipulation": "tag",
+          "wrestlers": [
+            "colt_brady",
+            "dusty_mason",
+            "rex_creed",
+            "blackthorn_blake"
+          ],
+          "winner": "none",
+          "finish": "no_contest",
+          "story": "back_and_forth",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "late",
+              "type": "run_in",
+              "who": "blackjack_torres",
+              "target": "colt_brady",
+              "lines": [
+                "The house always wins!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "interrupt",
+              "who": "blackjack_torres",
+              "target": "dusty_mason",
+              "lines": [
+                "You blue-collar saps don't scare nobody!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Brady and Creed lock up! The coal miner driving his shoulder like a wedge!"
+            },
+            {
+              "phase": "early",
+              "speaker": "cornerman_ed",
+              "line": "That's it, Colt! Show that preacher what real faith looks like!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Blake and Mason are absolutely beating the stuffing out of each other. This is no wrestling match—it's a street fight!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "dusty_mason",
+              "line": "Come on, Blake! The Roundhouse is warmed up!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "What in blazes?! A man in black is cutting through the crowd!"
+            },
+            {
+              "phase": "late",
+              "speaker": "color",
+              "line": "Who is that?! Four Saddles has a new player in the game!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "A mysterious drifter in spurs just turned this match to fire! The Four Saddles have a new weapon!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "colt_brady",
+            "dusty_mason",
+            "cornerman_ed"
+          ],
+          "how": "walk"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "rex_creed",
+            "rev_darkside"
+          ],
+          "how": "walk"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "blackthorn_blake"
+          ],
+          "how": "walk"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "blackjack_torres"
+          ],
+          "how": "walk"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Colt Brady and Dusty Mason face Rex Creed and Blackthorn Blake in a blue-collar vs. heel brawl; the match erupts into chaos when a mysterious newcomer arrives, siding with the heels and ending the match in a no-contest."
+    },
+    {
+      "title": "Segment 6: Silver Streak's Answer",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "silver_streak",
+          "mood": "excited",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "silver_streak",
+          "where": "ring",
+          "mood": "excited",
+          "lines": [
+            "Vic Stone, you want to unmask me? You want to kill what I represent?",
+            "I am every worker, every miner, every soul you stepped on to build your empire!",
+            "I am silver, I am light, and I will end your cold reign in that cage at Magnolia Mayhem!",
+            "This mask is not my weakness—it is your reckoning."
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The Streak fires back! Will he be ready when Stone comes calling in two weeks?",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "feud_start",
+          "a": "colt_brady",
+          "b": "blackjack_torres",
+          "reason": "Torres sides with Four Saddles and attacks Brady in the tag match, signaling a potential new rival for the Blue-Collar Brotherhood."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Blackjack Torres, a mysterious gambler drifter, has just arrived in the STW and immediately allied with the Four Saddles. His motives and past are unknown. Is he a true believer in the Saddles, or playing both sides? Plant for future episodes."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Gunner Gates' evasiveness about the parking lot attacks grows more suspicious. The cryptic line 'The house always wins when you don't show your hand' echoes Torres' catchphrase—possible connection to explore later."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Next week's card: Jenny Crossfire vs Crystal Moon (singles, non-title) in retaliation for the interruption. Georgia Storm will watch from ringside. Silver Streak vs Marcus Gray scheduled with high stakes as Stone's obsession grows."
+        }
+      ],
+      "recap": "Silver Streak cuts a defiant promo from the ring, refusing to be intimidated by Vic Stone's threats and dedicating his fight to the common people of the Southern Territory."
+    }
+  ]
+}

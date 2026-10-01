@@ -1,0 +1,570 @@
+{
+  "title": "STEEL & SCRIPTURE: The Reckoning Burns Bright",
+  "storySoFar": "The Four Saddles empire fractures under Vic Stone's paranoia as the Blue-Collar Brotherhood rises triumphant. Gunner Gates stands fully revealed and turned face after his blackballing confession, uniting with Brady, Luther, and Mason against Stone's calculated cruelty. Silver Streak earns his #1 Contendership tonight in a Ladder Match gauntlet; Colt Brady crushes Rex Creed in a Falls Count Anywhere war, breaking his cane and shattering his revival lies. Hank Luther chains Blackthorn Blake into submission in brutal fashion. Jenny Crossfire exposes Crystal Moon's fraud in a no-DQ war, earning Georgia Storm's formal mentorship. The Battle Royal elevates Dusty Mason as a rising challenger. At season's end, Silver Streak will cage Vic Stone for the World Title, while the Brotherhood and their allies eliminate the Four Saddles in a three-on-three war.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "The Reckoning Opens: A Cold Greeting",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "vic_stone",
+          "mood": "menacing",
+          "escorts": [
+            "madame_magnolia",
+            "marcus_gray"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "vic_stone",
+          "where": "ring",
+          "mood": "cocky",
+          "lines": [
+            "The Four Saddles have crushed every fool who dared challenge our empire.",
+            "Silver Streak, your mask is a coward's armor.",
+            "Tonight, I watch you burn. And when you're ashes, I'll find your face in the graveyard."
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Stone circles the ring like a predator, tapping his fingers as Madame Magnolia smirks from the ramp.",
+          "style": "call",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "silver_streak",
+          "mood": "excited",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "silver_streak",
+          "where": "ring",
+          "mood": "cocky",
+          "lines": [
+            "The people of this territory don't need your contract, Stone—they need hope!",
+            "I'm taking that World Title, and I'm wearing it for every coal miner and carpenter you've stepped on.",
+            "The Comet is coming, and you can't assassinate what you can't unmask!"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The crowd erupts as Streak hits the ropes, the silver catching the lights like a beacon against Stone's darkness.",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "confrontation",
+          "a": "vic_stone",
+          "b": "silver_streak",
+          "where": "ring",
+          "exchange": [
+            {
+              "speaker": "vic_stone",
+              "text": "You think you're a symbol, Streak? You're a target."
+            },
+            {
+              "speaker": "silver_streak",
+              "text": "Come and try, Assassin. I'll make you famous—as the man I beat."
+            }
+          ],
+          "escalation": "stare_down"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Vic Stone opens the PPV with chilling confidence, but Silver Streak's rise and Gunner Gates' betrayal weigh heavily on his mind."
+    },
+    {
+      "title": "Climb for Glory: The Ladder Match for #1 Contendership",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "colt_brady",
+          "mood": "furious",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "gunner_gates",
+          "mood": "excited",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "marcus_gray",
+          "mood": "smug",
+          "escorts": []
+        },
+        {
+          "type": "narrate",
+          "text": "Silver Streak descends the ladder with the briefcase held high as Colt Brady and Gunner Gates stand between him and Stone's fury. Vic glares from the ramp as Streak's music roars.",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "react",
+          "who": "vic_stone",
+          "reaction": "anger"
+        },
+        {
+          "type": "promo",
+          "who": "vic_stone",
+          "where": "aisle",
+          "mood": "furious",
+          "lines": [
+            "You've bought yourself ONE more week, Streak. At Dixie Thunderdome, I will END you in that cage and unmask the fraud beneath."
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Silver Streak, Colt Brady, Gunner Gates, and Marcus Gray battle for the right to face Vic Stone for the World Title, with explosive twists and a shocking alliance reveal."
+    },
+    {
+      "title": "Blood Debt: Brady vs Creed, Falls Count Anywhere",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "colt_brady",
+          "mood": "furious",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "rex_creed",
+          "mood": "cocky",
+          "escorts": [
+            "rev_darkside"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "colt_brady",
+            "rex_creed"
+          ],
+          "winner": "colt_brady",
+          "finish": "pin",
+          "story": "winner_dominates",
+          "length": "long",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "weapon",
+              "who": "colt_brady",
+              "target": "rex_creed",
+              "lines": [
+                "That's for every poor soul you swindled in your revival tent!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "distraction",
+              "who": "rev_darkside",
+              "target": "colt_brady",
+              "lines": [
+                "The darkness will consume you, miner!"
+              ]
+            },
+            {
+              "phase": "finish",
+              "type": "run_in",
+              "who": "gunner_gates",
+              "target": "rev_darkside",
+              "lines": [
+                "No more hiding behind preachers, Brady! I'm with you!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "colt_brady",
+              "line": "You took their money, Creed. You took their faith. Tonight, you take a beating!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "rev_darkside",
+              "line": "The Damnation will protect the Sermon—the faithful will rise again!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Brady sends Creed crashing through the announce table!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "COLT BRADY HAS SHATTERED THE ORNATE CANE ACROSS HIS KNEE! Rex Creed's revival is FINISHED!"
+            },
+            {
+              "phase": "after",
+              "speaker": "color",
+              "line": "Creed's got nowhere left to run. The blood debt is paid in full."
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Colt Brady stands over the broken remnants of Rex Creed's ornate cane, holding it aloft as the crowd roars. Cornerman Ed pats him on the back as Gunner Gates raises Brady's hand—the Blood Debt is SETTLED.",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "colt_brady",
+            "gunner_gates",
+            "cornerman_ed"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Colt Brady hunts Rex Creed across the arena and township, finally breaking the televangelist's ornate cane and crushing his revival dream in a definitive blow-off."
+    },
+    {
+      "title": "Chain & Justice: Luther vs Blake, Television Championship on the Line",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "hank_luther",
+          "mood": "angry",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "blackthorn_blake",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "hank_luther",
+            "blackthorn_blake"
+          ],
+          "winner": "hank_luther",
+          "finish": "submission",
+          "story": "winner_dominates",
+          "length": "long",
+          "titleOnLine": "stw_television",
+          "spots": [
+            {
+              "phase": "early",
+              "type": "run_in",
+              "who": "madame_magnolia",
+              "target": "hank_luther",
+              "lines": [
+                "The Television Champion falls tonight! The Four Saddles provide!"
+              ]
+            },
+            {
+              "phase": "mid",
+              "type": "weapon",
+              "who": "blackthorn_blake",
+              "target": "hank_luther",
+              "lines": [
+                "Feel the Chain Whip, lawman! Feel the pain of justice twisted!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "ref_bump",
+              "who": "blackthorn_blake",
+              "target": "none",
+              "lines": [
+                "No ref, no rules, no escape for you!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Luther circles Blake like a cop stalking a fugitive—methodical, relentless."
+            },
+            {
+              "phase": "mid",
+              "speaker": "hank_luther",
+              "line": "Your criminal past ends tonight, Blake. I'm reading you your rights!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Magnolia's got her tennis racket ready! The Four Saddles will protect their own!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Luther wraps that chain around Blake's neck and PULLS—Blake is fading!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "HANK LUTHER RETAINS THE TELEVISION CHAMPIONSHIP! Blackthorn Blake taps out—justice served!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Luther stands victorious, the chain draped over his shoulder like a badge of honor. Blake writhes in defeat as Luther raises the Television Championship high—a moral victory, but the criminal still walks free.",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "react",
+          "who": "madame_magnolia",
+          "reaction": "anger"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Hank Luther's grit and moral code overcome Blackthorn Blake's sadistic brutality in a chain match that inches them closer to the criminal's arrest."
+    },
+    {
+      "title": "Fraud Exposed: Crossfire vs Crystal Moon, No-DQ",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "jenny_crossfire",
+          "mood": "angry",
+          "escorts": [
+            "georgia_storm"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "crystal_moon",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "jenny_crossfire",
+            "crystal_moon"
+          ],
+          "winner": "jenny_crossfire",
+          "finish": "pin",
+          "story": "comeback",
+          "length": "long",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "early",
+              "type": "distraction",
+              "who": "georgia_storm",
+              "target": "crystal_moon",
+              "lines": [
+                "Focus on Jenny, Moon! She's coming for your lies!"
+              ]
+            },
+            {
+              "phase": "mid",
+              "type": "weapon",
+              "who": "jenny_crossfire",
+              "target": "crystal_moon",
+              "lines": [
+                "Let's see your spirit guide NOW, fraud!"
+              ]
+            },
+            {
+              "phase": "finish",
+              "type": "run_in",
+              "who": "georgia_storm",
+              "target": "crystal_moon",
+              "lines": [
+                "Get up, Jenny! You earned this!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Crossfire is fired up—she's wrestling for honor, not mysticism!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "crystal_moon",
+              "line": "The spirits whisper your defeat, child! They hunger!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "georgia_storm",
+              "line": "The only spirits here are lies, Moon! And my protégé is burning them away!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Jenny rips a velvet sash and HIDDEN CRYSTAL PENDANTS SPILL FROM MOON'S GEAR!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "JENNY CROSSFIRE DEFEATS CRYSTAL MOON! The mystical fraud is EXPOSED to the world!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Jenny Crossfire stands over Crystal Moon's broken mystique, holding up the hidden pendants as the crowd erupts. Georgia Storm lifts Jenny's hand in victory—the mentorship is now a partnership.",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "jenny_crossfire",
+            "georgia_storm"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Jenny Crossfire rips away Crystal Moon's hidden mystic props and proves the fraud in a brutal no-DQ brawl, standing tall as Georgia Storm's chosen successor."
+    },
+    {
+      "title": "Rising Star: The Battle Royal for the Challenger's Crown",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "Introducing the Battle Royal—twelve wrestlers will climb, and only one will walk away as the chosen challenger for future gold. Let's see who rises and who falls.",
+          "style": "call",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "Dusty Mason stands alone in the ring, beaten and bruised, as his music roars and the crowd celebrates. The construction worker has risen from the ranks to claim his title shot. But who will his dance partner be—Vic Stone or Silver Streak?",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "react",
+          "who": "vic_stone",
+          "reaction": "disbelief"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Dusty Mason outlasts a field of ambitious challengers, earning a rising contender's claim and a future title shot."
+    },
+    {
+      "title": "Women's Gold: Storm vs Magnolia, STW Women's Championship",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "georgia_storm",
+          "mood": "calm",
+          "escorts": [
+            "jenny_crossfire"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "madame_magnolia",
+          "mood": "cocky",
+          "escorts": [
+            "vic_stone",
+            "marcus_gray"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Georgia Storm stands victorious, Jenny Crossfire embracing her as Marcus Gray's absence from the chaos speaks volumes. Vic Stone watches from the ramp, his eyes cold—a crack in the empire has deepened.",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "react",
+          "who": "marcus_gray",
+          "reaction": "disbelief"
+        },
+        {
+          "type": "react",
+          "who": "vic_stone",
+          "reaction": "anger"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Georgia Storm retains the Women's Championship against Madame Magnolia in a hard-fought title match, but the finish plants seeds of future chaos as Marcus Gray's loyalty cracks."
+    },
+    {
+      "title": "The Reckoning Closes: Stone's Warning",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "The crowd is electric as Vic Stone returns to the ring, his suit immaculate, his eyes burning with barely contained rage.",
+          "style": "call",
+          "speaker": "pbp"
+        },
+        {
+          "type": "promo",
+          "who": "vic_stone",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "Silver Streak, you won your ticket tonight. I bought mine years ago.",
+            "At Dixie Thunderdome, there are no ropes to escape, no allies to save you.",
+            "When that cage door closes, I will rip that mask from your worthless face, and the whole territory will see you for what you are—a coward in chrome."
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Stone circles the ring slowly, letting his words sink. He looks directly at Marcus Gray still standing ringside—their eye contact lingers, heavy with unspoken doubt.",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "As the scene fades, Vic Stone's empire is visibly fractured: Gunner Gates has turned, Rex Creed's revival is broken, Blackthorn Blake taps out as a failure, and now Marcus Gray—his closest confidant—stands silently apart. The Blue-Collar Brotherhood rises while the Four Saddles crumbles from within. Silver Streak's mask will fall in a cage, but Vic Stone's grip on power is already slipping through his fingers.",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "feud_end",
+          "a": "colt_brady",
+          "b": "rex_creed"
+        },
+        {
+          "type": "feud_end",
+          "a": "jenny_crossfire",
+          "b": "crystal_moon"
+        },
+        {
+          "type": "storyline_note",
+          "text": "Marcus Gray's silent refusal to assist Vic Stone during the Women's Title match plants a seed for his potential turn away from the Four Saddles heading into Season 2. Vic noticed, and it will compound his paranoia."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Dusty Mason's Battle Royal victory earns him a future title shot contention, elevating him as the next challenger in line for either Vic Stone (if he retains) or Silver Streak (if he wins at Dixie Thunderdome)."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Gunner Gates stands fully revealed as the Blue-Collar Brotherhood's fourth pillar after his explosive performance in the Ladder Match. His public turn is now complete."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Jenny Crossfire's exposure of Crystal Moon's fraud closes the fraud angle and elevates Jenny as Georgia Storm's official successor—she will challenge for the Women's Title in Season 2."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Blackjack Torres continues to play both sides in the Battle Royal, attacking Colt Brady while maintaining his tweener status—plant for future episodes."
+        },
+        {
+          "type": "storyline_note",
+          "text": "At Dixie Thunderdome (Ep 12 finale): Silver Streak faces Vic Stone in a Steel Cage Match for the STW World Heavyweight Championship. Streak earned his #1 Contendership in the Ladder Match and is positioned to dethrone the Assassin. The Four Saddles will implode in a 3-on-3 elimination match pitting Brady, Luther, and Mason against Gray, Creed, and Blake."
+        }
+      ],
+      "recap": "Vic Stone closes the PPV with an icy vow—Silver Streak's #1 Contendership will end in a steel cage at Dixie Thunderdome, where all masks will be torn away."
+    }
+  ]
+}

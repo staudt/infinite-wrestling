@@ -1,0 +1,439 @@
+{
+  "title": "The Masked Crusader Bleeds",
+  "storySoFar": "Silver Streak stands at the precipice of history: his Ladder Match victory earned him the #1 Contendership for the STW World Heavyweight Championship at Dixie Thunderdome. But Vic Stone and the Four Saddles have retribution in mind. Colt Brady's blood debt with Rex Creed has escalated beyond mere wrestling—Brady destroyed Creed's cane and revival empire at Steel & Scripture, forcing the televangelist deeper into Stone's protection. Hank Luther's TV Title remains secure, but Blackthorn Blake's criminal past looms closer to exposure. Jenny Crossfire's grit earned Georgia Storm's mentorship, and her exposure of Crystal Moon's fraud elevated her toward future title contention. Dusty Mason's Battle Royal victory positions him as a rising challenger. The Blue-Collar Brotherhood stands united with Gunner Gates as its fourth pillar, while the Four Saddles fractures under paranoia and Marcus Gray's silent doubt. The Dixie Thunderdome looms three weeks away: Silver Streak will cage Vic Stone for the World Title, and the Brotherhood will wage all-out war against the Four Saddles in a 3-on-3 elimination match.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "Segment One: The Ambush in the Parking Lot",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "silver_streak",
+          "mood": "calm",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "silver_streak",
+          "where": "ring",
+          "mood": "excited",
+          "lines": [
+            "Three weeks to the cage match with Vic Stone!",
+            "This mask, this heart—it belongs to the people!",
+            "The Assassin's gonna fall when I get him in that cage!",
+            "Silver Streak rises to the top, and nobody can stop it!"
+          ]
+        },
+        {
+          "type": "interrupt",
+          "who": "madame_magnolia",
+          "where": "stage",
+          "lines": [
+            "Hold on, sugar! You just got yourself a little welcome-home gift!",
+            "The Four Saddles don't take kindly to masked upstarts!"
+          ],
+          "then": "attacks",
+          "target": "silver_streak"
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "vic_stone",
+            "marcus_gray",
+            "blackthorn_blake"
+          ],
+          "victim": "silver_streak",
+          "where": "stage",
+          "style": "beatdown"
+        },
+        {
+          "type": "narrate",
+          "text": "It was a setup! Stone ambushes Streak from behind!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "Three-on-one! The Assassin's breaking that masked man down before the cage!",
+          "style": "big",
+          "speaker": "color"
+        },
+        {
+          "type": "react",
+          "who": "silver_streak",
+          "reaction": "anger"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "vic_stone",
+            "marcus_gray",
+            "blackthorn_blake",
+            "madame_magnolia"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Four Saddles attacks Silver Streak backstage, injuring his arm to weaken the masked hero before the finale."
+    },
+    {
+      "title": "Segment Two: Georgia Storm & Jenny Crossfire's Mentorship",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "georgia_storm",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Georgia, Jenny Crossfire's been showing real fire since you took her under your wing. What do you see in her?"
+            },
+            {
+              "speaker": "georgia_storm",
+              "text": "Daddy always told me wrestling's about grit and honor. Jenny's got both. She's gonna be a champion one day."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Crystal Moon's been bragging about her mysticism—how does that sit with you?"
+            },
+            {
+              "speaker": "georgia_storm",
+              "text": "That charlatan doesn't deserve to wear this title. Jenny's gonna keep climbing, and I'll make sure of it."
+            }
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "jenny_crossfire",
+          "mood": "excited",
+          "escorts": [
+            "georgia_storm"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "crystal_moon",
+          "mood": "cocky",
+          "escorts": [
+            "madame_magnolia"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "jenny_crossfire",
+            "crystal_moon"
+          ],
+          "winner": "jenny_crossfire",
+          "finish": "pin",
+          "story": "comeback",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "madame_magnolia",
+              "target": "jenny_crossfire",
+              "lines": [
+                "Look away, sugar! The spirits are speaking!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "georgia_storm",
+              "line": "That's it, Jenny! Stay disciplined!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "pbp",
+              "line": "Crystal Moon's mystique is cracking under Crossfire's raw power!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "That Magnolia's got the racket ready—she's about to interfere!"
+            },
+            {
+              "phase": "late",
+              "speaker": "jenny_crossfire",
+              "line": "For Georgia and the people!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "Jenny Crossfire's climb continues! Georgia Storm's legacy lives in that young woman!"
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "jenny_crossfire",
+            "georgia_storm"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Jenny Crossfire earns her first Women's division victory as Georgia Storm personally trains her in the art of the submission hold."
+    },
+    {
+      "title": "Segment Three: Dusty Mason's Rising Challenge",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "dusty_mason",
+          "mood": "angry",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "dusty_mason",
+          "where": "ring",
+          "mood": "angry",
+          "lines": [
+            "I won that Battle Royal fair and square!",
+            "Vic Stone thinks he's untouchable, but I'm coming for that World Title!",
+            "The Redneck Roundhouse is gonna spin that Assassin right outta the ring!",
+            "Three weeks to Dixie Thunderdome, and Stone better be ready for the reckoning!"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Dusty Mason putting down a challenge on live television!",
+          "style": "call",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Dusty Mason demands a title shot against the STW World Heavyweight Champion, using his Battle Royal victory as leverage."
+    },
+    {
+      "title": "Segment Four: The Interrogation of Rex Creed",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "rex_creed",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Rex, you've lost your cane, your revival empire—what's left of the Sermon now?"
+            },
+            {
+              "speaker": "rex_creed",
+              "text": "Shut your mouth, preacher! I got the backing of Vic Stone himself! Colt Brady's done!"
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "So you've traded faith for protection. Isn't that the exact lie you've been selling the poor?"
+            },
+            {
+              "speaker": "rex_creed",
+              "text": "Get outta my face! The Four Saddles protects their own, and Brady's gonna pay at Dixie Thunderdome!"
+            }
+          ]
+        },
+        {
+          "type": "exit",
+          "who": [
+            "rex_creed",
+            "rev_darkside"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Reverend Tate Chambers corners Rex Creed backstage, asking hard questions about his newfound dependence on Vic Stone and his next move against Colt Brady."
+    },
+    {
+      "title": "Segment Five: Hank Luther's Television Title Challenge",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "hank_luther",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "hank_luther",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "Blackthorn Blake, your criminal past ends in Dixie Thunderdome!",
+            "This badge I wore is still in my soul, and I'm coming to collect!",
+            "Steel cage, Blake—nowhere to run, nowhere to hide!",
+            "Justice always finds the guilty, and you're gonna answer for your crimes!"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Hank Luther's putting the criminal on notice!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "The Television Champion issues an ultimatum to Blackthorn Blake, warning that justice will be served in a steel cage at Dixie Thunderdome."
+    },
+    {
+      "title": "Segment Six: The Main Event Tag Match - Brotherhood vs Four Saddles",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "colt_brady",
+          "mood": "angry",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "gunner_gates",
+          "mood": "excited",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "marcus_gray",
+          "mood": "calm",
+          "escorts": [
+            "madame_magnolia"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "blackthorn_blake",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "match",
+          "stipulation": "tag",
+          "wrestlers": [
+            "colt_brady",
+            "gunner_gates",
+            "marcus_gray",
+            "blackthorn_blake"
+          ],
+          "winner": "colt_brady",
+          "finish": "pin",
+          "story": "back_and_forth",
+          "length": "long",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "early",
+              "type": "distraction",
+              "who": "madame_magnolia",
+              "target": "gunner_gates",
+              "lines": [
+                "That Bombardier's a fraud, honey! Stone sees right through him!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "interrupt",
+              "who": "vic_stone",
+              "target": "none",
+              "lines": [
+                "That's enough! The Assassin demands respect!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "cornerman_ed",
+              "line": "Go get 'em, Colt! For the Brotherhood!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "pbp",
+              "line": "Colt Brady and Gunner Gates working like a well-oiled machine!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Gray and Blake are too crafty—they know every trick in the book!"
+            },
+            {
+              "phase": "late",
+              "speaker": "gunner_gates",
+              "line": "Detonation incoming!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "The Brotherhood stands tall! Three weeks to Dixie Thunderdome, and the war is on!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Colt Brady pins Blake! The Brotherhood wins the tag match!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "colt_brady",
+            "gunner_gates",
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "react",
+          "who": "vic_stone",
+          "reaction": "anger"
+        },
+        {
+          "type": "react",
+          "who": "marcus_gray",
+          "reaction": "disbelief"
+        },
+        {
+          "type": "narrate",
+          "text": "Three weeks to the Thunderdome! The Blue-Collar Brotherhood is ready to burn the Four Saddles to the ground!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "vic_stone",
+            "marcus_gray",
+            "blackthorn_blake",
+            "madame_magnolia"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "storyline_note",
+          "text": "Silver Streak suffers a kayfabe arm injury from the Four Saddles ambush, weakening him before his Steel Cage title shot at Dixie Thunderdome. He will return defiant next week, dedicating his fight to the fans who believe in him."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Rex Creed is now fully dependent on Vic Stone's protection after losing his revival empire to Colt Brady. His humiliation and forced alliance with the Four Saddles sets up his elimination in the 3-on-3 match at Dixie Thunderdome."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Jenny Crossfire's victory over Crystal Moon continues her rise; she is now Georgia Storm's chosen successor and will challenge for the Women's Championship in Season 2 after Moon's fraud is fully exposed at the season finale."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Marcus Gray's silent inaction during the tag match (he did not save Blake from the pin) plants another seed for his potential tweener turn or face turn in Season 2. Vic Stone's control over the Mathematician is visibly weakening."
+        }
+      ],
+      "recap": "Colt Brady and Gunner Gates team to face Marcus Gray and Blackthorn Blake in a high-stakes tag match that previews the 3-on-3 war at Dixie Thunderdome."
+    }
+  ]
+}

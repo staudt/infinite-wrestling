@@ -1,0 +1,908 @@
+{
+  "title": "Blood Oath",
+  "storySoFar": "Vic Stone's Four Saddles grip the STW, with the cold champion ruling from calculated distance. Silver Streak emerges as the masked challenger to his throne, while Colt Brady and the Blue-Collar Brotherhood stand against Creed's gospel swindling and the stable's corruption. Hank Luther holds the TV title with honor, recognizing Blackthorn Blake as a fugitive. Jenny Crossfire chases down Crystal Moon's mystical fraud. An unseen attacker begins targeting the Four Saddles. The season's reckoning is building in the sweat and smoke of the Southern Territory.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "Opening: Vic Stone's Cold Gospel",
+      "beats": [
+        {
+          "type": "promo",
+          "who": "vic_stone",
+          "where": "ring",
+          "mood": "smug",
+          "lines": [
+            "The masked fool plays dress-up while I run this territory with precision.",
+            "Silver Streak? More like Silver Scare—terrified to show his pathetic face.",
+            "When I unmask you, the people will see there's nothing behind that chrome but air and delusion."
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Vic Stone, the cold assassin, the STW World Heavyweight Champion, laying down the law!",
+          "style": "call",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "STW World Champion Vic Stone cuts a promo mocking the masked Silver Streak as a coward hiding behind rubber and glitter."
+    },
+    {
+      "title": "Segment One: Brady's Reckoning",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "rex_creed",
+          "mood": "cocky",
+          "escorts": [
+            "rev_darkside"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "rex_creed",
+          "where": "ring",
+          "mood": "cocky",
+          "lines": [
+            "The faithful empty their pockets for salvation—I deliver it, for a small fee.",
+            "Revival meetin's this Sunday, and every poor soul is invited to give till it hurts.",
+            "The Lord helps those who help themselves—and I always help myself!"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The Sermon Creed, that televangelist charlatan, fleecing the faithful!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "interrupt",
+          "who": "colt_brady",
+          "where": "aisle",
+          "lines": [
+            "You bloodsucking fraud! I'm calling you out, Creed!"
+          ],
+          "then": "walks_to_ring",
+          "target": "none"
+        },
+        {
+          "type": "entrance",
+          "who": "colt_brady",
+          "mood": "angry",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "confrontation",
+          "a": "colt_brady",
+          "b": "rex_creed",
+          "where": "ring",
+          "exchange": [
+            {
+              "speaker": "colt_brady",
+              "text": "You've stolen enough from working people. I'm putting an end to it—one punch at a time."
+            },
+            {
+              "speaker": "rex_creed",
+              "text": "You're nothing but a coal-dusted fool, Brady. The Four Saddles will bury you!"
+            },
+            {
+              "speaker": "colt_brady",
+              "text": "Then we settle this next week. Just you and me, no scripture, no prayers—raw justice."
+            }
+          ],
+          "escalation": "shove"
+        },
+        {
+          "type": "narrate",
+          "text": "Colt Brady demanding satisfaction! The Blue-Collar Brotherhood rising up!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "rex_creed",
+            "rev_darkside"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Colt Brady confronts Rex Creed about his revival scams, and Brady issues a direct challenge."
+    },
+    {
+      "title": "Segment Two: Tag Match – Dusty & Hank vs Marcus & Blackthorn",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "dusty_mason",
+          "mood": "excited",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "hank_luther",
+          "mood": "calm",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "marcus_gray",
+          "mood": "cocky",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "blackthorn_blake",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "match",
+          "stipulation": "tag",
+          "wrestlers": [
+            "dusty_mason",
+            "hank_luther",
+            "marcus_gray",
+            "blackthorn_blake"
+          ],
+          "winner": "hank_luther",
+          "finish": "pin",
+          "story": "back_and_forth",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "late",
+              "type": "distraction",
+              "who": "cornerman_ed",
+              "target": "blackthorn_blake",
+              "lines": [
+                "Come on, Luther! This one's for the working man!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Hank Luther, the Television Champion, leading the charge for the Brotherhood!"
+            },
+            {
+              "phase": "early",
+              "speaker": "color",
+              "line": "Marcus Gray is too smart for these blue-collar bumpkins. The Mathematician has a plan."
+            },
+            {
+              "phase": "mid",
+              "speaker": "dusty_mason",
+              "line": "Come on, Hank! We're gonna show 'em what hard work looks like!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "blackthorn_blake",
+              "line": "You're both dead men walking, Brotherhood dogs!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Luther tags in—he's measuring Blake for the Collar Grab!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "The Brotherhood takes the win! Hank Luther stands tall!"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "vic_stone"
+          ],
+          "victim": "hank_luther",
+          "where": "ring",
+          "style": "beatdown"
+        },
+        {
+          "type": "narrate",
+          "text": "Vic Stone! The Champion laying into Luther after the match!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "run_in",
+          "who": "colt_brady",
+          "target": "vic_stone",
+          "intent": "save"
+        },
+        {
+          "type": "narrate",
+          "text": "Brady making the save! The Coal Miner charging in to save his brother!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "vic_stone",
+            "marcus_gray",
+            "blackthorn_blake"
+          ],
+          "victim": "colt_brady",
+          "where": "ring",
+          "style": "beatdown"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "vic_stone",
+            "marcus_gray",
+            "blackthorn_blake"
+          ],
+          "how": "walk"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "colt_brady",
+            "dusty_mason",
+            "hank_luther",
+            "cornerman_ed"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "The Blue-Collar Brotherhood's Dusty Mason and Television Champion Hank Luther face Four Saddles members Marcus Gray and Blackthorn Blake in a hard-fought technical battle."
+    },
+    {
+      "title": "Segment Three: Jenny's Fire",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "crystal_moon",
+          "mood": "crazy",
+          "escorts": [
+            "madame_magnolia"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "crystal_moon",
+          "where": "ring",
+          "mood": "crazy",
+          "lines": [
+            "The spirits whisper to me, Jenny Crossfire's essence is mine now.",
+            "She is hollow, empty—a shell of the warrior she once pretended to be.",
+            "When we meet again, she will kneel before the darkness."
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Crystal Moon, the mystical fraud, spinning her tales again!",
+          "style": "call",
+          "speaker": "pbp"
+        },
+        {
+          "type": "interrupt",
+          "who": "jenny_crossfire",
+          "where": "aisle",
+          "lines": [
+            "My spiritual essence? The only thing you stole was my goodwill, you crystal-loving con!"
+          ],
+          "then": "walks_to_ring",
+          "target": "none"
+        },
+        {
+          "type": "entrance",
+          "who": "jenny_crossfire",
+          "mood": "angry",
+          "escorts": []
+        },
+        {
+          "type": "confrontation",
+          "a": "jenny_crossfire",
+          "b": "crystal_moon",
+          "where": "ring",
+          "exchange": [
+            {
+              "speaker": "jenny_crossfire",
+              "text": "Your mysticism is a lie. I'm gonna expose you—and then I'm gonna beat you down!"
+            },
+            {
+              "speaker": "crystal_moon",
+              "text": "The spirits protect me. You are nothing, Crossfire!"
+            },
+            {
+              "speaker": "madame_magnolia",
+              "text": "Stay away from her, you trash! Or I'll use this racket to crack your skull!"
+            }
+          ],
+          "escalation": "brawl"
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "madame_magnolia"
+          ],
+          "victim": "jenny_crossfire",
+          "where": "ring",
+          "style": "weapon"
+        },
+        {
+          "type": "narrate",
+          "text": "Madame Magnolia! She swings that tennis racket like a club! The manager protecting her client!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "run_in",
+          "who": "georgia_storm",
+          "target": "madame_magnolia",
+          "intent": "save"
+        },
+        {
+          "type": "narrate",
+          "text": "Georgia Storm! The Women's Champion making the save! Jenny Crossfire has a guardian now!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "crystal_moon",
+            "madame_magnolia"
+          ],
+          "how": "storm_off"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "jenny_crossfire",
+            "georgia_storm"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Crystal Moon cuts a cryptic promo claiming she's stolen Jenny Crossfire's spiritual essence, and Jenny interrupts with a fiery promise of redemption."
+    },
+    {
+      "title": "Segment Four: The Television Champion Warns",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "hank_luther",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Hank Luther, you've got that look in your eye. What's on your mind, champion?"
+            },
+            {
+              "speaker": "hank_luther",
+              "text": "Reverend, I've seen a lot of criminals in my day. Some hide behind bars, some hide behind leather eye patches and riding crops."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Are you accusing Blackthorn Blake of something?"
+            },
+            {
+              "speaker": "hank_luther",
+              "text": "I'm not accusing. I'm telling. That man is wanted in three states. His crimes are documented, and his time is running out."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "That's a serious charge, champion. Do you have proof?"
+            },
+            {
+              "speaker": "hank_luther",
+              "text": "The badge I wore never lies, Reverend. Blake's day of reckoning is coming, and I'll be the one to drag him into the light."
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Hank Luther laying down the law! The badge still burns in his heart!",
+          "style": "call",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Hank Luther uses the interview segment to confront Blackthorn Blake directly, revealing him as a wanted fugitive and demanding he answer for his crimes."
+    },
+    {
+      "title": "Segment Five: Main Event – Silver Streak vs Marcus Gray",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "silver_streak",
+          "mood": "excited",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "marcus_gray",
+          "mood": "cocky",
+          "escorts": []
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "vic_stone",
+            "blackthorn_blake",
+            "rex_creed"
+          ],
+          "victim": "silver_streak",
+          "where": "ring",
+          "style": "beatdown"
+        },
+        {
+          "type": "narrate",
+          "text": "The Four Saddles! All three of them! The Champion and his crew swarming Streak!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "Vic Stone going for the mask! He's tearing at it!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "react",
+          "who": "silver_streak",
+          "reaction": "anger"
+        },
+        {
+          "type": "narrate",
+          "text": "Streak kicking free! He's got the heart of a lion!",
+          "style": "call",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "silver_streak"
+          ],
+          "how": "stagger"
+        },
+        {
+          "type": "narrate",
+          "text": "Silver Streak escapes, but barely! Vic Stone wants that mask! The obsession grows!",
+          "style": "call",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Silver Streak faces Marcus Gray in a technical showcase. After the match, the entire Four Saddles ambushes Streak, but he escapes."
+    },
+    {
+      "title": "Closing: Parking Lot Attack",
+      "beats": [
+        {
+          "type": "attack",
+          "attackers": [
+            "gunner_gates"
+          ],
+          "victim": "marcus_gray",
+          "where": "aisle",
+          "style": "from_behind"
+        },
+        {
+          "type": "narrate",
+          "text": "Wait! In the parking lot—Marcus Gray is under attack! Who's the assailant?",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "The attacker vanishes into the darkness! Gray lies beaten! Who has it out for the Four Saddles?",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "feud_start",
+          "a": "colt_brady",
+          "b": "rex_creed",
+          "reason": "Brady confronts Creed about fleecing the poor through fake revival meetings"
+        },
+        {
+          "type": "storyline_note",
+          "text": "An unseen attacker (Gunner Gates) ambushes Marcus Gray in the parking lot. The identity is unknown, but suspicion will grow in coming weeks. This is the beginning of Gunner's reckoning arc."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Georgia Storm saves Jenny Crossfire from Madame Magnolia's attack, beginning their mentorship. Jenny is elevated as a potential ally to the Women's Champion."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Vic Stone's obsession with unmasking Silver Streak intensifies. He attempts the mask during a post-match beatdown, but Streak escapes."
+        }
+      ],
+      "recap": "As the show ends, an unseen attacker ambushes Marcus Gray in the parking lot, planting seeds of chaos within the Four Saddles."
+    }
+  ],
+  "seasonStart": {
+    "season": 1,
+    "transition": null,
+    "plan": {
+      "theme": "In the sweat and smoke of the Southern Territory, the cold empire of Vic Stone's Four Saddles grinds down the common man until the Blue-Collar Brotherhood and a masked avenger rise up to burn it to the ground.",
+      "ppvs": [
+        {
+          "episode": 4,
+          "name": "Magnolia Mayhem",
+          "mainEvent": "Steel Cage Match: Colt Brady vs Rex Creed (w/ Reverend Doc Darkside) - a brutal blow-off to Creed's swindling of the faithful, ending in a referee stoppage that leaves the feud unresolved",
+          "card": [
+            "STW World Heavyweight Championship non-title grudge match: Vic Stone vs Silver Streak, Four Saddles ringside",
+            "No-DQ brawl: Hank Luther vs Blackthorn Blake",
+            "Women's Tag Match: Jenny Crossfire & Georgia Storm (c) vs Crystal Moon & Madame Magnolia",
+            "Marcus Gray vs Gunner Gates, with mystery-attacker suspicions boiling over",
+            "Dusty Mason vs a Four Saddles enforcer"
+          ]
+        },
+        {
+          "episode": 8,
+          "name": "Steel & Scripture",
+          "mainEvent": "Ladder Match for the #1 Contendership to the STW World Heavyweight Championship: Silver Streak vs Colt Brady vs Gunner Gates vs Marcus Gray",
+          "card": [
+            "Falls Count Anywhere Match: Colt Brady vs Rex Creed",
+            "Chain Match: Hank Luther vs Blackthorn Blake",
+            "No-DQ Match: Jenny Crossfire vs Crystal Moon",
+            "Battle Royal to crown a new rising contender - won by Dusty Mason",
+            "STW Women's Championship: Georgia Storm (c) vs Madame Magnolia"
+          ]
+        },
+        {
+          "episode": 12,
+          "name": "Dixie Thunderdome",
+          "mainEvent": "Steel Cage Match for the STW World Heavyweight Championship: Vic Stone (c) vs Silver Streak",
+          "card": [
+            "3-on-3 Elimination Match: Colt Brady, Hank Luther & Dusty Mason vs Marcus Gray, Rex Creed & Blackthorn Blake (w/ Madame Magnolia and Reverend Doc Darkside) - with a surprise run-in from Gunner Gates",
+            "Steel Cage Match, STW Television Championship: Hank Luther (c) vs Blackthorn Blake",
+            "STW Women's Championship: Georgia Storm (c) vs Crystal Moon, with Jenny Crossfire as special guest enforcer"
+          ]
+        }
+      ],
+      "arcs": [
+        {
+          "title": "The Assassin's Reign",
+          "archetype": "heel champion vs masked avenger (title chase)",
+          "characters": [
+            "vic_stone",
+            "silver_streak",
+            "marcus_gray",
+            "madame_magnolia"
+          ],
+          "summary": "Vic Stone rules the STW World Title with cold precision and the backing of the Four Saddles, obsessed with unmasking Silver Streak and destroying what he represents. Streak claws his way from victim to #1 contender to finally dethrone him in a steel cage.",
+          "beats": [
+            {
+              "episode": 1,
+              "beat": "Vic Stone mocks Silver Streak in a studio promo; Four Saddles jump him after his match."
+            },
+            {
+              "episode": 2,
+              "beat": "Streak scores a tag win but Vic cheap-shots him post-match, teasing the mask."
+            },
+            {
+              "episode": 3,
+              "beat": "Streak beats Marcus Gray by DQ when Vic interferes, refusing to let Streak get a clean win."
+            },
+            {
+              "episode": 4,
+              "beat": "PPV: Vic Stone vs Silver Streak, non-title grudge match ends in no-contest via Four Saddles beatdown - Streak left laid out, mask nearly torn."
+            },
+            {
+              "episode": 5,
+              "beat": "Vic tries to unmask Streak after a tag match; Streak fights off the whole stable alone, earning huge crowd sympathy."
+            },
+            {
+              "episode": 6,
+              "beat": "Streak teams with the Blue-Collar Brotherhood in a non-finish trios tag against the Four Saddles."
+            },
+            {
+              "episode": 7,
+              "beat": "Streak wins a qualifying gauntlet match to earn his spot in the PPV ladder match."
+            },
+            {
+              "episode": 8,
+              "beat": "PPV: Streak wins the Ladder Match for the #1 Contendership; Vic Stone watches from the ramp and vows to end him."
+            },
+            {
+              "episode": 9,
+              "beat": "Four Saddles ambush Streak backstage, 'injuring' his arm to weaken him before the finale."
+            },
+            {
+              "episode": 10,
+              "beat": "Streak returns early and defiant, dedicating the fight to the fans who believe in him."
+            },
+            {
+              "episode": 11,
+              "beat": "Contract signing explodes into a brawl; the steel cage is lowered as a preview of the finale."
+            },
+            {
+              "episode": 12,
+              "beat": "Finale: Steel Cage Match for the World Title. Marcus Gray refuses to interfere at the key moment, and Streak pins Vic Stone to become the new STW World Heavyweight Champion."
+            }
+          ],
+          "payoff": {
+            "episode": 12,
+            "outcome": "Silver Streak defeats Vic Stone in a Steel Cage Match to win the STW World Heavyweight Championship; the Four Saddles begin to fracture as Marcus Gray's loyalty is visibly shaken."
+          }
+        },
+        {
+          "title": "Blood Debt",
+          "archetype": "babyface vs corrupt heel (grudge blow-off into stable war)",
+          "characters": [
+            "colt_brady",
+            "rex_creed",
+            "rev_darkside",
+            "cornerman_ed",
+            "dusty_mason",
+            "hank_luther",
+            "gunner_gates",
+            "marcus_gray",
+            "blackthorn_blake",
+            "vic_stone"
+          ],
+          "summary": "Colt Brady wages a personal war against Rex Creed for swindling the poor through his revival scam, with Reverend Doc Darkside scheming behind him. The feud escalates from brawls to humiliation, and finally folds into a full Blue-Collar Brotherhood vs Four Saddles war.",
+          "beats": [
+            {
+              "episode": 1,
+              "beat": "Rex Creed cuts a fleecing revival promo; Brady interrupts and issues a challenge."
+            },
+            {
+              "episode": 2,
+              "beat": "Tag match: Brady & Dusty Mason vs Creed & Blackthorn Blake ends in a brawl, no finish."
+            },
+            {
+              "episode": 3,
+              "beat": "Creed has Cornerman Ed roughed up backstage to send Brady a message."
+            },
+            {
+              "episode": 4,
+              "beat": "PPV: Steel Cage Match, Brady vs Creed - Brady dominates but Darkside's interference costs him the clean win; match ends in referee stoppage, feud unresolved."
+            },
+            {
+              "episode": 5,
+              "beat": "Creed 'desecrates' a charity collection tied to Brady's hometown on air, enraging Brady further."
+            },
+            {
+              "episode": 6,
+              "beat": "Tag match: Brady & Hank Luther vs Creed & Blake - Brady gets pinned due to Darkside's interference, a painful setback."
+            },
+            {
+              "episode": 7,
+              "beat": "Vignette: Brady trains alone in the mines, vowing revenge; he quietly recruits Gunner Gates."
+            },
+            {
+              "episode": 8,
+              "beat": "PPV: Falls Count Anywhere Match, Brady finally beats Creed decisively, breaking his ornate cane in front of the crowd."
+            },
+            {
+              "episode": 9,
+              "beat": "Humiliated, Creed fully aligns with the Four Saddles for protection, setting up the finale war."
+            },
+            {
+              "episode": 10,
+              "beat": "Gunner Gates formally asks to join the Brotherhood; Brady is wary given Gunner's unpredictable past."
+            },
+            {
+              "episode": 11,
+              "beat": "Go-home brawl: Brotherhood and Four Saddles clash in the parking lot before the finale."
+            },
+            {
+              "episode": 12,
+              "beat": "Finale: Brady pins Creed in the 3-on-3 Elimination Match, closing the book on their blood feud as the Brotherhood routs the Four Saddles."
+            }
+          ],
+          "payoff": {
+            "episode": 12,
+            "outcome": "Colt Brady pins Rex Creed in the finale elimination match, ending their feud and helping the Blue-Collar Brotherhood dismantle the Four Saddles' credibility."
+          }
+        },
+        {
+          "title": "Badge of Honor",
+          "archetype": "lawman babyface vs fugitive heel (title defense)",
+          "characters": [
+            "hank_luther",
+            "blackthorn_blake"
+          ],
+          "summary": "Former cop Hank Luther recognizes Blackthorn Blake as a wanted fugitive hiding in plain sight. Blake taunts and ambushes him for weeks, until Luther is pushed to his limit in a title match that ends with Blake's criminal past exposed on live TV.",
+          "beats": [
+            {
+              "episode": 1,
+              "beat": "Luther calls out Blake as a wanted man on live TV; Blake flees ringside laughing."
+            },
+            {
+              "episode": 2,
+              "beat": "Blake attacks Luther's scheduled TV Title challenger to sabotage the match."
+            },
+            {
+              "episode": 3,
+              "beat": "Luther successfully defends the TV Title vs Marcus Gray while Blake smugly watches from the rafters."
+            },
+            {
+              "episode": 4,
+              "beat": "PPV: No-DQ brawl Luther vs Blake ends in a double countout, frustrating Luther further."
+            },
+            {
+              "episode": 5,
+              "beat": "Blake jumps Luther backstage with his riding crop, busting him open."
+            },
+            {
+              "episode": 6,
+              "beat": "Tag match: Luther & Brady vs Blake & Creed - Luther gets a measure of revenge pinning Creed, but Blake escapes again."
+            },
+            {
+              "episode": 7,
+              "beat": "Blake taunts Luther with a mock police badge, disrespecting his past and the law itself."
+            },
+            {
+              "episode": 8,
+              "beat": "PPV: Chain Match, Luther wins through sheer grit, but Blake rakes the referee's eyes to avoid full humiliation."
+            },
+            {
+              "episode": 9,
+              "beat": "Blake, backed by the Four Saddles, demands an official TV Title shot at the finale."
+            },
+            {
+              "episode": 10,
+              "beat": "Blake ambushes Luther, targeting his knee to gain an edge before the title match."
+            },
+            {
+              "episode": 11,
+              "beat": "Luther vows on-air to finally expose and finish Blake for good."
+            },
+            {
+              "episode": 12,
+              "beat": "Finale: Steel Cage TV Title Match - Luther wins and rips off Blake's eye patch, exposing scars that confirm his wanted-criminal identity, written off in handcuffs."
+            }
+          ],
+          "payoff": {
+            "episode": 12,
+            "outcome": "Hank Luther retains the TV Championship in a Steel Cage Match and exposes Blackthorn Blake's criminal past on live television, closing the feud with justice served."
+          }
+        },
+        {
+          "title": "Crossfire's Climb",
+          "archetype": "underdog chase / redemption through fire",
+          "characters": [
+            "jenny_crossfire",
+            "crystal_moon",
+            "georgia_storm",
+            "madame_magnolia"
+          ],
+          "summary": "Jenny Crossfire fights to prove Crystal Moon's mysticism is a con after a shocking dark-match loss. Her climb earns her Georgia Storm's respect and mentorship, culminating in Jenny standing in Georgia's corner as the finale's guardian of the Women's Title.",
+          "beats": [
+            {
+              "episode": 1,
+              "beat": "Crystal Moon mocks Jenny in a cryptic promo, claiming to have stolen her spiritual essence."
+            },
+            {
+              "episode": 2,
+              "beat": "Jenny disrupts one of Moon's séance segments; a brawl breaks out."
+            },
+            {
+              "episode": 3,
+              "beat": "Singles match: Moon beats Jenny using a hidden powder trick to blind her - a bitter setback."
+            },
+            {
+              "episode": 4,
+              "beat": "PPV: Women's Tag, Jenny & Georgia Storm vs Crystal Moon & Madame Magnolia - the faces win, Jenny gets partial revenge."
+            },
+            {
+              "episode": 5,
+              "beat": "Moon 'curses' Jenny on camera in a psychological warfare vignette."
+            },
+            {
+              "episode": 6,
+              "beat": "Georgia Storm begins mentoring Jenny in a training vignette, respecting her grit."
+            },
+            {
+              "episode": 7,
+              "beat": "Jenny gets a friendly non-title shot at Georgia's championship, losing respectfully but earning real respect."
+            },
+            {
+              "episode": 8,
+              "beat": "PPV: No-DQ grudge match - Jenny finally beats Moon clean, ripping away a hidden prop to expose her fraud."
+            },
+            {
+              "episode": 9,
+              "beat": "Desperate, Crystal Moon aligns with Madame Magnolia and the Four Saddles for protection and political pull."
+            },
+            {
+              "episode": 10,
+              "beat": "Moon ambushes Georgia Storm to force her way into a title match at the finale."
+            },
+            {
+              "episode": 11,
+              "beat": "Jenny vows to stand in Georgia's corner no matter the cost."
+            },
+            {
+              "episode": 12,
+              "beat": "Finale: Georgia Storm retains the Women's Title over Crystal Moon with Jenny Crossfire as enforcer, cementing Jenny as next season's top contender."
+            }
+          ],
+          "payoff": {
+            "episode": 12,
+            "outcome": "Georgia Storm retains the Women's Championship against Crystal Moon with Jenny Crossfire's help, closing Moon's fraud angle and elevating Jenny as the next challenger."
+          }
+        },
+        {
+          "title": "Gunner's Reckoning",
+          "archetype": "mystery attacker / tweener earns a side, with a slow-burn betrayal seeded for next season",
+          "characters": [
+            "gunner_gates",
+            "marcus_gray",
+            "vic_stone",
+            "colt_brady",
+            "cornerman_ed",
+            "madame_magnolia"
+          ],
+          "summary": "An unseen attacker has been ambushing members of the Four Saddles all season. Suspicion falls on the unpredictable Gunner Gates, who is revealed as the culprit - a man blackballed from joining the stable years ago. His reckoning forces him to finally choose a side, while a quiet crack in the Four Saddles is planted for next season.",
+          "beats": [
+            {
+              "episode": 1,
+              "beat": "An unseen attacker ambushes Marcus Gray in the parking lot after the show."
+            },
+            {
+              "episode": 2,
+              "beat": "Blackthorn Blake is also mysteriously attacked; rumors swirl backstage."
+            },
+            {
+              "episode": 3,
+              "beat": "Reverend Tate Chambers interviews suspects on air; Gunner Gates acts evasive and suspicious."
+            },
+            {
+              "episode": 4,
+              "beat": "PPV: Vic Stone is attacked backstage before his match by the mystery assailant, visibly rattled."
+            },
+            {
+              "episode": 5,
+              "beat": "Gunner denies involvement but is spotted near a crime scene with his explosives gear."
+            },
+            {
+              "episode": 6,
+              "beat": "Madame Magnolia publicly accuses Gunner Gates and demands an investigation."
+            },
+            {
+              "episode": 7,
+              "beat": "Mounting evidence points directly at Gunner; a tense on-air confrontation looms."
+            },
+            {
+              "episode": 8,
+              "beat": "PPV: Mid-Ladder Match chaos, Gunner reveals himself as the attacker - motivated by being blackballed from the Four Saddles years ago - but ultimately helps Silver Streak win, a telling tweener moment."
+            },
+            {
+              "episode": 9,
+              "beat": "The Four Saddles retaliate, beating Gunner down after the revelation."
+            },
+            {
+              "episode": 10,
+              "beat": "Gunner approaches Colt Brady to join the Blue-Collar Brotherhood; Brady is skeptical given his history."
+            },
+            {
+              "episode": 11,
+              "beat": "Gunner saves Cornerman Ed from an ambush, finally earning the Brotherhood's trust."
+            },
+            {
+              "episode": 12,
+              "beat": "Finale: Gunner fights alongside the Brotherhood in the Elimination Match, completing his face turn. Afterward, Marcus Gray is shown quietly smiling at the chaos consuming Vic Stone's fallen empire - a betrayal in the making."
+            }
+          ],
+          "payoff": {
+            "episode": 12,
+            "outcome": "Gunner Gates fully turns face, fighting for the Blue-Collar Brotherhood; the season ends on a cliffhanger as Marcus Gray's hidden resentment toward Vic Stone is teased for next season."
+          }
+        }
+      ]
+    }
+  }
+}

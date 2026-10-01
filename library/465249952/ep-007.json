@@ -1,0 +1,318 @@
+{
+  "title": "Blood and Steel",
+  "storySoFar": "Vic Stone's Four Saddles empire fractures under paranoia as the Blue-Collar Brotherhood rises. Gunner Gates has openly confessed to being the mystery attacker—blackballed years ago—and will fight alongside the people at Steel & Scripture. Silver Streak claws toward his #1 contendership ladder match, defying Stone's obsession to unmask him. Colt Brady's blood war with Rex Creed escalates toward a Falls Count Anywhere match at the PPV. Hank Luther hunts Blackthorn Blake, the TV Championship on the line in a chain match next week. Jenny Crossfire earns Georgia Storm's mentorship in a non-title bout, positioning her as the next Women's challenger. Blackjack Torres plays both sides as a dangerous tweener wildcard. At Steel & Scripture: Ladder Match for #1 Contendership (Streak, Brady, Gates, Gray), Falls Count Anywhere (Brady vs Creed), Chain Match (Luther vs Blake), No-DQ Women's Match (Crossfire vs Moon), Battle Royal (crown rising contender), and Women's Title defense (Storm vs Magnolia).",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "Segment One: The Miner's Vow",
+      "beats": [
+        {
+          "type": "promo",
+          "who": "colt_brady",
+          "where": "ring",
+          "mood": "furious",
+          "lines": [
+            "You hear me, Creed? I'm coming for you in that Falls Count Anywhere match!",
+            "Every lie you preached, every soul you swindled—it ends when I plant you on the concrete!",
+            "This ain't just wrestling. This is blood debt, and blood debts are paid in FULL!"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Colt Brady cuts a fiery promo vowing to end Rex Creed's life of lies at Steel & Scripture in a Falls Count Anywhere Match."
+    },
+    {
+      "title": "Segment Two: Qualifying Gauntlet for the Ladder Match",
+      "beats": [
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "silver_streak",
+            "marcus_gray"
+          ],
+          "winner": "silver_streak",
+          "finish": "pin",
+          "story": "winner_dominates",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Silver Streak exploding early—he KNOWS what's at stake at Steel & Scripture!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "marcus_gray",
+              "line": "You can't win against the Saddles, masked fool!"
+            },
+            {
+              "phase": "late",
+              "speaker": "color",
+              "line": "Gray's precision is no match for Streak's pure instinct tonight."
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "Silver Streak has locked in his spot in the Ladder Match! He's ONE match away from facing Vic Stone for the World Title!"
+            }
+          ]
+        },
+        {
+          "type": "interrupt",
+          "who": "vic_stone",
+          "where": "aisle",
+          "lines": [
+            "Enjoy your qualification, Streak. At Steel & Scripture, you'll climb that ladder knowing full well—I will be WATCHING.",
+            "And when you fail, I'll unmask you in front of the whole world."
+          ],
+          "then": "stays",
+          "target": "none"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Silver Streak faces a gauntlet of Four Saddles challengers to earn his spot in the Steel & Scripture Ladder Match for the #1 Contendership; he emerges victorious, securing his path to Vic Stone."
+    },
+    {
+      "title": "Segment Three: The Reverend's Interview",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "rex_creed",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Rex, Colt Brady is coming for blood at Steel & Scripture. Are you prepared for a Falls Count Anywhere Match?"
+            },
+            {
+              "speaker": "rex_creed",
+              "text": "Prepared? Boy, I've been PREACHING my whole life. Brady's just another lost soul I'll baptize in PAIN!"
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Some say Reverend Doc Darkside has been feeding you darker counsel lately. Is the Flock fracturing?"
+            },
+            {
+              "speaker": "rex_creed",
+              "text": "The Flock answers to GOD and to REX CREED. Not to Stone. Not to Gray. And certainly not to some coal miner!"
+            },
+            {
+              "speaker": "rev_darkside",
+              "text": "The Reverend has spoken. Now leave us."
+            }
+          ]
+        },
+        {
+          "type": "exit",
+          "who": [
+            "rex_creed",
+            "rev_darkside"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Reverend Tate Chambers interviews Rex Creed backstage about his upcoming Falls Count Anywhere Match with Colt Brady; Creed vows victory while Doc Darkside looms in the shadows, and the interview ends with Creed storming off in anger."
+    },
+    {
+      "title": "Segment Four: Jenny Earns Her Shot",
+      "beats": [
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "jenny_crossfire",
+            "georgia_storm"
+          ],
+          "winner": "georgia_storm",
+          "finish": "pin",
+          "story": "back_and_forth",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "jenny_crossfire",
+              "line": "I'm gonna prove I belong in that title picture, Georgia!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Storm's technical wrestling is on full display—but Crossfire's tenacity is keeping her in this fight."
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Storm measures Crossfire for the Southern Comfort—but Jenny escapes and fires back!"
+            },
+            {
+              "phase": "after",
+              "speaker": "georgia_storm",
+              "line": "You fought with honor tonight, Jenny. At Steel & Scripture, you'll stand in MY corner against that fraud Crystal Moon."
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "jenny_crossfire",
+            "georgia_storm"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "In a non-title match, Jenny Crossfire challenges Women's Champion Georgia Storm; though Jenny falls short, she earns Georgia's respect, leading to a post-match embrace and a vow that Jenny will be her enforcer at Steel & Scripture against Crystal Moon."
+    },
+    {
+      "title": "Segment Five: Luther's Warning",
+      "beats": [
+        {
+          "type": "confrontation",
+          "a": "hank_luther",
+          "b": "blackthorn_blake",
+          "where": "aisle",
+          "exchange": [
+            {
+              "speaker": "hank_luther",
+              "text": "Blake, I recognize you. I know who you are. And at Steel & Scripture, the law catches up to criminals in a steel chain."
+            },
+            {
+              "speaker": "blackthorn_blake",
+              "text": "Law? HAHAHAHA! There's no law in the STW, old man. Only the strong and the BROKEN!"
+            },
+            {
+              "speaker": "hank_luther",
+              "text": "Then I'll break you myself. The chain won't be long enough to save you."
+            }
+          ],
+          "escalation": "brawl"
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "blackthorn_blake"
+          ],
+          "victim": "hank_luther",
+          "where": "aisle",
+          "style": "from_behind"
+        },
+        {
+          "type": "run_in",
+          "who": "dusty_mason",
+          "target": "blackthorn_blake",
+          "intent": "save"
+        },
+        {
+          "type": "narrate",
+          "text": "Dusty Mason with the SAVE! Blake scrambles up the ramp as the Roundhouse stands tall with his brother Luther!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Hank Luther confronts Blackthorn Blake on the ramp, warning him that justice is coming in a Chain Match at Steel & Scripture; Blake responds with mockery and a crack of his riding crop, escalating the feud."
+    },
+    {
+      "title": "Segment Six: The Reckoning Confirmed",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "gunner_gates",
+          "mood": "excited",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "gunner_gates",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "I was blackballed. Forgotten. But I never forgot who did it—VIC STONE.",
+            "At Steel & Scripture, I'm climbing that ladder with Silver Streak, Colt Brady, and we're DETONATING this empire!",
+            "The house doesn't always win, Stone. When you show your hand, the cards fall where the PEOPLE decide!"
+          ]
+        },
+        {
+          "type": "run_in",
+          "who": "colt_brady",
+          "target": "gunner_gates",
+          "intent": "save"
+        },
+        {
+          "type": "run_in",
+          "who": "hank_luther",
+          "target": "gunner_gates",
+          "intent": "save"
+        },
+        {
+          "type": "run_in",
+          "who": "dusty_mason",
+          "target": "gunner_gates",
+          "intent": "save"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "colt_brady",
+            "hank_luther",
+            "dusty_mason",
+            "gunner_gates",
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The Blue-Collar Brotherhood is COMPLETE! Colt Brady, Hank Luther, Dusty Mason, Gunner Gates, and Cornerman Ed stand UNIFIED against the Four Saddles!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "interrupt",
+          "who": "vic_stone",
+          "where": "stage",
+          "lines": [
+            "How touching. The broken toys gather for one last hurrah.",
+            "At Steel & Scripture, I will watch as each and every one of you FAILS. And when the dust settles, the Four Saddles will reign ETERNAL."
+          ],
+          "then": "stays",
+          "target": "none"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "alliance_form",
+          "name": "The Blue-Collar Brotherhood (Expanded)",
+          "members": [
+            "colt_brady",
+            "hank_luther",
+            "dusty_mason",
+            "gunner_gates",
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "feud_start",
+          "a": "gunner_gates",
+          "b": "vic_stone",
+          "reason": "Gunner Gates reveals his blackballing by Vic Stone years ago and commits fully to the Blue-Collar Brotherhood's war against the Four Saddles."
+        },
+        {
+          "type": "storyline_note",
+          "text": "STEEL & SCRIPTURE PPV CARD LOCKED IN: (1) Ladder Match for #1 Contendership: Silver Streak vs Colt Brady vs Gunner Gates vs Marcus Gray; (2) Falls Count Anywhere: Colt Brady vs Rex Creed (w/ Rev Darkside); (3) Chain Match, TV Title on the line: Hank Luther (c) vs Blackthorn Blake; (4) No-DQ Match: Jenny Crossfire vs Crystal Moon; (5) Battle Royal (crown rising contender): TBD field; (6) STW Women's Championship: Georgia Storm (c) vs Madame Magnolia. Next week is the go-home show for the PPV blow-off."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Rex Creed's Flock (Creed + Rev Darkside) shows visible fracture from the Four Saddles under Vic Stone's paranoia and control. Creed is operating increasingly independently, foreshadowing his eventual downfall in the 3-on-3 match at Dixie Thunderdome."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Georgia Storm has formalized Jenny Crossfire as her special guest enforcer at Steel & Scripture against Crystal Moon. Jenny's grit and honor have earned the Women's Champion's respect, positioning her as the next challenger after Moon is exposed as a fraud."
+        }
+      ],
+      "recap": "Gunner Gates formally aligns with the Blue-Collar Brotherhood before a roaring crowd, vowing to stand alongside Colt Brady, Hank Luther, and Dusty Mason at Steel & Scripture in the war against the Four Saddles."
+    }
+  ]
+}

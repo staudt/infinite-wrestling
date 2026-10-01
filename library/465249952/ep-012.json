@@ -1,0 +1,646 @@
+{
+  "title": "Dixie Thunderdome",
+  "storySoFar": "The Blue-Collar Brotherhood (Brady, Luther, Mason, Gates) faces the crumbling Four Saddles in a climactic 3-on-3 Elimination Match. Silver Streak, arm-injured but defiant, enters the Steel Cage for the World Title against Vic Stone—the season's defining duel between masked hope and cold precision. Hank Luther's TV Championship stands against Blackthorn Blake's criminal exposure in a cage; Georgia Storm defends the Women's Title against Crystal Moon with Jenny Crossfire as enforcer. Marcus Gray's quiet smiles foreshadow a betrayal for next season. Gunner Gates stands fully revealed as the Brotherhood's fourth pillar. Dixie Thunderdome—a reckoning for all.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "Segment 1: The Calm Before the Storm",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "Welcome to DIXIE THUNDERDOME, the most BRUTAL show of the Southern Territory Wrestling Championship season! Tonight, three gimmick matches will settle three feuds, and the Four Saddles empire will burn!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "The Assassin's obsession with the mask ends TONIGHT, son. Either Stone walks out with the gold and the mystery solved, or Silver Streak becomes our new champion.",
+          "style": "shock",
+          "speaker": "color"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "The STW returns live to a roaring Southern Territory crowd packed into the Dixie Thunderdome arena for the season's final reckoning."
+    },
+    {
+      "title": "Segment 2: Steel Cage for the STW Television Championship",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "hank_luther",
+          "mood": "angry",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The STW Television Champion, Hank Luther, the grizzled defender of justice and honor in the Southern Territory!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "blackthorn_blake",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "narrate",
+          "text": "And there's the fugitive himself, Blackthorn Blake—a wanted man whose time in the cage has come to an END!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "match",
+          "stipulation": "cage",
+          "wrestlers": [
+            "hank_luther",
+            "blackthorn_blake"
+          ],
+          "winner": "hank_luther",
+          "finish": "pin",
+          "story": "winner_dominates",
+          "length": "long",
+          "titleOnLine": "stw_television",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "weapon",
+              "who": "blackthorn_blake",
+              "target": "hank_luther",
+              "lines": [
+                "You'll never escape the cage, cop!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "distraction",
+              "who": "cornerman_ed",
+              "target": "blackthorn_blake",
+              "lines": [
+                "Come on, Hank! For the people!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Luther methodically stalks Blake around the cage—this former cop knows how to corner a fugitive!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "hank_luther",
+              "line": "You've run long enough, Blake. Justice catches up."
+            },
+            {
+              "phase": "late",
+              "speaker": "color",
+              "line": "Blake's desperation is showing—he's out of tricks in the cage!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "Luther rips the eye patch away! My God—those are WANTED poster scars! The Assassin's hired gun is exposed!"
+            },
+            {
+              "phase": "after",
+              "speaker": "cornerman_ed",
+              "line": "Get him out of here! Justice is served!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Blake's criminal record flashed on the STW broadcast—he's wanted in three states! Luther signs to the ref, and Blake is escorted out in handcuffs by arena security!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "hank_luther",
+            "cornerman_ed"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Hank Luther retains the Television Championship against Blackthorn Blake in a brutal steel cage, exposing Blake's criminal past and writing him off in handcuffs."
+    },
+    {
+      "title": "Segment 3: Women's Championship Match with Special Guest Enforcer",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "georgia_storm",
+          "mood": "excited",
+          "escorts": [
+            "jenny_crossfire"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The STW Women's Champion, Georgia 'The Peach' Storm, escorted by her successor-in-training, Jenny Crossfire!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "crystal_moon",
+          "mood": "cocky",
+          "escorts": [
+            "madame_magnolia"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Crystal Moon and her deceiver's court, Madame Magnolia—but tonight the mystic facade falls HARD!",
+          "style": "shock",
+          "speaker": "color"
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "georgia_storm",
+            "crystal_moon"
+          ],
+          "winner": "georgia_storm",
+          "finish": "pin",
+          "story": "winner_dominates",
+          "length": "medium",
+          "titleOnLine": "stw_women_championship",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "madame_magnolia",
+              "target": "jenny_crossfire",
+              "lines": [
+                "Back off, girl! The magnolia's reign continues!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "distraction",
+              "who": "jenny_crossfire",
+              "target": "crystal_moon",
+              "lines": [
+                "No more tricks, Moon! Face Georgia fair!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Georgia Storm circles Crystal Moon—the Peach has no patience for fraud tonight!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "georgia_storm",
+              "line": "Your mystic act ends HERE, Crystal!"
+            },
+            {
+              "phase": "late",
+              "speaker": "jenny_crossfire",
+              "line": "That's for all the people you lied to!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "The Southern Comfort connects! Georgia Storm retains the Women's Championship!"
+            },
+            {
+              "phase": "after",
+              "speaker": "color",
+              "line": "And Crossfire stands tall in the ring—the fraud is FINISHED. Jenny's earned her title shot for next season!"
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "georgia_storm",
+            "jenny_crossfire"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Georgia Storm retains the Women's Championship against Crystal Moon with Jenny Crossfire's help as enforcer, cementing Moon's fraud exposure and elevating Jenny as the next challenger."
+    },
+    {
+      "title": "Segment 4: Backstage Interview - Colt Brady's War Room",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "colt_brady",
+          "exchange": [
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Colt Brady, the Hammer—tonight you lead the Blue-Collar Brotherhood into war against the Four Saddles. How do you feel going into this elimination match?"
+            },
+            {
+              "speaker": "colt_brady",
+              "text": "I feel READY, Reverend. Rex Creed took food from the mouths of poor families. Tonight, I take his head."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "Strong words. But Gunner Gates—he's a wild card. Can you control an unpredictable force like him?"
+            },
+            {
+              "speaker": "colt_brady",
+              "text": "Gunner's one of us now. The Brotherhood trusts him."
+            },
+            {
+              "speaker": "reverend_tate_chambers",
+              "text": "But earlier, you two had words about strategy. Is there friction in the ranks?"
+            },
+            {
+              "speaker": "colt_brady",
+              "text": "There's NO friction in this Brotherhood! We're UNITED! And if Gunner can't see that, then maybe—"
+            },
+            {
+              "speaker": "colt_brady",
+              "text": "You know what, Reverend? I don't have TIME for this! We got a war to fight!"
+            }
+          ]
+        },
+        {
+          "type": "exit",
+          "who": [
+            "colt_brady"
+          ],
+          "how": "storm_off"
+        },
+        {
+          "type": "narrate",
+          "text": "Brady storms off! Tension in the Blue-Collar Brotherhood on the eve of their biggest battle!",
+          "style": "shock",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Colt Brady meets with Reverend Tate Chambers and discusses the Brotherhood's strategy before the 3-on-3 Elimination Match, but tensions with Gunner Gates over strategy cause Brady to storm off in frustration."
+    },
+    {
+      "title": "Segment 5: 3-on-3 Elimination Match - Blue-Collar Brotherhood vs Four Saddles",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "colt_brady",
+          "mood": "angry",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Colt Brady and the BLUE-COLLAR BROTHERHOOD—Dusty Mason, Hank Luther, and their allies! They're ready to BURN DOWN the Four Saddles empire!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "dusty_mason",
+          "mood": "angry",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "hank_luther",
+          "mood": "angry",
+          "escorts": [
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "marcus_gray",
+          "mood": "smug",
+          "escorts": [
+            "madame_magnolia"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Marcus 'The Mathematician' Gray, calculating every move—but tonight his equations don't add up!",
+          "style": "shock",
+          "speaker": "color"
+        },
+        {
+          "type": "entrance",
+          "who": "rex_creed",
+          "mood": "furious",
+          "escorts": [
+            "rev_darkside"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Rex 'The Sermon' Creed, his empire in RUINS, desperate for one final victory against Colt Brady!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "blackthorn_blake",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "narrate",
+          "text": "Wait—Blackthorn Blake was ESCORTED OUT in handcuffs! What is he doing here?!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "Arena security let him back in for THIS match! One last chance to prove himself to the Assassin!",
+          "style": "shock",
+          "speaker": "color"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "colt_brady",
+            "dusty_mason",
+            "hank_luther",
+            "gunner_gates",
+            "cornerman_ed"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The BLUE-COLLAR BROTHERHOOD stands victorious! Four Saddles is in RUINS! Colt Brady has his blood debt paid in FULL!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "marcus_gray",
+            "madame_magnolia"
+          ],
+          "how": "walk"
+        },
+        {
+          "type": "narrate",
+          "text": "Gray walks out calmly, while Brady and the Brotherhood celebrate. No sign of Vic Stone to save his partner. The Assassin's empire is FRACTURING!",
+          "style": "shock",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "The Blue-Collar Brotherhood defeats the crumbling Four Saddles in a chaotic 3-on-3 Elimination Match as Gunner Gates runs in unexpectedly to even the odds, Colt Brady pins Rex Creed to close their feud, and Marcus Gray smiles quietly as his empire falls."
+    },
+    {
+      "title": "Segment 6: The Steel Cage Lowers - Main Event Contract Reminder",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "The cage is LOWERED! The production crew locks it into place! In moments, we'll see the most BRUTAL match of the season!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "Silver Streak's arm is taped and ready. Vic Stone's obsession with the mask ends TONIGHT—one way or another!",
+          "style": "shock",
+          "speaker": "color"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "The production crew lowers the massive steel cage into the ring as commentators build anticipation for the main event Steel Cage Match for the STW World Heavyweight Championship."
+    },
+    {
+      "title": "Segment 7: Steel Cage Match for the STW World Heavyweight Championship - MAIN EVENT",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "silver_streak",
+          "mood": "excited",
+          "escorts": []
+        },
+        {
+          "type": "narrate",
+          "text": "SILVER STREAK—the masked avenger of the common people! His arm is injured, his odds are grim—but his SPIRIT is UNBREAKABLE!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "promo",
+          "who": "silver_streak",
+          "where": "ring",
+          "mood": "angry",
+          "lines": [
+            "Stone, you tried to break me. You tried to unmask me.",
+            "But I fight for EVERY FAN in this arena—and they believe in me!",
+            "Tonight, this CAGE is where your reign ENDS!"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "vic_stone",
+          "mood": "menacing",
+          "escorts": [
+            "marcus_gray"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Vic 'The Assassin' Stone—the STW World Heavyweight Champion! He's brought Marcus Gray to ringside! No referee can stop what's about to happen in that CAGE!",
+          "style": "shock",
+          "speaker": "color"
+        },
+        {
+          "type": "promo",
+          "who": "vic_stone",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "Streak, I've waited all season to peel back that mask.",
+            "In this cage, there's nowhere to hide. There's no escape.",
+            "Your mask comes OFF, and your myth DIES."
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "cage",
+          "wrestlers": [
+            "silver_streak",
+            "vic_stone"
+          ],
+          "winner": "silver_streak",
+          "finish": "pin",
+          "story": "comeback",
+          "length": "long",
+          "titleOnLine": "stw_world_heavyweight",
+          "spots": [
+            {
+              "phase": "early",
+              "type": "weapon",
+              "who": "vic_stone",
+              "target": "silver_streak",
+              "lines": [
+                "Your arm ends TONIGHT!"
+              ]
+            },
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "marcus_gray",
+              "target": "none",
+              "lines": [
+                "(silent observation)"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "weapon",
+              "who": "silver_streak",
+              "target": "vic_stone",
+              "lines": [
+                "For the people!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Stone goes RIGHT for that injured arm—the Assassin's calculated, methodical, RUTHLESS!"
+            },
+            {
+              "phase": "early",
+              "speaker": "color",
+              "line": "Stone's going to cripple him, and THEN he'll unmask him. That's the Assassin's way."
+            },
+            {
+              "phase": "mid",
+              "speaker": "pbp",
+              "line": "Streak fires back—he's absorbing punishment but channeling the crowd's ENERGY!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "silver_streak",
+              "line": "For the PEOPLE! For the common man!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Stone sets up the Contract—he's measuring Streak for the finisher!"
+            },
+            {
+              "phase": "late",
+              "speaker": "color",
+              "line": "WAIT—Marcus Gray is just STANDING at ringside! He's not helping! Stone NEEDS him and Gray's just watching!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Streak reverses! The Comet! MOONSAULT from the top rope! Streak is going to—"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "ONE! TWO! THREE! SILVER STREAK IS THE NEW STW WORLD HEAVYWEIGHT CHAMPION! THE MASKED AVENGER HAS DONE IT!"
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "silver_streak"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Silver Streak is the NEW STW World Heavyweight Champion! The masked avenger's perseverance has paid off! He's carried the hopes of the common people to GOLD!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "react",
+          "who": "vic_stone",
+          "reaction": "anger"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "vic_stone"
+          ],
+          "how": "stagger"
+        },
+        {
+          "type": "narrate",
+          "text": "Stone staggers away, his EMPIRE SHATTERED! And look—Marcus Gray is NOT following his partner. The Mathematician is smiling a KNOWING smile. Betrayal is brewing for Season Two!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "promo",
+          "who": "silver_streak",
+          "where": "ring",
+          "mood": "excited",
+          "lines": [
+            "This championship belongs to EVERY FAN who believed in me!",
+            "Vic Stone's reign of terror is OVER!",
+            "The PEOPLE'S champion has come HOME!"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "And THAT is DIXIE THUNDERDOME! The season is OVER! Silver Streak is the NEW champion! The Four Saddles are in RUINS! And Marcus Gray's smile promises that Season Two will be MORE EXPLOSIVE than ever! We'll see you next season in the SOUTHERN TERRITORY!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "feud_end",
+          "a": "silver_streak",
+          "b": "vic_stone"
+        },
+        {
+          "type": "feud_end",
+          "a": "colt_brady",
+          "b": "rex_creed"
+        },
+        {
+          "type": "feud_end",
+          "a": "hank_luther",
+          "b": "blackthorn_blake"
+        },
+        {
+          "type": "alliance_break",
+          "name": "The Four Saddles"
+        },
+        {
+          "type": "storyline_note",
+          "text": "Marcus Gray's silent refusal to aid Vic Stone in the main event, followed by his knowing smile as Stone fell, plants a major Season Two cliffhanger: Gray may turn face, betray Stone outright, or pursue a tweener agenda. His loyalty to the Assassin is BROKEN."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Silver Streak is now the STW World Heavyweight Champion. His title reign begins Season Two as the people's hero holding the top gold."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Jenny Crossfire is now the #1 contender for the Women's Championship, having earned Georgia Storm's mentorship and respect. She will challenge for the title in Season Two."
+        },
+        {
+          "type": "storyline_note",
+          "text": "The Blue-Collar Brotherhood (Brady, Luther, Mason, Gates) stands VICTORIOUS at the season's end, with Gunner Gates fully integrated as the fourth pillar. Cornerman Ed remains their loyal valet. They control the narrative heading into Season Two."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Dusty Mason earned his title shot in the Battle Royal at Ep 8. As the most recent rising contender, he is positioned as either a future challenger to Silver Streak or a tag team pusher in Season Two."
+        }
+      ],
+      "recap": "Silver Streak defeats Vic Stone in a brutal Steel Cage Match to win the STW World Heavyweight Championship; Marcus Gray refuses to interfere at the critical moment, visibly betraying Stone's trust and planting a cliffhanger for Season Two."
+    }
+  ]
+}

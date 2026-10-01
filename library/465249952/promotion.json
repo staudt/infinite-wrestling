@@ -1,0 +1,408 @@
+{
+  "version": 2,
+  "showName": "Southern Territory Wrestling Championship",
+  "shortName": "STW",
+  "direction": "1980s NWA studio TV: sweaty southern arenas, loud managers with tennis rackets, the Four Horsemen-style heel stable against beloved blue-collar heroes. Mostly brawls and technical wrestling.",
+  "seed": 465249952,
+  "crew": {
+    "pbp": "Smiley Tom Bellows",
+    "color": "Dutch Kessler"
+  },
+  "episode": 0,
+  "characters": [
+    {
+      "id": "reverend_tate_chambers",
+      "name": "Reverend Tate Chambers",
+      "role": "interviewer",
+      "alignment": "tweener",
+      "division": "men",
+      "style": "technician",
+      "gimmick": "A smooth-talking Protestant minister who opens every interview with Scripture and treats the ring like his pulpit. Always adjusts his tie and pats wrestlers on the back with patronizing sympathy.",
+      "entrance": "",
+      "finisher": {
+        "name": "",
+        "move": "punch"
+      },
+      "color": "#dddddd"
+    },
+    {
+      "id": "colt_brady",
+      "name": "Colt \"The Hammer\" Brady",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "men",
+      "style": "brawler",
+      "gimmick": "A no-nonsense coal miner from Appalachia with calloused hands and a temper that burns hotter than his pit. He wrestles like he's settling a blood debt, every chop echoing through the arena like a timber fell.",
+      "entrance": "with the bells of a deep mine whistle ringing",
+      "finisher": {
+        "name": "The Pickaxe",
+        "move": "lariat",
+        "description": "a devastating running lariat with his forearm extended like the blade of a tool, spinning the opponent completely around",
+        "call": "He's bringing the Pickaxe to bear!"
+      },
+      "hometown": "Coalfield, West Virginia",
+      "weight": 275,
+      "catchphrase": "Dig deep or dig out!",
+      "color": "#22c55e"
+    },
+    {
+      "id": "dusty_mason",
+      "name": "Dusty \"The Redneck Roundhouse\" Mason",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "men",
+      "style": "brawler",
+      "gimmick": "A tobacco-spitting construction worker who wears a faded denim vest covered in pins and patches. His promos are incoherent but earnest, usually ending with him kicking a chair and storming off.",
+      "entrance": "to the sound of a revving pickup truck engine",
+      "finisher": {
+        "name": "The Roundhouse",
+        "move": "big_boot",
+        "description": "a massive boot to the jaw that sends the opponent flying backward off their feet",
+        "call": "Here comes the Roundhouse kick!"
+      },
+      "hometown": "Mobile, Alabama",
+      "weight": 265,
+      "catchphrase": "Git 'er done, brother!",
+      "color": "#00e5ff"
+    },
+    {
+      "id": "vic_stone",
+      "name": "Vic \"The Assassin\" Stone",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "men",
+      "style": "technician",
+      "gimmick": "A cold, calculating cerebral assassin in a tailored suit who treats wrestling like contract killing. He's the leader of the Four Saddles heel stable, always scheming with his manager.",
+      "entrance": "to a funeral dirge organ playing ominously",
+      "finisher": {
+        "name": "The Contract",
+        "move": "piledriver",
+        "description": "a textbook piledriver executed with surgical precision, held at the apex for maximum impact",
+        "call": "The Contract is being executed!"
+      },
+      "hometown": "Charlotte, North Carolina",
+      "weight": 250,
+      "catchphrase": "Your time has been called.",
+      "color": "#f43f5e"
+    },
+    {
+      "id": "rex_creed",
+      "name": "Rex \"The Sermon\" Creed",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "men",
+      "style": "powerhouse",
+      "gimmick": "A fiery televangelist corrupt as a three-dollar bill, draped in a sequined gold robe and carrying a ornate cane. He preaches condemnation to the poor while his cronies beat them down.",
+      "entrance": "to gospel music and pyrotechnics, his cane swinging",
+      "finisher": {
+        "name": "The Damnation",
+        "move": "big_splash",
+        "description": "a massive body splash from the second rope, crushing the wind out of the opponent",
+        "call": "Creed is calling down Damnation!"
+      },
+      "hometown": "Atlanta, Georgia",
+      "weight": 310,
+      "catchphrase": "I am your savior, and you are damned!",
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "blackthorn_blake",
+      "name": "Blackthorn Blake",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "men",
+      "style": "brawler",
+      "gimmick": "A sadistic drifter and career criminal wearing a leather eye patch over his left eye. He carries a riding crop and cracks it between matches. Rumored to have actual jail time.",
+      "entrance": "to the crack of a whip and creaking leather",
+      "finisher": {
+        "name": "The Chain Whip",
+        "move": "neckbreaker",
+        "description": "a vicious inverted neckbreaker where he drags the opponent down across his shoulder like cracking a whip",
+        "call": "Blackthorn is cracking the Chain Whip!"
+      },
+      "hometown": "Cross County Prison, Arkansas",
+      "weight": 280,
+      "catchphrase": "You're gonna bleed for Blackthorn!",
+      "color": "#a3e635"
+    },
+    {
+      "id": "marcus_gray",
+      "name": "Marcus \"The Mathematician\" Gray",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "men",
+      "style": "technician",
+      "gimmick": "A prissy intellectual in wire-rimmed glasses who calculates every move like a chess prodigy. He's Vic Stone's tag partner, and they communicate in cold nods and predetermined signals.",
+      "entrance": "to the sound of a pencil scratching numbers on a slate",
+      "finisher": {
+        "name": "The Equation",
+        "move": "figure_four",
+        "description": "a textbook Figure Four leglock applied with deliberate, calculated pressure",
+        "call": "The Equation is being solved!"
+      },
+      "hometown": "Richmond, Virginia",
+      "weight": 240,
+      "catchphrase": "The numbers never lie. You're finished.",
+      "color": "#7cfc9f"
+    },
+    {
+      "id": "silver_streak",
+      "name": "Silver Streak",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "men",
+      "style": "highflyer",
+      "gimmick": "A masked mystery man in silver and chrome, defiant and charismatic. Nobody knows who he is. His high-flying style carries the hopes of the common people, and he's locked in an obsessive rivalry with Vic Stone.",
+      "entrance": "in a flash of silver pyro and a roaring crowd",
+      "finisher": {
+        "name": "The Comet",
+        "move": "moonsault",
+        "description": "a picture-perfect moonsault from the top rope, rotating through the air with perfect form",
+        "call": "Silver Streak is sailing—there's the Comet!"
+      },
+      "hometown": "Parts Unknown",
+      "weight": 210,
+      "catchphrase": "The truth will set you free!",
+      "color": "#f062f5"
+    },
+    {
+      "id": "hank_luther",
+      "name": "Hank Luther",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "men",
+      "style": "technician",
+      "gimmick": "A grizzled former police officer with a torn ear and scar across his jaw. He calls fouls and disqualifications like he's writing a report. Deeply moral, but can be pushed too far.",
+      "entrance": "to a siren wailing in the distance",
+      "finisher": {
+        "name": "The Collar Grab",
+        "move": "suplex",
+        "description": "a crisp, technical suplex that plants the opponent on their head and shoulders",
+        "call": "Hank's making the arrest with the Collar Grab!"
+      },
+      "hometown": "Memphis, Tennessee",
+      "weight": 245,
+      "catchphrase": "The law comes to the ring!",
+      "color": "#e6ff7a"
+    },
+    {
+      "id": "gunner_gates",
+      "name": "Gunner \"The Bombardier\" Gates",
+      "role": "wrestler",
+      "alignment": "tweener",
+      "division": "men",
+      "style": "powerhouse",
+      "gimmick": "A mustachioed ex-military ordnance specialist with explosives-themed gear. He's unpredictable—sometimes fights for the people, sometimes for himself. Carries himself like he's always about to detonate.",
+      "entrance": "to the sound of artillery fire and marching drums",
+      "finisher": {
+        "name": "The Detonation",
+        "move": "powerbomb",
+        "description": "a thunderous powerbomb where he lifts the opponent and drives them hard into the mat",
+        "call": "Gunner's ready to unleash the Detonation!"
+      },
+      "hometown": "Fort Campbell, Kentucky",
+      "weight": 295,
+      "catchphrase": "BOOM!",
+      "color": "#c08a4a"
+    },
+    {
+      "id": "jenny_crossfire",
+      "name": "Jenny \"Crossfire\" Carmichael",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "women",
+      "style": "brawler",
+      "gimmick": "A scrappy tomboy in combat boots and leather, from a working-class background. She claws and bites her way through opponents with raw tenacity. Respects hard work above all else.",
+      "entrance": "to the roar of a factory whistle",
+      "finisher": {
+        "name": "The Inferno",
+        "move": "clothesline",
+        "description": "a running clothesline that sends her opponent flying backward",
+        "call": "Jenny's lighting the Crossfire Inferno!"
+      },
+      "hometown": "Gary, Indiana",
+      "weight": 165,
+      "catchphrase": "I'm still standing!",
+      "color": "#2dd4bf"
+    },
+    {
+      "id": "crystal_moon",
+      "name": "Crystal Moon",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "women",
+      "style": "showman",
+      "gimmick": "A mystical fraud draped in velvet and crystals, claiming to channel the spirits of fallen wrestlers. Her promos are cryptic nonsense, but her charisma is undeniable. She's ruthless beneath the sparkle.",
+      "entrance": "to eerie synthesizer music and occult imagery projected on the screen",
+      "finisher": {
+        "name": "The Séance",
+        "move": "ddt",
+        "description": "a graceful but devastating DDT delivered with a theatrical flourish",
+        "call": "Crystal is calling upon the spirits with the Séance!"
+      },
+      "hometown": "Salem, Massachusetts",
+      "weight": 155,
+      "catchphrase": "The spirits have spoken. You are cursed.",
+      "color": "#ff9f1c"
+    },
+    {
+      "id": "georgia_storm",
+      "name": "Georgia \"The Peach\" Storm",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "women",
+      "style": "technician",
+      "gimmick": "A refined Southern belle with an iron will, wearing pearls and a confident smile. She wrestles with wrestling knowledge passed down from her daddy, who was a minor promoter.",
+      "entrance": "to a rendition of 'Georgia on My Mind' performed live",
+      "finisher": {
+        "name": "The Southern Comfort",
+        "move": "boston_crab",
+        "description": "a textbook Boston Crab, her opponent's back arched painfully",
+        "call": "Georgia is applying the Southern Comfort!"
+      },
+      "hometown": "Savannah, Georgia",
+      "weight": 160,
+      "catchphrase": "Bless your heart, honey.",
+      "color": "#b388ff"
+    },
+    {
+      "id": "madame_magnolia",
+      "name": "Madame Magnolia",
+      "role": "manager",
+      "alignment": "heel",
+      "division": "men",
+      "style": "showman",
+      "gimmick": "A Southern belle manager in a white fur coat with a magnolia corsage. She carries a pearl-handled purse and a tennis racket. Shrieks at the ref and uses the racket as a prop while managing the Four Saddles.",
+      "entrance": "to a roar from the crowd",
+      "finisher": {
+        "name": "DDT",
+        "move": "ddt"
+      },
+      "hometown": "New Orleans, Louisiana",
+      "catchphrase": "Y'all best step aside, sugar!",
+      "color": "#6b8cff"
+    },
+    {
+      "id": "rev_darkside",
+      "name": "Reverend \"Doc\" Darkside",
+      "role": "manager",
+      "alignment": "heel",
+      "division": "men",
+      "style": "showman",
+      "gimmick": "A sinister preacher in all black with a cowboy hat and a riding crop. He manages Rex Creed and preaches hellfire between rounds. Has a creepy, hypnotic voice that unnerves the crowd.",
+      "entrance": "to a roar from the crowd",
+      "finisher": {
+        "name": "leg drop",
+        "move": "leg_drop"
+      },
+      "hometown": "Chattanooga, Tennessee",
+      "catchphrase": "The devil is in the details, boy.",
+      "color": "#38bdf8"
+    },
+    {
+      "id": "cornerman_ed",
+      "name": "Cornerman Ed",
+      "role": "valet",
+      "alignment": "face",
+      "division": "men",
+      "style": "showman",
+      "gimmick": "A loyal, simple-minded cornerman in a sleeveless shirt with a towel around his neck. He cheers loudly for Colt Brady and mops the ring between matches, occasionally getting in arguments with heels.",
+      "entrance": "to a roar from the crowd",
+      "finisher": {
+        "name": "leg drop",
+        "move": "leg_drop"
+      },
+      "hometown": "Bluefield, West Virginia",
+      "catchphrase": "Come on, Colt! Dig deep!",
+      "color": "#ffc2e2"
+    }
+  ],
+  "titles": [
+    {
+      "id": "stw_world_heavyweight",
+      "name": "STW World Heavyweight Championship",
+      "division": "men",
+      "holder": "vic_stone"
+    },
+    {
+      "id": "stw_television",
+      "name": "STW Television Championship",
+      "division": "men",
+      "holder": "hank_luther"
+    },
+    {
+      "id": "stw_women_championship",
+      "name": "STW Women's Championship",
+      "division": "women",
+      "holder": "georgia_storm"
+    }
+  ],
+  "feuds": [
+    {
+      "a": "silver_streak",
+      "b": "vic_stone",
+      "reason": "Silver Streak defends the honorable masked tradition against Vic Stone's calculated assassinations. Vic has vowed to unmask the Streak and destroy his mystique.",
+      "since": 0
+    },
+    {
+      "a": "colt_brady",
+      "b": "rex_creed",
+      "reason": "Colt Brady confronted Rex Creed for swindling the poor out of their savings in revival meetings. Creed's gospel-spouting hypocrisy enrages the coal miner.",
+      "since": 0
+    },
+    {
+      "a": "jenny_crossfire",
+      "b": "crystal_moon",
+      "reason": "Crystal Moon defeated Jenny in a dark match and then claimed she stole her spiritual essence. Jenny is determined to prove Moon's mysticism is a con.",
+      "since": 0
+    },
+    {
+      "a": "hank_luther",
+      "b": "blackthorn_blake",
+      "reason": "Hank Luther, as a former cop, recognizes Blackthorn as a wanted criminal. Blake escapes the ring at the sight of Luther and mocks him from afar.",
+      "since": 0
+    }
+  ],
+  "alliances": [
+    {
+      "name": "The Four Saddles",
+      "members": [
+        "vic_stone",
+        "marcus_gray",
+        "blackthorn_blake",
+        "rex_creed"
+      ],
+      "since": 0
+    },
+    {
+      "name": "The Blue-Collar Brotherhood",
+      "members": [
+        "colt_brady",
+        "dusty_mason",
+        "hank_luther",
+        "cornerman_ed"
+      ],
+      "since": 0
+    },
+    {
+      "name": "Stone & Gray Syndicate",
+      "members": [
+        "vic_stone",
+        "marcus_gray"
+      ],
+      "since": 0
+    },
+    {
+      "name": "Creed's Flock",
+      "members": [
+        "rex_creed",
+        "rev_darkside"
+      ],
+      "since": 0
+    }
+  ],
+  "notes": [],
+  "history": [],
+  "angleLog": [],
+  "storySoFar": "STW broadcasts live from a steamy Southern territory arena where the wrestling is honest and the stakes are high. Vic Stone, the cold-blooded STW World Champion backed by the Four Saddles stable, rules with calculated brutality while the masked highflyer Silver Streak fights for the common people. Meanwhile, Colt Brady and the Blue-Collar Brotherhood stand against the Four Saddles' corruption. Rex Creed has drawn the ire of Brady by exploiting the faithful, and Jenny Crossfire battles to expose Crystal Moon's mystical fraud. Hank Luther holds the Television Championship with honor, though Blackthorn Blake haunts his every move. Gunner Gates walks the line between hero and opportunist, unpredictable as a live grenade."
+}

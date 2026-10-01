@@ -1,34 +1,56 @@
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/700.css';
 import './style.css';
-import { type BookSource, fetchEpisode, fetchHealth, fetchLibrary, fetchPromotion, fetchStoredPromotion, type Health, type LibraryEntry } from './booker/client';
-import type { Director } from './choreo/director';
+import {
+  type BookSource, fetchEpisode, fetchHealth, fetchLibrary, fetchPromotion, fetchStoredEpisode, fetchStoredPromotion,
+  type Health, type LibraryEntry,
+} from './booker/client';
+import { demoEpisode } from './booker/fallback';
+import { reviewEpisode } from './booker/validate';
+import type { EngineEvent } from './engine/events';
 import { arena } from './engine/arena';
 import { Stage, TICK } from './engine/stage';
 import type { Task } from './engine/tasks';
 import type { Episode } from './schema/episode';
 import { prepareStage } from './show/runner';
-import { demoEpisode } from './booker/fallback';
-import { offlineWorld } from './world/genesis';
-import { episodeLabel, ppvName } from './world/season';
 import { CardView } from './view/card';
 import { FeedView } from './view/feed';
 import { MapView } from './view/map';
 import { connectionText, StartScreen } from './view/start';
+import { applyEpisode } from './world/apply';
+import { offlineWorld } from './world/genesis';
+import { episodeLabel, ppvName } from './world/season';
 import { loadWorldFromStorage, randomSeed, saveWorldToStorage, type World } from './world/state';
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 
-const stage = new Stage(0);
-const map = new MapView($('map'), stage);
-const feed = new FeedView($('feed'), stage);
-const card = new CardView($('card'), stage);
-stage.on((e) => {
+// ------------------------------------------------------------------ stage + views
+
+// Every episode plays on a fresh stage, so replaying an episode (to jump to a segment or a
+// log line) reproduces it exactly: the engine is deterministic for a given world + episode.
+let stage = new Stage(0);
+let map = new MapView($('map'), stage, $('subtitles'));
+let feed = new FeedView($('feed'), stage);
+let card = new CardView($('card'), stage);
+
+function onEvent(e: EngineEvent): void {
   map.onEvent(e);
   feed.onEvent(e);
   card.onEvent(e);
   if (e.type === 'segmentStart') $('seg').textContent = e.title;
-  if (e.type === 'episodeStart') $('ep').textContent = `${e.label}: ${e.title}`;
+  if (e.type === 'episodeStart') $('ep').textContent = e.title === e.ppv ? e.label : `${e.label}: ${e.title}`;
   if (e.type === 'titleChange' || e.type === 'episodeStart') renderChamps();
-});
+}
+
+function freshStage(): void {
+  stage = new Stage(0);
+  map = new MapView($('map'), stage, $('subtitles'));
+  feed = new FeedView($('feed'), stage);
+  feed.clear();
+  card = new CardView($('card'), stage);
+  stage.on(onEvent);
+}
+stage.on(onEvent);
 
 const SPEEDS = [1, 2, 4, 8];
 let speed = 1;
@@ -72,37 +94,141 @@ function renderStatus(): void {
   }
 }
 
-// Dev aid: ?skip=SECONDS fast-forwards the first episode (e.g. to inspect a match).
-let skip = Number(new URLSearchParams(location.search).get('skip') ?? 0);
+// ------------------------------------------------------------------ episodes + seeking
 
-function play(director: Director): Promise<void> {
-  return new Promise((done) => {
-    playing = { task: stage.spawn(director.play()), done };
-    for (; skip > 0 && !playing.task.done; skip -= TICK) stage.update();
-    skip = 0;
+/** An episode we can (re)play: the world it follows, and the episode itself. */
+interface Entry { before: World; episode: Episode; source: BookSource }
+
+/** Where to jump inside an episode. */
+type Target = { segment: number } | { time: number };
+
+/** Episodes known this session, by global episode number. */
+const entries = new Map<number, Promise<Entry | null>>();
+/** The show's starting point: the first episode to air and the world before it. */
+let base: { n: number; world: World } | null = null;
+/** The episode on screen. */
+let nowPlaying = 0;
+/** Bumped by every jump, so an older playback chain stops when it notices. */
+let generation = 0;
+
+/**
+ * Get (or book) episode n: from this session, from the world after episode n-1 (stored
+ * first, then the LLM, then offline), or rebuilt from stored episodes 1..n.
+ */
+function entryFor(n: number): Promise<Entry | null> {
+  const known = entries.get(n);
+  if (known) return known;
+  const promise = (async (): Promise<Entry | null> => {
+    let before: World | null = null;
+    if (!base) return null;
+    if (n === base.n) before = base.world;
+    else if (n > base.n) {
+      // Walk forward from the episode before it (each step stored, booked, or offline).
+      const prev = await entryFor(n - 1);
+      if (prev) before = applyEpisode(prev.before, prev.episode);
+    } else {
+      return rebuildFromStorage(n, base.world.seed);
+    }
+    if (!before) return null;
+    const booked = await fetchEpisode(before);
+    return { before, episode: booked.episode, source: booked.source };
+  })();
+  entries.set(n, promise);
+  promise.then((e) => {
+    if (!e) entries.delete(n); // let a later attempt try again
   });
+  return promise;
 }
 
-/** The endless show: air episode N while the booker writes episode N+1. */
-async function showLoop(world: World): Promise<void> {
-  $('show').textContent = world.showName;
-  document.title = world.showName;
-  setStatus(`booking episode ${world.episode + 1}…`);
-  let booking = fetchEpisode(world);
-  for (;;) {
-    const { episode, source } = await booking;
-    const { director, after } = prepareStage(stage, world, episode);
-    current = { episode, world: after, source };
-    card.setEpisode(episodeLabel(after, after.episode), episode, ppvName(after, after.episode));
-    renderChamps();
-    setStatus(`episode ${after.episode} ${source === 'stored' ? 'from storage' : `booked by ${source}`} · preparing the next one…`);
-    booking = fetchEpisode(after);
-    booking.then((b) => setStatus(`episode ${after.episode} ${source === 'stored' ? 'from storage' : `booked by ${source}`} · next episode ready (${b.source})`));
-    await play(director);
-    saveWorldToStorage(after);
-    world = after;
+/** Re-apply stored episodes 1..n from the stored promotion (pure and instant). */
+async function rebuildFromStorage(n: number, seed: number): Promise<Entry | null> {
+  let world = await fetchStoredPromotion(seed);
+  if (!world) return null;
+  for (let k = 1; k <= n; k++) {
+    const raw = await fetchStoredEpisode(seed, k);
+    const review = raw ? reviewEpisode(raw, world) : null;
+    if (!review?.episode) return null;
+    const entry: Entry = { before: world, episode: review.episode, source: 'stored' };
+    if (!entries.has(k)) entries.set(k, Promise.resolve(entry));
+    if (k === n) return entry;
+    world = applyEpisode(world, review.episode);
   }
+  return null;
 }
+
+/** Run the simulation silently until `until()` holds (or the episode ends). */
+function fastForward(task: Task, until: () => boolean): void {
+  const limit = stage.time + 4 * 3600;
+  while (!task.done && !until() && stage.time < limit) stage.update();
+}
+
+/** Play episode n (optionally jumping inside it), then keep the show going. */
+async function run(n: number, target?: Target): Promise<void> {
+  const my = ++generation;
+  playing = null;
+  setStatus(n === nowPlaying ? 'rewinding…' : `loading episode ${n}…`);
+  const entry = await entryFor(n);
+  if (my !== generation) return;
+  if (!entry) {
+    setStatus(n < nowPlaying ? 'earlier episodes of this show are not stored' : `episode ${n} is not available`);
+    return;
+  }
+  nowPlaying = n;
+  freshStage();
+  const { director, after } = prepareStage(stage, entry.before, entry.episode);
+  current = { episode: entry.episode, world: after, source: entry.source };
+  $('show').textContent = after.showName;
+  document.title = after.showName;
+  card.setEpisode(episodeLabel(after, n), entry.episode, ppvName(after, n), { prev: n > 1, next: true });
+  renderChamps();
+  const task = stage.spawn(director.play());
+  if (target) {
+    if ('segment' in target) {
+      let reached = false;
+      const off = stage.on((e) => {
+        if (e.type === 'segmentStart' && e.index >= target.segment) reached = true;
+      });
+      fastForward(task, () => reached);
+      off();
+    } else {
+      fastForward(task, () => stage.time >= target.time - 0.05);
+    }
+  }
+  const from = entry.source === 'stored' ? 'from storage' : `booked by ${entry.source}`;
+  setStatus(`episode ${n} ${from} · preparing the next one…`);
+  void entryFor(n + 1).then((next) => {
+    if (my === generation && next) setStatus(`episode ${n} ${from} · next episode ready (${next.source})`);
+  });
+  await new Promise<void>((done) => {
+    playing = { task, done };
+  });
+  if (my !== generation) return;
+  saveWorldToStorage(after);
+  void run(n + 1);
+}
+
+/** Start the endless show from a world (the next episode is world.episode + 1). */
+function startShow(world: World, target?: Target): void {
+  entries.clear();
+  base = { n: world.episode + 1, world };
+  void run(base.n, target);
+}
+
+// Clicks: a segment in the card, the episode arrows, or a line in the log.
+$('card').addEventListener('click', (e) => {
+  const el = e.target as HTMLElement;
+  const nav = el.closest<HTMLElement>('[data-nav]')?.dataset.nav;
+  if (nav && !(el.closest('button') as HTMLButtonElement | null)?.disabled) {
+    void run(nowPlaying + (nav === 'prev' ? -1 : 1));
+    return;
+  }
+  const seg = el.closest<HTMLElement>('[data-seg]')?.dataset.seg;
+  if (seg !== undefined && nowPlaying) void run(nowPlaying, { segment: Number(seg) });
+});
+$('feed').addEventListener('click', (e) => {
+  const t = (e.target as HTMLElement).closest<HTMLElement>('[data-t]')?.dataset.t;
+  if (t !== undefined && nowPlaying) void run(nowPlaying, { time: Number(t) });
+});
 
 // ------------------------------------------------------------------ connection + start screen
 
@@ -115,15 +241,18 @@ async function refreshHealth(): Promise<void> {
 }
 
 const start = new StartScreen($('start'));
-async function openStart(canClose: boolean, current: World | null = canClose ? loadWorldFromStorage() : null): Promise<void> {
-  start.open({ current, library: await fetchLibrary(), health, canClose });
+async function openStart(canClose: boolean, currentWorld: World | null = canClose ? loadWorldFromStorage() : null): Promise<void> {
+  start.open({ current: currentWorld, library: await fetchLibrary(), health, canClose });
 }
 
-/** Decide what to air: ?play=new|library, the saved show, or the start screen. */
+/** Decide what to air: ?show= / ?play=new|library, the saved show, or the start screen. */
 async function main(): Promise<void> {
   await refreshHealth();
   setInterval(refreshHealth, 20_000);
   const params = new URLSearchParams(location.search);
+  // Dev aid: ?skip=SECONDS jumps into the first episode (e.g. to inspect a match).
+  const skip = Number(params.get('skip') ?? 0);
+  const target: Target | undefined = skip > 0 ? { time: skip } : undefined;
   // Shareable links: ?show=warzone (or the short name, full name, or seed) plays that
   // stored show from Season 1, Episode 1 right away.
   const showParam = params.get('show');
@@ -132,13 +261,14 @@ async function main(): Promise<void> {
   if (demo) {
     // Dev/demo: one stipulation match on a throwaway offline roster (nothing is saved).
     const w = offlineWorld(randomSeed());
+    freshStage();
     const ep = demoEpisode(w, demo);
     const { director } = prepareStage(stage, w, ep);
     card.setEpisode('Demo', ep);
     $('show').textContent = w.showName;
     setStatus(`demo: ${demo}`);
-    await play(director);
-    setStatus('demo finished');
+    const task = stage.spawn(director.play());
+    if (target) fastForward(task, () => stage.time >= target.time);
     return;
   }
   let world: World | null = null;
@@ -149,7 +279,6 @@ async function main(): Promise<void> {
     feed.onEvent({ type: 'narrated', text: 'Creating a brand-new promotion…', style: 'info', t: 0 });
     const created = await fetchPromotion(direction, randomSeed());
     world = created.world;
-    feed.onEvent({ type: 'narrated', text: `Welcome to ${world.showName}! (roster by ${created.source})`, style: 'info', t: 0 });
   } else if (program === 'library') {
     const seed = showParam ? findShow(await fetchLibrary(), showParam)?.seed : Number(params.get('seed'));
     world = seed ? await fetchStoredPromotion(seed) : null;
@@ -157,8 +286,9 @@ async function main(): Promise<void> {
   } else {
     world = loadWorldFromStorage();
   }
+  const deep = { ep: params.get('ep'), seg: params.get('seg') };
   // Keep the URL clean so a reload continues the show instead of restarting it.
-  for (const k of ['play', 'direction', 'seed', 'show']) params.delete(k);
+  for (const k of ['play', 'direction', 'seed', 'show', 'skip', 'ep', 'seg']) params.delete(k);
   history.replaceState(null, '', `${location.pathname}${params.size ? `?${params}` : ''}`);
   if (!world) {
     if (!status.startsWith("couldn't")) setStatus('choose a show');
@@ -174,13 +304,21 @@ async function main(): Promise<void> {
     start.onContinue = () => {
       start.onContinue = null; // later Continue clicks (from N) just close the screen
       markChosen();
-      void showLoop(ready);
+      startShow(ready);
     };
     await openStart(true, ready);
     return;
   }
   markChosen();
-  await showLoop(world);
+  // Deep links: &ep=8 (and &seg=3) open that episode (segment) of the show directly.
+  const ep = Number(deep.ep ?? 0);
+  if (ep >= 1) {
+    entries.clear();
+    base = { n: world.episode + 1, world };
+    void run(ep, deep.seg !== null ? { segment: Number(deep.seg) - 1 } : target);
+    return;
+  }
+  startShow(world, target);
 }
 
 /** Match a ?show= value against stored shows: seed, short name, or (part of) the name. */
@@ -247,6 +385,9 @@ window.addEventListener('keydown', (e) => {
     else document.documentElement.requestFullscreen().catch(() => {});
   } else if (e.key === 'N') {
     void openStart(current !== null);
+  } else if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && nowPlaying) {
+    const n = nowPlaying + (e.key === 'ArrowLeft' ? -1 : 1);
+    if (n >= 1) void run(n);
   }
   renderStatus();
 });
@@ -254,7 +395,8 @@ window.addEventListener('keydown', (e) => {
 function fit(): void {
   // The arena is the main event: size it to the space left of the card.
   const side = window.innerWidth > 900 ? 320 : 0;
-  const width = Math.min(window.innerWidth - 48 - side, 1500);
+  const gutter = window.innerWidth <= 700 ? 30 : 48;
+  const width = Math.min(window.innerWidth - gutter - side, 1500);
   const px = Math.max(7, Math.min(24, width / (arena.width * 0.61)));
   document.documentElement.style.setProperty('--cell', `${px}px`);
 }

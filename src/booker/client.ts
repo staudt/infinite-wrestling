@@ -56,6 +56,11 @@ export async function fetchStoredPromotion(seed: number): Promise<World | null> 
   return w?.version === 2 ? w : null;
 }
 
+/** One stored episode, as stored (callers review it against the world it follows). */
+export async function fetchStoredEpisode(seed: number, n: number): Promise<unknown | null> {
+  return getJson<unknown>(`${LIBRARY}/${seed}/ep-${pad(n)}.json`);
+}
+
 /** The next episode for this world: stored first, then the LLM, then offline. */
 export async function fetchEpisode(world: World): Promise<{ episode: Episode; source: BookSource }> {
   // Re-check everything on the client: the page must never play what it can't stage.

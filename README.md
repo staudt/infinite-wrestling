@@ -30,7 +30,9 @@ The first visit opens the **start screen** (press `N` any time to reopen it):
 
 The footer shows the connection: live (model names), server up without an API key, or not connected.
 
-Keys: `space` pause · `1`–`4` speed (1/2/4/8x) · `d` debug panel · `f` fullscreen · `N` shows.
+Keys: `space` pause · `1`–`4` speed (1/2/4/8x) · `←`/`→` previous/next episode · `d` debug panel · `f` fullscreen · `N` shows.
+
+Click a segment in the card to watch it, click a line in the log to jump back to that moment, or use the ◀ ▶ arrows by the episode title. The engine is deterministic, so a jump replays the episode silently up to that point. Deep links work too: `?show=wzw&ep=8&seg=3` opens segment 3 of episode 8.
 
 ### Seasons
 

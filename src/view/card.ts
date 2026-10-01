@@ -60,12 +60,15 @@ export class CardView {
   private segments: SegmentEntry[] = [];
   private header = '';
   private ppv: string | null = null;
+  /** Which episode arrows are available (rendered as ◀ ▶ around the title). */
+  private nav = { prev: false, next: false };
 
   constructor(private el: HTMLElement, private stage: Stage) {}
 
-  setEpisode(label: string, ep: Episode, ppv: string | null = null): void {
-    this.header = `${label}: ${ep.title}`;
+  setEpisode(label: string, ep: Episode, ppv: string | null = null, nav = { prev: false, next: false }): void {
+    this.header = ep.title === ppv ? label : `${label}: ${ep.title}`;
     this.ppv = ppv;
+    this.nav = nav;
     this.segments = ep.segments.map((seg) => ({
       title: seg.title,
       recap: seg.recap,
@@ -216,17 +219,21 @@ export class CardView {
       const main = i === this.segments.length - 1 && s.matches.length ? ' <span class="main">MAIN EVENT</span>' : '';
       const head = `<div class="seg-head"><span class="kind">${s.kind}</span>${main}</div><div class="seg-title">${esc(s.title)}</div>`;
       const matches = s.matches.map((m) => this.matchLine(m)).join('');
+      // data-seg makes every segment clickable: watch it from its start.
+      const seg = `data-seg="${i}" title="Watch this segment"`;
       if (s.state === 'live') {
-        return `<li class="live"><div class="seg-head"><span class="live">● LIVE</span> <span class="kind">${s.kind}</span>${main}</div><div class="seg-title">${esc(s.title)}</div>${matches}${this.people(s)}</li>`;
+        return `<li class="live" ${seg}><div class="seg-head"><span class="live">● LIVE</span> <span class="kind">${s.kind}</span>${main}</div><div class="seg-title">${esc(s.title)}</div>${matches}${this.people(s)}</li>`;
       }
       if (s.state === 'done') {
         // Matches speak for themselves; other segments get their one-line recap.
         const summary = s.matches.length ? matches : `<div class="recap">${esc(s.recap)}</div>`;
-        return `<li class="done">${head}${summary}</li>`;
+        return `<li class="done" ${seg}>${head}${summary}</li>`;
       }
-      return `<li class="upcoming">${head}${matches}</li>`;
+      return `<li class="upcoming" ${seg}>${head}${matches}</li>`;
     });
     const banner = this.ppv ? `<div class="ppv">PAY-PER-VIEW · ${esc(this.ppv)}</div>` : '';
-    this.el.innerHTML = `${banner}<h3>${esc(this.header)}</h3><ol>${rows.join('')}</ol>`;
+    const arrow = (dir: 'prev' | 'next', ok: boolean) =>
+      `<button class="ep-nav" data-nav="${dir}" ${ok ? '' : 'disabled'} title="${dir === 'prev' ? 'Previous' : 'Next'} episode">${dir === 'prev' ? '◀' : '▶'}</button>`;
+    this.el.innerHTML = `${banner}<div class="ep-head">${arrow('prev', this.nav.prev)}<h3>${esc(this.header)}</h3>${arrow('next', this.nav.next)}</div><ol>${rows.join('')}</ol>`;
   }
 }

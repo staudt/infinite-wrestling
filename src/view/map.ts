@@ -39,6 +39,17 @@ const CROWD_SHOUTS: Record<CrowdLevel, { texts: string[]; color: string }> = {
 interface Balloon { who: string; text: string; colors: (string | null)[]; bold: boolean[]; lines: [number, number][]; until: number; color: string; at: number }
 interface Shout { text: string; color: string; row: number; col: number; until: number }
 
+/**
+ * ASCII is safe in any monospace font; other glyphs (box drawing, blocks, ★, ♪) may come
+ * from a fallback font with a different width on some devices, which skews the grid. Each
+ * of those gets its own one-cell box, so rows always line up.
+ */
+function cellText(run: string): string {
+  let out = '';
+  for (const ch of run) out += ch.charCodeAt(0) > 0x7e ? `<i class="w">${ch}</i>` : esc(ch);
+  return out;
+}
+
 function esc(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
@@ -117,8 +128,28 @@ export class MapView {
   private names: NameIndex;
   private shoutSeed = 0;
 
-  constructor(private el: HTMLElement, private stage: Stage) {
+  private subtitleHtml = '';
+
+  constructor(private el: HTMLElement, private stage: Stage, private subtitles: HTMLElement | null = null) {
     this.names = new NameIndex(stage);
+  }
+
+  /**
+   * Phones: the arena is small, so whatever is being said also shows as subtitles under
+   * it at a readable size (speaker in their color, names colored).
+   */
+  private renderSubtitles(t: number): void {
+    if (!this.subtitles) return;
+    const live = [...this.balloons.values()].filter((b) => b.until > t).sort((a, b) => b.at - a.at).slice(0, 3);
+    const html = live.map((b) => {
+      const who = this.stage.actors.get(b.who);
+      const name = who ? who.name.replace(/"[^"]*"\s*/g, '').trim() : '';
+      return `<div><b style="color:${b.color}">${esc(name)}:</b> ${this.names.html(b.text, esc)}</div>`;
+    }).join('');
+    if (html !== this.subtitleHtml) {
+      this.subtitleHtml = html;
+      this.subtitles.innerHTML = html;
+    }
   }
 
   onEvent(e: EngineEvent): void {
@@ -244,6 +275,7 @@ export class MapView {
     }
 
     this.drawBalloons(g, t);
+    this.renderSubtitles(t);
     this.el.innerHTML = g.map((row) => this.rowHtml(row)).join('\n');
   }
 
@@ -325,7 +357,8 @@ export class MapView {
     const flush = () => {
       if (!run) return;
       const [cls, color] = key.split('|');
-      html += cls || color ? `<span class="${cls}"${color ? ` style="color:${color}"` : ''}>${esc(run)}</span>` : esc(run);
+      const text = cellText(run);
+      html += cls || color ? `<span class="${cls}"${color ? ` style="color:${color}"` : ''}>${text}</span>` : text;
       run = '';
     };
     for (const c of row) {

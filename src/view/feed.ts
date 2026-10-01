@@ -49,6 +49,9 @@ export class FeedView {
   private add(html: string, cls: string, t: number): HTMLElement {
     const li = document.createElement('li');
     li.className = cls;
+    // The show time lets a click on the line rewind/jump the show to that moment.
+    li.dataset.t = String(t);
+    li.title = 'Jump to this moment';
     li.innerHTML = `<span class="ts">${clock(t)}</span> ${html}`;
     this.el.appendChild(li);
     while (this.el.children.length > MAX_LINES) this.el.firstElementChild!.remove();

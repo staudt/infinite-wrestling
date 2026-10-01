@@ -16,7 +16,7 @@ html, body {
   height: 100%;
   background: var(--bg);
   color: var(--fg);
-  font-family: ui-monospace, 'JetBrains Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+  font-family: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Menlo, Consolas, monospace;
 }
 
 body {
@@ -65,6 +65,8 @@ main {
   overflow: hidden;
   max-width: 100%;
 }
+/* One fixed cell for every non-ASCII glyph, whatever font draws it. */
+#map .w { display: inline-block; width: 1ch; height: 1.3em; line-height: 1.3em; text-align: center; overflow: hidden; vertical-align: top; font-style: normal; }
 #map .crowd { color: #2a2a3a; }
 #map .crowd-cheer, #map .crowd-pop { color: #5fa8ff; }
 #map .crowd-boo { color: #c0463a; }
@@ -169,6 +171,15 @@ kbd { background: #1a1a26; border: 1px solid #2a2a3a; border-radius: 3px; paddin
 
 #card { font-size: 13px; }
 #card .ppv { display: inline-block; margin-bottom: 6px; padding: 2px 8px; border-radius: 3px; background: linear-gradient(90deg, #7a1fa2, #d4145a); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; }
+#card .ep-head { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 8px; }
+#card .ep-head h3 { flex: 1; margin: 0; }
+#card .ep-nav { font: inherit; font-size: 11px; color: var(--accent); background: #1a1a28; border: 1px solid #33334a; border-radius: 3px; padding: 1px 7px; cursor: pointer; }
+#card .ep-nav:hover:not(:disabled) { border-color: var(--accent); }
+#card .ep-nav:disabled { opacity: 0.3; cursor: default; }
+#card li[data-seg] { cursor: pointer; }
+#card li[data-seg]:not(.live):hover { border-color: #33334a; background: #12121c; }
+#feed li[data-t] { cursor: pointer; }
+#feed li[data-t]:hover { background: #161622; }
 #card h3 { margin: 0 0 8px; font-size: 13px; color: var(--accent); letter-spacing: 0.04em; }
 #card ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
 #card li { padding: 5px 8px; border: 1px solid transparent; border-radius: 3px; line-height: 1.35; }
@@ -195,9 +206,35 @@ kbd { background: #1a1a26; border: 1px solid #2a2a3a; border-radius: 3px; paddin
 @keyframes in { from { opacity: 0; transform: translateY(4px); } }
 @keyframes flash { 50% { opacity: 0.35; } }
 
+#subtitles { display: none; }
+
+/* Phones (portrait): stack everything, let the page scroll, subtitles under the arena. */
 @media (max-width: 700px) {
-  body { padding: 8px; }
-  #feed { font-size: 13px; }
+  html, body { height: auto; }
+  body { padding: 8px; display: block; }
+  #hud { font-size: 12px; gap: 2px 10px; margin-bottom: 8px; }
+  main { display: block; }
+  #arena { flex-direction: column; flex-wrap: nowrap; gap: 8px; }
+  #stagecol { width: 100%; }
+  #map { padding: 4px; }
+  #subtitles {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-height: 4.6em;
+    padding: 6px 8px;
+    background: var(--panel);
+    border: 1px solid #1c1c28;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.35;
+    margin-top: 6px;
+  }
+  #side { max-width: none; width: 100%; min-width: 0; }
+  #feed { font-size: 12px; max-height: 40vh; min-height: 0; margin-top: 10px; }
+  footer { flex-direction: column; gap: 4px; margin-top: 8px; }
+  footer .keys { display: none; }
+  .start-panel { padding: 14px; }
 }
 
 /* Connection indicator */

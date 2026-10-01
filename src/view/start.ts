@@ -26,6 +26,12 @@ export function connectionText(h: Health | null | undefined): { text: string; cl
   return { text: `● live: ${h.model} (season plans: ${h.planModel})`, cls: 'conn-on' };
 }
 
+/** A link that opens straight into a stored show, e.g. https://…/infinite-wrestling/?show=wzw */
+function shareLink(e: LibraryEntry): string {
+  const name = (e.shortName || e.showName).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return `${location.origin}${location.pathname}?show=${encodeURIComponent(name || String(e.seed))}`;
+}
+
 /** Reload into a program, keeping dev flags like ?offline. */
 export function go(play: Record<string, string>): void {
   const keep = new URLSearchParams(location.search);
@@ -86,7 +92,7 @@ export class StartScreen {
         return `<li>
           <div><b>${esc(e.showName)}</b> <span class="badge">${e.source === 'library' ? 'library' : 'saved'}</span></div>
           <div class="hint">${esc(e.direction || 'no direction')}</div>
-          <div class="row"><span class="hint">${stored}</span><button data-seed="${e.seed}">Watch from the start</button></div>
+          <div class="row"><span class="hint">${stored} · <a class="share" href="${shareLink(e)}" title="Link that starts this show right away">share link</a></span><button data-seed="${e.seed}">Watch from the start</button></div>
         </li>`;
       }).join('')
       : '<li class="hint">Nothing stored yet. Shows you create are saved automatically when the booker server is running.</li>';

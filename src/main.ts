@@ -1,5 +1,5 @@
 import './style.css';
-import { type BookSource, fetchEpisode, fetchHealth, fetchLibrary, fetchPromotion, fetchStoredPromotion, type Health } from './booker/client';
+import { type BookSource, fetchEpisode, fetchHealth, fetchLibrary, fetchPromotion, fetchStoredPromotion, type Health, type LibraryEntry } from './booker/client';
 import type { Director } from './choreo/director';
 import { arena } from './engine/arena';
 import { Stage, TICK } from './engine/stage';
@@ -124,7 +124,10 @@ async function main(): Promise<void> {
   await refreshHealth();
   setInterval(refreshHealth, 20_000);
   const params = new URLSearchParams(location.search);
-  const program = params.get('play');
+  // Shareable links: ?show=warzone (or the short name, full name, or seed) plays that
+  // stored show from Season 1, Episode 1 right away.
+  const showParam = params.get('show');
+  const program = showParam ? 'library' : params.get('play');
   const demo = params.get('demo');
   if (demo) {
     // Dev/demo: one stipulation match on a throwaway offline roster (nothing is saved).
@@ -148,16 +151,17 @@ async function main(): Promise<void> {
     world = created.world;
     feed.onEvent({ type: 'narrated', text: `Welcome to ${world.showName}! (roster by ${created.source})`, style: 'info', t: 0 });
   } else if (program === 'library') {
-    world = await fetchStoredPromotion(Number(params.get('seed')));
-    if (!world) setStatus('that stored show could not be loaded');
+    const seed = showParam ? findShow(await fetchLibrary(), showParam)?.seed : Number(params.get('seed'));
+    world = seed ? await fetchStoredPromotion(seed) : null;
+    if (!world) setStatus(`couldn't find the stored show "${showParam ?? params.get('seed')}"`);
   } else {
     world = loadWorldFromStorage();
   }
   // Keep the URL clean so a reload continues the show instead of restarting it.
-  for (const k of ['play', 'direction', 'seed']) params.delete(k);
+  for (const k of ['play', 'direction', 'seed', 'show']) params.delete(k);
   history.replaceState(null, '', `${location.pathname}${params.size ? `?${params}` : ''}`);
   if (!world) {
-    setStatus('choose a show');
+    if (!status.startsWith("couldn't")) setStatus('choose a show');
     await openStart(false);
     return;
   }
@@ -177,6 +181,15 @@ async function main(): Promise<void> {
   }
   markChosen();
   await showLoop(world);
+}
+
+/** Match a ?show= value against stored shows: seed, short name, or (part of) the name. */
+function findShow(library: LibraryEntry[], query: string): LibraryEntry | undefined {
+  const slug = (x: string) => x.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  const q = slug(query);
+  return library.find((e) => String(e.seed) === query)
+    ?? library.find((e) => slug(e.shortName) === q || slug(e.showName) === q)
+    ?? library.find((e) => slug(e.showName).split('-').includes(q) || slug(e.showName).startsWith(q));
 }
 
 const CHOSEN_KEY = 'gptww.chosen';

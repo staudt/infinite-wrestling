@@ -11,7 +11,7 @@
  ENTRANCE                 INTERVIEW                     GPTWW
 ```
 
-**Demo:** https://staudt.github.io/infinite-wrestling/ plays the shows in `library/` with no AI, using the offline booker after the stored episodes run out.
+**Demo:** https://staudt.github.io/infinite-wrestling/?show=wzw starts *WARZONE WRESTLING LIVE* (a full pre-generated season) right away. The site plays the shows in `library/` with no AI, using the offline booker after the stored episodes run out. Any stored show can be linked with `?show=<short name>`; the start screen has a share link for each.
 
 ## Run it
 

@@ -1,11 +1,13 @@
 import { defineConfig, type Plugin } from 'vite';
-import { listLibrary, readStored } from './server/sessions.ts';
+import { exportLibrary, listLibrary, readStored } from './server/sessions.ts';
 
 /**
  * Serves stored shows (sessions/ and library/) straight from the dev server, so saved
  * promotions play even when the booker server is down or there's no API key.
  *   GET /library/index.json            every stored show
  *   GET /library/<seed>/<file>.json    promotion.json or ep-NNN.json
+ * In a production build (GitHub Pages), the committed library/ is emitted as the same
+ * static files, so the demo plays stored shows with no server at all.
  */
 function library(): Plugin {
   return {
@@ -25,10 +27,15 @@ function library(): Plugin {
         return data ? send(200, data) : send(404, { error: 'not stored' });
       });
     },
+    generateBundle() {
+      for (const f of exportLibrary()) this.emitFile({ type: 'asset', fileName: f.path, source: f.content });
+    },
   };
 }
 
 export default defineConfig({
+  // Relative paths, so the build works from any subpath (e.g. GitHub Pages).
+  base: './',
   plugins: [library()],
   server: {
     proxy: { '/api': 'http://localhost:8787' },

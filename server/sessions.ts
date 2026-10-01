@@ -105,3 +105,27 @@ export function saveFailure(tool: string, input: unknown, problems: string[]): v
 }
 
 export const dirs = { sessions: SESSIONS, library: LIBRARY };
+
+/**
+ * Everything in the committed library as static files (for the GitHub Pages build):
+ * library/index.json plus each show's promotion.json and episodes.
+ */
+export function exportLibrary(): { path: string; content: string }[] {
+  if (!existsSync(LIBRARY)) return [{ path: 'library/index.json', content: '[]' }];
+  const files: { path: string; content: string }[] = [];
+  const entries: LibraryEntry[] = [];
+  for (const dir of readdirSync(LIBRARY)) {
+    const promo = readJson<World>(join(LIBRARY, dir, 'promotion.json'));
+    if (!/^\d+$/.test(dir) || promo?.version !== 2) continue;
+    const eps = readdirSync(join(LIBRARY, dir)).filter((f) => /^ep-\d{3}\.json$/.test(f)).sort();
+    for (const f of ['promotion.json', ...eps]) {
+      files.push({ path: `library/${dir}/${f}`, content: readFileSync(join(LIBRARY, dir, f), 'utf8') });
+    }
+    entries.push({
+      seed: Number(dir), source: 'library', showName: promo.showName, shortName: promo.shortName,
+      direction: promo.direction, episodes: eps.length, updated: statSync(join(LIBRARY, dir)).mtimeMs,
+    });
+  }
+  files.push({ path: 'library/index.json', content: JSON.stringify(entries) });
+  return files;
+}

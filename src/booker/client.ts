@@ -24,6 +24,8 @@ export interface LibraryEntry {
 
 const sourceOf = (s: unknown): BookSource => (s === 'llm' ? 'llm' : s === 'cache' ? 'stored' : 'offline');
 const pad = (n: number) => String(n).padStart(3, '0');
+/** Stored shows live next to the page (dev server middleware, or static files on GitHub Pages). */
+const LIBRARY = `${import.meta.env.BASE_URL}library`;
 
 // A season premiere may plan the season and shuffle the roster first (two extra calls).
 const TIMEOUT_MS = 300_000;
@@ -46,18 +48,18 @@ export async function fetchHealth(): Promise<Health | null> {
 }
 
 export async function fetchLibrary(): Promise<LibraryEntry[]> {
-  return (await getJson<LibraryEntry[]>('/library/index.json')) ?? [];
+  return (await getJson<LibraryEntry[]>(`${LIBRARY}/index.json`)) ?? [];
 }
 
 export async function fetchStoredPromotion(seed: number): Promise<World | null> {
-  const w = await getJson<World>(`/library/${seed}/promotion.json`);
+  const w = await getJson<World>(`${LIBRARY}/${seed}/promotion.json`);
   return w?.version === 2 ? w : null;
 }
 
 /** The next episode for this world: stored first, then the LLM, then offline. */
 export async function fetchEpisode(world: World): Promise<{ episode: Episode; source: BookSource }> {
   // Re-check everything on the client: the page must never play what it can't stage.
-  const stored = await getJson<unknown>(`/library/${world.seed}/ep-${pad(world.episode + 1)}.json`);
+  const stored = await getJson<unknown>(`${LIBRARY}/${world.seed}/ep-${pad(world.episode + 1)}.json`);
   if (stored) {
     const review = reviewEpisode(stored, world);
     if (review.episode) return { episode: review.episode, source: 'stored' };

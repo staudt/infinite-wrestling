@@ -11,6 +11,8 @@
  ENTRANCE                 INTERVIEW                     GPTWW
 ```
 
+**Demo:** https://staudt.github.io/infinite-wrestling/ plays the shows in `library/` with no AI, using the offline booker after the stored episodes run out.
+
 ## Run it
 
 ```bash
@@ -56,6 +58,8 @@ npm run pregen -- --seed <seed> --seasons 1                                     
 npm run library                                                                    # list stored shows
 npm run library -- add <seed>                                                      # copy a saved show into library/ to commit it
 ```
+
+To publish a show to the demo, pregen it, `npm run library -- add <seed>`, commit `library/` and push. The GitHub Pages workflow (`.github/workflows/pages.yml`) builds the static site and bundles the library into it.
 
 Saved shows live in `sessions/<seed>/` (git-ignored); curated shows live in `library/<seed>/` (committed). Both are read the same way, and a stored episode is always used before generating a new one. A season on Haiku (plus one Sonnet plan and one off-season call) costs roughly $0.40–0.50.
 

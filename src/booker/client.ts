@@ -1,14 +1,20 @@
 // How the page gets its show. Episodes come from, in order:
-//   1. the library (stored episodes, served by the dev server; free, works offline),
-//   2. the booker server (LLM; new episodes are saved, extending the stored show),
-//   3. the offline booker (templates, never saved).
+//   1. the library (stored episodes, served by the dev server or GitHub Pages; free),
+//   2. the booker server (LLM; new episodes are saved, extending the stored show).
+// When neither has the episode the show stops and says why: viewers only ever see
+// LLM-written shows.
 import type { Episode } from '../schema/episode';
 import type { World } from '../world/state';
-import { offlineWorld } from '../world/genesis';
-import { offlineBook } from './fallback';
 import { reviewEpisode } from './validate';
 
-export type BookSource = 'llm' | 'stored' | 'offline' | 'offline (server unreachable)';
+export type BookSource = 'llm' | 'stored';
+
+/** Why an episode or promotion couldn't be produced. */
+export interface Unavailable {
+  /** offline: no booker server; no-llm: server without an API key; error: the LLM failed. */
+  reason: 'offline' | 'no-llm' | 'error';
+  message: string;
+}
 
 export interface Health { llm: boolean; model: string; planModel: string }
 
@@ -22,7 +28,16 @@ export interface LibraryEntry {
   updated: number;
 }
 
-const sourceOf = (s: unknown): BookSource => (s === 'llm' ? 'llm' : s === 'cache' ? 'stored' : 'offline');
+const sourceOf = (s: unknown): BookSource => (s === 'cache' ? 'stored' : 'llm');
+
+/** Turn a failed booker response into an Unavailable. */
+async function unavailable(res: Response): Promise<Unavailable> {
+  const body = await res.json().catch(() => null);
+  if (body?.error === 'no-llm') return { reason: 'no-llm', message: body.message ?? 'no API key on the booker server' };
+  if (body?.error) return { reason: 'error', message: body.message ?? 'the booker failed' };
+  return { reason: 'offline', message: 'not connected to a booker server' };
+}
+const OFFLINE_REASON: Unavailable = { reason: 'offline', message: 'not connected to a booker server' };
 const pad = (n: number) => String(n).padStart(3, '0');
 /** Stored shows live next to the page (dev server middleware, or static files on GitHub Pages). */
 const LIBRARY = `${import.meta.env.BASE_URL}library`;
@@ -61,15 +76,15 @@ export async function fetchStoredEpisode(seed: number, n: number): Promise<unkno
   return getJson<unknown>(`${LIBRARY}/${seed}/ep-${pad(n)}.json`);
 }
 
-/** The next episode for this world: stored first, then the LLM, then offline. */
-export async function fetchEpisode(world: World): Promise<{ episode: Episode; source: BookSource }> {
+/** The next episode for this world: stored first, then the LLM. */
+export async function fetchEpisode(world: World): Promise<{ episode: Episode; source: BookSource } | ({ episode: null } & Unavailable)> {
   // Re-check everything on the client: the page must never play what it can't stage.
   const stored = await getJson<unknown>(`${LIBRARY}/${world.seed}/ep-${pad(world.episode + 1)}.json`);
   if (stored) {
     const review = reviewEpisode(stored, world);
     if (review.episode) return { episode: review.episode, source: 'stored' };
   }
-  if (OFFLINE) return { episode: offlineBook(world), source: 'offline' };
+  if (OFFLINE) return { episode: null, ...OFFLINE_REASON };
   try {
     const res = await fetch('/api/episode', {
       method: 'POST',
@@ -77,19 +92,19 @@ export async function fetchEpisode(world: World): Promise<{ episode: Episode; so
       body: JSON.stringify({ world }),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (!res.ok) return { episode: null, ...(await unavailable(res)) };
     const body = await res.json();
     const review = reviewEpisode(body.episode, world);
     if (review.episode) return { episode: review.episode, source: sourceOf(body.source) };
+    return { episode: null, reason: 'error', message: 'the booker sent an unplayable episode' };
   } catch {
-    return { episode: offlineBook(world), source: 'offline (server unreachable)' };
+    return { episode: null, ...OFFLINE_REASON };
   }
-  return { episode: offlineBook(world), source: 'offline' };
 }
 
-/** Ask the booker server to create a new promotion; falls back to the offline generator. */
-export async function fetchPromotion(direction: string, seed: number): Promise<{ world: World; source: BookSource }> {
-  if (OFFLINE) return { world: offlineWorld(seed, direction), source: 'offline' };
+/** Ask the booker server to create a new promotion (needs the LLM). */
+export async function fetchPromotion(direction: string, seed: number): Promise<{ world: World; source: BookSource } | ({ world: null } & Unavailable)> {
+  if (OFFLINE) return { world: null, ...OFFLINE_REASON };
   try {
     const res = await fetch('/api/promotion', {
       method: 'POST',
@@ -97,11 +112,11 @@ export async function fetchPromotion(direction: string, seed: number): Promise<{
       body: JSON.stringify({ direction, seed }),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (!res.ok) return { world: null, ...(await unavailable(res)) };
     const body = await res.json();
     if (body.world?.version === 2) return { world: body.world, source: sourceOf(body.source) };
+    return { world: null, reason: 'error', message: 'the booker sent an unusable promotion' };
   } catch {
-    return { world: offlineWorld(seed, direction), source: 'offline (server unreachable)' };
+    return { world: null, ...OFFLINE_REASON };
   }
-  return { world: offlineWorld(seed, direction), source: 'offline' };
 }

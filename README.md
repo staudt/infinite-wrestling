@@ -11,7 +11,7 @@
  ENTRANCE                 INTERVIEW                     GPTWW
 ```
 
-**Demo:** https://staudt.github.io/infinite-wrestling/?show=wzw starts *WARZONE WRESTLING LIVE* (a full pre-generated season) right away. The site plays the shows in `library/` with no AI, using the offline booker after the stored episodes run out. Any stored show can be linked with `?show=<short name>`; the start screen has a share link for each.
+**Demo:** https://staudt.github.io/infinite-wrestling/?show=wzw starts *WARZONE WRESTLING LIVE* (a full pre-generated season) right away. The site plays the shows in `library/` with no AI; when a show's stored episodes run out it offers a replay or another show. Any stored show can be linked with `?show=<short name>`; the start screen has a share link for each.
 
 ## Run it
 
@@ -25,7 +25,7 @@ npm run dev                 # open the printed URL
 The first visit opens the **start screen** (press `N` any time to reopen it):
 
 - **New live promotion**: Claude creates a promotion and books it as it airs. You can add an optional direction (era, style, the stars you want, match styles, factions, crowd) or start from a preset. The direction is saved with the world and steers every booking call.
-- **Stored shows**: every show you watch live is saved and plays back from Season 1, Episode 1 for free. This works even with the booker server down. When a stored show runs out, new episodes are booked live and saved, extending it. With no connection, the offline booker takes over; those episodes aren't saved.
+- **Stored shows**: every show you watch live is saved and plays back from Season 1, Episode 1 for free. This works even with the booker server down. When a stored show runs out, new episodes are booked live and saved, extending it. Without the AI booker, the show stops at its last stored episode and offers a replay or another show.
 - **Continue** the current show.
 
 The footer shows the connection: live (model names), server up without an API key, or not connected.
@@ -71,7 +71,7 @@ Headless preview (prints the play-by-play and saves `shows/ep-XXX.{md,json}` + `
 npm run preview -- --new --direction "ECW-style hardcore" --episodes 2
 npm run preview -- --episodes 3            # continue the saved CLI world
 npm run preview -- --new --classic         # the hand-written GPTWW roster
-npm run preview -- --offline ...           # never call the API
+npm run preview -- --offline ...           # dev template booker, never calls the API
 ```
 
 Model output that needed repairs is saved to `sessions/failures/` for prompt tuning. `npm test` runs the Vitest suite; `npm run typecheck` runs tsc.
@@ -80,7 +80,7 @@ Model output that needed repairs is saved to `sessions/failures/` for prompt tun
 
 Three layers. The LLM decides **what** happens; the engine decides **how**.
 
-0. **Genesis** (`src/world/genesis.ts`, `src/schema/promotion.ts`): one Claude call per new world creates the promotion. `reviewPromotion` sanitizes it (ids, finishers, champions) and assigns colors. `randomPromotion` is the offline equivalent.
+0. **Genesis** (`src/world/genesis.ts`, `src/schema/promotion.ts`): one Claude call per new world creates the promotion. `reviewPromotion` sanitizes it (ids, finishers, champions) and assigns colors. A template-based random roster and booker live in `src/dev/` for tests, `?demo=` and `preview --offline`; viewers only see LLM-written shows.
 1. **Booker** (`server/booker.ts`, `src/booker/`): one Claude call per episode. The model fills a `book_episode` tool with a flat list of beats split by `segment` markers (`EpisodeDraft`), which is converted into the nested `Episode` (`src/schema/episode.ts`). It contains segments of beats (`entrance`, `promo`, `interview`, `confrontation`, `attack`, `match`, `interrupt`, `run_in`, `reveal`, `turn`, `react`, `celebrate`, `exit`, `narrate`) plus state changes. `validate.ts` checks ids and booking rules; parsing is lenient: missing or invalid non-essential fields get defaults, stringified JSON is decoded, and broken beats are dropped individually. Only an unplayable result pays for a retry. The prompt includes the world state, recent history, an anti-repetition log and random weekly "booking directives". The default model is `claude-haiku-4-5` (cheap enough to run forever); set `BOOKER_MODEL` to change it.
 2. **Choreographer** (`src/choreo/director.ts`): each beat type is a generator over actor primitives (`walkTo`, `goTo`, `say`, `narrate`, `playMove`…). Each beat has randomized realizations, and connective narration comes from `lines.ts`.
 3. **Match sim** (`src/sim/match.ts`): picks moves by body state, style, phase and recency, with momentum, near-falls, heel cheating, and phases that steer to the booked finish. Match `spots` (interrupts, run-ins, distractions, ref bumps, weapons) are hooks back into the choreographer.

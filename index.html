@@ -16,6 +16,11 @@
       <main>
         <div id="left">
           <pre id="map" aria-label="Arena"></pre>
+          <div id="ended" hidden>
+            <h2 id="ended-title"></h2>
+            <p id="ended-text" class="hint"></p>
+            <div id="ended-actions"></div>
+          </div>
           <ul id="feed" aria-live="polite" aria-label="Play-by-play"></ul>
         </div>
         <aside id="side">
@@ -39,6 +44,7 @@
           <div id="presets"></div>
           <textarea id="direction" rows="4" placeholder="e.g. ECW-style hardcore promotion in a Philadelphia bingo hall, rabid fans, tables and barbed wire, a cult-like heel faction and an aging hometown hero"></textarea>
           <button id="create" class="primary">Create promotion</button>
+          <p id="create-note" class="hint"></p>
         </section>
         <section>
           <h2>Stored shows</h2>

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { fallbackEpisode } from '../src/booker/fallback';
+import { fallbackEpisode } from '../src/dev/offline-booker';
 import { reviewEpisode } from '../src/booker/validate';
 import { duration } from '../src/engine/anim';
 import { arena } from '../src/engine/arena';
@@ -11,7 +11,8 @@ import { MatchSim } from '../src/sim/match';
 import { MOVES } from '../src/sim/moves';
 import { prepareStage } from '../src/show/runner';
 import { applyEpisode, titleOutcome } from '../src/world/apply';
-import { offlineWorld, randomPromotion, reviewPromotion } from '../src/world/genesis';
+import { reviewPromotion } from '../src/world/genesis';
+import { offlineWorld, randomPromotion } from '../src/dev/offline-roster';
 import { classicWorld, type World } from '../src/world/state';
 
 function playEpisode(world: World, ep: Episode): { events: EngineEvent[]; after: World } {
@@ -410,7 +411,7 @@ describe('seasons', () => {
   });
 
   it('runs a full season offline and shuffles the roster between seasons', async () => {
-    const { offlineBook } = await import('../src/booker/fallback');
+    const { offlineBook } = await import('../src/dev/offline-booker');
     let w = offlineWorld(77);
     const seasonOne = new Set(w.characters.map((c) => c.id));
     for (let i = 0; i < 13; i++) {

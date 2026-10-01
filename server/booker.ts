@@ -1,17 +1,16 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { z } from 'zod';
-import { offlineBook } from '../src/booker/fallback';
 import {
   buildGenesisPrompt, buildPlanPrompt, buildTransitionPrompt, buildUserPrompt, GENESIS_PROMPT, PLAN_PROMPT, SYSTEM_PROMPT, TRANSITION_PROMPT,
 } from '../src/booker/prompt';
 import { unstringify } from '../src/booker/json';
 import { resolveIds } from '../src/booker/validate';
 import { type SeasonPlan, SeasonPlan as SeasonPlanSchema, type SeasonStart, type SeasonTransition, SeasonTransition as SeasonTransitionSchema } from '../src/schema/season';
-import { applySeasonStart, applyTransition, isSeasonStart, offlinePlan, offlineTransition, PPV_EPISODES, seasonOf } from '../src/world/season';
+import { applySeasonStart, applyTransition, isSeasonStart, offlinePlan, PPV_EPISODES, seasonOf } from '../src/world/season';
 import { reviewEpisode } from '../src/booker/validate';
 import { type Episode, EpisodeDraft } from '../src/schema/episode';
 import { Promotion } from '../src/schema/promotion';
-import { offlineWorld, reviewPromotion } from '../src/world/genesis';
+import { reviewPromotion } from '../src/world/genesis';
 import type { World } from '../src/world/state';
 import { loadEpisode, saveEpisode, saveFailure, savePromotion } from './sessions';
 
@@ -20,19 +19,14 @@ export const model = () => process.env.BOOKER_MODEL || 'claude-haiku-4-5';
 /** The long-term calls (season plan, off-season) are few and benefit from a stronger model. */
 export const planModel = () => process.env.BOOKER_PLAN_MODEL || 'claude-sonnet-5';
 
-export type Source = 'llm' | 'cache' | 'offline';
+export type Source = 'llm' | 'cache';
 
-export interface Booked {
-  episode: Episode;
-  source: Source;
-  problems: string[];
-}
+/** Why nothing could be produced: no LLM configured, or the LLM failed. */
+export interface Unavailable { reason: 'no-llm' | 'error'; message: string }
 
-export interface Created {
-  world: World;
-  source: Source;
-  problems: string[];
-}
+export type Booked = { episode: Episode; source: Source; problems: string[] } | ({ episode: null } & Unavailable);
+
+export type Created = { world: World; source: Source; problems: string[] } | ({ world: null } & Unavailable);
 
 export function llmAvailable(): boolean {
   return Boolean(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN);
@@ -123,6 +117,15 @@ async function callWithRetry<T>(
   return second.value || !result.value ? second : result;
 }
 
+/** A short, viewer-safe description of an API failure. */
+function errorText(err: unknown): string {
+  if (err instanceof Anthropic.APIConnectionError) return "can't reach the API";
+  if (err instanceof Anthropic.AuthenticationError) return 'API key rejected';
+  if (err instanceof Anthropic.RateLimitError) return 'rate limited';
+  if (err instanceof Anthropic.APIError) return `API error ${err.status ?? ''}`.trim();
+  return (err as Error).message;
+}
+
 function logError(what: string, err: unknown): void {
   if (err instanceof Anthropic.APIConnectionError) console.error(`[booker] ${what}: can't reach the API (${err.message}) — network down or machine asleep?`);
   else if (err instanceof Anthropic.AuthenticationError) console.error(`[booker] ${what}: authentication failed — check ANTHROPIC_API_KEY`);
@@ -192,8 +195,8 @@ async function seasonStartFor(world: World, season: number): Promise<SeasonStart
         logError('season_transition', err);
       }
     }
-    transition ??= offlineTransition(world, season);
-    console.error(`[booker] season ${season}: ${transition.departures.length} leave, ${transition.arrivals.length} arrive`);
+    // If the off-season call fails the roster simply carries over.
+    console.error(`[booker] season ${season}: ${transition ? `${transition.departures.length} leave, ${transition.arrivals.length} arrive` : 'roster carries over'}`);
   }
   const shuffled = applyTransition(world, transition, season);
   let plan: SeasonPlan | null = null;
@@ -211,7 +214,7 @@ async function seasonStartFor(world: World, season: number): Promise<SeasonStart
 
 /**
  * Book the next episode: reuse a stored one for this world and episode number, else ask
- * the LLM (and store the result), else fall back to the offline booker. A season's first
+ * the LLM (and store the result), else report why it's unavailable. A season's first
  * episode also carries the off-season shuffle and the season plan.
  */
 export async function bookEpisode(world: World): Promise<Booked> {
@@ -234,12 +237,14 @@ export async function bookEpisode(world: World): Promise<Booked> {
         saveEpisode(world.seed, number, episode);
         return { episode, source: 'llm', problems: r.problems };
       }
-      console.error(`[booker] unusable episode, using offline booker: ${r.problems.join(' | ')}`);
+      console.error(`[booker] unusable episode: ${r.problems.join(' | ')}`);
+      return { episode: null, reason: 'error', message: 'the booker wrote an unusable episode' };
     } catch (err) {
       logError('book_episode', err);
+      return { episode: null, reason: 'error', message: errorText(err) };
     }
   }
-  return { episode: offlineBook(world), source: 'offline', problems: [] };
+  return { episode: null, reason: 'no-llm', message: 'no API key on the booker server' };
 }
 
 /** Create a brand-new promotion (roster, titles, feuds) with the LLM, or offline. */
@@ -254,10 +259,12 @@ export async function createPromotion(direction: string, seed: number): Promise<
         savePromotion(r.value);
         return { world: r.value, source: 'llm', problems: r.problems };
       }
-      console.error(`[booker] unusable promotion, generating offline: ${r.problems.join(' | ')}`);
+      console.error(`[booker] unusable promotion: ${r.problems.join(' | ')}`);
+      return { world: null, reason: 'error', message: 'the booker wrote an unusable promotion' };
     } catch (err) {
       logError('create_promotion', err);
+      return { world: null, reason: 'error', message: errorText(err) };
     }
   }
-  return { world: offlineWorld(seed, direction), source: 'offline', problems: [] };
+  return { world: null, reason: 'no-llm', message: 'no API key on the booker server' };
 }

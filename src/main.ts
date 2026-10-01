@@ -3,9 +3,8 @@ import '@fontsource/jetbrains-mono/700.css';
 import './style.css';
 import {
   type BookSource, fetchEpisode, fetchHealth, fetchLibrary, fetchPromotion, fetchStoredEpisode, fetchStoredPromotion,
-  type Health, type LibraryEntry,
+  type Health, type LibraryEntry, type Unavailable,
 } from './booker/client';
-import { demoEpisode } from './booker/fallback';
 import { reviewEpisode } from './booker/validate';
 import type { EngineEvent } from './engine/events';
 import { arena } from './engine/arena';
@@ -18,7 +17,6 @@ import { FeedView } from './view/feed';
 import { MapView } from './view/map';
 import { connectionText, StartScreen } from './view/start';
 import { applyEpisode } from './world/apply';
-import { offlineWorld } from './world/genesis';
 import { episodeLabel, ppvName } from './world/season';
 import { loadWorldFromStorage, randomSeed, saveWorldToStorage, type World } from './world/state';
 
@@ -110,6 +108,8 @@ let base: { n: number; world: World } | null = null;
 let nowPlaying = 0;
 /** Bumped by every jump, so an older playback chain stops when it notices. */
 let generation = 0;
+/** Why the last booking attempt came back empty (shown when the show has to stop). */
+let lastUnavailable: Unavailable | null = null;
 
 /**
  * Get (or book) episode n: from this session, from the world after episode n-1 (stored
@@ -131,6 +131,10 @@ function entryFor(n: number): Promise<Entry | null> {
     }
     if (!before) return null;
     const booked = await fetchEpisode(before);
+    if (!booked.episode) {
+      lastUnavailable = booked;
+      return null;
+    }
     return { before, episode: booked.episode, source: booked.source };
   })();
   entries.set(n, promise);
@@ -166,11 +170,13 @@ function fastForward(task: Task, until: () => boolean): void {
 async function run(n: number, target?: Target): Promise<void> {
   const my = ++generation;
   playing = null;
+  hideEnded();
   setStatus(n === nowPlaying ? 'rewinding…' : `loading episode ${n}…`);
   const entry = await entryFor(n);
   if (my !== generation) return;
   if (!entry) {
-    setStatus(n < nowPlaying ? 'earlier episodes of this show are not stored' : `episode ${n} is not available`);
+    if (n < nowPlaying) setStatus('earlier episodes of this show are not stored');
+    else showEnded(n, lastUnavailable);
     return;
   }
   nowPlaying = n;
@@ -197,7 +203,9 @@ async function run(n: number, target?: Target): Promise<void> {
   const from = entry.source === 'stored' ? 'from storage' : `booked by ${entry.source}`;
   setStatus(`episode ${n} ${from} · preparing the next one…`);
   void entryFor(n + 1).then((next) => {
-    if (my === generation && next) setStatus(`episode ${n} ${from} · next episode ready (${next.source})`);
+    if (my !== generation) return;
+    if (next) setStatus(`episode ${n} ${from} · next episode ready (${next.source})`);
+    else setStatus(`episode ${n} ${from} · no next episode: ${lastUnavailable?.message ?? 'not available'}`);
   });
   await new Promise<void>((done) => {
     playing = { task, done };
@@ -205,6 +213,47 @@ async function run(n: number, target?: Target): Promise<void> {
   if (my !== generation) return;
   saveWorldToStorage(after);
   void run(n + 1);
+}
+
+// ------------------------------------------------------------------ end of the available episodes
+
+let retryTimer: number | undefined;
+
+function hideEnded(): void {
+  $('ended').hidden = true;
+  window.clearTimeout(retryTimer);
+}
+
+/**
+ * Nothing more to air: the stored episodes ran out with no AI to write the next one, or
+ * the booker failed. Say so plainly and offer what's possible, rather than filler.
+ */
+function showEnded(n: number, why: Unavailable | null): void {
+  const show = current?.world.showName ?? 'this show';
+  const failed = why?.reason === 'error';
+  $('ended-title').textContent = failed ? `The booker couldn't write episode ${n}` : `That's all the stored episodes of ${show}`;
+  $('ended-text').textContent = failed
+    ? `${why!.message}. Retrying in 30 seconds…`
+    : why?.reason === 'no-llm'
+      ? 'The booker server has no API key, so no new episodes can be written. Replay it, or pick another show.'
+      : 'New episodes need the AI booker (run it locally with an API key). Replay it, or pick another show.';
+  const actions: [string, () => void, boolean][] = [
+    ...(failed ? [['Retry now', () => void run(n), true] as [string, () => void, boolean]] : []),
+    ['Replay from Episode 1', () => void run(1), !failed],
+    ['Choose another show', () => void openStart(true), false],
+  ];
+  const box = $('ended-actions');
+  box.innerHTML = '';
+  for (const [label, action, primary] of actions) {
+    const b = document.createElement('button');
+    b.textContent = label;
+    if (primary) b.className = 'primary';
+    b.addEventListener('click', action);
+    box.append(b);
+  }
+  $('ended').hidden = false;
+  setStatus(failed ? `booker failed: ${why!.message}` : 'end of the stored episodes');
+  if (failed) retryTimer = window.setTimeout(() => void run(n), 30_000);
 }
 
 /** Start the endless show from a world (the next episode is world.episode + 1). */
@@ -260,6 +309,7 @@ async function main(): Promise<void> {
   const demo = params.get('demo');
   if (demo) {
     // Dev/demo: one stipulation match on a throwaway offline roster (nothing is saved).
+    const [{ offlineWorld }, { demoEpisode }] = await Promise.all([import('./dev/offline-roster'), import('./dev/offline-booker')]);
     const w = offlineWorld(randomSeed());
     freshStage();
     const ep = demoEpisode(w, demo);
@@ -279,6 +329,7 @@ async function main(): Promise<void> {
     feed.onEvent({ type: 'narrated', text: 'Creating a brand-new promotion…', style: 'info', t: 0 });
     const created = await fetchPromotion(direction, randomSeed());
     world = created.world;
+    if (!created.world) setStatus(`couldn't create a promotion: ${created.message}`);
   } else if (program === 'library') {
     const seed = showParam ? findShow(await fetchLibrary(), showParam)?.seed : Number(params.get('seed'));
     world = seed ? await fetchStoredPromotion(seed) : null;

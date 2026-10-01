@@ -33,6 +33,7 @@ const server = createServer(async (req, res) => {
         const seed = Number(body.seed) >>> 0;
         const t0 = Date.now();
         const created = await createPromotion(direction, seed);
+        if (!created.world) return send(503, { error: created.reason, message: created.message });
         console.error(`[server] promotion "${created.world.showName}" created by ${created.source} in ${Date.now() - t0}ms`);
         return send(200, created);
       }
@@ -40,6 +41,10 @@ const server = createServer(async (req, res) => {
       if (!world || world.version !== 2) return send(400, { error: 'missing or invalid world' });
       const t0 = Date.now();
       const booked = await bookEpisode(world);
+      if (!booked.episode) {
+        console.error(`[server] episode ${world.episode + 1} unavailable: ${booked.message}`);
+        return send(503, { error: booked.reason, message: booked.message });
+      }
       console.error(`[server] episode ${world.episode + 1} booked by ${booked.source} in ${Date.now() - t0}ms`);
       return send(200, booked);
     }
@@ -51,5 +56,5 @@ const server = createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.error(`[server] booker proxy on http://localhost:${PORT} — ${llmAvailable() ? `LLM: ${model()}` : 'no API key: offline booker only'}`);
+  console.error(`[server] booker proxy on http://localhost:${PORT} — ${llmAvailable() ? `LLM: ${model()}` : 'no API key: stored shows only'}`);
 });

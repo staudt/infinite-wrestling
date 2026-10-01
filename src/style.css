@@ -309,3 +309,30 @@ kbd { background: #1a1a26; border: 1px solid #2a2a3a; border-radius: 3px; paddin
 .share { color: #9ecbff; }
 .badge { font-size: 10px; padding: 0 5px; border-radius: 3px; background: #2a2a3a; color: #aaa; text-transform: uppercase; }
 #start-continue:empty { display: none; }
+
+/* End of the available episodes (no AI to write more), shown over the arena. */
+#left { position: relative; }
+#ended {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(460px, calc(100% - 24px));
+  background: #0c0c14f2;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 16px 18px;
+  z-index: 5;
+  text-align: center;
+}
+#ended[hidden] { display: none; }
+#ended h2 { margin: 0 0 6px; font-size: 16px; color: var(--accent); }
+#ended p { margin: 0 0 12px; font-size: 13px; color: #b8b8cc; }
+#ended-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+#ended button {
+  font: inherit; font-size: 12px; color: var(--fg); background: #1a1a28;
+  border: 1px solid #33334a; border-radius: 4px; padding: 6px 12px; cursor: pointer;
+}
+#ended button.primary { background: #3a2f08; border-color: var(--accent); color: #fff; }
+#ended button:hover { border-color: var(--accent); }
+.start-panel button:disabled { opacity: 0.4; cursor: not-allowed; }

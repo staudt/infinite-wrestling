@@ -1,11 +1,11 @@
-// Offline booker: builds an episode from templates when the LLM is unavailable (no key,
-// server down, bad output). Simpler than the LLM, but valid and varied enough to keep
-// the screensaver running forever.
+// Offline booker: builds episodes from templates. Development tooling only (tests,
+// `npm run preview -- --offline`, `?demo=`); viewers only ever see LLM-written episodes.
 import { hashSeed, Rng } from '../engine/rng';
 import type { Beat, BeatOf, Episode, Finish, Segment, Spot, StateChange, Stipulation, Story } from '../schema/episode';
 import type { SeasonStart } from '../schema/season';
 import { isHardcore } from '../world/genesis';
-import { applySeasonStart, isPPV, isSeasonStart, offlinePlan, offlineTransition, seasonOf } from '../world/season';
+import { applySeasonStart, isPPV, isSeasonStart, offlinePlan, seasonOf } from '../world/season';
+import { offlineTransition } from './offline-roster';
 import {
   alliesOf, type Character, charById, interviewer, titleHeldBy, type World, wrestlers,
 } from '../world/state';

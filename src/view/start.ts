@@ -21,8 +21,8 @@ function esc(s: string): string {
 /** One line describing what the booker can do right now. */
 export function connectionText(h: Health | null | undefined): { text: string; cls: string } {
   if (h === undefined) return { text: 'checking connection…', cls: 'conn-wait' };
-  if (h === null) return { text: '● not connected: stored shows play; new episodes use the offline booker (not saved)', cls: 'conn-off' };
-  if (!h.llm) return { text: '● server up, no API key: new episodes use the offline booker', cls: 'conn-warn' };
+  if (h === null) return { text: '● not connected: stored shows play; new episodes need the AI booker', cls: 'conn-off' };
+  if (!h.llm) return { text: '● booker server has no API key: stored shows only', cls: 'conn-warn' };
   return { text: `● live: ${h.model} (season plans: ${h.planModel})`, cls: 'conn-on' };
 }
 
@@ -77,6 +77,15 @@ export class StartScreen {
     const connEl = this.el.querySelector('#start-conn')!;
     connEl.textContent = conn.text;
     connEl.className = `conn-line ${conn.cls}`;
+
+    // New promotions are written by the AI booker; without it, only stored shows play.
+    const canCreate = !!opts.health?.llm;
+    const create = this.el.querySelector('#create') as HTMLButtonElement;
+    create.disabled = !canCreate;
+    create.title = canCreate ? '' : 'Needs the booker server with an API key (npm run server)';
+    this.el.querySelector('#create-note')!.textContent = canCreate
+      ? ''
+      : 'Creating a promotion needs the AI booker: run `npm run server` with an API key. Stored shows below play without it.';
 
     const cont = this.el.querySelector('#start-continue')!;
     cont.innerHTML = opts.current && opts.canClose

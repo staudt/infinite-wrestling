@@ -2,10 +2,9 @@
 // finale). Episode numbers in the world are global (1, 2, 3, ...); these helpers map them
 // onto the season calendar and apply the off-season roster shuffle.
 import { farthestColor } from '../engine/colors';
-import { hashSeed, Rng } from '../engine/rng';
 import type { SeasonPlan, SeasonStart, SeasonTransition } from '../schema/season';
 import { MOVES } from '../sim/moves';
-import { profileOf, randomPromotion } from './genesis';
+import { profileOf } from './genesis';
 import { type Character, CREW_COLORS, type World } from './state';
 
 export const SEASON_LENGTH = 12;
@@ -88,24 +87,6 @@ export function applyTransition(world: World, t: SeasonTransition | null, season
 export function applySeasonStart(world: World, s: SeasonStart): World {
   const w = applyTransition(world, s.transition, s.season);
   return { ...w, plan: s.plan ?? undefined };
-}
-
-/** Offline off-season: a few wrestlers leave, a few generated newcomers arrive. */
-export function offlineTransition(world: World, season: number): SeasonTransition {
-  const rng = new Rng(hashSeed('offseason', world.seed, season));
-  const wrestlers = world.characters.filter((c) => c.role === 'wrestler');
-  const champs = new Set(world.titles.map((t) => t.holder));
-  const pool = wrestlers.filter((c) => !champs.has(c.id));
-  const n = Math.max(2, Math.round(wrestlers.length * 0.25));
-  const departures = rng.shuffle(pool).slice(0, n).map((c) => ({
-    id: c.id, reason: rng.pick(['contract expired', 'retired', 'left for a rival promotion', 'injured']),
-  }));
-  const fresh = randomPromotion(hashSeed('arrivals', world.seed, season)).characters.filter((c) => c.role === 'wrestler');
-  const divisions = departures.map((d) => world.characters.find((c) => c.id === d.id)!.division);
-  const arrivals = divisions.map((div) => fresh.find((c) => c.division === div && !world.characters.some((x) => x.name === c.name)))
-    .filter((c): c is NonNullable<typeof c> => !!c)
-    .filter((c, i, all) => all.indexOf(c) === i);
-  return { recap: `Season ${season - 1} of ${world.showName} is in the books.`, departures, arrivals };
 }
 
 /** Offline plan: PPV names only, no arcs. */

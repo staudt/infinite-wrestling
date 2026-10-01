@@ -4,11 +4,11 @@
 // World state persists in ./world.json; transcripts and episode JSON go to ./shows/.
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { bookEpisode, createPromotion, llmAvailable } from '../../server/booker';
-import { offlineBook as fallbackEpisode } from '../booker/fallback';
+import { offlineBook } from '../dev/offline-booker';
+import { offlineWorld } from '../dev/offline-roster';
 import { Stage } from '../engine/stage';
 import { prepareStage } from '../show/runner';
 import { clock, transcriptLine } from '../view/transcript';
-import { offlineWorld } from '../world/genesis';
 import { classicWorld, randomSeed, type World } from '../world/state';
 
 try {
@@ -30,7 +30,12 @@ const str = (f: string) => {
 
 const WORLD_FILE = 'world.json';
 const episodes = opt('episodes', 1);
-const offline = flag('offline') || !llmAvailable();
+// --offline uses the dev template booker (free, never stored); otherwise the LLM is required.
+const offline = flag('offline');
+if (!offline && !llmAvailable()) {
+  console.error('preview needs ANTHROPIC_API_KEY, or --offline for the dev template booker');
+  process.exit(1);
+}
 let world: World | null = null;
 if (!flag('new') && existsSync(WORLD_FILE)) {
   const saved = JSON.parse(readFileSync(WORLD_FILE, 'utf8'));
@@ -43,6 +48,10 @@ if (!world) {
   else if (offline) world = offlineWorld(seed, direction);
   else {
     const created = await createPromotion(direction, seed);
+    if (!created.world) {
+      console.error(`[genesis] couldn't create a promotion: ${created.message}`);
+      process.exit(1);
+    }
     console.error(`[genesis] "${created.world.showName}" created by ${created.source}`);
     world = created.world;
   }
@@ -55,8 +64,12 @@ mkdirSync('shows', { recursive: true });
 for (let i = 0; i < episodes; i++) {
   const t0 = Date.now();
   const booked = offline
-    ? { episode: fallbackEpisode(world), source: 'offline' as const, problems: [] as string[] }
+    ? { episode: offlineBook(world), source: 'offline (dev)', problems: [] as string[] }
     : await bookEpisode(world);
+  if (!booked.episode) {
+    console.error(`[booker] stopping: ${booked.message}`);
+    break;
+  }
   const ep = booked.episode;
   console.error(`[booker] episode ${world.episode + 1} from ${booked.source} in ${Date.now() - t0}ms` +
     (booked.problems.length ? ` (${booked.problems.length} problems fixed: ${booked.problems.join('; ')})` : ''));

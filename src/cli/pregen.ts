@@ -48,6 +48,10 @@ if (seedArg) {
   console.error(`[pregen] "${world.showName}" (${world.seed}): ${world.episode} stored episodes`);
 } else {
   const created = await createPromotion(arg('direction') ?? '', randomSeed());
+  if (!created.world) {
+    console.error(`[pregen] couldn't create a promotion: ${created.message}`);
+    process.exit(1);
+  }
   world = created.world;
   console.error(`[pregen] created "${world.showName}" (seed ${world.seed}) by ${created.source}`);
 }
@@ -56,8 +60,8 @@ const count = arg('episodes') ? Number(arg('episodes')) : Number(arg('seasons') 
 for (let i = 0; i < count; i++) {
   const t0 = Date.now();
   const booked = await bookEpisode(world);
-  if (booked.source === 'offline') {
-    console.error('[pregen] the LLM failed; stopping (offline episodes are not stored)');
+  if (!booked.episode) {
+    console.error(`[pregen] stopping: ${booked.message}`);
     break;
   }
   const ep: Episode = booked.episode;

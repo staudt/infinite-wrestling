@@ -1,0 +1,689 @@
+{
+  "title": "\"The Reckoning Begins",
+  "storySoFar": "CHAOS's takeover is complete: Luxe betrayed Apex Predator at Judgment Night to join Cipher and RAZE; RAZE defeated Predator in their grudge match; Reverend Vice declared the \"New Order.\" Iron Sovereign barely retained his World Title in a three-way with Riot King and RAZE, but the Last Stand saved him post-match. Riot King's knees are failing; Ghostface hints at sacrifice. Chain Reaction was robbed of the Cruiserweight Title by Silver Bullet's CHAOS allies; his clean victory is promised at Warzone. Scarlet Widow remains undefeated against the Corporate Elite but cannot capture the Women's Title. The federation stands on the brink: CHAOS has infiltrated every level, and only three weeks remain before the final war at Warzone decides everything.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "CHAOS Seizes the Broadcast",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "raze",
+          "mood": "furious",
+          "escorts": [
+            "reverend_vice",
+            "cipher"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "raze",
+          "where": "stage",
+          "mood": "menacing",
+          "lines": [
+            "Three weeks ago, we declared war. Last night at Judgment Night, we made our statement.",
+            "The old guard is dying. The corporate machine is broken from the inside.",
+            "And starting RIGHT NOW, CHAOS controls this broadcast.",
+            "No more scripts. No more lies. Only the truth of revolution."
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "reverend_vice",
+          "where": "stage",
+          "mood": "menacing",
+          "lines": [
+            "The New Order has BEGUN! This federation will fall to its knees!",
+            "And when the dust settles, only the worthy will rise from the ashes of the old world!"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The lights flicker—the broadcast is being hijacked!",
+          "style": "shock",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "RAZE and Reverend Vice storm the stage to announce CHAOS has taken control of WZW programming, cutting power to the announce desk and forcing the federation into chaos."
+    },
+    {
+      "title": "The Corporate Elite's Desperate Response",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "apex_predator",
+          "mood": "furious",
+          "escorts": [
+            "apex_muse",
+            "chrome_warrior"
+          ]
+        },
+        {
+          "type": "confrontation",
+          "a": "apex_predator",
+          "b": "raze",
+          "where": "stage",
+          "exchange": [
+            {
+              "speaker": "apex_predator",
+              "text": "You think this is over? WZW is MINE. The federation is OURS. You're a disease, and we will cut you out."
+            },
+            {
+              "speaker": "raze",
+              "text": "You lost control the moment Luxe chose us. You're already dead—you just don't know it yet."
+            },
+            {
+              "speaker": "apex_predator",
+              "text": "Apex Muse! Chrome Warrior! CLEAR THE RING!"
+            }
+          ],
+          "escalation": "brawl"
+        },
+        {
+          "type": "narrate",
+          "text": "The stage erupts into chaos as Corporate Elite enforcers clash with CHAOS's vanguard!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "react",
+          "who": "reverend_vice",
+          "reaction": "anger"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Apex Predator, Apex Muse, and Chrome Warrior storm out to reclaim the broadcast and reassert corporate authority before CHAOS can dismantle the federation entirely."
+    },
+    {
+      "title": "Match 1: Riot King vs. Apex Muse - The Old Guard Stands",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "riot_king",
+          "mood": "angry",
+          "escorts": [
+            "ghostface"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "apex_muse",
+          "mood": "cocky",
+          "escorts": [
+            "apex_predator"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "riot_king",
+            "apex_muse"
+          ],
+          "winner": "riot_king",
+          "finish": "pin",
+          "story": "back_and_forth",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "apex_predator",
+              "target": "riot_king",
+              "lines": [
+                "Your knees are FINISHED, old man!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "distraction",
+              "who": "ghostface",
+              "target": "apex_muse",
+              "lines": [
+                "RIOT KING! THIS IS YOUR MOMENT!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Riot King limps into this match—those knees are held together with tape and pride!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "riot_king",
+              "line": "Come on, Muse! Show me what the corporate machine's got!"
+            },
+            {
+              "phase": "late",
+              "speaker": "color",
+              "line": "Apex Predator's right—those knees are giving out. One more hard shot and King is done."
+            },
+            {
+              "phase": "late",
+              "speaker": "ghostface",
+              "line": "Get up, Butch! GET UP!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "Riot King WINS! The old guard still has FIGHT in them!"
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "riot_king",
+            "ghostface"
+          ]
+        },
+        {
+          "type": "react",
+          "who": "apex_predator",
+          "reaction": "anger"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "In a shocking opener, the battered Riot King challenges Apex Muse to prove the Last Stand can still fight; Ghostface's support gives him strength, but his failing knees are tested."
+    },
+    {
+      "title": "Interview: The Last Stand Speaks",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "riot_king",
+          "exchange": [
+            {
+              "speaker": "vic_steele",
+              "text": "Riot King—you won tonight, but your knees looked bad. How much longer can you fight?"
+            },
+            {
+              "speaker": "riot_king",
+              "text": "As long as it takes, Vic. The Last Stand is the ONLY THING standing between this federation and CHAOS's takeover."
+            },
+            {
+              "speaker": "vic_steele",
+              "text": "Ghostface—what is your cryptic role in all this? You've hinted at sacrifice and the old falling for the new. What do you know?"
+            },
+            {
+              "speaker": "ghostface",
+              "text": "The Specter sees what others cannot, Vic. Sacrifice... is coming. The old guard will fall—but we'll drag the anarchists down with us if we must."
+            },
+            {
+              "speaker": "vic_steele",
+              "text": "A ominous warning. Warzone is three weeks away. Will the Last Stand be ready?"
+            },
+            {
+              "speaker": "riot_king",
+              "text": "We're ALWAYS ready. That's what makes us the LAST STAND."
+            }
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Vic Steele corners Riot King and Ghostface to assess their standing in the federation as CHAOS tightens its grip and the corporate machine fractures."
+    },
+    {
+      "title": "Match 2: Chrome Warrior vs. Chain Reaction - The Midcard Rising",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "chain_reaction",
+          "mood": "excited",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "chrome_warrior",
+          "mood": "calm",
+          "escorts": [
+            "apex_predator"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "chain_reaction",
+            "chrome_warrior"
+          ],
+          "winner": "chain_reaction",
+          "finish": "pin",
+          "story": "comeback",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "apex_predator",
+              "target": "chain_reaction",
+              "lines": [
+                "You're NOTHING, kid! You'll never touch that Cruiserweight Title!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Chrome Warrior's technical precision vs. Chain Reaction's high-flying hope—a clash of old and new!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "The Predator's right. This kid is outmatched against the Convergence!"
+            },
+            {
+              "phase": "late",
+              "speaker": "chain_reaction",
+              "line": "You can't stop me! Not tonight! Not at Warzone!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "THE REACTION! Chain Reaction has beaten Chrome Warrior—the street kid is UNSTOPPABLE!"
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "chain_reaction"
+          ]
+        },
+        {
+          "type": "react",
+          "who": "apex_predator",
+          "reaction": "anger"
+        },
+        {
+          "type": "narrate",
+          "text": "The Corporate Elite's grip on the midcard is slipping. Chain Reaction's momentum is BUILDING.",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "In a shocking midcard upset, the high-flying Chain Reaction defeats the mysterious Chrome Warrior, proving the street kid's momentum is building toward his destined Cruiserweight Title victory at Warzone."
+    },
+    {
+      "title": "Interview: The Widow's Cryptic Path",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "scarlet_widow",
+          "exchange": [
+            {
+              "speaker": "vic_steele",
+              "text": "Scarlet Widow—you're undefeated against the Corporate Elite, but you can't seem to capture the Women's Title. What's holding you back?"
+            },
+            {
+              "speaker": "scarlet_widow",
+              "text": "Interference. Corporate muscle. But at Warzone, I will take what's mine—and expose every secret this federation has been hiding."
+            },
+            {
+              "speaker": "vic_steele",
+              "text": "Ghostface is approaching. What does the Specter want?"
+            }
+          ]
+        },
+        {
+          "type": "interrupt",
+          "who": "ghostface",
+          "where": "podium",
+          "lines": [
+            "Widow. You carry the weight of this federation's darkest hour. Your past is tied to ours.",
+            "At Warzone, when you claim that title, the truth will follow. The old guard will fall—but you will RISE."
+          ],
+          "then": "leaves",
+          "target": "none"
+        },
+        {
+          "type": "react",
+          "who": "scarlet_widow",
+          "reaction": "shock"
+        },
+        {
+          "type": "narrate",
+          "text": "Ghostface's cryptic words hint at a deeper connection—Scarlet Widow's victory at Warzone may change everything!",
+          "style": "shock",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Scarlet Widow confronts Ghostface about her mysterious past, and in a shocking moment, Ghostface hints she may be the key to destroying the federation's darkest secrets."
+    },
+    {
+      "title": "Match 3: Velvet Thunder vs. Ghostface - Showman vs. Spirit",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "velvet_thunder",
+          "mood": "cocky",
+          "escorts": [
+            "apex_muse",
+            "luxe"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "ghostface",
+          "mood": "angry",
+          "escorts": [
+            "riot_king",
+            "chain_reaction"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "velvet_thunder",
+            "ghostface"
+          ],
+          "winner": "ghostface",
+          "finish": "pin",
+          "story": "back_and_forth",
+          "length": "long",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "luxe",
+              "target": "ghostface",
+              "lines": [
+                "Come on, Velvet! The Specter is just smoke and mirrors!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "distraction",
+              "who": "riot_king",
+              "target": "velvet_thunder",
+              "lines": [
+                "Your corporate time is UP, Thunder!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Velvet Thunder's glamour and mind games against Ghostface's reckless passion—a clash of philosophies!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "velvet_thunder",
+              "line": "You're just a ghost, darling. I'm ETERNAL."
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Luxe and Apex Muse are giving Thunder every advantage, but Ghostface won't be denied!"
+            },
+            {
+              "phase": "late",
+              "speaker": "ghostface",
+              "line": "The Specter never falls!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "The HAUNT! Ghostface defeats Velvet Thunder—the old guard strikes back with VENGEANCE!"
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "ghostface",
+            "riot_king",
+            "chain_reaction"
+          ]
+        },
+        {
+          "type": "react",
+          "who": "luxe",
+          "reaction": "shock"
+        },
+        {
+          "type": "react",
+          "who": "apex_muse",
+          "reaction": "anger"
+        },
+        {
+          "type": "narrate",
+          "text": "Ghostface's upset victory signals the Last Stand's resurgence—the old guard is not finished yet!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "In a non-title showcase, the glamorous Women's Champion Velvet Thunder faces the mysterious Ghostface in a battle between corporate showmanship and street-level passion."
+    },
+    {
+      "title": "Confrontation: CHAOS Declares War on the Last Stand",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "raze",
+          "mood": "furious",
+          "escorts": [
+            "cipher",
+            "reverend_vice"
+          ]
+        },
+        {
+          "type": "confrontation",
+          "a": "raze",
+          "b": "riot_king",
+          "where": "ring",
+          "exchange": [
+            {
+              "speaker": "raze",
+              "text": "Three weeks, old man. Three weeks until Warzone. And at Warzone, your Last Stand DIES."
+            },
+            {
+              "speaker": "riot_king",
+              "text": "We've survived worse than you, kid. Come Warzone, the Last Stand will still be STANDING."
+            },
+            {
+              "speaker": "cipher",
+              "text": "The code is clear. Your time is over. The new order is inevitable."
+            },
+            {
+              "speaker": "ghostface",
+              "text": "The Specter sees all—and at Warzone, we will settle this on our terms."
+            },
+            {
+              "speaker": "reverend_vice",
+              "text": "The end of days approaches! Your old guard will CRUMBLE before the New Order!"
+            }
+          ],
+          "escalation": "separated"
+        },
+        {
+          "type": "narrate",
+          "text": "The tension is UNBEARABLE. CHAOS and the Last Stand stand face-to-face, three weeks from total war at Warzone!",
+          "style": "shock",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "RAZE, Cipher, and Reverend Vice confront Riot King, Ghostface, and Chain Reaction in a explosive face-off that sets the stage for Warzone's final reckoning."
+    },
+    {
+      "title": "Main Event: Silver Bullet vs. Iron Sovereign - Title on the Line",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "iron_sovereign",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "silver_bullet",
+          "mood": "cocky",
+          "escorts": [
+            "raze",
+            "reverend_vice"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "iron_sovereign",
+            "silver_bullet"
+          ],
+          "winner": "none",
+          "finish": "no_contest",
+          "story": "back_and_forth",
+          "length": "long",
+          "titleOnLine": "world_heavyweight_title",
+          "spots": [
+            {
+              "phase": "late",
+              "type": "run_in",
+              "who": "raze",
+              "target": "iron_sovereign",
+              "lines": []
+            },
+            {
+              "phase": "finish",
+              "type": "run_in",
+              "who": "riot_king",
+              "target": "raze",
+              "lines": []
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "The World Heavyweight Champion Iron Sovereign defending against a cruiserweight challenger—Silver Bullet is hoping to prove size doesn't matter!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "silver_bullet",
+              "line": "I told you, Sovereign! I'm ready for the MAIN stage!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "iron_sovereign",
+              "line": "You're a FLEA on my boot, Bullet. This is MY ring!"
+            },
+            {
+              "phase": "late",
+              "speaker": "color",
+              "line": "Sovereign is dominating—but Silver Bullet's CHAOS allies are at ringside, and they're RESTLESS!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "RAZE attacks! The Sovereign is down! But RIOT KING makes the save! The Last Stand defends their champion!"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "raze"
+          ],
+          "victim": "iron_sovereign",
+          "where": "ring",
+          "style": "finisher"
+        },
+        {
+          "type": "run_in",
+          "who": "riot_king",
+          "target": "raze",
+          "intent": "save"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "riot_king",
+            "ghostface",
+            "chain_reaction",
+            "iron_sovereign"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "RIOT KING, the people's last hope, saves the World Champion! The Last Stand stands UNITED against the anarchist CHAOS faction!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "promo",
+          "who": "riot_king",
+          "where": "ring",
+          "mood": "angry",
+          "lines": [
+            "RAZE! At Warzone, the Last Stand will face you and CHAOS in TOTAL WAR.",
+            "And when the dust settles, WZW will be FREE from your anarchist takeover."
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "raze",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "Riot King... your heroic moment changes NOTHING. At Warzone, the old guard DIES.",
+            "And Iron Sovereign's title will belong to the NEW ORDER."
+          ]
+        },
+        {
+          "type": "exit",
+          "who": [
+            "raze",
+            "reverend_vice",
+            "cipher",
+            "silver_bullet"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "storyline_note",
+          "text": "CHAOS has literally hijacked WZW's broadcast control at episode 9. The faction's power is at peak; Reverend Vice's New Order is now active propaganda. Apex Predator's isolation deepens—only Apex Muse and Chrome Warrior remain his allies."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Riot King defeats Apex Muse in the opener, proving the Last Stand can still fight despite his failing knees. Ghostface's cryptic hints about 'sacrifice' and 'the old falling for the new' remain unresolved but hinting at a bigger role in the Warzone finale."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Chain Reaction defeats Chrome Warrior in a shocking midcard upset—his momentum toward the Warzone Cruiserweight Title victory is building. The street kid is rising as the federation's symbol of hope."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Ghostface hints to Scarlet Widow that her past is tied to the federation's darkest secrets and that her Women's Title victory at Warzone will trigger a larger revelation. The mystery of the Widow's connection deepens."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Ghostface defeats Velvet Thunder in a non-title match—the Last Stand is reasserting its competitive edge. The corporate machine's grip on the women's division is slipping."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Riot King makes a heroic save of Iron Sovereign from a post-match RAZE attack. The uneasy alliance between the old guard and the reluctant Sovereign holds firm as CHAOS closes in. Silver Bullet's title challenge ends in no-contest due to CHAOS interference."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Three weeks remain until Warzone. CHAOS has infiltrated every level of the federation; the corporate machine is fractured; the Last Stand is the ONLY force standing between order and anarchist takeover. Reverend Vice's 'New Order' is now the driving force of the invasion."
+        }
+      ],
+      "recap": "The World Heavyweight Champion Iron Sovereign faces a shocking challenge from the Cruiserweight Champion Silver Bullet, who claims he's ready for the big stage; CHAOS interference sets up the main angle heading into Warzone."
+    }
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "version": 2,
+  "showName": "WARZONE WRESTLING LIVE",
+  "shortName": "WZW",
+  "direction": "Late-90s Monday night war: a rebellious outlaw faction invading the promotion, celebrity guests, cruiserweights stealing the show, the old guard fighting back. Shoot-style interviews with shock value, turns and swerves, gimmick matches on the pay per views",
+  "seed": 1679858903,
+  "crew": {
+    "pbp": "Danny Cross",
+    "color": "Marcus Kane"
+  },
+  "episode": 0,
+  "characters": [
+    {
+      "id": "vic_steele",
+      "name": "Vic Steele",
+      "role": "interviewer",
+      "alignment": "tweener",
+      "division": "men",
+      "style": "technician",
+      "gimmick": "A hard-nosed, no-nonsense interviewer who probes for confrontation. Chain-smoking ex-boxer who respects only truth and violence.",
+      "entrance": "",
+      "finisher": {
+        "name": "",
+        "move": "punch"
+      },
+      "color": "#dddddd"
+    },
+    {
+      "id": "apex_predator",
+      "name": "The Apex Predator",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "men",
+      "style": "powerhouse",
+      "gimmick": "A calculating corporate heel who sees wrestling as evolution and mercy as weakness. He's the federation's golden boy, backed by upper management, but his paranoia about the invading CHAOS faction grows daily.",
+      "entrance": "to a spotlight and electric synth theme, in a tailored suit over his gear",
+      "finisher": {
+        "name": "The Executive Decision",
+        "move": "powerbomb",
+        "description": "a devastating powerbomb driven straight down from the apex of the ring",
+        "call": "He's hoisting him up! This is The Executive Decision!"
+      },
+      "hometown": "Toronto, Ontario",
+      "weight": 285,
+      "catchphrase": "You're simply not cut for this level of wrestling!",
+      "color": "#22c55e"
+    },
+    {
+      "id": "riot_king",
+      "name": "Riot King \"Butch\" Valdez",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "men",
+      "style": "brawler",
+      "gimmick": "A street-level brawler and the old guard's last hope. Riot King is a working-class hero with a heart for the people, but his aging knees and worn-out body mean this might be his final run. He resents the corporate machine and secretly banks on the CHAOS faction to shake things up.",
+      "entrance": "to wailing bagpipes and a standing ovation, ripping his shirt",
+      "finisher": {
+        "name": "The Riot Riot",
+        "move": "lariat",
+        "description": "a running clothesline from hell that spins his opponent inside-out",
+        "call": "Here he comes! RIOT KING WITH THE RIOT RIOT!"
+      },
+      "hometown": "South Side, Chicago",
+      "weight": 260,
+      "catchphrase": "Time to start a RIOT!",
+      "color": "#00e5ff"
+    },
+    {
+      "id": "chrome_warrior",
+      "name": "Chrome Warrior",
+      "role": "wrestler",
+      "alignment": "tweener",
+      "division": "men",
+      "style": "technician",
+      "gimmick": "A mysterious masked technician who claims to be a visitor from the future. Chrome Warrior is precisely methodical in the ring, never showing emotion, and his cryptic promos about 'convergence' and 'temporal destiny' drive crowds wild with confusion and intrigue.",
+      "entrance": "through dry ice to futuristic synth, mechanical entrance gestures",
+      "finisher": {
+        "name": "The Convergence",
+        "move": "boston_crab",
+        "description": "a brutal boston crab with warrior bridging back, pulling the victim's spine into an arch",
+        "call": "He's got the Convergence locked in! The timeline is collapsing!"
+      },
+      "hometown": "Parts Unknown",
+      "weight": 245,
+      "catchphrase": "The timeline demands it.",
+      "color": "#f43f5e"
+    },
+    {
+      "id": "silver_bullet",
+      "name": "Silver Bullet \"Trigger\" McGill",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "men",
+      "style": "highflyer",
+      "gimmick": "A cocky, fast-talking cruiserweight who can fly circles around heavyweights. Silver Bullet is angling for attention and title shots, frustrated that he's not pushed as hard as the big men, and he's been making cryptic phone calls to the CHAOS faction.",
+      "entrance": "to a bass-heavy electronic theme, shooting finger guns at the crowd",
+      "finisher": {
+        "name": "The Headshot",
+        "move": "moonsault",
+        "description": "a perfect moonsault onto a standing opponent from the top rope",
+        "call": "Going up! Silver Bullet's taking aim! THE HEADSHOT!"
+      },
+      "hometown": "Las Vegas, Nevada",
+      "weight": 205,
+      "catchphrase": "BOOM! You just got shot!",
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "chain_reaction",
+      "name": "Chain Reaction",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "men",
+      "style": "highflyer",
+      "gimmick": "A high-flying fan favorite with a street kid background and genuine love for the sport. Chain Reaction uses his speed and creativity to overcome bigger opponents, and he's become an unlikely symbol of hope against the corporate machine.",
+      "entrance": "to an upbeat rock anthem, doing a backflip over the ropes",
+      "finisher": {
+        "name": "The Reaction",
+        "move": "crossbody",
+        "description": "a top-rope crossbody that catches opponents off-guard with timing and precision",
+        "call": "Going high! Here comes the Reaction!"
+      },
+      "hometown": "Memphis, Tennessee",
+      "weight": 210,
+      "catchphrase": "Feel that REACTION!",
+      "color": "#a3e635"
+    },
+    {
+      "id": "iron_sovereign",
+      "name": "The Iron Sovereign",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "men",
+      "style": "powerhouse",
+      "gimmick": "A regal, authoritarian strongman who views lesser wrestlers as peasants beneath him. The Iron Sovereign is obsessed with 'divine right to rule the ring' and despises the CHAOS faction as an assault on the natural order. He's the federation's longest-reigning champion.",
+      "entrance": "to baroque classical music, wearing a velvet cape",
+      "finisher": {
+        "name": "The Throne Breaker",
+        "move": "suplex",
+        "description": "a massive overhead suplex that drives opponents into the mat with royal contempt",
+        "call": "The Sovereign is hoisting him! THE THRONE BREAKER!"
+      },
+      "hometown": "Stockholm, Sweden",
+      "weight": 320,
+      "catchphrase": "Kneel before your SOVEREIGN!",
+      "color": "#7cfc9f"
+    },
+    {
+      "id": "ghostface",
+      "name": "Ghostface \"The Specter\" Venom",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "men",
+      "style": "brawler",
+      "gimmick": "A mysterious masked brawler who claims to be the spirit of a fallen wrestler haunting the promotion. Ghostface fights with reckless passion, seemingly unafraid of injury, and has strange knowledge of the federation's darkest secrets.",
+      "entrance": "through fog and darkness, his opponent's theme distorted and reversed",
+      "finisher": {
+        "name": "The Haunt",
+        "move": "ddt",
+        "description": "a vicious DDT planted directly on the canvas with spiritual intensity",
+        "call": "He's got him set! THE HAUNT! Gone!"
+      },
+      "hometown": "The Graveyard, Parts Unknown",
+      "weight": 235,
+      "catchphrase": "Your time is OVER!",
+      "color": "#f062f5"
+    },
+    {
+      "id": "velvet_thunder",
+      "name": "Velvet Thunder",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "women",
+      "style": "showman",
+      "gimmick": "A glamorous, charismatic heel who dominates through mind games and showmanship. Velvet Thunder treats wrestling as performance art and her opponents as supporting actors in her story. She's the current women's champion and absolutely despises challengers.",
+      "entrance": "to a sultry jazz theme, in a fur coat with pyrotechnics",
+      "finisher": {
+        "name": "The Thunderstrike",
+        "move": "kick_gut",
+        "description": "a brutal knee strike to the gut, preceded by a seductive taunt",
+        "call": "Here it comes! Velvet with the Thunderstrike!"
+      },
+      "hometown": "Miami, Florida",
+      "weight": 155,
+      "catchphrase": "I'm the STAR of this show, honey!",
+      "color": "#e6ff7a"
+    },
+    {
+      "id": "scarlet_widow",
+      "name": "The Scarlet Widow",
+      "role": "wrestler",
+      "alignment": "face",
+      "division": "women",
+      "style": "technician",
+      "gimmick": "A dark, calculating face who wrestles with surgical precision. The Scarlet Widow is a recent recruit to the federation but has already impressed with her mat wrestling and psychology. She has a troubled past she doesn't speak about, and she's been watching the federation's power dynamics closely.",
+      "entrance": "to haunting string music, in all black",
+      "finisher": {
+        "name": "The Web",
+        "move": "sleeper",
+        "description": "a devastating sleeper hold where the wrestler's arm locks the neck in a vise grip",
+        "call": "The Scarlet Widow has the Web locked in! Sweet dreams!"
+      },
+      "hometown": "Portland, Oregon",
+      "weight": 140,
+      "catchphrase": "You're tangled in my WEB now.",
+      "color": "#c08a4a"
+    },
+    {
+      "id": "apex_muse",
+      "name": "Apex Muse",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "women",
+      "style": "powerhouse",
+      "gimmick": "A bodybuilder and enforcer managed by The Apex Predator's faction. Apex Muse is all muscle, no subtlety, and serves as both a tag partner and protection for the corporate machine. She idolizes strength and sees other women wrestlers as competition to be destroyed.",
+      "entrance": "with her manager, flexing and posing, high-energy pop music",
+      "finisher": {
+        "name": "The Submission",
+        "move": "camel_clutch",
+        "description": "a brutal camel clutch where she cranks back with all her power",
+        "call": "The Submission! Apex Muse is cranking back! Will she tap?!"
+      },
+      "hometown": "Los Angeles, California",
+      "weight": 175,
+      "catchphrase": "SUBMIT TO STRENGTH!",
+      "color": "#2dd4bf"
+    },
+    {
+      "id": "raze",
+      "name": "RAZE \"The Anarchist\" Creed",
+      "role": "wrestler",
+      "alignment": "heel",
+      "division": "men",
+      "style": "brawler",
+      "gimmick": "The de facto leader of the CHAOS faction invading the promotion. RAZE is a scarred, tattooed anarchist who speaks in shoot-style promos about tearing down the corporate machine and exposing the federation's lies. He's charismatic, volatile, and genuinely dangerous.",
+      "entrance": "through the crowd, carrying a chain, to a heavy metal theme",
+      "finisher": {
+        "name": "The Reckoning",
+        "move": "lariat",
+        "description": "a clothesline from hell that takes the opponent's head clean off",
+        "call": "RAZE IS COMING! THE RECKONING!"
+      },
+      "hometown": "Detroit, Michigan",
+      "weight": 270,
+      "catchphrase": "Burn it ALL down!",
+      "color": "#ff9f1c"
+    },
+    {
+      "id": "cipher",
+      "name": "Cipher",
+      "role": "wrestler",
+      "alignment": "tweener",
+      "division": "men",
+      "style": "technician",
+      "gimmick": "A mysterious CHAOS faction member who claims to be 'decoding the federation's secrets.' Cipher is technically brilliant, operates silently during matches, and seems to communicate telepathically with RAZE. He's rumored to have insider knowledge.",
+      "entrance": "in silence and darkness, with strange hand signals",
+      "finisher": {
+        "name": "The Decode",
+        "move": "armbar",
+        "description": "a stretching armbar that targets the shoulder and elbow joint with surgical precision",
+        "call": "Cipher has it locked! The Decode is in! He's tapping!"
+      },
+      "hometown": "Somewhere, Nebraska",
+      "weight": 220,
+      "catchphrase": "The code is breaking.",
+      "color": "#b388ff"
+    },
+    {
+      "id": "luxe",
+      "name": "Luxe",
+      "role": "valet",
+      "alignment": "heel",
+      "division": "men",
+      "style": "showman",
+      "gimmick": "A glamorous manager and valet for The Apex Predator, Luxe is his on-air romantic partner and corporate puppet master. She's manipulative, wealthy, and has a secret affair with one of the CHAOS faction members, creating tension.",
+      "entrance": "with The Apex Predator, in designer outfits",
+      "finisher": {
+        "name": "bulldog",
+        "move": "bulldog"
+      },
+      "hometown": "Beverly Hills, California",
+      "catchphrase": "He's perfection, darling!",
+      "color": "#6b8cff"
+    },
+    {
+      "id": "reverend_vice",
+      "name": "Reverend Vice",
+      "role": "manager",
+      "alignment": "heel",
+      "division": "men",
+      "style": "showman",
+      "gimmick": "An eccentric, fire-and-brimstone preacher who manages RAZE and the CHAOS faction as a spiritual authority figure. Reverend Vice uses twisted theology to justify their invasion and destruction, and he's been making cryptic prophecies about 'the end of the old order.'",
+      "entrance": "in a black suit and collar, carrying a bible",
+      "finisher": {
+        "name": "flying elbow",
+        "move": "top_rope_elbow"
+      },
+      "hometown": "Memphis, Tennessee",
+      "catchphrase": "The reckoning is NIGH!",
+      "color": "#38bdf8"
+    }
+  ],
+  "titles": [
+    {
+      "id": "world_heavyweight_title",
+      "name": "WZW World Heavyweight Championship",
+      "division": "men",
+      "holder": "iron_sovereign"
+    },
+    {
+      "id": "cruiserweight_title",
+      "name": "WZW Cruiserweight Championship",
+      "division": "men",
+      "holder": "silver_bullet"
+    },
+    {
+      "id": "womens_title",
+      "name": "WZW Women's Championship",
+      "division": "women",
+      "holder": "velvet_thunder"
+    }
+  ],
+  "feuds": [
+    {
+      "a": "iron_sovereign",
+      "b": "raze",
+      "reason": "RAZE and the CHAOS faction have declared war on the 'old guard,' targeting the longest-reigning champion as the ultimate symbol of the system they want to destroy. The Iron Sovereign refuses to acknowledge the invasion as legitimate wrestling.",
+      "since": 0
+    },
+    {
+      "a": "apex_predator",
+      "b": "raze",
+      "reason": "The Apex Predator is the corporation's enforcer and golden boy, personally assigned to stop the CHAOS faction. Their feud is built on ideology: corporate evolution vs. anarchic destruction. Luxe complicates matters with her conflicted loyalties.",
+      "since": 0
+    },
+    {
+      "a": "velvet_thunder",
+      "b": "scarlet_widow",
+      "reason": "Velvet Thunder views the Scarlet Widow as a threat to her championship reign and star power. The Widow's rise and mysterious past make her unpredictable, and Velvet is determined to prove she's the superior performer.",
+      "since": 0
+    },
+    {
+      "a": "riot_king",
+      "b": "apex_predator",
+      "reason": "Riot King represents the dying old guard while the Apex Predator represents the future the corporation is building. Riot King suspects the Predator of being involved with CHAOS as an inside man, creating paranoia and doubt.",
+      "since": 0
+    }
+  ],
+  "alliances": [
+    {
+      "name": "CHAOS Faction",
+      "members": [
+        "raze",
+        "cipher",
+        "reverend_vice",
+        "silver_bullet"
+      ],
+      "since": 0
+    },
+    {
+      "name": "The Corporate Elite",
+      "members": [
+        "apex_predator",
+        "apex_muse",
+        "luxe",
+        "chrome_warrior"
+      ],
+      "since": 0
+    },
+    {
+      "name": "The Last Stand",
+      "members": [
+        "riot_king",
+        "ghostface",
+        "chain_reaction"
+      ],
+      "since": 0
+    }
+  ],
+  "notes": [],
+  "history": [],
+  "angleLog": [],
+  "storySoFar": "The federation is in turmoil. For years, the Iron Sovereign has ruled with an iron fist, and the Apex Predator has been groomed as the corporation's next era of control. But everything changed when RAZE and the CHAOS faction invaded, claiming the federation is corrupt and fake, demanding a reckoning. The old guard, led by Riot King, is fighting back but aging fast. Celebrity guests are being booked, gimmick matches promised, and the lines between reality and performance are blurring. As the first Monday night approaches, Vic Steele prepares for interviews that will expose dangerous truths, Silver Bullet makes a fateful choice, and Luxe's true allegiances remain hidden. Who will survive the Monday night war?"
+}

@@ -320,6 +320,12 @@ describe('lenient parsing (no paid retries for fixable output)', () => {
     expect(cleanTitle('Ep. 12 - Payback', 'X')).toBe('Payback');
     expect(cleanTitle('The Hammer Holds Fast', 'X')).toBe('The Hammer Holds Fast');
     expect(cleanTitle('"The Comeback"', 'X')).toBe('The Comeback');
+    expect(cleanTitle('Line in the Sand" PAY-PER-VIEW', 'X')).toBe('Line in the Sand');
+    expect(cleanTitle('#6 — "The Clock Ticks', 'X')).toBe('The Clock Ticks');
+    expect(cleanTitle('The Last Gambit" (GO-HOME TO JUDGMENT NIGHT)', 'X')).toBe('The Last Gambit');
+    expect(cleanTitle('Episode #10', 'X')).toBe('');
+    expect(cleanTitle('WARZONE: The Last Stand', 'X')).toBe('WARZONE: The Last Stand');
+    expect(cleanTitle('Season 1, Episode 4: Heat', 'X')).toBe('Heat');
     const { parseLoose } = await import('../src/booker/json');
     expect(parseLoose('[\n  {\n    "name": "Dusty "The Tornado" Mercer",\n    "id": "dusty"\n  }\n]')).toEqual([{ name: 'Dusty "The Tornado" Mercer', id: 'dusty' }]);
     // A stray brace in a stringified list costs nothing but the broken spot.

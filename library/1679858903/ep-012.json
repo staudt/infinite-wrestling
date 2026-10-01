@@ -1,0 +1,745 @@
+{
+  "title": "WARZONE: The Last Stand",
+  "storySoFar": "The season finale: RAZE and CHAOS have infiltrated every level of WZW, demanding the World Title in a Winner-Take-All War. Iron Sovereign refuses to yield. The Last Stand (Riot King, Ghostface, Chain Reaction) makes their final stand alongside the reluctant Sovereign and broken Apex Predator. Luxe's betrayal shattered the corporate elite. Chain Reaction chases the Cruiserweight gold one last time. Scarlet Widow remains undefeated and will crown herself Women's Champion. Chrome Warrior's cryptic warnings hint at a hidden agenda beyond faction loyalty. Tonight, the old guard falls—or CHAOS is stopped—and the federation's future is written forever.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "CHAOS Seizes Control",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "Welcome to Warzone, the final event of season one! The anarchists have infiltrated the promotion—tonight, everything changes!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "interrupt",
+          "who": "reverend_vice",
+          "where": "stage",
+          "lines": [
+            "The old order crumbles before the New Order! Tonight, RAZE seizes the World Title, and WZW bows to CHAOS!",
+            "Your corporate gods have failed you. Your champions will fall. And from the ashes, we will build something pure!"
+          ],
+          "then": "stays",
+          "target": "none"
+        },
+        {
+          "type": "narrate",
+          "text": "Reverend Vice's New Order manifesto echoes through the arena—the anarchists are at peak power!",
+          "style": "shock",
+          "speaker": "color"
+        },
+        {
+          "type": "react",
+          "who": "iron_sovereign",
+          "reaction": "anger"
+        },
+        {
+          "type": "react",
+          "who": "riot_king",
+          "reaction": "anger"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Reverend Vice and CHAOS commandeer the broadcast to declare the New Order is now the law of WZW."
+    },
+    {
+      "title": "The Last Stand Assembles",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "riot_king",
+          "mood": "angry",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "ghostface",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "chain_reaction",
+          "mood": "excited",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "riot_king",
+          "where": "ring",
+          "mood": "furious",
+          "lines": [
+            "For twenty years, I bled for this federation. Tonight, I bleed one last time!",
+            "CHAOS, your anarchist dream ends here. The Last Stand will NEVER bow!"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "ghostface",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "I am the spirit of every fallen wrestler this machine destroyed. And tonight, I haunt the executioners!"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "chain_reaction",
+          "where": "ring",
+          "mood": "excited",
+          "lines": [
+            "Street kids don't quit. We rise. And I'm taking that Cruiserweight Title home!"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Three generations of WZW—Riot King's legacy, Ghostface's mystery, Chain Reaction's future—united in one last war!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Riot King, Ghostface, and Chain Reaction stand united one final time, vowing to hold the line against CHAOS."
+    },
+    {
+      "title": "Cruiserweight Championship, No Disqualification: Silver Bullet vs. Chain Reaction",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "silver_bullet",
+          "mood": "cocky",
+          "escorts": [
+            "reverend_vice",
+            "cipher"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Silver Bullet, the cocky cruiserweight, with the full weight of CHAOS behind him. But Chain Reaction has proven himself night after night!",
+          "style": "call",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "chain_reaction",
+          "mood": "excited",
+          "escorts": []
+        },
+        {
+          "type": "narrate",
+          "text": "The street kid's journey—from nobody to main event challenger. This is his moment!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "silver_bullet",
+            "chain_reaction"
+          ],
+          "winner": "chain_reaction",
+          "finish": "pin",
+          "story": "comeback",
+          "length": "long",
+          "titleOnLine": "cruiserweight_title",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "reverend_vice",
+              "target": "chain_reaction",
+              "lines": [
+                "The New Order will consume you, boy!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "run_in",
+              "who": "ghostface",
+              "target": "reverend_vice",
+              "lines": []
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Silver Bullet's speed is overwhelming the kid early—those CHAOS allies are cheering him on!"
+            },
+            {
+              "phase": "early",
+              "speaker": "silver_bullet",
+              "line": "Come on, kid—give up before you get hurt!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "chain_reaction",
+              "line": "I've come too far to quit now!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Chain Reaction is building momentum—the crowd is on their feet!"
+            },
+            {
+              "phase": "late",
+              "speaker": "color",
+              "line": "Ghostface just scattered Reverend Vice—the Last Stand is protecting their own!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "The Reaction! The Reaction! Chain Reaction is your new WZW Cruiserweight Champion!"
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "chain_reaction",
+            "ghostface",
+            "riot_king"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The street kid did it! Chain Reaction is a champion! The Last Stand draws first blood at Warzone!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "silver_bullet",
+            "reverend_vice",
+            "cipher"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Chain Reaction finally captures the Cruiserweight Title, defeating the CHAOS-aligned Silver Bullet in a hard-fought, no-disqualification battle."
+    },
+    {
+      "title": "Women's Championship, Steel Cage: Velvet Thunder vs. Scarlet Widow",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "velvet_thunder",
+          "mood": "cocky",
+          "escorts": [
+            "apex_muse"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The glamorous Velvet Thunder, Women's Champion, with the muscle of Apex Muse. But can she survive the cage?",
+          "style": "call",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "scarlet_widow",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "narrate",
+          "text": "Undefeated Scarlet Widow—surgical, precise, and hungry for the title. The cage can't hold her precision!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "match",
+          "stipulation": "cage",
+          "wrestlers": [
+            "velvet_thunder",
+            "scarlet_widow"
+          ],
+          "winner": "scarlet_widow",
+          "finish": "escape",
+          "story": "winner_dominates",
+          "length": "long",
+          "titleOnLine": "womens_title",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "apex_muse",
+              "target": "scarlet_widow",
+              "lines": [
+                "She's mine, Widow!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "weapon",
+              "who": "scarlet_widow",
+              "target": "velvet_thunder",
+              "lines": [
+                "This ends now."
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Velvet Thunder's showmanship means nothing in the cage—Scarlet Widow is all business!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Apex Muse is screaming instructions, but the Widow is tuning her out. Precision over power!"
+            },
+            {
+              "phase": "late",
+              "speaker": "scarlet_widow",
+              "line": "The machine dies tonight!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Scarlet Widow is climbing—she's going over! The Widow escapes the cage!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "Scarlet Widow is your new WZW Women's Champion! The Widow's Web has captured the gold!"
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "scarlet_widow"
+          ]
+        },
+        {
+          "type": "react",
+          "who": "ghostface",
+          "reaction": "smirk"
+        },
+        {
+          "type": "narrate",
+          "text": "The Widow's past remains a mystery, but her present is a championship! Ghostface smirks—is this part of a larger plan?",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "velvet_thunder",
+            "apex_muse"
+          ],
+          "how": "stagger"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Scarlet Widow defeats Velvet Thunder in a brutal steel cage match to become the new WZW Women's Champion, ending Thunder's reign."
+    },
+    {
+      "title": "The Last Alliance Final Stand: Riot King & Ghostface vs. Apex Predator & Apex Muse",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "apex_predator",
+          "mood": "angry",
+          "escorts": [
+            "apex_muse"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The Apex Predator—his empire shattered by Luxe's betrayal, only Apex Muse remains. But his pride is unbroken!",
+          "style": "call",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "riot_king",
+          "mood": "angry",
+          "escorts": [
+            "ghostface"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Riot King, the working-class hero, in his final stand. Every step costs him, but he won't stop!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "match",
+          "stipulation": "tag",
+          "wrestlers": [
+            "riot_king",
+            "ghostface",
+            "apex_predator",
+            "apex_muse"
+          ],
+          "winner": "riot_king",
+          "finish": "pin",
+          "story": "back_and_forth",
+          "length": "long",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "luxe",
+              "target": "apex_predator",
+              "lines": [
+                "He's finished, darling!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "run_in",
+              "who": "chain_reaction",
+              "target": "apex_muse",
+              "lines": []
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "apex_predator",
+              "line": "The old guard falls tonight, Riot King!"
+            },
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Apex Muse is dismantling the aging Riot King—those knees are buckling!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "ghostface",
+              "line": "Not yet, brother. Not yet."
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Luxe is mocking the Predator from ringside—his world is in ruins!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Riot King is fighting through the pain—one last time for the people!"
+            },
+            {
+              "phase": "late",
+              "speaker": "riot_king",
+              "line": "For the Last Stand!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "The Riot Riot! Riot King pins Apex Muse! The Last Stand wins!"
+            }
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "riot_king",
+            "ghostface",
+            "chain_reaction"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "In his final war, Riot King stands victorious! A hero's last stand, and the people roar!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "react",
+          "who": "apex_predator",
+          "reaction": "anger"
+        },
+        {
+          "type": "narrate",
+          "text": "But the Apex Predator's humiliation is complete. Luxe's betrayal, his isolated state, and this defeat—the corporate machine is broken!",
+          "style": "shock",
+          "speaker": "color"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "apex_predator",
+            "apex_muse"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "In an emotional final battle, Riot King and Ghostface defeat the corporate elite in a tag team war that signals the Last Stand's victory and Riot King's heroic farewell."
+    },
+    {
+      "title": "The Predator's Last Gambit",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "apex_predator",
+          "exchange": [
+            {
+              "speaker": "vic_steele",
+              "text": "Your empire is in ruins. What's next for the Apex Predator?"
+            },
+            {
+              "speaker": "apex_predator",
+              "text": "This war is not over, Steele. I have one more card to play. Chrome Warrior owes me a debt—and he will collect it next season."
+            },
+            {
+              "speaker": "vic_steele",
+              "text": "Are you saying Chrome Warrior will turn on CHAOS?"
+            },
+            {
+              "speaker": "apex_predator",
+              "text": "I'm saying the future is not written—only the past is. And I will rewrite my ending. Mark my words: the Predator will rise again."
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The Apex Predator plants a seed of alliance with Chrome Warrior—a mysterious futures deal that will echo into next season!",
+          "style": "shock",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Apex Predator, shattered and alone, makes a cryptic deal with Chrome Warrior in the shadows—planting the seed of a future betrayal."
+    },
+    {
+      "title": "Winner-Take-All War for the World Heavyweight Championship: Iron Sovereign vs. RAZE",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "iron_sovereign",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "narrate",
+          "text": "The Iron Sovereign, the longest-reigning World Heavyweight Champion in WZW history. Divine right to rule. But tonight is his last stand!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "entrance",
+          "who": "raze",
+          "mood": "menacing",
+          "escorts": [
+            "reverend_vice",
+            "cipher",
+            "luxe",
+            "silver_bullet"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "RAZE, the anarchist leader, with the full might of CHAOS at his back. Luxe stands beside him—the corporate elite has joined the revolution!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "iron_sovereign",
+            "raze"
+          ],
+          "winner": "raze",
+          "finish": "pin",
+          "story": "winner_dominates",
+          "length": "long",
+          "titleOnLine": "world_heavyweight_title",
+          "spots": [
+            {
+              "phase": "early",
+              "type": "distraction",
+              "who": "reverend_vice",
+              "target": "iron_sovereign",
+              "lines": [
+                "The New Order rises!"
+              ]
+            },
+            {
+              "phase": "mid",
+              "type": "weapon",
+              "who": "cipher",
+              "target": "iron_sovereign",
+              "lines": [
+                "Resistance is futile."
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "run_in",
+              "who": "riot_king",
+              "target": "cipher",
+              "lines": []
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "The Sovereign is fighting on instinct—his divine right against RAZE's anarchic fury!"
+            },
+            {
+              "phase": "early",
+              "speaker": "iron_sovereign",
+              "line": "You cannot topple the throne!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Four-on-one odds as CHAOS swarms the champion! The federation is drowning in anarchist tide!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "raze",
+              "line": "The machine dies tonight! The New Order begins!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Riot King is fighting off Cipher—the Last Stand defends to the bitter end!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "But RAZE is too strong, too hungry, too many numbers!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "The Reckoning! RAZE pins the Iron Sovereign! RAZE IS YOUR NEW WZW WORLD HEAVYWEIGHT CHAMPION!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "RAZE stands victorious! CHAOS has seized the throne! The federation is no longer the old guard—it belongs to the anarchists!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "raze",
+            "reverend_vice",
+            "cipher",
+            "luxe",
+            "silver_bullet"
+          ]
+        },
+        {
+          "type": "react",
+          "who": "riot_king",
+          "reaction": "anger"
+        },
+        {
+          "type": "react",
+          "who": "chain_reaction",
+          "reaction": "shock"
+        },
+        {
+          "type": "react",
+          "who": "ghostface",
+          "reaction": "smirk"
+        },
+        {
+          "type": "narrate",
+          "text": "The Last Stand watches in defeat. The corporate machine is gone. The old guard is broken. CHAOS rules WZW!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "RAZE defeats The Iron Sovereign to capture the WZW World Heavyweight Championship, and CHAOS seizes total control of the federation."
+    },
+    {
+      "title": "The Cryptic Convergence",
+      "beats": [
+        {
+          "type": "interrupt",
+          "who": "chrome_warrior",
+          "where": "ring",
+          "lines": [
+            "I have seen the timeline. RAZE wins. CHAOS rules. The old guard falls. And yet... the convergence is not complete.",
+            "Everything you witnessed tonight is exactly what was written in the temporal code. But next season, a third path emerges. A path neither faction anticipated.",
+            "Luxe will betray CHAOS. The Predator will rise. Riot King will return in a new form. And the true architect of WZW's future will reveal themselves.",
+            "This was only the beginning of what I have already seen."
+          ],
+          "then": "leaves",
+          "target": "none"
+        },
+        {
+          "type": "narrate",
+          "text": "Chrome Warrior's cryptic warning echoes through the arena—the future is not settled. Season two will rewrite the rules!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "That's all from Warzone, ladies and gentlemen. CHAOS controls WZW. The old guard is defeated. And the future remains uncertain. Join us next season for season two!",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "feud_end",
+          "a": "iron_sovereign",
+          "b": "raze"
+        },
+        {
+          "type": "feud_end",
+          "a": "iron_sovereign",
+          "b": "apex_predator"
+        },
+        {
+          "type": "feud_end",
+          "a": "riot_king",
+          "b": "apex_predator"
+        },
+        {
+          "type": "feud_end",
+          "a": "velvet_thunder",
+          "b": "scarlet_widow"
+        },
+        {
+          "type": "feud_end",
+          "a": "chain_reaction",
+          "b": "silver_bullet"
+        },
+        {
+          "type": "alliance_break",
+          "name": "The Last Stand"
+        },
+        {
+          "type": "alliance_break",
+          "name": "The Corporate Elite"
+        },
+        {
+          "type": "alliance_break",
+          "name": "Reluctant Alliance"
+        },
+        {
+          "type": "storyline_note",
+          "text": "Season 1 ends with CHAOS victorious: RAZE is World Champion, CHAOS controls the federation. The old guard (Iron Sovereign, Apex Predator, Riot King) is defeated. Luxe stands with CHAOS; Chrome Warrior hints his loyalty is uncertain. Chrome Warrior's cryptic warning suggests Season 2 will feature a 'third path' and unexpected turns—possibly Luxe betraying CHAOS, Predator's return, and Riot King's mysterious role as authority figure. The true architect of WZW's future remains hidden."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Champion Summary (end of Season 1): RAZE holds World Heavyweight Title (defeated Iron Sovereign). Chain Reaction holds Cruiserweight Title (defeated Silver Bullet). Scarlet Widow holds Women's Title (defeated Velvet Thunder). Next season begins with CHAOS in absolute power and the federation fractured."
+        }
+      ],
+      "recap": "Chrome Warrior delivers a shocking message that defies faction loyalty, hinting that the true game is only beginning and season two will rewrite everything."
+    }
+  ]
+}

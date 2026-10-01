@@ -56,11 +56,18 @@ export function draftToEpisode(raw: unknown): unknown {
  * title: "Dixie Mat Wrestling - Episode #1: The Hammer Holds Fast" -> "The Hammer Holds Fast".
  */
 export function cleanTitle(title: string, showName: string): string {
-  let t = title.trim().replace(/^["'“”]+|["'“”]+$/g, '').trim();
-  const ep = t.match(/(?:^|[\s\-–—:|])(?:episode|ep\.?)\s*#?\d+\s*[:\-–—|]\s*(.+)$/i);
-  if (ep) t = ep[1];
-  if (showName && t.toLowerCase().startsWith(showName.toLowerCase())) t = t.slice(showName.length).replace(/^\s*[:\-–—|]\s*/, '');
-  return t.trim() || title.trim();
+  let t = title.trim();
+  if (showName && t.toLowerCase().startsWith(showName.toLowerCase())) t = t.slice(showName.length);
+  // "Episode #10: X", "Ep. 3 - X", "#6 — X" -> "X"; a bare "Episode #10" leaves nothing.
+  t = t.replace(/^.*?(?:\b(?:episode|ep\.?)\s*)?#\s*\d+\s*(?:[:\-–—|]\s*|$)/i, '');
+  t = t.replace(/^.*?\b(?:episode|ep\.?)\s*\d+\s*(?:[:\-–—|]\s*|$)/i, '');
+  // Labels the show adds itself: "(GO-HOME TO X)", "PAY-PER-VIEW", "PPV".
+  t = t.replace(/\((?:[^)]*\b(?:go-home|pay-per-view|ppv|finale)\b[^)]*)\)/gi, '');
+  t = t.replace(/\b(?:pay-per-view|ppv)\b/gi, '');
+  // Strip separators and quotes left at the ends, and quotes that no longer pair up.
+  t = t.replace(/^[\s:\-–—|"'“”]+|[\s:\-–—|"'“”]+$/g, '');
+  if ((t.match(/"/g) ?? []).length % 2) t = t.replace(/"/g, '');
+  return t.replace(/\s{2,}/g, ' ').trim();
 }
 
 const ID_KEYS = new Set(['who', 'guest', 'a', 'b', 'victim', 'winner', 'target', 'speaker']);
@@ -117,7 +124,7 @@ export function reviewEpisode(raw: unknown, world: World): Review | { episode: n
   const ep = structuredClone(parsed.data);
   // A season opener's roster is the post-shuffle roster (departures out, arrivals in).
   if (ep.seasonStart) world = applySeasonStart(world, ep.seasonStart);
-  ep.title = cleanTitle(ep.title, world.showName);
+  ep.title = cleanTitle(ep.title, world.showName) || cleanTitle(ep.segments[0]?.title ?? '', world.showName) || 'Untitled';
 
   // Debuts first, so later beats can reference them.
   const known = new Map(world.characters.map((c) => [c.id, c]));

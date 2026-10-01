@@ -1,0 +1,394 @@
+{
+  "title": "\"CONVERGENCE",
+  "storySoFar": "Post-Line in the Sand: Iron Sovereign retains the World Title with Apex Predator's help, but CHAOS vows vengeance. Luxe's betrayal deepens Predator's paranoia as he questions corporate loyalties. Chain Reaction's credibility surges despite Silver Bullet's DQ victory. Scarlet Widow pursues another Women's Title shot after impressing against Thunder. Riot King's knee injury threatens his final run, but he refuses to quit. CHAOS infiltration reaches peak: Silver Bullet is fully aligned, Cipher holds Luxe's heart, and RAZE eyes the World Title at Judgment Night (3 weeks away). The federation fractures between old guard (Last Stand + Sovereign), corporate machine (Predator + Muse + Chrome Warrior), and anarchist invasion (CHAOS). Every alliance is temporary. Every betrayal is coming.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "Opening: CHAOS's Counterattack",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "raze",
+          "mood": "furious",
+          "escorts": [
+            "reverend_vice"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "raze",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "Line in the Sand showed you what we're capable of—and that was mercy.",
+            "Iron Sovereign bled. Apex Predator scraped by. The federation is hollow.",
+            "At Judgment Night, Apex Predator steps into the ring with me—and his empire burns.",
+            "CHAOS doesn't negotiate. We don't compromise. We dismantle."
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "reverend_vice",
+          "where": "ring",
+          "mood": "angry",
+          "lines": [
+            "The righteous shall inherit the ruins of the old order!",
+            "For every crown worn in greed, ten must fall in flame!",
+            "The prophecies are converging—can you hear the echo?"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "CHAOS has the momentum—but something's wrong. The federation is cracking from within.",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "RAZE and Reverend Vice storm the ring to declare CHAOS's next move, swearing to tear through the Last Stand and expose the corporate machine's weakness."
+    },
+    {
+      "title": "Segment 2: The Corporate Crisis",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "apex_predator",
+          "exchange": [
+            {
+              "speaker": "vic_steele",
+              "text": "Predator, where is Luxe? Is the Corporate Elite falling apart?"
+            },
+            {
+              "speaker": "apex_predator",
+              "text": "Luxe is exactly where she chose to be—in the enemy's arms. But that ends."
+            },
+            {
+              "speaker": "vic_steele",
+              "text": "You were humiliated at Line in the Sand. Can you survive three weeks until Judgment Night?"
+            },
+            {
+              "speaker": "apex_predator",
+              "text": "Survive? Vic, I thrive on suffering. RAZE will learn that evolution always defeats anarchy. And Luxe? She'll remember why she belonged to me."
+            },
+            {
+              "speaker": "vic_steele",
+              "text": "That sounds like a man drowning, Predator. And we all know what happens in the deep."
+            }
+          ]
+        },
+        {
+          "type": "exit",
+          "who": [
+            "apex_predator"
+          ],
+          "how": "storm_off"
+        },
+        {
+          "type": "narrate",
+          "text": "The Apex Predator is spiraling—and in three weeks, he faces RAZE on the grandest stage. Can he hold it together?",
+          "style": "shock",
+          "speaker": "color"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Vic Steele confronts The Apex Predator about Luxe's whereabouts and his spiral, pushing the corporate golden boy to the edge of rationality."
+    },
+    {
+      "title": "Segment 3: The Cryptic Warning",
+      "beats": [
+        {
+          "type": "promo",
+          "who": "ghostface",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "Riot King, your knees are screaming. We can all hear it.",
+            "Three weeks until Judgment Night—and you won't make it to Warzone if you keep fighting their war.",
+            "The old must fall for the new to rise. Maybe it's time to accept your fate.",
+            "Or maybe... you're the key to everything."
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Ghostface's cryptic words hang in the air—is he threatening Riot King or trying to save him? Even the Specter doesn't seem to know.",
+          "style": "call",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Ghostface appears to warn Riot King about his deteriorating knee and cryptically reference the old guard's final stand against the rising tide."
+    },
+    {
+      "title": "Segment 4: Match—Chaos Erupts in the Ring",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "riot_king",
+          "mood": "angry",
+          "escorts": [
+            "ghostface",
+            "chain_reaction"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "cipher",
+          "mood": "calm",
+          "escorts": [
+            "raze",
+            "reverend_vice"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "riot_king",
+            "cipher"
+          ],
+          "winner": "none",
+          "finish": "no_contest",
+          "story": "back_and_forth",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "raze",
+              "target": "riot_king",
+              "lines": [
+                "You're already broken, old man!"
+              ]
+            },
+            {
+              "phase": "late",
+              "type": "run_in",
+              "who": "ghostface",
+              "target": "raze",
+              "lines": []
+            },
+            {
+              "phase": "finish",
+              "type": "weapon",
+              "who": "reverend_vice",
+              "target": "ghostface",
+              "lines": [
+                "The righteous shall not be denied!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Riot King and Cipher lock up—technical wrestling at its finest!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "CHAOS has the numbers advantage ringside. The Last Stand better watch their backs."
+            },
+            {
+              "phase": "mid",
+              "speaker": "riot_king",
+              "line": "Come on, Specter! Now!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "The ring is breaking down! Ghostface and Reverend Vice are going at it! This match is chaos!"
+            },
+            {
+              "phase": "after",
+              "speaker": "color",
+              "line": "CHAOS and the Last Stand cannot stay out of each other's business. The war is spilling everywhere."
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "raze",
+            "reverend_vice"
+          ],
+          "victim": "ghostface",
+          "where": "ring",
+          "style": "beatdown"
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "riot_king",
+            "chain_reaction"
+          ],
+          "victim": "cipher",
+          "where": "ring",
+          "style": "beatdown"
+        },
+        {
+          "type": "narrate",
+          "text": "Total warfare! CHAOS and the Last Stand can't even stay in separate corners anymore!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "raze",
+            "reverend_vice",
+            "cipher"
+          ],
+          "how": "walk"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Cipher and Riot King tear into each other in a brutal technical brawl that descends into total chaos when CHAOS and the Last Stand clash at ringside, forcing a no-contest."
+    },
+    {
+      "title": "Segment 5: Chain Reaction's Outrage",
+      "beats": [
+        {
+          "type": "promo",
+          "who": "chain_reaction",
+          "where": "ring",
+          "mood": "angry",
+          "lines": [
+            "Silver Bullet hides behind CHAOS because he knows he can't beat me straight up!",
+            "At Judgment Night, I'm getting my title shot—and this time, no interference, no excuses.",
+            "I'm the hope the Last Stand needs. I'm the symbol of everything CHAOS wants to destroy.",
+            "And I won't stop until I'm holding that Cruiserweight Championship!"
+          ]
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "ghostface",
+            "riot_king"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Chain Reaction cuts a fired-up promo declaring that Silver Bullet and CHAOS have held him down long enough, and he will chase the Cruiserweight Championship with everything he has."
+    },
+    {
+      "title": "Segment 6: The Women's Division Tension",
+      "beats": [
+        {
+          "type": "promo",
+          "who": "velvet_thunder",
+          "where": "ring",
+          "mood": "cocky",
+          "lines": [
+            "Scarlet Widow, you had your shot at Line in the Sand, and you failed spectacularly.",
+            "My Women's Championship is not some prize for mysterious misfits to chase.",
+            "At Judgment Night, I will remind you why I am the face of this division.",
+            "Apex Muse will make sure you know your place."
+          ]
+        },
+        {
+          "type": "interrupt",
+          "who": "scarlet_widow",
+          "where": "stage",
+          "lines": [
+            "Thunder, you hide behind Muse because you fear what I represent.",
+            "Every time I step in that ring, I'm coming for what's mine.",
+            "At Judgment Night, we do this again—and this time, I won't be denied."
+          ],
+          "then": "walks_to_ring",
+          "target": "velvet_thunder"
+        },
+        {
+          "type": "confrontation",
+          "a": "velvet_thunder",
+          "b": "scarlet_widow",
+          "where": "ring",
+          "exchange": [
+            {
+              "speaker": "velvet_thunder",
+              "text": "You're nothing, Widow. A ghost story with no substance."
+            },
+            {
+              "speaker": "scarlet_widow",
+              "text": "Keep talking. At Judgment Night, actions will speak louder."
+            }
+          ],
+          "escalation": "shove"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "scarlet_widow"
+          ],
+          "how": "walk"
+        },
+        {
+          "type": "narrate",
+          "text": "The women's division is heating up! Scarlet Widow has proven herself worthy of another championship opportunity!",
+          "style": "crowd",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Velvet Thunder and Scarlet Widow's eyes meet across the broadcast as both prepare to collide again, with Thunder claiming the Widow is nothing but a corporate puppet."
+    },
+    {
+      "title": "Segment 7: The Iron Sovereign's Resolve",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "iron_sovereign",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "promo",
+          "who": "iron_sovereign",
+          "where": "ring",
+          "mood": "angry",
+          "lines": [
+            "RAZE and his anarchist rabble think tonight's chaos proves they can take me down. They are delusional.",
+            "At Judgment Night, I will break RAZE's body and his ideology into dust.",
+            "Riot King, the Last Stand—you have proven yourselves worthy allies. But when this war is won, we return to the natural order.",
+            "I am the Iron Sovereign. I am eternal. I am inevitable. This is my ring."
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "The longest-reigning champion in WZW history stands defiant—but cracks are forming in every alliance.",
+          "style": "shock",
+          "speaker": "color"
+        },
+        {
+          "type": "narrate",
+          "text": "Three weeks until Judgment Night. The federation hangs in the balance. Who will survive the convergence?",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "storyline_note",
+          "text": "CHAOS and Last Stand open warfare: match ended in total chaos as CHAOS beatdown vs. Last Stand save cascaded into no-contest. The factions can no longer be contained in individual matches—they're bleeding into every segment."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Apex Predator's spiral deepens: Vic Steele's interview exposed Predator's emotional collapse over Luxe's betrayal. His paranoia is at peak; he's losing his corporate composure. Will he be ready for RAZE at Judgment Night, or will his personal crisis cost him?"
+        },
+        {
+          "type": "storyline_note",
+          "text": "Ghostface's cryptic warning to Riot King about his knees and the 'old falling for the new to rise' suggests Ghostface may be hinting at a deeper role in the finale—possibly orchestrating or sacrificing elements of the old guard. Riot King's injury angle is confirmed as a real threat to his Judgment Night and Warzone matches."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Chain Reaction's next challenge: He demands a Cruiserweight Championship match at Judgment Night against Silver Bullet, backed by the Last Stand's full support. Silver Bullet and CHAOS will deny or subvert this opportunity, continuing the arc toward Chain Reaction's clean victory at Warzone (ep 12)."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Scarlet Widow's second title shot confirmed: After proving herself against Velvet Thunder, the Widow has earned another Women's Championship opportunity at Judgment Night. Velvet Thunder is invoking Apex Muse's protection again, deepening the mystery of who truly backs the champion."
+        }
+      ],
+      "recap": "The Iron Sovereign stands alone in the ring, acknowledging Riot King as a worthy ally while vowing to crush CHAOS and hold the World Title at Judgment Night."
+    }
+  ]
+}

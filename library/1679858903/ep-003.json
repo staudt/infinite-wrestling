@@ -1,0 +1,587 @@
+{
+  "title": "\"Go-Home Thunder",
+  "storySoFar": "CHAOS continues its invasion, hospitalizing Apex Predator and forcing the corporation to scramble. RAZE and Iron Sovereign face off at next week's \"Line in the Sand\" PPV—the federation's survival hangs in the balance. Luxe's affair with Cipher deepens her divided loyalties. Riot King leads the Last Stand (with Ghostface and Chain Reaction) against both the corporate machine and the anarchist threat. Chain Reaction earns respect despite losses to Silver Bullet. Scarlet Widow pursues Velvet Thunder's Women's Title with mysterious precision. Two weeks to PPV: final contract signings and shocking face-offs loom.",
+  "debuts": [
+    {
+      "id": "chrome_edge",
+      "name": "Chrome Edge",
+      "role": "wrestler",
+      "alignment": "tweener",
+      "division": "women",
+      "style": "highflyer",
+      "gimmick": "A chrome-armored acrobat who claims to be Chrome Warrior's 'sister from the network.' She moves with fluid, impossible grace, as if defying physics. Cryptic, methodical, equally at home destroying or saving someone depending on hidden agenda.",
+      "entrance": "to ethereal synthesizer, bathed in strobe light",
+      "finisherName": "The Cascade",
+      "finisherMove": "moonsault",
+      "hometown": "The Nexus (Parts Unknown)",
+      "weight": 135,
+      "catchphrase": "Convergence awaits.",
+      "finisherDescription": "a spiraling moonsault from the top rope, often onto opponents outside the ring",
+      "finisherCall": "She's looking to the heavens—THE CASCADE!"
+    }
+  ],
+  "segments": [
+    {
+      "title": "CHAOS Strikes Again: The Last Stand Protects",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "iron_sovereign",
+          "mood": "cocky",
+          "escorts": []
+        },
+        {
+          "type": "narrate",
+          "text": "The WZW World Heavyweight Champion rolls into the ring with the weight of history on his shoulders—but does he know what's waiting in the shadows?",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "interrupt",
+          "who": "raze",
+          "where": "stage",
+          "lines": [
+            "SOVEREIGN! You hide behind your title and your guards, but tonight—tonight the system crumbles!",
+            "CHAOS is everywhere, EVERYWHERE, and you can't stop the reckoning!"
+          ],
+          "then": "attacks",
+          "target": "iron_sovereign"
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "raze",
+            "cipher",
+            "reverend_vice"
+          ],
+          "victim": "iron_sovereign",
+          "where": "ring",
+          "style": "beatdown"
+        },
+        {
+          "type": "run_in",
+          "who": "riot_king",
+          "target": "raze",
+          "intent": "save"
+        },
+        {
+          "type": "run_in",
+          "who": "ghostface",
+          "target": "cipher",
+          "intent": "save"
+        },
+        {
+          "type": "run_in",
+          "who": "chain_reaction",
+          "target": "reverend_vice",
+          "intent": "save"
+        },
+        {
+          "type": "narrate",
+          "text": "Riot King and the Last Stand pour into the ring—rivals of the corporation itself, but enemies of CHAOS's invasion even more!",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "This is unprecedented! The old guard defending the champion against the anarchists! What has this federation become?",
+          "style": "shock",
+          "speaker": "color"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "raze",
+            "cipher",
+            "reverend_vice"
+          ],
+          "how": "storm_off"
+        },
+        {
+          "type": "confrontation",
+          "a": "iron_sovereign",
+          "b": "riot_king",
+          "where": "ring",
+          "exchange": [
+            {
+              "speaker": "iron_sovereign",
+              "text": "Why would the Last Stand save a Sovereign? What is this—a trick?"
+            },
+            {
+              "speaker": "riot_king",
+              "text": "No trick, champ. CHAOS doesn't get to tear down MY federation. But don't mistake this for respect."
+            },
+            {
+              "speaker": "iron_sovereign",
+              "text": "Then we are... temporary allies."
+            },
+            {
+              "speaker": "riot_king",
+              "text": "Until Line in the Sand. After that, all bets are off."
+            }
+          ],
+          "escalation": "stare_down"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "riot_king",
+            "ghostface",
+            "chain_reaction"
+          ],
+          "how": "walk"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "A CHAOS ambush on Iron Sovereign is cut short when Riot King and the Last Stand make a shocking save, forming an uneasy alliance against the invaders."
+    },
+    {
+      "title": "Luxe's Betrayal Exposed: Vic Steele's Interview",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "luxe",
+          "exchange": [
+            {
+              "speaker": "vic_steele",
+              "text": "Luxe, you've been seen meeting with Cipher in dark corners. Is the Apex Predator's valet working for CHAOS?"
+            },
+            {
+              "speaker": "luxe",
+              "text": "I don't know what you're talking about. Cipher is... a client. A business interest."
+            },
+            {
+              "speaker": "vic_steele",
+              "text": "You're lying. We have witnesses. You whispered something to him after the beatdown last week. What did you say?"
+            },
+            {
+              "speaker": "luxe",
+              "text": "I said... that the future belongs to those bold enough to seize it. And Cipher is the boldest man I've ever met. The Apex Predator is yesterday's news, Vic. CHAOS is tomorrow."
+            },
+            {
+              "speaker": "vic_steele",
+              "text": "So you admit it. You're a traitor to the Apex Predator."
+            },
+            {
+              "speaker": "luxe",
+              "text": "I'm a realist. When the dust settles after Line in the Sand, only one side will be standing. And I intend to stand with the winners."
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "She just confessed on camera! Luxe has publicly betrayed the Apex Predator! This is the biggest revelation of the invasion yet!",
+          "style": "shock",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Vic Steele corners Luxe backstage, forcing her to admit her affair with Cipher and her divided loyalties as CHAOS's inside woman."
+    },
+    {
+      "title": "Riot King's Outrageous Claim: The Last Stand Will Reign",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "riot_king",
+          "mood": "angry",
+          "escorts": [
+            "ghostface",
+            "chain_reaction"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "riot_king",
+          "where": "ring",
+          "mood": "angry",
+          "lines": [
+            "Line in the Sand is ONE week away, and I'm making a promise to every person in this building!",
+            "IRON SOVEREIGN! VELVET THUNDER! SILVER BULLET! Your titles belong to the LAST STAND now!",
+            "The Last Stand will walk out of that PPV holding the World, the Women's, and the Cruiserweight titles! That's not a prediction—that's a GUARANTEE!",
+            "CHAOS didn't kill the old guard. The old guard EVOLVED. And we're coming for EVERYTHING!"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Riot King just claimed his Last Stand will hold all three championships! Is he crazy, or does he know something we don't?",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "This is insane! Ghostface can't beat Iron Sovereign, Chain Reaction can't beat Silver Bullet, and Riot King himself is ancient! But that fire—that fire is real.",
+          "style": "crowd",
+          "speaker": "color"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "riot_king",
+            "ghostface",
+            "chain_reaction"
+          ],
+          "how": "walk"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Riot King cuts a fiery promo declaring the Last Stand will hold all three WZW titles by the end of the invasion war."
+    },
+    {
+      "title": "Scarlet Widow vs. Apex Muse: The Widow Advances",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "scarlet_widow",
+          "mood": "calm",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "apex_muse",
+          "mood": "angry",
+          "escorts": [
+            "luxe"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Apex Muse enters with Luxe at her side—but after that confession, how can anyone trust her loyalty anymore?",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "scarlet_widow",
+            "apex_muse"
+          ],
+          "winner": "scarlet_widow",
+          "finish": "pin",
+          "story": "back_and_forth",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Widow takes her down with a textbook armbar—precision wrestling against raw muscle!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Apex Muse is all power, but the Widow is reading her like a book. Idiot!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "scarlet_widow",
+              "line": "Your time is done."
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Widow sets up for the Web—the submission is locked in tight!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "Scarlet Widow defeats Apex Muse and earns her shot at Velvet Thunder's Women's Championship at Line in the Sand!"
+            }
+          ]
+        },
+        {
+          "type": "exit",
+          "who": [
+            "scarlet_widow"
+          ],
+          "how": "walk"
+        },
+        {
+          "type": "narrate",
+          "text": "Scarlet Widow has earned the right to challenge Velvet Thunder for the Women's Title! But we STILL don't know her real past!",
+          "style": "shock",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "In a hard-fought women's division showcase, Scarlet Widow defeats Apex Muse cleanly, earning a Women's Championship shot at Line in the Sand."
+    },
+    {
+      "title": "The Mysterious Debut: Chrome Edge's Warning",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "chrome_edge",
+          "mood": "menacing",
+          "escorts": [
+            "chrome_warrior"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Who is this? Chrome Warrior's sister? Moving like she defies gravity itself, bathed in strobes and otherworldly light!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "promo",
+          "who": "chrome_edge",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "I am Chrome Edge, sister of convergence, messenger from the network beyond.",
+            "Line in the Sand will be a convergence of betrayal and reckoning—three titles, three prophecies.",
+            "One of you will hold them. One of you will lose them. And one of you... will expose the truth.",
+            "Convergence awaits."
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "What is she talking about? Three prophecies? Three titles? Is she predicting the future or warning us?",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "This is either genius psychology or a complete head case. Either way, she's got my attention.",
+          "style": "shock",
+          "speaker": "color"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "chrome_edge",
+            "chrome_warrior"
+          ],
+          "how": "walk"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "A new, ethereal wrestler debuts calling herself Chrome Edge, claiming to be Chrome Warrior's sister from the network, delivering cryptic warnings about Line in the Sand."
+    },
+    {
+      "title": "Chain Reaction's Dream: The Outrageous Claim",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "chain_reaction",
+          "mood": "excited",
+          "escorts": [
+            "riot_king",
+            "ghostface"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "chain_reaction",
+          "where": "ring",
+          "mood": "excited",
+          "lines": [
+            "Silver Bullet has beaten me twice. Twice! But those were his wins. This one—this one is MINE.",
+            "Line in the Sand, I'm taking that Cruiserweight Title and I'm taking it CLEAN. No interference, no tricks, just skill and heart.",
+            "I'm the voice of the streets, and the streets are hungry for change!",
+            "SILVER BULLET, your reign ends WITH ME!"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Chain Reaction is firing up the crowd! Is this the moment his hard-fought journey pays off?",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "Kid's got guts, I'll give him that. But Silver Bullet? That's a different beast entirely.",
+          "style": "call",
+          "speaker": "color"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "chain_reaction",
+            "riot_king",
+            "ghostface"
+          ],
+          "how": "walk"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Chain Reaction cuts a passionate promo claiming he will dethrone Silver Bullet at Line in the Sand and become the Cruiserweight Champion."
+    },
+    {
+      "title": "Contract Signing: Iron Sovereign vs. RAZE for the WZW World Heavyweight Championship",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "iron_sovereign",
+          "mood": "cocky",
+          "escorts": []
+        },
+        {
+          "type": "narrate",
+          "text": "The Iron Sovereign steps up to the contract table. This is it—the last moment before his prophesied downfall.",
+          "style": "call",
+          "speaker": "pbp"
+        },
+        {
+          "type": "interview",
+          "guest": "iron_sovereign",
+          "exchange": [
+            {
+              "speaker": "vic_steele",
+              "text": "Sovereign, you just allied with Riot King against CHAOS. Do you trust him?"
+            },
+            {
+              "speaker": "iron_sovereign",
+              "text": "I trust no one. But RAZE is a cancer that must be cut out. And if Riot King helps me do that, then so be it. After RAZE is gone, the Last Stand is next."
+            }
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "raze",
+          "mood": "menacing",
+          "escorts": [
+            "cipher",
+            "reverend_vice",
+            "silver_bullet"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "RAZE arrives with full CHAOS support! The anarchist is not alone, but the champion is prepared for war!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "interview",
+          "guest": "raze",
+          "exchange": [
+            {
+              "speaker": "vic_steele",
+              "text": "RAZE, Iron Sovereign has an army at his back. Do you fear the odds?"
+            },
+            {
+              "speaker": "raze",
+              "text": "The Sovereign fears ME. Every wall has cracks, Vic. And at Line in the Sand, I'm going to shatter his reign and show this federation what REAL power looks like."
+            },
+            {
+              "speaker": "reverend_vice",
+              "text": "The old order FALLS! The prophecy is WRITTEN! The anarchist RISES!"
+            },
+            {
+              "speaker": "raze",
+              "text": "Sign the papers, Sovereign. Let's end this."
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "RAZE exudes confidence! Is he right? Is the Iron Sovereign's reign coming to an end?",
+          "style": "shock",
+          "speaker": "pbp"
+        },
+        {
+          "type": "confrontation",
+          "a": "iron_sovereign",
+          "b": "raze",
+          "where": "podium",
+          "exchange": [
+            {
+              "speaker": "iron_sovereign",
+              "text": "You're a charlatan masquerading as a freedom fighter. At Line in the Sand, I will end you."
+            },
+            {
+              "speaker": "raze",
+              "text": "No, champ. At Line in the Sand, the system you represent DIES. And you die with it."
+            }
+          ],
+          "escalation": "shove"
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "cipher",
+            "reverend_vice"
+          ],
+          "victim": "iron_sovereign",
+          "where": "podium",
+          "style": "beatdown"
+        },
+        {
+          "type": "run_in",
+          "who": "riot_king",
+          "target": "raze",
+          "intent": "save"
+        },
+        {
+          "type": "narrate",
+          "text": "Riot King rushes in again! The uneasy alliance holds, pushing CHAOS back, but barely! At Line in the Sand, all hell is going to break loose!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "raze",
+            "cipher",
+            "reverend_vice",
+            "silver_bullet"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "alliance_form",
+          "name": "Reluctant Alliance",
+          "members": [
+            "iron_sovereign",
+            "riot_king",
+            "ghostface",
+            "chain_reaction"
+          ]
+        },
+        {
+          "type": "feud_start",
+          "a": "luxe",
+          "b": "apex_predator",
+          "reason": "Luxe publicly confesses her affair with Cipher and her allegiance to CHAOS, betraying the Apex Predator on live television. Predator will spiral into paranoia and rage upon learning of this."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Chrome Edge's cryptic warning about 'three prophecies' and 'convergence' at Line in the Sand: referencing the three championship defenses and hinting at unexpected betrayals or title changes. Is she ally or enemy?"
+        },
+        {
+          "type": "storyline_note",
+          "text": "Luxe's public betrayal is now confirmed. The Apex Predator will learn she is CHAOS's inside woman at the PPV, deepening his humiliation and setting up his eventual downfall at Judgment Night (ep 8)."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Chain Reaction makes his outrageous claim: he will win the Cruiserweight Championship at Line in the Sand. This plants the seed for his eventual clean win over Silver Bullet at Warzone (ep 12)."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Iron Sovereign and Riot King's uneasy alliance is holding strong, but both know it will shatter after Line in the Sand. Riot King's hidden respect for Sovereign is growing, but so is his hunger for the World Title."
+        },
+        {
+          "type": "storyline_note",
+          "text": "RAZE's confidence is sky-high; he enters the contract signing with full CHAOS support and immediately attacks Iron Sovereign, proving the threat is real and imminent. The prophecies are closing in."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Scarlet Widow officially advances to challenge Velvet Thunder for the Women's Championship at Line in the Sand. Her mysterious past still unrevealed, but her technical skill is undeniable."
+        },
+        {
+          "type": "feud_start",
+          "a": "raze",
+          "b": "iron_sovereign",
+          "reason": "Contract signing escalates to a physical altercation; prophecies of the old order's collapse mount as Line in the Sand approaches."
+        }
+      ],
+      "recap": "At the contract table, Iron Sovereign and RAZE face off one final time before Line in the Sand, signing the papers for their championship collision with Vic Steele as moderator."
+    }
+  ]
+}

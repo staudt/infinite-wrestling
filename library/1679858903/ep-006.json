@@ -1,0 +1,454 @@
+{
+  "title": "#6 — \"The Clock Ticks",
+  "storySoFar": "CHAOS's invasion escalates toward Judgment Night (2 weeks away). RAZE eyes the World Title; Iron Sovereign refuses to fall. Apex Predator's paranoia deepens after Luxe's betrayal—Cipher holds her heart. Chain Reaction surges in popularity, demanding a Cruiserweight Championship shot against Silver Bullet (now openly CHAOS-aligned). Scarlet Widow earns a rematch for Velvet Thunder's Women's Title. Riot King's knee injury threatens his final run, but he refuses to quit; Ghostface cryptically hints the old guard must fall. The Last Stand (King, Ghost, Chain) and Corporate Elite (Predator, Muse, Chrome Warrior) battle CHAOS for the federation's soul—every alliance is temporary, every betrayal imminent.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "Opening: CHAOS's Countdown Begins",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "raze",
+          "mood": "menacing",
+          "escorts": [
+            "reverend_vice"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "raze",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "The clock is ticking on Iron Sovereign's reign—and the old guard's last breath.",
+            "Judgment Night, I take what's mine. The World Title, the federation, everything.",
+            "The system is breaking. Who's next to fall?"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "reverend_vice",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "The prophecies are written in blood and fire!",
+            "CHAOS is the new covenant. The old order dies at Judgment Night!"
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "RAZE and Reverend Vice arrive to declare their path to the World Title, raising the stakes for Judgment Night."
+    },
+    {
+      "title": "Interview: Vic Steele Corners Apex Predator",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "apex_predator",
+          "exchange": [
+            {
+              "speaker": "vic_steele",
+              "text": "Predator, you've been backstage for hours, pacing like a caged animal. Where's your head at two weeks from facing RAZE?"
+            },
+            {
+              "speaker": "apex_predator",
+              "text": "My head? My head is crystal clear, Steele. Luxe was a puppet—my puppet. And I'll rip RAZE apart at Judgment Night to prove this corporation still runs this federation."
+            },
+            {
+              "speaker": "vic_steele",
+              "text": "But you're fractured. Emotionally compromised. Does Judgment Night concern you?"
+            },
+            {
+              "speaker": "apex_predator",
+              "text": "I am evolution incarnate. Nothing—not Luxe, not CHAOS, not doubt—will stop me."
+            },
+            {
+              "speaker": "vic_steele",
+              "text": "We'll see if that conviction holds up."
+            }
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Vic Steele forces the paranoid, spiraling Apex Predator to confront his personal and professional collapse as Luxe's betrayal continues to haunt him."
+    },
+    {
+      "title": "Match 1: Apex Muse vs. Scarlet Widow",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "apex_muse",
+          "mood": "cocky",
+          "escorts": [
+            "luxe"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "scarlet_widow",
+          "mood": "calm",
+          "escorts": []
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "apex_muse",
+            "scarlet_widow"
+          ],
+          "winner": "scarlet_widow",
+          "finish": "submission",
+          "story": "winner_dominates",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "luxe",
+              "target": "scarlet_widow",
+              "lines": [
+                "She's getting lucky, Muse! Stay focused!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Muse using her strength early—but Widow is already reading her patterns."
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "That valet distraction won't matter if the Widow's technical game is superior. And it is."
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "The Web applied—Widow wrenches Muse's arm with surgical precision. No escape!"
+            },
+            {
+              "phase": "after",
+              "speaker": "apex_muse",
+              "line": "This isn't over, Widow!"
+            }
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "scarlet_widow",
+          "where": "ring",
+          "mood": "calm",
+          "lines": [
+            "Velvet Thunder, that submission was a message.",
+            "Judgment Night, I'm taking what I've earned. Your title, your crown, your illusions of control."
+          ]
+        },
+        {
+          "type": "exit",
+          "who": [
+            "apex_muse",
+            "luxe"
+          ],
+          "how": "stagger"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Apex Muse defends the Corporate Elite's honor against the rising Scarlet Widow, who proves her technical superiority in a victory that deepens her Women's Championship credentials."
+    },
+    {
+      "title": "Backstage: The Note",
+      "beats": [
+        {
+          "type": "narrate",
+          "text": "Backstage, Chain Reaction has just found a mysterious note at his locker.",
+          "style": "call",
+          "speaker": "pbp"
+        },
+        {
+          "type": "interrupt",
+          "who": "chain_reaction",
+          "where": "stage",
+          "lines": [
+            "What's this? 'Keep fighting. The old guard is watching.' Who left this?"
+          ],
+          "then": "stays",
+          "target": "none"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Chain Reaction discovers a cryptic note left for him, stoking the mystery of hidden allies within the federation."
+    },
+    {
+      "title": "Match 2: Ghostface vs. Silver Bullet (Non-Title)",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "ghostface",
+          "mood": "angry",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "silver_bullet",
+          "mood": "cocky",
+          "escorts": [
+            "reverend_vice"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "ghostface",
+            "silver_bullet"
+          ],
+          "winner": "ghostface",
+          "finish": "pin",
+          "story": "back_and_forth",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "late",
+              "type": "distraction",
+              "who": "reverend_vice",
+              "target": "ghostface",
+              "lines": [
+                "The chaos demands retribution, Bullet!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "ghostface",
+              "line": "For the federation! For the old guard!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Silver Bullet's speed is keeping him in this, but Ghostface is relentless—unafraid, like a spirit."
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Ghostface reverses the Headshot attempt—The Haunt! Silver Bullet is down! Three! Two! One!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "A stunning upset! The Last Stand sends a message to CHAOS on the cruiserweight circuit!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Ghostface and the Last Stand have just claimed a major victory over CHAOS's forces.",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "silver_bullet",
+            "reverend_vice"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Ghostface clashes with the CHAOS-aligned Silver Bullet in a high-stakes cruiserweight showcase that sets the tone for the cruiserweight division heading into Judgment Night."
+    },
+    {
+      "title": "Interview: Vic Steele Probes Iron Sovereign",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "iron_sovereign",
+          "exchange": [
+            {
+              "speaker": "vic_steele",
+              "text": "Iron Sovereign, RAZE opened this show with a countdown to your demise. How do you respond?"
+            },
+            {
+              "speaker": "iron_sovereign",
+              "text": "RAZE is a fool pounding his chest at the gates of divine authority. I have ruled this federation longer than anyone. I will crush him at Judgment Night."
+            },
+            {
+              "speaker": "vic_steele",
+              "text": "Riot King sits uneasy beside you. Can you trust the Last Stand when it counts?"
+            },
+            {
+              "speaker": "iron_sovereign",
+              "text": "Trust? No. But Riot King understands the threat. When CHAOS falls, old alliances will shatter. And I will remain on the throne."
+            }
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Vic Steele sits down with the World Heavyweight Champion to assess his resolve as RAZE and CHAOS close in on Judgment Night."
+    },
+    {
+      "title": "Match 3: Riot King vs. Apex Predator (Grudge Match)",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "riot_king",
+          "mood": "angry",
+          "escorts": [
+            "ghostface",
+            "chain_reaction"
+          ]
+        },
+        {
+          "type": "entrance",
+          "who": "apex_predator",
+          "mood": "furious",
+          "escorts": [
+            "apex_muse"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "riot_king",
+            "apex_predator"
+          ],
+          "winner": "riot_king",
+          "finish": "pin",
+          "story": "comeback",
+          "length": "long",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "apex_muse",
+              "target": "riot_king",
+              "lines": [
+                "Stay down, old man!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "apex_predator",
+              "line": "You're finished, Valdez. Evolution always crushes the past!"
+            },
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Predator comes out aggressive—dominating the aging Riot King early."
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "Riot King's knee is buckling—but somehow, he's sucking it up, absorbing punishment, waiting for his moment."
+            },
+            {
+              "phase": "mid",
+              "speaker": "ghostface",
+              "line": "Come on, Butch! The old must STAND!"
+            },
+            {
+              "phase": "late",
+              "speaker": "pbp",
+              "line": "Predator signals for the Executive Decision—but Riot King explodes with the Riot Riot! COVER! THREE!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "RIOT KING WINS! The Last Stand erupts! He's EARNED his World Title shot at Judgment Night!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "A monumental upset! Riot King has secured his World Championship opportunity!",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "celebrate",
+          "who": [
+            "riot_king",
+            "ghostface",
+            "chain_reaction"
+          ]
+        },
+        {
+          "type": "react",
+          "who": "apex_predator",
+          "reaction": "anger"
+        },
+        {
+          "type": "exit",
+          "who": [
+            "apex_predator",
+            "apex_muse"
+          ],
+          "how": "storm_off"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "The iconic clash between old guard and corporate machine erupts as Riot King defeats the emotionally fractured Apex Predator in a shocking upset that earns him a World Title shot at Judgment Night."
+    },
+    {
+      "title": "Closing: The Last Stand's New Challenge",
+      "beats": [
+        {
+          "type": "promo",
+          "who": "riot_king",
+          "where": "ring",
+          "mood": "angry",
+          "lines": [
+            "Iron Sovereign, you're next. This old guard isn't done fighting yet.",
+            "At Judgment Night, I'm taking that World Title. The people deserve better than the machine!",
+            "CHAOS, Corporate Elite—you both can watch from the sidelines while the Last Stand takes what's ours!"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Two weeks to Judgment Night: RAZE vs. Apex Predator, Iron Sovereign vs. Riot King, Velvet Thunder vs. Scarlet Widow—the war accelerates.",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "narrate",
+          "text": "But can the Last Stand hold together when the real enemies close in?",
+          "style": "shock",
+          "speaker": "color"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "feud_start",
+          "a": "riot_king",
+          "b": "iron_sovereign",
+          "reason": "Riot King defeats Apex Predator and earns a World Title shot against Iron Sovereign at Judgment Night."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Riot King's Judgment Night Challenge Accepted: After a shocking upset victory over Apex Predator, Riot King publicly declares himself the challenger for Iron Sovereign's World Heavyweight Championship at Judgment Night. The three-way power struggle (Iron Sovereign, Riot King, RAZE) is now locked. Apex Predator's emotional fragmentation continues."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Scarlet Widow's Momentum Peaks: Widow defeats Apex Muse cleanly, cementing her technical superiority over the Corporate Elite and validating her Women's Championship rematch vs. Velvet Thunder at Judgment Night."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Chain Reaction's Mystery Ally: A cryptic note left at Chain Reaction's locker hints at hidden support from within the old guard. Identity unknown, but timing suggests influence from Riot King, Ghostface, or even Iron Sovereign. Payoff pending."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Ghostface's Last Stand Victory: Ghostface defeats Silver Bullet in a non-title upset, signaling the Last Stand's renewed competitive edge heading into Judgment Night and planting seeds for future cruiserweight contention."
+        }
+      ],
+      "recap": "Riot King stands defiant in the ring, accepting a World Title shot at Judgment Night and calling out Iron Sovereign while the Last Stand unites behind him."
+    }
+  ]
+}

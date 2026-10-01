@@ -1,0 +1,436 @@
+{
+  "title": "Episode #10",
+  "storySoFar": "CHAOS has seized control. Luxe betrayed Apex Predator and joined RAZE's faction; the anarchists now dominate every division. Iron Sovereign barely holds the World Title against impossible odds. Riot King's knees are failing but his will unbroken—he leads the Last Stand (Ghostface, Chain Reaction) as the federation's final defense. Chain Reaction chases the Cruiserweight Title with clean victories over Silver Bullet and Chrome Warrior; his Warzone moment is destiny. Scarlet Widow remains undefeated against the Corporate Elite but cannot capture gold due to interference. Ghostface hints Widow's past holds the key to the federation's darkest secrets. CHAOS's broadcast hijacking proves their power complete. Two weeks until Warzone's Winner-Take-All finale: RAZE will challenge Iron Sovereign for the World Title and the promotion's soul.",
+  "debuts": [],
+  "segments": [
+    {
+      "title": "Cold Open: CHAOS Declares Total War",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "raze",
+          "mood": "furious",
+          "escorts": [
+            "reverend_vice",
+            "cipher",
+            "silver_bullet"
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "raze",
+          "where": "ring",
+          "mood": "menacing",
+          "lines": [
+            "Fourteen days until Warzone. Fourteen days until the throne falls.",
+            "Iron Sovereign, your divine right dies with you.",
+            "The New Order begins. CHAOS owns this federation now."
+          ]
+        },
+        {
+          "type": "promo",
+          "who": "reverend_vice",
+          "where": "ring",
+          "mood": "crazy",
+          "lines": [
+            "The old gods are dust. We are resurrection.",
+            "Riot King, Ghostface, all of you—prophets of a dying age.",
+            "Surrender now, or fall screaming at Warzone."
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "RAZE and Reverend Vice have systematically dismantled every obstacle. In two weeks, the final reckoning begins.",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "RAZE and Reverend Vice storm the broadcast to announce their final countdown to Warzone; the federation's last days begin now."
+    },
+    {
+      "title": "Match 1: Ghostface vs. Silver Bullet - Last Stand vs. CHAOS",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "ghostface",
+          "mood": "angry",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "silver_bullet",
+          "mood": "cocky",
+          "escorts": [
+            "reverend_vice",
+            "cipher"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "ghostface",
+            "silver_bullet"
+          ],
+          "winner": "ghostface",
+          "finish": "pin",
+          "story": "back_and_forth",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "mid",
+              "type": "distraction",
+              "who": "cipher",
+              "target": "ghostface",
+              "lines": [
+                "The code is broken! The Haunt fades!"
+              ]
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Two divisions collide! The Last Stand's Ghostface against CHAOS's Speed!"
+            },
+            {
+              "phase": "mid",
+              "speaker": "ghostface",
+              "line": "You think CHAOS owns this ring? I own your conscience, kid."
+            },
+            {
+              "phase": "late",
+              "speaker": "color",
+              "line": "Cipher's on the apron—the kid's getting distracted!"
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "Ghostface with the Haunt! The Specter claims victory! The Last Stand strikes back!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "Despite CHAOS's psychological warfare, the old guard finds its first clean victory. Ghostface stands tall as Cipher retreats in frustration.",
+          "style": "call",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Ghostface battles the Cruiserweight Champion in a hard-fought clash that ends with a controversial moment and a shocking save."
+    },
+    {
+      "title": "Interview: Vic Steele Corners RAZE",
+      "beats": [
+        {
+          "type": "interview",
+          "guest": "raze",
+          "exchange": [
+            {
+              "speaker": "vic_steele",
+              "text": "RAZE, fourteen days until you face Iron Sovereign for everything. What happens if you lose?"
+            },
+            {
+              "speaker": "raze",
+              "text": "I don't lose. The Sovereign's time is finished. Warzone ends the old order forever."
+            },
+            {
+              "speaker": "vic_steele",
+              "text": "You've infiltrated every level of this federation. Is there anyone in CHAOS you don't trust?"
+            },
+            {
+              "speaker": "raze",
+              "text": "Luxe is ours. Silver Bullet is ours. Cipher moves in the shadows. The federation is already ours. The final bell is just a formality."
+            }
+          ]
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Vic Steele confronts RAZE backstage about the invasion's endgame and the federation's future; RAZE reveals his vision of total control."
+    },
+    {
+      "title": "Match 2: Chain Reaction vs. Reverend Vice - The Street Kid Rises",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "chain_reaction",
+          "mood": "excited",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "reverend_vice",
+          "mood": "menacing",
+          "escorts": [
+            "raze",
+            "cipher"
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "In a pivotal moment, Riot King's interference saves Chain Reaction from a post-match onslaught. The street kid celebrates as the Last Stand stands united—but King's battered knees show the cost of every save.",
+          "style": "big",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Chain Reaction faces the zealous Reverend Vice in a street-level brawl; despite CHAOS manipulation, the kid proves his hunger for the Cruiserweight Title."
+    },
+    {
+      "title": "Confrontation: The Last Stand vs. CHAOS - Uneasy Allies Emerge",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "ghostface",
+          "mood": "angry",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "riot_king",
+          "mood": "angry",
+          "escorts": []
+        },
+        {
+          "type": "confrontation",
+          "a": "riot_king",
+          "b": "raze",
+          "where": "ring",
+          "exchange": [
+            {
+              "speaker": "riot_king",
+              "text": "Two weeks, kid. You think you've won? We're still standing."
+            },
+            {
+              "speaker": "raze",
+              "text": "You're relics. Warzone is the funeral. We'll bury you with honor."
+            },
+            {
+              "speaker": "ghostface",
+              "text": "The Specter sees your end, RAZE. The question is: who falls with you?"
+            },
+            {
+              "speaker": "cipher",
+              "text": "The code shows only one outcome. Chaos reigns eternal."
+            }
+          ],
+          "escalation": "separated"
+        },
+        {
+          "type": "narrate",
+          "text": "The tension is electric. In two weeks, these men will tear the federation apart. But tonight, it's a standoff—and neither side can afford to blink.",
+          "style": "shock",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "With Iron Sovereign watching from backstage, the Last Stand stands defiant against CHAOS; a tense negotiation hints at an unlikely final alliance."
+    },
+    {
+      "title": "Match 3: Scarlet Widow vs. Apex Muse - Women's Division Warfare",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "scarlet_widow",
+          "mood": "calm",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "apex_muse",
+          "mood": "cocky",
+          "escorts": [
+            "apex_predator",
+            "luxe"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "scarlet_widow",
+            "apex_muse"
+          ],
+          "winner": "scarlet_widow",
+          "finish": "pin",
+          "story": "winner_dominates",
+          "length": "medium",
+          "titleOnLine": "none",
+          "spots": [],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "The Widow's surgical precision against the Muse's raw power. One final warm-up before Warzone."
+            },
+            {
+              "phase": "mid",
+              "speaker": "apex_predator",
+              "line": "Destroy her! For Luxe! For the Corporate Elite!"
+            },
+            {
+              "phase": "late",
+              "speaker": "color",
+              "line": "The Widow is picking the Muse apart like a surgeon with a scalpel."
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "The Web! Scarlet Widow defeats Apex Muse clean! She's ready for Velvet Thunder's crown!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "A dominant display. Scarlet Widow stands over a fallen Apex Muse, undefeated against the Corporate Elite and ready to claim her birthright at Warzone.",
+          "style": "call",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [],
+      "recap": "Scarlet Widow faces Apex Muse one final time before her Women's Championship final at Warzone; the Widow's precision proves flawless."
+    },
+    {
+      "title": "Main Event: Iron Sovereign vs. Apex Predator - Last Alliance Against the Darkness",
+      "beats": [
+        {
+          "type": "entrance",
+          "who": "iron_sovereign",
+          "mood": "menacing",
+          "escorts": []
+        },
+        {
+          "type": "entrance",
+          "who": "apex_predator",
+          "mood": "menacing",
+          "escorts": [
+            "apex_muse"
+          ]
+        },
+        {
+          "type": "match",
+          "stipulation": "singles",
+          "wrestlers": [
+            "iron_sovereign",
+            "apex_predator"
+          ],
+          "winner": "apex_predator",
+          "finish": "pin",
+          "story": "back_and_forth",
+          "length": "long",
+          "titleOnLine": "none",
+          "spots": [
+            {
+              "phase": "finish",
+              "type": "run_in",
+              "who": "raze",
+              "target": "iron_sovereign",
+              "lines": []
+            },
+            {
+              "phase": "mid",
+              "type": "run_in",
+              "who": "riot_king",
+              "target": "raze",
+              "lines": []
+            }
+          ],
+          "moments": [
+            {
+              "phase": "early",
+              "speaker": "pbp",
+              "line": "Two titans of the old guard circle each other. Alliance or vengeance?"
+            },
+            {
+              "phase": "mid",
+              "speaker": "color",
+              "line": "The Predator's corporate precision clashing with the Sovereign's raw authority. Neither man trusts the other."
+            },
+            {
+              "phase": "late",
+              "speaker": "iron_sovereign",
+              "line": "You've fought well, Predator. The last real warrior left."
+            },
+            {
+              "phase": "after",
+              "speaker": "pbp",
+              "line": "The Executive Decision connects! Predator steals the victory! But RAZE is here—he's attacking! Riot King makes the save!"
+            }
+          ]
+        },
+        {
+          "type": "narrate",
+          "text": "In a brutal final moment, Apex Predator proves he is NOT done—he defeats the World Champion clean. But RAZE's post-match assault is cut short by Riot King's heroic save. The old guard and the new blood clash one final time, setting the stage for Warzone.",
+          "style": "big",
+          "speaker": "pbp"
+        },
+        {
+          "type": "attack",
+          "attackers": [
+            "raze"
+          ],
+          "victim": "iron_sovereign",
+          "where": "ring",
+          "style": "beatdown"
+        },
+        {
+          "type": "run_in",
+          "who": "riot_king",
+          "target": "raze",
+          "intent": "save"
+        },
+        {
+          "type": "confrontation",
+          "a": "riot_king",
+          "b": "raze",
+          "where": "ring",
+          "exchange": [
+            {
+              "speaker": "riot_king",
+              "text": "You think you've won, kid? The Last Stand fights eternal."
+            },
+            {
+              "speaker": "raze",
+              "text": "Fourteen days, old man. Warzone ends your story."
+            }
+          ],
+          "escalation": "separated"
+        },
+        {
+          "type": "narrate",
+          "text": "Two weeks until Warzone. The federation teeters on the edge. CHAOS is stronger than ever. But tonight, the old guard showed they still have fight. The stage is set for the final apocalypse.",
+          "style": "shock",
+          "speaker": "pbp"
+        }
+      ],
+      "stateChanges": [
+        {
+          "type": "feud_start",
+          "a": "apex_predator",
+          "b": "raze",
+          "reason": "Fresh head-to-head victory by Predator, but RAZE's post-match attack guarantees escalation into Warzone."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Ghostface's victory over Silver Bullet proves the Last Stand can beat CHAOS in direct competition. Riot King's save of Chain Reaction and Iron Sovereign costs him physically but earns the crowd's trust. The uneasy alliance between the old guard (Iron Sovereign, Riot King, Apex Predator) is now solidified by necessity—not honor."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Apex Predator defeats Iron Sovereign cleanly, proving he is NOT broken by Luxe's betrayal. This sets up a potential post-Warzone power struggle: if CHAOS wins, does the federation fracture into rival factions (Predator vs. Riot King) or does it reset entirely?"
+        },
+        {
+          "type": "storyline_note",
+          "text": "Scarlet Widow remains undefeated against the Corporate Elite. Her clean win over Apex Muse confirms she will defeat Velvet Thunder at Warzone and usher in a new Women's Championship era."
+        },
+        {
+          "type": "storyline_note",
+          "text": "Chain Reaction's momentum continues. With Riot King's mentorship and Ghostface's cryptic support, the street kid is positioned as the federation's true symbol of hope. His Warzone victory over Silver Bullet is destiny."
+        }
+      ],
+      "recap": "The World Heavyweight Champion Iron Sovereign faces the isolated Apex Predator; their alliance is fragile, but CHAOS's closing attack proves they must stand together."
+    }
+  ]
+}

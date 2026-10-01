@@ -16,7 +16,8 @@ export function zoneOf(p: Point, visible: boolean): Zone {
   if (!visible) return 'backstage';
   if (inRing(p)) return 'ring';
   if (p.x >= arena.ringside.x0) return 'ringside';
-  if (p.x >= arena.podium.x0 && p.x <= arena.podium.x1 && p.depth < 2.5) return 'podium';
+  const pd = arena.podium;
+  if (p.x >= pd.x0 && p.x <= pd.x1 && p.depth >= pd.d0 && p.depth <= pd.d1) return 'podium';
   if (p.x < arena.stage.x1) return 'stage';
   return 'aisle';
 }
@@ -40,7 +41,7 @@ export function placePoint(place: Place, slot = 0): Point {
     case 'aisle':
       return { x: arena.aisle.spot.x + slot * 3, depth: arena.aisle.depth };
     case 'podium':
-      return slot === 0 ? arena.podium.guest : { x: arena.podium.guest.x + 2 * slot, depth: arena.podium.guest.depth + 1 };
+      return slot === 0 ? arena.podium.guest : { x: arena.podium.guest.x + 2 * slot, depth: arena.podium.guest.depth };
   }
 }
 

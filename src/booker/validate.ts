@@ -2,6 +2,8 @@
 // to the LLM for a retry) and returns a sanitized episode that is always safe to play.
 import { Beat, Episode, type Segment } from '../schema/episode';
 import { hasMove } from '../sim/moves';
+import { applySeasonStart } from '../world/season';
+import { matchCharacter, unstringify } from './json';
 import type { World } from '../world/state';
 
 export interface Review {
@@ -11,7 +13,7 @@ export interface Review {
 
 const MAX_LINES = 6;
 const MIN_SEGMENTS = 3;
-const MAX_SEGMENTS = 8;
+const MAX_SEGMENTS = 10;
 
 function cleanLines(lines: string[]): string[] {
   return lines.map((l) => l.trim()).filter(Boolean).slice(0, MAX_LINES);
@@ -19,27 +21,8 @@ function cleanLines(lines: string[]): string[] {
 
 type Loose = Record<string, unknown>;
 const isObj = (x: unknown): x is Loose => typeof x === 'object' && x !== null && !Array.isArray(x);
+export { unstringify };
 
-/**
- * Models sometimes send nested tool arguments as JSON-encoded strings
- * (e.g. `"beats": "[{...}]"`). Decode those anywhere in the input.
- */
-export function unstringify(v: unknown): unknown {
-  if (typeof v === 'string') {
-    const t = v.trim();
-    if ((t.startsWith('[') && t.endsWith(']')) || (t.startsWith('{') && t.endsWith('}'))) {
-      try {
-        return unstringify(JSON.parse(t));
-      } catch {
-        return v;
-      }
-    }
-    return v;
-  }
-  if (Array.isArray(v)) return v.map(unstringify);
-  if (isObj(v)) return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, unstringify(x)]));
-  return v;
-}
 
 /**
  * Accept the flat LLM draft (beats with `segment` markers) and turn it into the nested
@@ -68,9 +51,51 @@ export function draftToEpisode(raw: unknown): unknown {
   return { title: raw.title, storySoFar: raw.storySoFar, debuts: raw.debuts ?? [], segments };
 }
 
+/**
+ * The show adds "Episode #N" and the show name itself, so strip them from the booked
+ * title: "Dixie Mat Wrestling - Episode #1: The Hammer Holds Fast" -> "The Hammer Holds Fast".
+ */
+export function cleanTitle(title: string, showName: string): string {
+  let t = title.trim().replace(/^["'“”]+|["'“”]+$/g, '').trim();
+  const ep = t.match(/(?:^|[\s\-–—:|])(?:episode|ep\.?)\s*#?\d+\s*[:\-–—|]\s*(.+)$/i);
+  if (ep) t = ep[1];
+  if (showName && t.toLowerCase().startsWith(showName.toLowerCase())) t = t.slice(showName.length).replace(/^\s*[:\-–—|]\s*/, '');
+  return t.trim() || title.trim();
+}
+
+const ID_KEYS = new Set(['who', 'guest', 'a', 'b', 'victim', 'winner', 'target', 'speaker']);
+const ID_LIST_KEYS = new Set(['attackers', 'wrestlers', 'escorts', 'members']);
+const slugify = (s: string) => s.toLowerCase().replace(/"[^"]*"/g, ' ').replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+
+/**
+ * Models sometimes refer to people by name ("Chet Millwood", "chet_millwood") instead of
+ * their id. Map any id field that isn't a known id but matches someone's name.
+ */
+export function resolveIds(v: unknown, world: World): unknown {
+  const ids = new Set(world.characters.map((c) => c.id));
+  const alias = new Map<string, string>();
+  for (const c of world.characters) {
+    alias.set(slugify(c.name), c.id);
+    alias.set(slugify(c.name.replace(/"[^"]*"\s*/g, '')), c.id);
+    alias.set(slugify(c.name.replace(/"/g, '')), c.id); // nickname kept, quotes dropped
+  }
+  const fix = (x: unknown) =>
+    typeof x === 'string' && !ids.has(x) ? alias.get(slugify(x)) ?? matchCharacter(x, world.characters)?.id ?? x : x;
+  const walk = (x: unknown): unknown => {
+    if (Array.isArray(x)) return x.map(walk);
+    if (!isObj(x)) return x;
+    return Object.fromEntries(Object.entries(x).map(([k, val]) => {
+      if (ID_KEYS.has(k)) return [k, fix(val)];
+      if (ID_LIST_KEYS.has(k) && Array.isArray(val)) return [k, val.map(fix)];
+      return [k, walk(val)];
+    }));
+  };
+  return walk(v);
+}
+
 export function reviewEpisode(raw: unknown, world: World): Review | { episode: null; problems: string[] } {
   const problems: string[] = [];
-  const nested = draftToEpisode(unstringify(raw));
+  const nested = draftToEpisode(resolveIds(unstringify(raw), world));
   // Drop malformed beats one by one rather than rejecting the whole episode.
   if (isObj(nested) && Array.isArray(nested.segments)) {
     nested.segments.forEach((seg, si) => {
@@ -90,8 +115,9 @@ export function reviewEpisode(raw: unknown, world: World): Review | { episode: n
     return { episode: null, problems: [...problems, ...parsed.error.issues.slice(0, 12).map((i) => `${i.path.join('.')}: ${i.message}`)] };
   }
   const ep = structuredClone(parsed.data);
-  // The show adds "Episode N" itself.
-  ep.title = ep.title.replace(/^\s*(episode|ep\.?)\s*#?\d+\s*[:\-–—]\s*/i, '').trim() || ep.title;
+  // A season opener's roster is the post-shuffle roster (departures out, arrivals in).
+  if (ep.seasonStart) world = applySeasonStart(world, ep.seasonStart);
+  ep.title = cleanTitle(ep.title, world.showName);
 
   // Debuts first, so later beats can reference them.
   const known = new Map(world.characters.map((c) => [c.id, c]));
@@ -158,28 +184,48 @@ export function reviewEpisode(raw: unknown, world: World): Review | { episode: n
         return b;
       }
       case 'match': {
-        if (b.wrestlers.length !== 2) return bad('a match needs exactly two wrestlers');
-        const [x, y] = b.wrestlers;
-        if (x === y) return bad('a wrestler cannot face themselves');
+        b.wrestlers = [...new Set(b.wrestlers)];
+        const size = b.wrestlers.length;
+        const st = b.stipulation;
+        if (st === 'tag' && size !== 4) return bad(`a tag match needs exactly 4 wrestlers (got ${size})`);
+        if (st === 'battle_royal' && (size < 4 || size > 12)) return bad(`a battle royal needs 4-12 wrestlers (got ${size})`);
+        if (st !== 'tag' && st !== 'battle_royal' && size !== 2) return bad(`a ${st} match needs exactly two different wrestlers`);
+        const [x] = b.wrestlers;
+        // Each stipulation has its own ways to win.
+        const allowed: Record<typeof st, string[]> = {
+          singles: ['pin', 'rollup', 'cheat_pin', 'submission', 'dq', 'countout', 'no_contest'],
+          tag: ['pin', 'rollup', 'cheat_pin', 'submission', 'dq', 'countout', 'no_contest'],
+          cage: ['pin', 'rollup', 'cheat_pin', 'submission', 'escape', 'no_contest'],
+          ladder: ['retrieve', 'no_contest'],
+          battle_royal: ['elimination'],
+        };
+        if (!allowed[st].includes(b.finish)) {
+          const fix = st === 'cage' ? 'escape' : st === 'ladder' ? 'retrieve' : st === 'battle_royal' ? 'elimination' : 'pin';
+          problems.push(`${where} (match): "${b.finish}" is not a ${st} finish, using "${fix}"`);
+          b.finish = fix;
+        }
         const notW = b.wrestlers.filter((id) => !isWrestler(id));
         if (notW.length) return bad(`not wrestlers: ${notW.join(', ')}`);
-        if (known.get(x)!.division !== known.get(y)!.division) return bad('wrestlers must be in the same division');
         const twice = b.wrestlers.filter((id) => booked.has(id));
         if (twice.length) return bad(`${twice.join(', ')} already wrestled this episode`);
         if (b.finish === 'no_contest') {
           if (b.winner !== 'none') problems.push(`${where} (match): no_contest must have winner "none"`);
           b.winner = 'none';
         } else if (!b.wrestlers.includes(b.winner)) {
-          problems.push(`${where} (match): winner "${b.winner}" is not one of ${x}, ${y}`);
+          problems.push(`${where} (match): winner "${b.winner}" is not in the match`);
           b.winner = x;
+        }
+        if (b.titleOnLine !== 'none' && st === 'tag') {
+          problems.push(`${where} (match): there are no tag team titles yet`);
+          b.titleOnLine = 'none';
         }
         if (b.titleOnLine !== 'none') {
           const t = world.titles.find((tt) => tt.id === b.titleOnLine);
           if (!t) {
             problems.push(`${where} (match): unknown title "${b.titleOnLine}"`);
             b.titleOnLine = 'none';
-          } else if (t.division !== known.get(x)!.division) {
-            problems.push(`${where} (match): ${t.id} is not in this division`);
+          } else if (b.wrestlers.some((id) => known.get(id)!.division !== t.division)) {
+            problems.push(`${where} (match): ${t.id} can only be defended within its division`);
             b.titleOnLine = 'none';
           }
         }
@@ -195,6 +241,14 @@ export function reviewEpisode(raw: unknown, world: World): Review | { episode: n
           s.lines = cleanLines(s.lines).slice(0, 2);
           return true;
         }).slice(0, 3);
+        b.moments = b.moments
+          .map((mo) => ({ ...mo, line: mo.line.trim() }))
+          .filter((mo) => {
+            const ok = mo.speaker === 'pbp' || mo.speaker === 'color' || isChar(mo.speaker);
+            if (!ok) problems.push(`${where} (match): moment by unknown speaker "${mo.speaker}"`);
+            return ok && mo.line.length > 0;
+          })
+          .slice(0, 8);
         b.wrestlers.forEach((id) => booked.add(id));
         return b;
       }

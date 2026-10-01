@@ -1,10 +1,10 @@
 // Headless preview: book and "air" episodes in the terminal, printing the play-by-play.
 //   npm run preview -- --episodes 3 [--offline] [--quiet]
-//   npm run preview -- --new [--direction "ECW-style hardcore"] [--classic] [--cached]   start a new world
+//   npm run preview -- --new [--direction "ECW-style hardcore"] [--classic]   start a new world
 // World state persists in ./world.json; transcripts and episode JSON go to ./shows/.
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { bookEpisode, createPromotion, llmAvailable } from '../../server/booker';
-import { fallbackEpisode } from '../booker/fallback';
+import { offlineBook as fallbackEpisode } from '../booker/fallback';
 import { Stage } from '../engine/stage';
 import { prepareStage } from '../show/runner';
 import { clock, transcriptLine } from '../view/transcript';
@@ -42,7 +42,7 @@ if (!world) {
   if (flag('classic')) world = classicWorld(seed);
   else if (offline) world = offlineWorld(seed, direction);
   else {
-    const created = await createPromotion(direction, seed, flag('cached'));
+    const created = await createPromotion(direction, seed);
     console.error(`[genesis] "${created.world.showName}" created by ${created.source}`);
     world = created.world;
   }

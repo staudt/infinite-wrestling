@@ -3752,5 +3752,530 @@
     }
    }
   ]
+ },
+ {
+  "big": false,
+  "styles": [],
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "id": "guardrail",
+  "name": "whip into the guardrail",
+  "kind": "outside",
+  "damage": 6,
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "run",
+     "dx": -3
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.45,
+    "att": {
+     "upper": "punch",
+     "lower": "stand",
+     "dx": 0.8,
+     "dy": 0
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "upper": "idle",
+     "dx": 1
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 3.5
+    }
+   }
+  ],
+  "text": [
+   "{A} whips {D} into the steel guardrail! The fans scatter!",
+   "{A} sends {D} crashing into the barricade!",
+   "{D} is launched into the guardrail by {A}!"
+  ]
+ },
+ {
+  "big": false,
+  "styles": [],
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "id": "ring_post",
+  "name": "ring post",
+  "kind": "outside",
+  "damage": 7,
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "punch",
+     "head": "shout"
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "upper": "guard",
+     "head": "neutral",
+     "dx": 2.5
+    }
+   }
+  ],
+  "text": [
+   "{A} rams {D} shoulder-first into the ring post!",
+   "{A} slams {D}'s head into the steel ring post!",
+   "THE RING POST! {A} drives {D} right into it!"
+  ]
+ },
+ {
+  "big": true,
+  "styles": [],
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "id": "steel_steps",
+  "name": "steel steps",
+  "kind": "outside",
+  "damage": 8,
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "run",
+     "dx": -3
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.45,
+    "att": {
+     "upper": "punch",
+     "lower": "stand",
+     "dx": 0.8,
+     "dy": 0
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "upper": "idle",
+     "dx": 1
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 3.5
+    }
+   }
+  ],
+  "text": [
+   "{A} whips {D} into the steel steps! What a crash!",
+   "{D} goes knees-first into the steel steps courtesy of {A}!",
+   "The steel steps! {A} just launched {D} into them!"
+  ]
+ },
+ {
+  "big": false,
+  "styles": [],
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "standing"
+  },
+  "id": "apron_slam",
+  "name": "apron slam",
+  "kind": "outside",
+  "damage": 4,
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "guard",
+     "dx": 0
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.3,
+    "att": {
+     "upper": "punch",
+     "head": "shout"
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "idle",
+     "head": "neutral"
+    },
+    "def": {
+     "upper": "guard",
+     "head": "neutral",
+     "dx": 2.5
+    }
+   }
+  ],
+  "text": [
+   "{A} smashes {D}'s face into the ring apron!",
+   "{A} bounces {D}'s head off the apron!",
+   "{A} rakes {D} across the apron!"
+  ]
+ },
+ {
+  "big": true,
+  "styles": [],
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "id": "floor_slam",
+  "name": "body slam on the floor",
+  "kind": "outside",
+  "damage": 9,
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.35,
+    "att": {
+     "upper": "lift",
+     "lower": "crouch"
+    },
+    "def": {
+     "dy": 1,
+     "rot": -45,
+     "dx": 1.2
+    }
+   },
+   {
+    "t": 0.7,
+    "att": {
+     "upper": "overhead",
+     "lower": "stand"
+    },
+    "def": {
+     "dy": 2.5,
+     "rot": -90,
+     "dx": 0.8
+    }
+   },
+   {
+    "t": 1,
+    "att": {
+     "upper": "idle",
+     "lower": "crouch",
+     "head": "shout"
+    },
+    "def": {
+     "dy": 0,
+     "rot": 90,
+     "lower": "lying",
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 1.4,
+    "att": {
+     "lower": "stand",
+     "head": "neutral"
+    }
+   }
+  ],
+  "text": [
+   "{A} body slams {D} on the cold, hard floor!",
+   "There's no give out there! {A} slams {D} on the concrete!",
+   "{A} scoops {D} and slams {D} on the arena floor!"
+  ]
+ },
+ {
+  "big": true,
+  "styles": [],
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "id": "table_bump",
+  "name": "table",
+  "kind": "outside",
+  "damage": 13,
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "upper": "grab"
+    },
+    "def": {
+     "dx": 1.5
+    }
+   },
+   {
+    "t": 0.35,
+    "att": {
+     "upper": "lift",
+     "lower": "crouch"
+    },
+    "def": {
+     "dy": 1,
+     "rot": -45,
+     "dx": 1.2
+    }
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "upper": "overhead",
+     "lower": "stand"
+    },
+    "def": {
+     "dy": 2.5,
+     "rot": -90,
+     "dx": 0.8
+    }
+   },
+   {
+    "t": 1.25,
+    "att": {
+     "upper": "idle",
+     "lower": "crouch",
+     "head": "shout"
+    },
+    "def": {
+     "dy": 0,
+     "rot": 90,
+     "lower": "lying",
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 1.7,
+    "att": {
+     "lower": "stand",
+     "head": "neutral"
+    }
+   }
+  ],
+  "text": [
+   "{A} sets up a table... and puts {D} THROUGH IT!",
+   "THROUGH THE TABLE! {A} just destroyed {D}!",
+   "{A} drives {D} through a ringside table! The place is going nuts!"
+  ]
+ },
+ {
+  "big": false,
+  "styles": [],
+  "requires": {
+   "def": [
+    "standing"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "id": "over_the_top",
+  "name": "toss over the top rope",
+  "kind": "toss",
+  "damage": 5,
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "run",
+     "dx": -3
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.45,
+    "att": {
+     "upper": "punch",
+     "lower": "stand",
+     "dx": 0.8,
+     "dy": 0
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "upper": "idle",
+     "dx": 1
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 3.5
+    }
+   }
+  ],
+  "text": [
+   "{A} tosses {D} over the top rope to the floor!",
+   "{A} clotheslines {D} right over the top rope!",
+   "Over the top! {D} crashes to the floor courtesy of {A}!"
+  ]
+ },
+ {
+  "id": "cage_slam",
+  "name": "cage slam",
+  "kind": "cage",
+  "damage": 8,
+  "big": true,
+  "styles": [],
+  "requires": {
+   "def": [
+    "standing",
+    "reeling"
+   ]
+  },
+  "result": {
+   "att": "standing",
+   "def": "grounded"
+  },
+  "keys": [
+   {
+    "t": 0,
+    "att": {
+     "lower": "run",
+     "dx": -3
+    },
+    "def": {
+     "dx": 2
+    }
+   },
+   {
+    "t": 0.45,
+    "att": {
+     "upper": "punch",
+     "lower": "stand",
+     "dx": 0.8,
+     "dy": 0
+    },
+    "def": {
+     "upper": "hurt",
+     "head": "hurt",
+     "dx": 2
+    },
+    "impact": true
+   },
+   {
+    "t": 0.9,
+    "att": {
+     "upper": "idle",
+     "dx": 1
+    },
+    "def": {
+     "lower": "lying",
+     "rot": 90,
+     "dx": 3.5
+    }
+   }
+  ],
+  "text": [
+   "{A} rams {D} face-first into the steel cage!",
+   "{A} rakes {D}'s face across the cage wall!",
+   "The cage rattles! {A} just threw {D} into the steel!"
+  ]
  }
 ]

@@ -4,7 +4,13 @@ import type { BodyState } from '../engine/poses';
 import type { Style } from '../schema/episode';
 
 export type MoveKind =
-  | 'strike' | 'grapple' | 'whip' | 'ground' | 'aerial' | 'submission' | 'cheat' | 'weapon' | 'pin';
+  | 'strike' | 'grapple' | 'whip' | 'ground' | 'aerial' | 'submission' | 'cheat' | 'weapon' | 'pin'
+  /** Only on the floor outside the ring. */
+  | 'outside'
+  /** Sends the opponent from the ring to the floor. */
+  | 'toss'
+  /** Only inside a steel cage. */
+  | 'cage';
 
 export interface Move {
   id: string;
@@ -33,6 +39,8 @@ export function hasMove(id: string): boolean {
 }
 
 /** Moves the sim may pick on its own (specials like pins and weapons are scripted). */
-export const RANDOM_POOL = MOVES.filter((m) => m.kind !== 'pin' && m.kind !== 'weapon' && m.kind !== 'cheat');
+export const RANDOM_POOL = MOVES.filter((m) => !['pin', 'weapon', 'cheat', 'outside', 'toss', 'cage'].includes(m.kind));
+/** What makes sense on the floor: the outside moves plus basic strikes and stomps. */
+export const OUTSIDE_POOL = MOVES.filter((m) => m.kind === 'outside' || ['punch', 'chop', 'forearm', 'headbutt', 'kick_gut', 'stomp'].includes(m.id));
 export const CHEATS = MOVES.filter((m) => m.kind === 'cheat');
 export const SUBMISSIONS = MOVES.filter((m) => m.kind === 'submission');

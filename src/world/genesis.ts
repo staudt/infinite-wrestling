@@ -1,12 +1,13 @@
 // Creating a brand-new promotion. `reviewPromotion` validates and sanitizes a promotion
 // (from the LLM or the offline generator) into a playable World; `randomPromotion` is
 // the offline generator, so every new world gets a fresh roster even without an API key.
-import { unstringify } from '../booker/validate';
+import { matchCharacter, unstringify } from '../booker/json';
 import { hashSeed, Rng } from '../engine/rng';
 import type { Division, Style } from '../schema/episode';
 import { type NewCharacter, Promotion } from '../schema/promotion';
 import { hasMove, MOVES } from '../sim/moves';
-import { type Character, DEBUT_COLORS, type World } from './state';
+import { farthestColor, PALETTE } from '../engine/colors';
+import { type Character, CREW_COLORS, crewOf, type World } from './state';
 
 export interface PromotionReview {
   world: World | null;
@@ -24,6 +25,15 @@ const FINISHERS_BY_STYLE: Record<Style, string[]> = {
   showman: ['ddt', 'bulldog', 'top_rope_elbow', 'leg_drop', 'neckbreaker'],
 };
 
+/** Optional profile fields, only when the model provided something usable. */
+export function profileOf(c: { hometown: string; weight: number; catchphrase: string }): Pick<Character, 'hometown' | 'weight' | 'catchphrase'> {
+  return {
+    ...(c.hometown.trim() ? { hometown: c.hometown.trim() } : {}),
+    ...(c.weight >= 80 && c.weight <= 700 ? { weight: Math.round(c.weight) } : {}),
+    ...(c.catchphrase.trim() ? { catchphrase: c.catchphrase.trim() } : {}),
+  };
+}
+
 export function reviewPromotion(raw: unknown, direction: string, seed: number): PromotionReview {
   const parsed = Promotion.safeParse(unstringify(raw));
   if (!parsed.success) {
@@ -32,7 +42,9 @@ export function reviewPromotion(raw: unknown, direction: string, seed: number): 
   const p = parsed.data;
   const problems: string[] = [];
   const rng = new Rng(hashSeed('colors', seed));
-  const colors = rng.shuffle(DEBUT_COLORS);
+  // Rotate the palette per world for variety, then always take the most distinct color left.
+  const palette = [...PALETTE.slice(seed % PALETTE.length), ...PALETTE.slice(0, seed % PALETTE.length)];
+  const used: string[] = Object.values(CREW_COLORS);
   const ids = new Set<string>();
   const uniqueId = (raw: string) => {
     let id = slug(raw);
@@ -42,7 +54,8 @@ export function reviewPromotion(raw: unknown, direction: string, seed: number): 
   };
   const idMap = new Map<string, string>();
 
-  const lanceId = uniqueId(p.interviewer.id || p.interviewer.name);
+  // Prefer a name-based id ("chet_millwood"): models refer to people by name, not by "interviewer".
+  const lanceId = uniqueId(/^(interviewer|announcer|host)$/i.test(p.interviewer.id) || !p.interviewer.id ? p.interviewer.name : p.interviewer.id);
   idMap.set(p.interviewer.id, lanceId);
   const characters: Character[] = [{
     id: lanceId, name: p.interviewer.name, role: 'interviewer', alignment: 'tweener', division: 'men',
@@ -59,13 +72,24 @@ export function reviewPromotion(raw: unknown, direction: string, seed: number): 
     }
     characters.push({
       id, name: c.name.trim(), role: c.role, alignment: c.alignment, division: c.division, style: c.style,
-      gimmick: c.gimmick, entrance: c.entrance || 'to a roar from the crowd', finisher: { name: c.finisherName || MOVES.find((m) => m.id === move)!.name, move },
-      color: colors[(characters.length - 1) % colors.length],
+      gimmick: c.gimmick, entrance: c.entrance || 'to a roar from the crowd',
+      finisher: {
+        name: c.finisherName || MOVES.find((m) => m.id === move)!.name, move,
+        ...(c.finisherDescription.trim() ? { description: c.finisherDescription.trim() } : {}),
+        ...(c.finisherCall.trim() ? { call: c.finisherCall.trim() } : {}),
+      },
+      ...profileOf(c),
+      color: '',
     });
+  }
+  // Wrestlers pick first so the people who share the ring are the most distinct.
+  for (const c of [...characters.filter((x) => x.role === 'wrestler'), ...characters.filter((x) => x.role !== 'wrestler' && x.role !== 'interviewer')]) {
+    c.color = farthestColor(used, palette);
+    used.push(c.color);
   }
   const byId = (raw: string) => {
     const id = idMap.get(raw) ?? raw;
-    return characters.find((c) => c.id === id);
+    return characters.find((c) => c.id === id) ?? matchCharacter(raw, characters);
   };
   const wrestlersIn = (d: Division) => characters.filter((c) => c.role === 'wrestler' && c.division === d);
   const men = wrestlersIn('men').length;
@@ -114,6 +138,7 @@ export function reviewPromotion(raw: unknown, direction: string, seed: number): 
     shortName: (p.shortName.trim() || p.showName.trim()).slice(0, 6).toUpperCase(),
     direction,
     seed,
+    crew: crewOf({ seed, crew: { pbp: p.commentators.playByPlay.trim(), color: p.commentators.color.trim() } }),
     episode: 0,
     characters,
     titles,
@@ -183,6 +208,34 @@ const HARD_SHOWS = [['Extreme Carnage', 'XCW'], ['Hardcore Heaven', 'HCW'], ['Bi
 
 const STYLES: Style[] = ['brawler', 'technician', 'powerhouse', 'highflyer', 'showman'];
 
+const HOMETOWNS = [
+  'Memphis, Tennessee', 'Charlotte, North Carolina', 'Amarillo, Texas', 'Detroit, Michigan', 'Tampa, Florida',
+  'Brooklyn, New York', 'Minneapolis, Minnesota', 'Calgary, Alberta', 'San Juan, Puerto Rico', 'Beverly Hills, California',
+  'Atlanta, Georgia', 'Philadelphia, Pennsylvania', 'Portland, Oregon', 'Kansas City, Missouri', 'Parts Unknown',
+  'the Bayou of Louisiana', 'Las Vegas, Nevada', 'Boston, Massachusetts', 'Mobile, Alabama', 'Tokyo, Japan',
+];
+const WEIGHTS: Record<Style, [number, number]> = {
+  brawler: [240, 300], technician: [220, 250], powerhouse: [280, 350], highflyer: [190, 225], showman: [220, 260],
+};
+const CATCHPHRASES: Record<Style, string[]> = {
+  brawler: ['You want some? Come get some!', 'I fight dirty and I fight often!', 'Ring the bell and get outta my way!'],
+  technician: ['Perfection is not an accident.', 'Wrestling is a science, and I am the professor!', 'Respect the hold!'],
+  powerhouse: ['Nobody moves the mountain!', 'Feel the power!', 'I am UNSTOPPABLE!'],
+  highflyer: ['The sky is not the limit!', 'Catch me if you can!', 'Time to fly!'],
+  showman: ['Look at me! LOOK AT ME!', 'The show starts when I say it starts!', 'Nobody does it prettier!'],
+};
+/** How the desk describes each move when it is somebody's finisher. */
+const FINISHER_LOOKS: Record<string, string> = {
+  piledriver: 'a spike piledriver', lariat: 'a running lariat that could take a head off', ddt: 'a jumping DDT',
+  big_splash: 'a splash with every ounce of body weight', spear: 'a shoulder-first spear through the midsection',
+  figure_four: 'a figure-four leglock wrenched in the middle of the ring', belly_to_belly: 'a high-arcing belly-to-belly suplex',
+  suplex: 'a delayed vertical suplex', boston_crab: 'a bone-bending Boston crab', armbar: 'a cross armbreaker',
+  sleeper: 'a choking sleeper hold', powerbomb: 'a sit-out powerbomb', backbreaker: 'a spine-bending backbreaker',
+  powerslam: 'a running powerslam', big_boot: 'a size-15 boot to the jaw', moonsault: 'a moonsault off the top rope',
+  top_rope_splash: 'a splash off the top rope', top_rope_elbow: 'a flying elbow off the top', bulldog: 'a running bulldog',
+  crossbody: 'a flying crossbody from the top', leg_drop: 'a leg drop across the throat', neckbreaker: 'a swinging neckbreaker',
+};
+
 export function isHardcore(direction: string): boolean {
   return /hardcore|extreme|ecw|garbage|deathmatch|violent|bloody/i.test(direction);
 }
@@ -213,6 +266,11 @@ export function randomPromotion(seed: number, direction = ''): Promotion {
       entrance: rng.pick(ENTRANCES),
       finisherName: rng.pick([`${last} Bomb`, `The ${last} Special`, `${last} Driver`, `${last}-quake`, `The Final ${last}`]),
       finisherMove: move,
+      hometown: rng.pick(HOMETOWNS),
+      weight: division === 'women' ? rng.int(118, 160) : rng.int(...WEIGHTS[style]),
+      catchphrase: rng.pick(CATCHPHRASES[style]),
+      finisherDescription: FINISHER_LOOKS[move] ?? '',
+      finisherCall: '',
     };
   };
   const aligns = (n: number) => rng.shuffle(Array.from({ length: n }, (_, i) => (i % 5 === 4 ? 'tweener' : i % 2 ? 'heel' : 'face') as NewCharacter['alignment']));
@@ -225,10 +283,12 @@ export function randomPromotion(seed: number, direction = ''): Promotion {
   const manager: NewCharacter = {
     id: slug(mgr.name), name: mgr.name, role: 'manager', alignment: 'heel', division: 'men', style: 'showman',
     gimmick: mgr.gimmick, entrance: 'twirling a cane', finisherName: 'Cane Shot', finisherMove: 'punch',
+    hometown: 'Park Avenue, New York', weight: 0, catchphrase: 'Everybody has a price!', finisherDescription: '', finisherCall: '',
   };
   const valet: NewCharacter = {
     id: slug(val.name), name: val.name, role: 'valet', alignment: rng.pick(['heel', 'face'] as const), division: 'women',
     style: 'showman', gimmick: val.gimmick, entrance: 'blowing kisses', finisherName: 'Slap', finisherMove: 'slap',
+    hometown: 'Hollywood, California', weight: 0, catchphrase: 'Don\'t touch the hair!', finisherDescription: '', finisherCall: '',
   };
   const [show, short] = rng.pick(hard ? HARD_SHOWS : SHOWS);
   const champ = rng.pick(heelsM.length ? heelsM : men);
@@ -244,7 +304,8 @@ export function randomPromotion(seed: number, direction = ''): Promotion {
   return {
     showName: show,
     shortName: short,
-    interviewer: { id: 'interviewer', name: rng.pick(INTERVIEWERS), gimmick: 'A veteran interviewer who is shocked every week.' },
+    interviewer: { id: 'interviewer', name: rng.pick(INTERVIEWERS), gimmick: 'Veteran ring announcer and interviewer who is shocked every week.' },
+    commentators: { playByPlay: '', color: '' },
     characters: [...men, ...women, manager, valet],
     titles: [
       { id: 'world', name: `${short} World Heavyweight Championship`, division: 'men', holder: champ.id },

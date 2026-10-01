@@ -11,7 +11,7 @@ export function transcriptLine(stage: Stage, e: EngineEvent): string | null {
   const name = (id: string) => stage.actors.get(id)?.name ?? id;
   switch (e.type) {
     case 'episodeStart':
-      return `\n=== EPISODE ${e.number}: ${e.title} ===`;
+      return `\n=== ${e.label.toUpperCase()}: ${e.title} ===`;
     case 'segmentStart':
       return `\n--- ${e.title} ---`;
     case 'narrated':
@@ -22,6 +22,8 @@ export function transcriptLine(stage: Stage, e: EngineEvent): string | null {
       return `${clock(e.t)}  [RESULT] ${e.winner ? `${name(e.winner)} wins by ${e.finish}` : 'no contest'}`;
     case 'titleChange':
       return `${clock(e.t)}  [TITLE] ${name(e.newChampion)} is the new ${stage.titles.find((t) => t.id === e.title)?.name ?? e.title} champion`;
+    case 'elimination':
+      return `${clock(e.t)}  [OUT] ${name(e.who)} eliminated by ${name(e.by)} (${e.remaining} left)`;
     case 'alignmentChanged':
       return `${clock(e.t)}  [TURN] ${name(e.id)} is now a ${e.alignment}`;
     case 'crowd':

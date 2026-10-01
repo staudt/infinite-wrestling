@@ -1,6 +1,6 @@
-# GPTWW Saturday Night
+# Infinite Wrestling
 
-A never-ending, AI-booked, 1980s NWA-style wrestling TV show that runs itself like a screensaver. An LLM (Claude) books each weekly episode: promos, interviews, betrayals, reveals, run-ins and short matches. A deterministic engine stages it in a NetHack-style ASCII arena with timed play-by-play.
+**Never-ending generative pro wrestling.** An AI-booked wrestling TV show that runs itself like a screensaver. An LLM (Claude) books each weekly episode: promos, interviews, betrayals, reveals, run-ins and short matches. A deterministic engine stages it in a NetHack-style ASCII arena with timed play-by-play.
 
 ```
  ░░░▒░░^░░░░░░!░░░░░░░░░░░░░░░░░░^░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -20,25 +20,55 @@ npm run server              # booker proxy on :8787 (keeps the key server-side)
 npm run dev                 # open the printed URL
 ```
 
-The first visit creates a **brand-new promotion**: show name, roster, gimmicks, titles, feuds and alliances, all generated fresh. Press `N` to start another; you can give it an optional direction such as *"ECW-style hardcore bingo-hall promotion with rabid fans"*. The direction is stored with the world and steers every episode. You can also open `/?new=1&direction=...`.
+The first visit opens the **start screen** (press `N` any time to reopen it):
 
-Without an API key, or if the proxy is down, the offline generator and booker keep the show going.
+- **New live promotion**: Claude creates a promotion and books it as it airs. You can add an optional direction (era, style, the stars you want, match styles, factions, crowd) or start from a preset. The direction is saved with the world and steers every booking call.
+- **Stored shows**: every show you watch live is saved and plays back from Season 1, Episode 1 for free. This works even with the booker server down. When a stored show runs out, new episodes are booked live and saved, extending it. With no connection, the offline booker takes over; those episodes aren't saved.
+- **Continue** the current show.
 
-Keys: `space` pause · `1`–`4` speed (1/2/4/8x) · `d` debug panel · `f` fullscreen · `N` new promotion.
+The footer shows the connection: live (model names), server up without an API key, or not connected.
+
+Keys: `space` pause · `1`–`4` speed (1/2/4/8x) · `d` debug panel · `f` fullscreen · `N` shows.
+
+### Seasons
+
+A season is 12 episodes. Episodes 4 and 8 are pay-per-views, and episode 12 is the season finale PPV that closes the year's feuds. At the start of each season, a stronger model (`BOOKER_PLAN_MODEL`, default `claude-sonnet-5`) writes a **season plan**: a theme, the three PPVs with their main events, and 3–5 long-term arcs with weekly beats and payoffs. Examples are the veteran's last run, the rookie who earns respect by losing, and the slow-burn betrayal. Each weekly prompt gets the plan and "where we are" (go-home shows, PPV nights, the finale).
+
+Between seasons, an **off-season** call retires or releases a quarter to a third of the roster, vacates their titles, and brings in newcomers with full profiles. A season premiere opens with the announcer saying goodbye and welcoming the new faces.
+
+### Match types
+
+Every match has a stipulation, chosen by the booker:
+
+- **singles**
+- **tag**: 2 vs 2 with a legal man per team and partners on the apron. It has tags, the hot tag, heel double-teams, and partners breaking up pins. There are no tag titles yet.
+- **steel cage**: the cage is drawn around the ring. No DQ and no floor fighting; you win by pin, submission, or climbing out ("escape").
+- **ladder**: the prize hangs over the ring. Wrestlers pull a ladder from under the ring, set it up, climb, get tipped off, and swing it as a weapon; the only finish is grabbing the prize.
+- **battle royal**: 5–12 wrestlers, eliminated over the top rope, and the last one left wins. The card shows eliminations live.
+
+The booker is told to save cages and ladders for settling feuds at PPVs, and to use battle royals to push new talent. To preview one without waiting for a PPV, open `/?offline=1&demo=cage` (or `ladder`, `tag`, `royal`).
+
+### Pre-generating and the library
+
+```bash
+npm run pregen -- --direction "80s Mid-South, a veteran's last run" --seasons 1   # book a season ahead (nothing airs)
+npm run pregen -- --seed <seed> --seasons 1                                        # extend a stored show
+npm run library                                                                    # list stored shows
+npm run library -- add <seed>                                                      # copy a saved show into library/ to commit it
+```
+
+Saved shows live in `sessions/<seed>/` (git-ignored); curated shows live in `library/<seed>/` (committed). Both are read the same way, and a stored episode is always used before generating a new one. A season on Haiku (plus one Sonnet plan and one off-season call) costs roughly $0.40–0.50.
 
 Headless preview (prints the play-by-play and saves `shows/ep-XXX.{md,json}` + `world.json`):
 
 ```bash
-npm run preview -- --new --direction "ECW-style hardcore" --episodes 2   # new world + 2 episodes
-npm run preview -- --episodes 3            # continue the saved world
+npm run preview -- --new --direction "ECW-style hardcore" --episodes 2
+npm run preview -- --episodes 3            # continue the saved CLI world
 npm run preview -- --new --classic         # the hand-written GPTWW roster
 npm run preview -- --offline ...           # never call the API
-npm run preview -- --new --cached          # reuse the latest stored promotion + episodes
 ```
 
-**Nothing is generated twice.** Every LLM-created promotion and episode is stored under `sessions/<world seed>/`. An episode already booked for a world and episode number is replayed from disk instead of re-booked, for example after a page reload. Run `npm run server -- --cached` (or `npm run server --cached`) to make new worlds reuse the most recent stored promotion. Its stored episodes then replay for free, and generation only resumes past the end. Raw model output that needed repairs is saved to `sessions/failures/` for prompt tuning.
-
-`npm test` runs the Vitest suite; `npm run typecheck` runs tsc.
+Model output that needed repairs is saved to `sessions/failures/` for prompt tuning. `npm test` runs the Vitest suite; `npm run typecheck` runs tsc.
 
 ## How it works
 

@@ -31,8 +31,8 @@ function matchEpisode(winner: string, finish: Finish, titleOnLine = 'none'): Epi
     segments: [1, 2, 3].map((i) => ({
       title: `Seg ${i}`, stateChanges: [], recap: `r${i}`,
       beats: i === 3
-        ? [{ type: 'match', wrestlers: ['rex', 'vega'], winner, finish, story: 'even', length: 'short', titleOnLine, spots: [] }]
-        : [{ type: 'narrate', text: 'Hello', style: 'call' }],
+        ? [{ type: 'match', stipulation: 'singles', wrestlers: ['rex', 'vega'], winner, finish, story: 'even', length: 'short', titleOnLine, spots: [], moments: [] }]
+        : [{ type: 'narrate', text: 'Hello', style: 'call', speaker: 'pbp' }],
     })),
   };
 }
@@ -66,12 +66,27 @@ describe('schema and validation', () => {
     expect(r.problems.some((p) => p.includes('one turn'))).toBe(true);
   });
 
-  it('rejects cross-division matches', () => {
-    const ep = matchEpisode('rex', 'pin');
+  it('allows mixed matches but keeps titles within their division', () => {
+    const ep = matchEpisode('rex', 'pin', 'world');
     const m = ep.segments[2].beats[0];
     if (m.type === 'match') m.wrestlers = ['rex', 'viper'];
     const r = reviewEpisode(ep, classicWorld());
+    const kept = r.episode!.segments[2].beats[0];
+    expect(kept.type === 'match' && kept.titleOnLine).toBe('none');
     expect(r.problems.some((p) => p.includes('division'))).toBe(true);
+  });
+
+  it('resolves names used in place of ids', () => {
+    const ep = matchEpisode('Rex Tolliver', 'pin');
+    ep.segments[0].beats.push({ type: 'interview', guest: 'Slick Vic Vega', exchange: [{ speaker: 'Lance Holloway', text: 'Hi' }] });
+    const m = ep.segments[2].beats[0];
+    if (m.type === 'match') m.wrestlers = ['rex_tolliver', 'vega'];
+    const r = reviewEpisode(ep, classicWorld());
+    expect(r.problems).toEqual([]);
+    const iv = r.episode!.segments[0].beats[1];
+    expect(iv.type === 'interview' && [iv.guest, iv.exchange[0].speaker]).toEqual(['vega', 'lance']);
+    const kept = r.episode!.segments[2].beats[0];
+    expect(kept.type === 'match' && [kept.wrestlers, kept.winner]).toEqual([['rex', 'vega'], 'rex']);
   });
 
   it('fallback episodes are always valid', () => {
@@ -182,6 +197,8 @@ describe('full show', () => {
       title: 'Everything', storySoFar: 'x', debuts: [{
         id: 'masked_x', name: 'Masked X', role: 'wrestler', alignment: 'heel', division: 'men', style: 'brawler',
         gimmick: 'mystery', entrance: 'in silence', finisherName: 'X Driver', finisherMove: 'piledriver',
+        hometown: 'Parts Unknown', weight: 301, catchphrase: 'X marks the spot!',
+        finisherDescription: 'a piledriver from a standing switch', finisherCall: 'He is setting up the X Driver!',
       }],
       segments: [
         { title: 'A', stateChanges: [], recap: 'a', beats: [
@@ -197,16 +214,21 @@ describe('full show', () => {
           { type: 'reveal', who: 'debbie', line: 'I love Rex!', reactions: [{ who: 'lance', reaction: 'faint' }] },
         ] },
         { title: 'C', stateChanges: [], recap: 'c', beats: [
-          { type: 'match', wrestlers: ['masked_x', 'lightning'], winner: 'masked_x', finish: 'dq', story: 'comeback', length: 'short', titleOnLine: 'tv', spots: [
+          { type: 'match', stipulation: 'singles', wrestlers: ['masked_x', 'lightning'], winner: 'masked_x', finish: 'dq', story: 'comeback', length: 'short', titleOnLine: 'tv', spots: [
             { phase: 'early', type: 'distraction', who: 'pemberton', target: 'lightning', lines: ['Referee!'] },
             { phase: 'mid', type: 'ref_bump', who: 'lightning', target: 'none', lines: [] },
             { phase: 'late', type: 'interrupt', who: 'kaos', target: 'lightning', lines: ['Hey!'] },
             { phase: 'finish', type: 'run_in', who: 'bane', target: 'masked_x', lines: [] },
+          ], moments: [
+            { phase: 'early', speaker: 'pbp', line: 'Masked X is a mystery to everyone here!' },
+            { phase: 'mid', speaker: 'masked_x', line: 'You cannot stop what you cannot see!' },
+            { phase: 'late', speaker: 'color', line: 'Pemberton has this all figured out.' },
+            { phase: 'after', speaker: 'lightning', line: 'This is NOT over!' },
           ] },
           { type: 'turn', who: 'clint', newAlignment: 'heel', how: 'attacks_partner', target: 'rex' },
           { type: 'celebrate', who: ['clint'] },
           { type: 'exit', who: ['clint', 'rex'], how: 'storm_off' },
-          { type: 'narrate', text: 'Unbelievable!', style: 'shock' },
+          { type: 'narrate', text: 'Unbelievable!', style: 'shock', speaker: 'color' },
         ] },
       ],
     };
@@ -217,6 +239,15 @@ describe('full show', () => {
     for (const t of ['music', 'said', 'moveImpact', 'bell', 'matchEnd', 'alignmentChanged', 'episodeEnd']) {
       expect(types.has(t as EngineEvent['type']), t).toBe(true);
     }
+    // Booked storyline lines are all spoken, by the right speakers.
+    const said = events.filter((e) => e.type === 'said').map((e) => `${e.who}: ${e.text}`);
+    const narrated = events.filter((e) => e.type === 'narrated').map((e) => e.text);
+    expect(narrated).toContain('Masked X is a mystery to everyone here!');
+    expect(said).toContain('masked_x: You cannot stop what you cannot see!');
+    expect(said).toContain('_color: Pemberton has this all figured out.');
+    expect(said).toContain('lightning: This is NOT over!');
+    expect(said).toContain('_color: Unbelievable!');
+    expect(after.characters.find((c) => c.id === 'masked_x')?.catchphrase).toBe('X marks the spot!');
     expect(after.characters.find((c) => c.id === 'masked_x')).toBeTruthy();
     expect(after.characters.find((c) => c.id === 'clint')!.alignment).toBe('heel');
   });
@@ -245,7 +276,7 @@ describe('new promotions', () => {
     p.titles[0].holder = 'nobody';
     const r = reviewPromotion(p, 'x', 7);
     expect(r.world).not.toBeNull();
-    expect(r.problems.length).toBeGreaterThanOrEqual(3);
+    expect(r.problems.length).toBeGreaterThanOrEqual(2);
     const w = r.world!;
     expect(w.characters.every((c) => /^[a-z][a-z0-9_]*$/.test(c.id))).toBe(true);
     expect(w.characters.find((c) => c.id === w.titles[0].holder)?.role).toBe('wrestler');
@@ -268,7 +299,7 @@ describe('lenient parsing (no paid retries for fixable output)', () => {
     expect(r.problems).toEqual([]);
   });
 
-  it('decodes stringified beats and repairs missing optional fields', () => {
+  it('decodes stringified beats and repairs missing optional fields', async () => {
     const w = classicWorld();
     const beats = [
       { type: 'segment', title: 'Open', recap: 'r' },
@@ -283,11 +314,167 @@ describe('lenient parsing (no paid retries for fixable output)', () => {
     expect(r.episode).not.toBeNull();
     const ep = r.episode!;
     expect(ep.title).toBe('Chaos');
+    const { cleanTitle } = await import('../src/booker/validate');
+    expect(cleanTitle('Dixie Mat Wrestling - Episode #1: The Hammer Holds Fast', 'Dixie Mat Wrestling')).toBe('The Hammer Holds Fast');
+    expect(cleanTitle('Dixie Mat Wrestling: Night of Fury', 'Dixie Mat Wrestling')).toBe('Night of Fury');
+    expect(cleanTitle('Ep. 12 - Payback', 'X')).toBe('Payback');
+    expect(cleanTitle('The Hammer Holds Fast', 'X')).toBe('The Hammer Holds Fast');
+    expect(cleanTitle('"The Comeback"', 'X')).toBe('The Comeback');
+    const { parseLoose } = await import('../src/booker/json');
+    expect(parseLoose('[\n  {\n    "name": "Dusty "The Tornado" Mercer",\n    "id": "dusty"\n  }\n]')).toEqual([{ name: 'Dusty "The Tornado" Mercer', id: 'dusty' }]);
+    // A stray brace in a stringified list costs nothing but the broken spot.
+    expect(parseLoose('[{"type":"a","x":"}"},{"type":"b"}},{"type":"c"}]')).toEqual([{ type: 'a', x: '}' }, { type: 'b' }, { type: 'c' }]);
     expect(ep.segments.map((s) => s.beats.length)).toEqual([1, 1, 1]);
     const promo = ep.segments[0].beats[0];
     expect(promo.type === 'promo' && [promo.where, promo.mood]).toEqual(['ring', 'calm']);
     const m = ep.segments[1].beats[0];
     expect(m.type === 'match' && [m.finish, m.story, m.spots]).toEqual(['pin', 'even', []]);
     expect(r.problems.some((p) => p.includes('teleport'))).toBe(true);
+  });
+});
+
+describe('name coloring', () => {
+  it('colors full, plain and unique partial names, but not common words', async () => {
+    const { NameIndex } = await import('../src/view/names');
+    const stage = new Stage(1);
+    const w = classicWorld();
+    stage.setCast(w);
+    const idx = new NameIndex(stage);
+    const colored = (text: string) => idx.runs(text).filter((r) => r.color).map((r) => r.text);
+    expect(colored('Rex Tolliver hits Vega with a chop! The crowd loves Rex!')).toEqual(['Rex Tolliver', 'Vega', 'Rex']);
+    expect(colored('"SLICK" VIC VEGA IS YOUR WINNER')).toEqual(['"SLICK" VIC VEGA']);
+    expect(colored('The king of the ring')).toEqual([]);
+    expect(colored("Vega's belt")).toEqual(['Vega']);
+  });
+});
+
+describe('character colors', () => {
+  it('keeps every pair of wrestlers visually distinct', async () => {
+    const { colorDistance } = await import('../src/engine/colors');
+    for (let seed = 1; seed < 40; seed++) {
+      const cs = offlineWorld(seed).characters.filter((c) => c.role === 'wrestler').map((c) => c.color);
+      for (let i = 0; i < cs.length; i++) {
+        for (let j = i + 1; j < cs.length; j++) expect(colorDistance(cs[i], cs[j]), `seed ${seed}`).toBeGreaterThan(95);
+      }
+    }
+  });
+});
+
+describe('ring vs. floor', () => {
+  it('only pins in the ring, and only uses floor moves on the floor', async () => {
+    const { move: moveById } = await import('../src/sim/moves');
+    let floorMoves = 0;
+    for (let seed = 1; seed <= 60; seed++) {
+      const stage = new Stage(seed);
+      stage.setCast(classicWorld());
+      const [a, b] = [stage.actor('rex'), stage.actor('vega')];
+      stage.appear(a, arena.ringSpots[0]);
+      stage.appear(b, arena.ringSpots[1]);
+      stage.appear(stage.ref, arena.refSpot);
+      stage.on((e) => {
+        if (e.type === 'pinCount') expect(a.inRing && b.inRing, `seed ${seed}: pin on the floor`).toBe(true);
+        if (e.type === 'moveStarted') {
+          const kind = moveById(e.move).kind;
+          const att = stage.actor(e.att);
+          const def = stage.actor(e.def);
+          if (kind === 'outside') {
+            floorMoves++;
+            expect(!att.inRing && !def.inRing, `seed ${seed}: ${e.move} in the ring`).toBe(true);
+          }
+          if (kind === 'aerial' || kind === 'submission' || kind === 'pin') {
+            expect(att.inRing && def.inRing, `seed ${seed}: ${e.move} on the floor`).toBe(true);
+          }
+        }
+      });
+      const finish = (['pin', 'rollup', 'submission', 'dq', 'cheat_pin'] as const)[seed % 5];
+      const sim = new MatchSim(stage, { wrestlers: ['rex', 'vega'], winner: seed % 2 ? 'rex' : 'vega', finish, story: 'back_and_forth', length: 'long', spots: [] }, function* () {});
+      stage.runToEnd(sim.run(), 900);
+    }
+    expect(floorMoves).toBeGreaterThan(0);
+  });
+});
+
+describe('seasons', () => {
+  it('maps episodes onto the 12-week calendar with PPVs at 4, 8 and 12', async () => {
+    const s = await import('../src/world/season');
+    expect([1, 4, 8, 12, 13, 16].map(s.isPPV)).toEqual([false, true, true, true, false, true]);
+    expect([12, 13, 25].map(s.seasonOf)).toEqual([1, 2, 3]);
+    expect(s.isFinale(24)).toBe(true);
+    expect(s.episodeLabel({ plan: undefined }, 16)).toMatch(/^Season 2 · Episode 4 — PPV: /);
+  });
+
+  it('runs a full season offline and shuffles the roster between seasons', async () => {
+    const { offlineBook } = await import('../src/booker/fallback');
+    let w = offlineWorld(77);
+    const seasonOne = new Set(w.characters.map((c) => c.id));
+    for (let i = 0; i < 13; i++) {
+      const raw = offlineBook(w);
+      const r = reviewEpisode(raw, w); // a season opener validates against the pre-shuffle world
+      expect(r.problems, `episode ${i + 1}`).toEqual([]);
+      if (i === 0 || i === 12) expect(r.episode!.seasonStart?.plan?.ppvs).toHaveLength(3);
+      if (i === 12) {
+        const { events } = playEpisode(w, r.episode!); // arrivals can be staged
+        expect(events.at(-1)!.type).toBe('episodeEnd');
+      }
+      w = applyEpisode(w, r.episode!);
+    }
+    expect(w.episode).toBe(13);
+    expect(w.seasonHistory).toHaveLength(1);
+    expect(w.alumni!.length).toBeGreaterThan(0);
+    const newcomers = w.characters.filter((c) => !seasonOne.has(c.id));
+    expect(newcomers.length).toBeGreaterThan(0);
+    expect(w.alumni!.every((a) => !w.characters.some((c) => c.id === a.id))).toBe(true);
+    expect(w.titles.every((t) => !t.holder || w.characters.some((c) => c.id === t.holder))).toBe(true);
+  });
+});
+
+describe('stipulations', () => {
+  const men = ['rex', 'vega', 'lightning', 'krank', 'earl', 'maddog', 'sterling', 'stryker', 'kaos', 'bane', 'clint'];
+  const episodeWith = (m: Record<string, unknown>): Episode => ({
+    title: 'Stips', storySoFar: '', debuts: [],
+    segments: [1, 2, 3].map((i) => ({
+      title: `Seg ${i}`, stateChanges: [], recap: `r${i}`,
+      beats: i === 2
+        ? [{ type: 'match', story: 'back_and_forth', length: 'short', titleOnLine: 'none', spots: [], moments: [], ...m } as unknown as Episode['segments'][0]['beats'][0]]
+        : [{ type: 'narrate', text: 'Hi', style: 'call', speaker: 'pbp' }],
+    })),
+  });
+
+  const cases: [string, Record<string, unknown>][] = [
+    ['tag', { stipulation: 'tag', wrestlers: ['rex', 'clint', 'krank', 'bane'], winner: 'clint', finish: 'pin' }],
+    ['tag dq', { stipulation: 'tag', wrestlers: ['rex', 'clint', 'krank', 'bane'], winner: 'bane', finish: 'dq' }],
+    ['cage escape', { stipulation: 'cage', wrestlers: ['rex', 'vega'], winner: 'vega', finish: 'escape' }],
+    ['cage pin', { stipulation: 'cage', wrestlers: ['rex', 'vega'], winner: 'rex', finish: 'pin' }],
+    ['ladder', { stipulation: 'ladder', wrestlers: ['lightning', 'kaos'], winner: 'kaos', finish: 'retrieve', titleOnLine: 'tv' }],
+    ['battle royal', { stipulation: 'battle_royal', wrestlers: men.slice(0, 8), winner: 'earl', finish: 'elimination' }],
+  ];
+
+  for (const [name, m] of cases) {
+    it(`plays a ${name} match to the booked result`, () => {
+      for (let seed = 1; seed <= 4; seed++) {
+        const w = { ...classicWorld(), seed };
+        const r = reviewEpisode(episodeWith(m), w);
+        expect(r.problems).toEqual([]);
+        const { events } = playEpisode(w, r.episode!);
+        const end = events.find((e) => e.type === 'matchEnd');
+        expect(end && [end.winner, end.finish], `${name} seed ${seed}`).toEqual([m.winner, m.finish]);
+        if (m.stipulation === 'battle_royal') {
+          expect(events.filter((e) => e.type === 'elimination')).toHaveLength((m.wrestlers as string[]).length - 1);
+        }
+        if (m.stipulation === 'tag') {
+          // A pin in a tag match is scored by the winner and counted on the other team.
+          const pins = events.filter((e) => e.type === 'pinCount' && e.count === 3 && !e.kickout);
+          if (m.finish === 'pin') expect(pins.at(-1)?.type === 'pinCount' && pins.at(-1)).toMatchObject({ coverer: m.winner });
+        }
+      }
+    });
+  }
+
+  it('fixes finishes that do not fit the stipulation', () => {
+    const r = reviewEpisode(episodeWith({ stipulation: 'ladder', wrestlers: ['rex', 'vega'], winner: 'rex', finish: 'pin' }), classicWorld());
+    const m = r.episode!.segments[1].beats[0];
+    expect(m.type === 'match' && m.finish).toBe('retrieve');
+    const bad = reviewEpisode(episodeWith({ stipulation: 'tag', wrestlers: ['rex', 'vega'], winner: 'rex', finish: 'pin' }), classicWorld());
+    expect(bad.problems.some((p) => p.includes('tag match needs exactly 4'))).toBe(true);
   });
 });

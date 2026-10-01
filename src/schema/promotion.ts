@@ -2,7 +2,7 @@
 // by the LLM (or the offline generator). Lenient like the episode schema: non-essential
 // fields fall back to defaults, and invalid list items are dropped individually.
 import { z } from 'zod';
-import { Alignment, Division, Role, Style } from './episode';
+import { Alignment, Division, profileFields, Role, Style } from './common';
 
 export const NewCharacter = z.object({
   id: z.string().describe('lowercase_snake_case, unique'),
@@ -15,6 +15,7 @@ export const NewCharacter = z.object({
   entrance: z.string().catch('').describe('Entrance flavor that reads after "here comes X, ...", e.g. "to wailing bagpipes"'),
   finisherName: z.string().catch('').describe('Wrestlers only; managers/valets may leave empty'),
   finisherMove: z.string().catch('').describe('A move id from the move list (wrestlers only)'),
+  ...profileFields(),
 });
 
 /** Drop invalid items one by one instead of failing the whole list. */
@@ -29,6 +30,10 @@ export const Promotion = z.object({
     name: z.string().catch('Lance Holloway'),
     gimmick: z.string().catch(''),
   }).catch({ id: 'interviewer', name: 'Lance Holloway', gimmick: '' }),
+  commentators: z.object({
+    playByPlay: z.string().catch(''),
+    color: z.string().catch('').describe('A heel-sympathizing color commentator'),
+  }).catch({ playByPlay: '', color: '' }).describe('The announce team at the desk'),
   characters: each(NewCharacter).describe('14-18 characters: mostly wrestlers, plus 1-3 managers/valets'),
   titles: each(z.object({
     id: z.string().catch('').describe('lowercase_snake_case'),

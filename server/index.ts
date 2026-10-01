@@ -8,10 +8,8 @@ try {
   // no .env file; rely on the environment
 }
 
-const { bookEpisode, createPromotion, llmAvailable, model } = await import('./booker');
+const { bookEpisode, createPromotion, llmAvailable, model, planModel } = await import('./booker');
 const PORT = Number(process.env.PORT || 8787);
-// `npm run server -- --cached` or `npm run server --cached` (npm turns the latter into an env var).
-const CACHED = process.argv.includes('--cached') || process.env.npm_config_cached === 'true';
 const MAX_BODY = 2_000_000;
 
 const server = createServer(async (req, res) => {
@@ -21,7 +19,7 @@ const server = createServer(async (req, res) => {
   };
   try {
     if (req.method === 'GET' && req.url === '/api/health') {
-      return send(200, { ok: true, llm: llmAvailable(), model: model() });
+      return send(200, { ok: true, llm: llmAvailable(), model: model(), planModel: planModel() });
     }
     if (req.method === 'POST' && (req.url === '/api/episode' || req.url === '/api/promotion')) {
       let raw = '';
@@ -34,7 +32,7 @@ const server = createServer(async (req, res) => {
         const direction = String(body.direction ?? '').slice(0, 2000);
         const seed = Number(body.seed) >>> 0;
         const t0 = Date.now();
-        const created = await createPromotion(direction, seed, CACHED);
+        const created = await createPromotion(direction, seed);
         console.error(`[server] promotion "${created.world.showName}" created by ${created.source} in ${Date.now() - t0}ms`);
         return send(200, created);
       }
@@ -53,5 +51,5 @@ const server = createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.error(`[server] booker proxy on http://localhost:${PORT} — ${llmAvailable() ? `LLM: ${model()}` : 'no API key: offline booker only'}${CACHED ? ' — cached mode: new worlds reuse the latest stored promotion' : ''}`);
+  console.error(`[server] booker proxy on http://localhost:${PORT} — ${llmAvailable() ? `LLM: ${model()}` : 'no API key: offline booker only'}`);
 });

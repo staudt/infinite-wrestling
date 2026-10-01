@@ -1,5 +1,6 @@
 import roster from '../../data/classic-roster.json';
 import type { Alignment, Division, Role, Style } from '../schema/episode';
+import type { SeasonPlan } from '../schema/season';
 
 export type CharacterRole = Role | 'interviewer';
 
@@ -12,8 +13,18 @@ export interface Character {
   style: Style;
   gimmick: string;
   entrance: string;
-  finisher: { name: string; move: string };
+  finisher: {
+    name: string;
+    move: string;
+    /** What it looks like, e.g. "a spinning DDT off the second rope". */
+    description?: string;
+    /** The play-by-play's setup call, e.g. "He's measuring him for the Jackpot!" */
+    call?: string;
+  };
   color: string;
+  hometown?: string;
+  weight?: number;
+  catchphrase?: string;
 }
 
 export interface Title {
@@ -36,6 +47,14 @@ export interface World {
   direction: string;
   /** Random per-world seed: two worlds never stage the same show. */
   seed: number;
+  /** Announce team at the desk (older saves lack it; see crewOf). */
+  crew?: Crew;
+  /** The current season's long-term plan (see world/season.ts). */
+  plan?: SeasonPlan;
+  /** One-line recaps of finished seasons. */
+  seasonHistory?: { season: number; recap: string }[];
+  /** Characters who left the promotion (candidates for comebacks). */
+  alumni?: { id: string; name: string; reason: string; season: number }[];
   /** Number of the last episode booked into this state (0 = fresh world). */
   episode: number;
   characters: Character[];
@@ -49,17 +68,30 @@ export interface World {
   storySoFar: string;
 }
 
+export interface Crew {
+  /** Play-by-play voice: calls the action. */
+  pbp: string;
+  /** Color commentator: a heel sympathizer with opinions. */
+  color: string;
+}
+
+const PBP_NAMES = ['Gordon Sollie', 'Jim Rossiter', 'Tony Chiavone', 'Vince Kirby', 'Joey Styles-Bennett', 'Bob Caudle-Hayes', 'Lance Russo'];
+const COLOR_NAMES = ['Jesse "The Mouth" Ventano', 'Bobby "The Brain" Heenly', 'Dusty "Big Talk" Rhodes', 'Mean Gene Dorsey', 'Rowdy Roddy MacLeod', 'Cornette the Racketeer'];
+
+export function crewOf(w: Pick<World, 'crew' | 'seed'>): Crew {
+  if (w.crew?.pbp && w.crew.color) return w.crew;
+  return {
+    pbp: w.crew?.pbp || PBP_NAMES[w.seed % PBP_NAMES.length],
+    color: w.crew?.color || COLOR_NAMES[(w.seed >>> 3) % COLOR_NAMES.length],
+  };
+}
+
+/** Fixed desk colors, kept out of the wrestler palette so everyone stays distinct. */
+export const CREW_COLORS = { pbp: '#9ecbff', color: '#ffb86b', announcer: '#f4f4f4', ref: '#b8b8b8' };
+
 export const HISTORY_LIMIT = 60;
 export const NOTES_LIMIT = 20;
 export const ANGLE_LOG_LIMIT = 8;
-
-/** Colors handed out to generated and debuting characters (distinct on a dark background). */
-export const DEBUT_COLORS = [
-  '#4fa3ff', '#ff4f7b', '#ffe14f', '#b07cff', '#ff9d3b', '#c9372c', '#4fffd0', '#8fd14f',
-  '#f0f0f0', '#9a9a9a', '#d9a066', '#ff7ae0', '#5ee05e', '#e0c35e', '#ffb3c7',
-  '#7fdbff', '#ffdc00', '#01ff70', '#f012be', '#ff851b', '#39cccc', '#b10dc9', '#ffa0a0',
-  '#a0ffa0', '#a0a0ff', '#ffd27f', '#c0ffee',
-];
 
 export function randomSeed(): number {
   return Math.floor(Math.random() * 2 ** 32) >>> 0;

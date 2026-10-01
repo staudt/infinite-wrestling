@@ -205,6 +205,112 @@ export const LINES = {
     '{A} fights back with a flurry of right hands!',
     '{A} is feeding off this crowd!',
   ],
+  chase: [
+    '{A} follows {D} out to the floor!',
+    '{A} goes out after {D}!',
+    '{A} won\'t let {D} catch a breather. Out to the floor they go!',
+  ],
+  waitInRing: [
+    '{A} waits in the ring, taunting {D}.',
+    '{A} stays in the ring, telling {D} to get back in here!',
+  ],
+  rollIn: [
+    '{A} rolls {D} back into the ring.',
+    '{A} tosses {D} back in under the bottom rope.',
+    '{A} shoves {D} back into the ring!',
+  ],
+  breakCount: [
+    '{A} slides back in to break the count!',
+    '{A} rolls back into the ring before the count gets too high.',
+  ],
+  // ---- tag teams
+  tag: [
+    '{A} makes the tag to {D}!',
+    '{A} crawls to the corner... and tags in {D}!',
+    'Tag! {D} is in!',
+  ],
+  hotTag: [
+    'HOT TAG! {D} comes in like a house of fire!',
+    '{A} makes the tag! {D} IS CLEANING HOUSE!',
+    'THE HOT TAG TO {D}! This place is coming UNGLUED!',
+  ],
+  doubleTeam: [
+    '{A} sneaks in behind the referee\'s back! Double team on {D}!',
+    'The referee is distracted and {A} jumps in to double-team {D}!',
+    'Two-on-one! {A} is in there illegally!',
+  ],
+  breakup: [
+    '{A} breaks up the pin!',
+    '{A} dives in to save the match!',
+    'NO! {A} stops the count!',
+  ],
+  // ---- steel cage
+  cageClimb: [
+    '{A} is trying to climb out of the cage!',
+    '{A} is scaling the steel!',
+    '{A} goes for the escape!',
+  ],
+  cageDrag: [
+    '{A} drags {D} back down off the cage!',
+    '{A} grabs {D} by the boots and pulls {D} back in!',
+    'Not so fast! {A} yanks {D} off the cage wall!',
+  ],
+  cageTop: [
+    '{A} is at the top of the cage!',
+    '{A} swings a leg over the top of the cage!',
+  ],
+  cageEscape: [
+    '{A} drops to the floor! {A} ESCAPES THE CAGE!',
+    '{A}\'s feet hit the floor! {A} is out! It\'s OVER!',
+  ],
+  // ---- ladder
+  ladderFetch: [
+    '{A} pulls a ladder out from under the ring!',
+    '{A} has found a ladder under the ring!',
+  ],
+  ladderSetUp: [
+    '{A} sets up the ladder in the middle of the ring!',
+    '{A} stands the ladder up!',
+  ],
+  ladderClimb: [
+    '{A} starts climbing toward {P}!',
+    '{A} is climbing the ladder!',
+    'Rung by rung, {A} is going for {P}!',
+  ],
+  ladderShot: [
+    '{A} swings the ladder right into {D}!',
+    'LADDER SHOT! {A} just nailed {D} with the ladder!',
+  ],
+  ladderTip: [
+    '{A} tips the ladder over! {D} comes crashing down!',
+    '{A} shoves the ladder! {D} falls all the way to the mat!',
+  ],
+  ladderPull: [
+    '{A} yanks {D} off the ladder!',
+    '{A} pulls {D} down just in time!',
+  ],
+  ladderGrab: [
+    '{A} GRABS {P}! {A} WINS THE LADDER MATCH!',
+    '{A} has {P}! IT\'S OVER!',
+  ],
+  // ---- battle royal
+  royalStart: [
+    'The bell rings and it\'s every wrestler for themselves!',
+    'Here we go! Over the top rope to the floor is the only way out!',
+  ],
+  royalOut: [
+    '{D} is eliminated by {A}! {N} remain!',
+    '{A} dumps {D} over the top! {N} left!',
+    'Over the top goes {D}! {N} to go!',
+  ],
+  royalFinalTwo: [
+    '{A} eliminates {D}! We are down to the final two!',
+    'Over goes {D}! Just two left in there!',
+  ],
+  royalWinner: [
+    '{A} throws {D} over the top! {A} WINS THE BATTLE ROYAL!',
+    'IT\'S OVER! {A} is the last one standing!',
+  ],
   cutoff: [
     '{A} cuts off the comeback with a cheap shot!',
     '{A} takes over again!',
@@ -279,9 +385,13 @@ export const LINES = {
     'No contest! This has broken down completely!',
   ],
   winner: [
-    'Here is your winner... {W}!',
-    'Your winner: {W}!',
-    'And the winner of this contest... {W}!',
+    'Here is your winner, by {how}... {W}!',
+    'The winner of this contest, by {how}... {W}!',
+    'Ladies and gentlemen, the winner by {how}... {W}!',
+  ],
+  royalWinnerCall: [
+    'Ladies and gentlemen, the winner of the battle royal... {W}!',
+    'Your battle royal winner... {W}!',
   ],
   newChamp: [
     'AND NEEEEW {T} CHAMPION... {W}!',

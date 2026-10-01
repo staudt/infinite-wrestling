@@ -1,5 +1,8 @@
 import type { Mood, NarrationStyle, Place } from '../schema/episode';
-import type { Character, Title, World } from '../world/state';
+import { type Character, CREW_COLORS, crewOf, type Title, type World } from '../world/state';
+import { attachColorCommentary } from '../choreo/commentary';
+import { beltName } from '../choreo/lines';
+import { distinctColor } from './colors';
 import { Actor, type ActorKind, type Pace, SPEED } from './actor';
 import { duration, impactTimes, type Keyframe, sample } from './anim';
 import { arena, clampToRing, curtain, inRing, placePoint, type Point, ringEntry } from './arena';
@@ -10,7 +13,19 @@ import { Rng } from './rng';
 import { type Co, Scheduler, type Task } from './tasks';
 
 export const TICK = 1 / 60;
+
+export interface Prop {
+  id: string;
+  kind: 'ladder';
+  x: number;
+  depth: number;
+  /** under = not visible yet; carried = moves with `by`; up = standing; down = lying flat. */
+  state: 'under' | 'carried' | 'up' | 'down';
+  by: string | null;
+}
 export const REF_ID = 'ref';
+export const PBP_ID = '_pbp';
+export const COLOR_ID = '_color';
 
 /** Reading-time model: how long a line stays up before the show moves on. */
 export function readTime(text: string, kind: 'said' | 'narrated' | 'big'): number {
@@ -30,10 +45,20 @@ export class Stage {
   shortName = '';
   /** Hardcore promotions: weapons are everywhere. */
   hardcore = false;
+  /** A steel cage is lowered around the ring for the current match. */
+  cage = false;
+  /** Match props: the ladder in a ladder match. A carried prop follows its carrier. */
+  props: Prop[] = [];
+  /** What hangs above the ring in a ladder match ("the belt", "the briefcase"). */
+  prize: { name: string; taken: boolean } | null = null;
 
   constructor(seed: number) {
     this.rng = new Rng(seed);
-    this.addActor(new Actor(REF_ID, 'the referee', 'ref', '#ffffff', 'tweener', null, arena.refSpot));
+    this.addActor(new Actor(REF_ID, 'Referee', 'ref', CREW_COLORS.ref, 'tweener', null, arena.refSpot));
+    attachColorCommentary(this);
+    this.bus.on((e) => {
+      if (e.type === 'segmentStart' || e.type === 'episodeStart') this.billed.clear();
+    });
   }
 
   get time(): number {
@@ -54,13 +79,26 @@ export class Stage {
     this.shortName = world.shortName;
     this.hardcore = isHardcore(world.direction);
     this.titles = world.titles.map((t) => ({ ...t }));
-    for (const c of world.characters) {
+    // Guard against look-alike colors (older saves, hand-edited rosters): a new cast member
+    // whose color is too close to someone already cast gets the most distinct free color.
+    const used = [...Object.values(CREW_COLORS), ...[...this.actors.values()].filter((a) => !a.crew).map((a) => a.color)];
+    const order = [...world.characters].sort((a, b) => Number(b.role === 'wrestler') - Number(a.role === 'wrestler'));
+    for (const c of order) {
       const existing = this.actors.get(c.id);
       if (existing) {
         existing.alignment = c.alignment;
         continue;
       }
-      this.addActor(new Actor(c.id, c.name, c.role as ActorKind, c.color, c.alignment, c, curtain));
+      const color = c.role === 'interviewer' ? CREW_COLORS.announcer : distinctColor(c.color, used);
+      if (c.role !== 'interviewer') used.push(color);
+      this.addActor(new Actor(c.id, c.name, c.role as ActorKind, color, c.alignment, c, curtain));
+    }
+    const crew = crewOf(world);
+    for (const [id, name, color, at] of [
+      [PBP_ID, crew.pbp, CREW_COLORS.pbp, arena.desk.pbp],
+      [COLOR_ID, crew.color, CREW_COLORS.color, arena.desk.color],
+    ] as const) {
+      if (this.actors.get(id)?.name !== name) this.addActor(new Actor(id, name, 'commentator', color, 'tweener', null, at));
     }
   }
 
@@ -97,6 +135,55 @@ export class Stage {
       if (a.anim) this.applyAnim(a);
       else if (a.target) this.applyMovement(a, dt);
     }
+    for (const p of this.props) {
+      const carrier = p.state === 'carried' && p.by ? this.actors.get(p.by) : null;
+      if (carrier) {
+        p.x = carrier.x + carrier.facing;
+        p.depth = carrier.depth;
+      }
+    }
+  }
+
+  /** "World Heavyweight" for a champion, else null. */
+  titleOf(a: Actor): string | null {
+    const t = this.titles.find((x) => x.holder === a.id);
+    if (!t) return null;
+    const belt = beltName(t.name);
+    return this.shortName && belt.startsWith(`${this.shortName} `) ? belt.slice(this.shortName.length + 1) : belt;
+  }
+
+  private billed = new Set<string>();
+
+  /**
+   * How the desk refers to someone. Champions get their title ("World Heavyweight
+   * champion Razor Edge") the first time they come up in a segment, and now and then
+   * after, so it's always clear who holds the gold and who is chasing it.
+   */
+  called(a: Actor): string {
+    const short = a.name.replace(/"[^"]*"\s*/g, '').trim();
+    const title = this.titleOf(a);
+    if (!title || (this.billed.has(a.id) && !this.rng.chance(0.12))) return short;
+    this.billed.add(a.id);
+    return `${title} champion ${short}`;
+  }
+
+  get pbp(): Actor {
+    return this.actor(PBP_ID);
+  }
+
+  get colorGuy(): Actor {
+    return this.actor(COLOR_ID);
+  }
+
+  /** The ring announcer / interviewer (the world's interviewer character). */
+  get announcer(): Actor | null {
+    for (const a of this.actors.values()) if (a.kind === 'interviewer') return a;
+    return null;
+  }
+
+  /** A quick line with no reading pause (pin counts, ref calls). */
+  blurt(a: Actor, text: string, tint?: string): void {
+    this.bus.emit({ type: 'said', who: a.id, text, mood: 'excited', ...(tint ? { tint } : {}) });
   }
 
   /** Run a coroutine to completion without rendering (headless preview, tests). */
@@ -307,7 +394,10 @@ export class Stage {
     });
     if (s.dx !== undefined) {
       const p = { x: anim.origin.x + anim.facing * s.dx, depth: anim.origin.depth };
-      const q = inRing(anim.origin) ? clampToRing(p) : p;
+      // Moves stay inside the ropes, or on the ringside floor when they start out there.
+      const rs = arena.ringside;
+      const onFloor = !inRing(anim.origin) && anim.origin.x >= rs.x0 && anim.origin.x <= rs.x1;
+      const q = inRing(anim.origin) ? clampToRing(p) : onFloor ? { x: Math.min(rs.x1, Math.max(rs.x0, p.x)), depth: p.depth } : p;
       a.x = q.x;
       a.depth = q.depth;
     }

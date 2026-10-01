@@ -1,5 +1,6 @@
 import type { EngineEvent } from '../engine/events';
 import type { Stage } from '../engine/stage';
+import { NameIndex } from './names';
 import { clock } from './transcript';
 
 const MAX_LINES = 120;
@@ -8,39 +9,39 @@ function esc(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-/** Scrolling play-by-play. Dialogue types out; big moments flash. */
+/** Scrolling log of everything said, for looking back. Names are painted in their colors. */
 export class FeedView {
-  private typing: { el: HTMLElement; text: string; start: number; cps: number } | null = null;
+  private names: NameIndex;
 
-  constructor(private el: HTMLElement, private stage: Stage) {}
+  constructor(private el: HTMLElement, private stage: Stage) {
+    this.names = new NameIndex(stage);
+  }
 
   onEvent(e: EngineEvent): void {
     const name = (id: string) => this.stage.actors.get(id);
     switch (e.type) {
       case 'episodeStart':
-        return void this.add(`<span class="ep">★ EPISODE ${e.number}: ${esc(e.title)} ★</span>`, 'header', e.t);
+        return void this.add(`<span class="ep">★ ${esc(e.label.toUpperCase())}: ${esc(e.title)} ★</span>`, 'header', e.t);
       case 'segmentStart':
         return void this.add(`<span class="seg">— ${esc(e.title)} —</span>`, 'header', e.t);
       case 'narrated':
-        return void this.add(esc(e.text), `n-${e.style}`, e.t);
+        return void this.add(this.names.html(e.text, esc), `n-${e.style}`, e.t);
       case 'said': {
         const a = name(e.who);
         const who = `<b style="color:${a?.color ?? '#fff'}">${esc(a?.name ?? e.who)}:</b> `;
-        const li = this.add(`${who}<span class="q"></span>`, `said mood-${e.mood}`, e.t);
-        this.finishTyping();
-        this.typing = { el: li.querySelector('.q')!, text: `"${e.text}"`, start: e.t, cps: 38 };
-        return;
+        const tint = e.tint ? ` style="color:${e.tint}"` : '';
+        return void this.add(`${who}<span class="q"${tint}>"${e.tint ? esc(e.text) : this.names.html(e.text, esc)}"</span>`, `said mood-${e.mood}`, e.t);
       }
       case 'matchEnd': {
         const w = e.winner ? name(e.winner)?.name : null;
-        return void this.add(w ? `RESULT: ${esc(w)} wins by ${e.finish.replace('_', ' ')}` : 'RESULT: no contest', 'result', e.t);
+        return void this.add(w ? `RESULT: ${this.names.html(w, esc)} wins by ${e.finish.replace('_', ' ')}` : 'RESULT: no contest', 'result', e.t);
       }
       case 'titleChange':
-        return void this.add(`🏆 ${esc(name(e.newChampion)?.name ?? e.newChampion)} is the new champion!`, 'title', e.t);
+        return void this.add(`🏆 ${this.names.html(name(e.newChampion)?.name ?? e.newChampion, esc)} is the new champion!`, 'title', e.t);
       case 'alignmentChanged':
-        return void this.add(`⚡ ${esc(name(e.id)?.name ?? e.id)} is now a ${e.alignment.toUpperCase()}!`, 'turn', e.t);
+        return void this.add(`⚡ ${this.names.html(name(e.id)?.name ?? e.id, esc)} is now a ${e.alignment.toUpperCase()}!`, 'turn', e.t);
       case 'crowd':
-        if (e.chant) this.add(`♪ ${esc(e.chant)} ♪`, 'n-crowd', e.t);
+        if (e.chant) this.add(`♪ ${this.names.html(e.chant, esc)} ♪`, 'n-crowd', e.t);
         return;
     }
   }
@@ -55,21 +56,7 @@ export class FeedView {
     return li;
   }
 
-  private finishTyping(): void {
-    if (this.typing) this.typing.el.textContent = this.typing.text;
-    this.typing = null;
-  }
-
-  /** Advance the typewriter; called every frame with the show clock. */
-  tick(): void {
-    if (!this.typing) return;
-    const n = Math.floor((this.stage.time - this.typing.start) * this.typing.cps);
-    this.typing.el.textContent = this.typing.text.slice(0, Math.max(0, n));
-    if (n >= this.typing.text.length) this.typing = null;
-  }
-
   clear(): void {
-    this.typing = null;
     this.el.innerHTML = '';
   }
 }

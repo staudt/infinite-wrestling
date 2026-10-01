@@ -4,7 +4,7 @@ import type { Keyframe, Track } from './anim';
 import { inRing, type Point, type Zone, zoneOf } from './arena';
 import { type BodyState, GROUNDED, type Pose, STANDING } from './poses';
 
-export type ActorKind = 'wrestler' | 'manager' | 'valet' | 'interviewer' | 'ref';
+export type ActorKind = 'wrestler' | 'manager' | 'valet' | 'interviewer' | 'ref' | 'commentator';
 
 export type Pace = 'walk' | 'run' | 'stagger' | 'strut';
 export const SPEED: Record<Pace, number> = { walk: 5, run: 13, stagger: 2.5, strut: 3.5 };
@@ -62,6 +62,11 @@ export class Actor {
 
   get moving(): boolean {
     return this.target !== null;
+  }
+
+  /** Crew who are never part of the storyline action (ref, announcer, desk). */
+  get crew(): boolean {
+    return this.kind === 'ref' || this.kind === 'interviewer' || this.kind === 'commentator';
   }
 
   get down(): boolean {

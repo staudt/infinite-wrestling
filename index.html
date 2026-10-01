@@ -3,27 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wrestling Weekly</title>
-    <meta name="description" content="A never-ending, AI-booked wrestling TV show in ASCII." />
+    <title>Infinite Wrestling</title>
+    <meta name="description" content="Never-ending generative pro wrestling." />
   </head>
   <body>
     <header id="hud">
       <span id="show" class="brand"></span>
       <span id="ep"></span>
       <span id="seg"></span>
-      <span id="champs"></span>
     </header>
     <main>
       <section id="arena">
         <pre id="map" aria-label="Arena"></pre>
-        <ul id="legend" aria-label="On screen"></ul>
+        <aside id="side">
+          <div id="champs" aria-label="Champions"></div>
+          <section id="card" aria-label="Tonight's card"></section>
+        </aside>
       </section>
       <ul id="feed" aria-live="polite" aria-label="Play-by-play"></ul>
     </main>
     <footer>
-      <span id="status"></span>
-      <span class="keys"><kbd>space</kbd> pause <kbd>1</kbd>–<kbd>4</kbd> speed <kbd>d</kbd> debug <kbd>f</kbd> fullscreen <kbd>N</kbd> new world</span>
+      <span><span id="conn"></span> · <span id="status"></span></span>
+      <span class="keys"><kbd>space</kbd> pause <kbd>1</kbd>–<kbd>4</kbd> speed <kbd>d</kbd> debug <kbd>f</kbd> fullscreen <kbd>N</kbd> shows</span>
     </footer>
+    <div id="start" hidden>
+      <div class="start-panel">
+        <h1>Choose your show</h1>
+        <p id="start-conn" class="conn-line"></p>
+        <section id="start-continue"></section>
+        <section>
+          <h2>New live promotion</h2>
+          <p class="hint">Optional direction for the booker: era, style, tone, the stars you want (e.g. "a veteran called 'Cowboy' Bob Tate"), match styles, factions, crowd. Leave empty to be surprised.</p>
+          <div id="presets"></div>
+          <textarea id="direction" rows="4" placeholder="e.g. ECW-style hardcore promotion in a Philadelphia bingo hall, rabid fans, tables and barbed wire, a cult-like heel faction and an aging hometown hero"></textarea>
+          <button id="create" class="primary">Create promotion</button>
+        </section>
+        <section>
+          <h2>Stored shows</h2>
+          <p class="hint">Every show you watch live is saved here and plays back for free, even offline.</p>
+          <ul id="library-list"></ul>
+        </section>
+        <p class="hint"><kbd>Esc</kbd> to close</p>
+      </div>
+    </div>
     <aside id="debug" hidden><pre id="debug-body"></pre></aside>
     <script type="module" src="/src/main.ts"></script>
   </body>

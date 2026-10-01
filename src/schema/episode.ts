@@ -3,6 +3,10 @@
 // a missing or invalid non-essential field is repaired with a sensible default (via
 // .catch) instead of failing the whole episode, because every retry costs credits.
 import { z } from 'zod';
+import { Alignment, Division, profileFields, Role, Style } from './common';
+import { SeasonStart } from './season';
+
+export { Alignment, Division, profileFields, Role, Style };
 
 /** A string that falls back to `d` when missing or malformed. */
 const str = (d = '') => z.string().catch(d);
@@ -18,15 +22,14 @@ export const Reaction = z.enum([
 ]);
 export const Finish = z.enum([
   'pin', 'rollup', 'cheat_pin', 'submission', 'dq', 'countout', 'no_contest',
+  // Stipulation finishes: out of the cage, the prize off the hook, last one standing.
+  'escape', 'retrieve', 'elimination',
 ]);
+export const Stipulation = z.enum(['singles', 'tag', 'cage', 'ladder', 'battle_royal']);
 export const Story = z.enum([
   'even', 'winner_dominates', 'loser_dominates', 'comeback', 'squash', 'back_and_forth',
 ]);
 export const MatchLength = z.enum(['short', 'medium', 'long']);
-export const Alignment = z.enum(['face', 'heel', 'tweener']);
-export const Division = z.enum(['men', 'women']);
-export const Style = z.enum(['brawler', 'technician', 'powerhouse', 'highflyer', 'showman']);
-export const Role = z.enum(['wrestler', 'manager', 'valet']);
 export const NarrationStyle = z.enum(['call', 'big', 'shock', 'crowd']);
 
 const Line = z.object({
@@ -42,6 +45,18 @@ export const Spot = z.object({
   target: str('none').describe('Character id the spot is aimed at, or "none"'),
   lines: strs().describe('What "who" shouts during the spot (0-2 short lines)'),
 });
+/**
+ * Storyline color inside a match: short lines said at a phase by the play-by-play
+ * ("pbp"), the color commentator ("color"), or any character on screen (trash talk,
+ * a manager yelling from ringside). "after" lines react to the result.
+ */
+export const Moment = z.object({
+  phase: z.enum(['early', 'mid', 'late', 'after']).catch('mid'),
+  speaker: z.string().describe('"pbp", "color", or a character id'),
+  line: z.string(),
+});
+const Moments = z.preprocess((v) => (Array.isArray(v) ? v.filter((x) => Moment.safeParse(x).success) : []), z.array(Moment));
+
 /** Invalid spots are dropped one by one instead of failing the match. */
 const Spots = z.preprocess((v) => (Array.isArray(v) ? v.filter((x) => Spot.safeParse(x).success) : []), z.array(Spot));
 
@@ -81,13 +96,15 @@ export const Beat = z.discriminatedUnion('type', [
   }),
   z.object({
     type: z.literal('match'),
-    wrestlers: strs().describe('Exactly two wrestler ids'),
-    winner: str('none').describe('One of the wrestlers, or "none" for no_contest'),
+    stipulation: Stipulation.catch('singles').describe('singles, tag (2 vs 2), cage (steel cage), ladder (climb for the prize), battle_royal (over-the-top elimination)'),
+    wrestlers: strs().describe('singles/cage/ladder: 2 ids. tag: 4 ids, the first two are one team. battle_royal: 5-12 ids'),
+    winner: str('none').describe('One of the wrestlers (in tag: the member of the winning team who scores the fall), or "none" for no_contest'),
     finish: Finish.catch('pin'),
     story: Story.catch('even'),
     length: MatchLength.catch('short'),
     titleOnLine: str('none').describe('Title id if this is a title match, else "none"'),
     spots: Spots,
+    moments: Moments.describe('3-6 storyline lines from the desk and the wrestlers, by phase'),
   }),
   z.object({
     type: z.literal('interrupt'),
@@ -134,6 +151,7 @@ export const Beat = z.discriminatedUnion('type', [
     type: z.literal('narrate'),
     text: z.string().describe('A commentator line, e.g. "It was a setup all along!"'),
     style: NarrationStyle.catch('call'),
+    speaker: z.enum(['pbp', 'color']).catch('pbp').describe('pbp = play-by-play; color = the heel-leaning color commentator'),
   }),
 ]);
 
@@ -156,6 +174,7 @@ export const Debut = z.object({
   entrance: str('to a roar from the crowd').describe('How their entrance feels, e.g. "to wailing bagpipes"'),
   finisherName: str(),
   finisherMove: str().describe('A move id from the move list'),
+  ...profileFields(),
 });
 
 const StateChanges = z.preprocess(
@@ -176,6 +195,8 @@ export const Episode = z.object({
   storySoFar: str().describe('Updated summary of all ongoing storylines, max ~120 words'),
   debuts: Debuts,
   segments: z.array(Segment),
+  /** Present on a season's first episode: the off-season transition and the season plan. */
+  seasonStart: SeasonStart.nullable().optional().catch(null),
 });
 
 // What the LLM writes: one flat list of beats, where a `segment` marker starts each TV
@@ -200,6 +221,7 @@ export type Mood = z.infer<typeof Mood>;
 export type Place = z.infer<typeof Place>;
 export type Reaction = z.infer<typeof Reaction>;
 export type Finish = z.infer<typeof Finish>;
+export type Stipulation = z.infer<typeof Stipulation>;
 export type Story = z.infer<typeof Story>;
 export type MatchLength = z.infer<typeof MatchLength>;
 export type Alignment = z.infer<typeof Alignment>;
@@ -208,6 +230,7 @@ export type Style = z.infer<typeof Style>;
 export type Role = z.infer<typeof Role>;
 export type NarrationStyle = z.infer<typeof NarrationStyle>;
 export type Spot = z.infer<typeof Spot>;
+export type Moment = z.infer<typeof Moment>;
 export type Beat = z.infer<typeof Beat>;
 export type StateChange = z.infer<typeof StateChange>;
 export type Debut = z.infer<typeof Debut>;

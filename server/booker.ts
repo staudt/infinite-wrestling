@@ -1,16 +1,24 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { z } from 'zod';
-import { fallbackEpisode } from '../src/booker/fallback';
-import { buildGenesisPrompt, buildUserPrompt, GENESIS_PROMPT, SYSTEM_PROMPT } from '../src/booker/prompt';
+import { offlineBook } from '../src/booker/fallback';
+import {
+  buildGenesisPrompt, buildPlanPrompt, buildTransitionPrompt, buildUserPrompt, GENESIS_PROMPT, PLAN_PROMPT, SYSTEM_PROMPT, TRANSITION_PROMPT,
+} from '../src/booker/prompt';
+import { unstringify } from '../src/booker/json';
+import { resolveIds } from '../src/booker/validate';
+import { type SeasonPlan, SeasonPlan as SeasonPlanSchema, type SeasonStart, type SeasonTransition, SeasonTransition as SeasonTransitionSchema } from '../src/schema/season';
+import { applySeasonStart, applyTransition, isSeasonStart, offlinePlan, offlineTransition, PPV_EPISODES, seasonOf } from '../src/world/season';
 import { reviewEpisode } from '../src/booker/validate';
 import { type Episode, EpisodeDraft } from '../src/schema/episode';
 import { Promotion } from '../src/schema/promotion';
 import { offlineWorld, reviewPromotion } from '../src/world/genesis';
 import type { World } from '../src/world/state';
-import { latestPromotion, loadEpisode, saveEpisode, saveFailure, savePromotion } from './sessions';
+import { loadEpisode, saveEpisode, saveFailure, savePromotion } from './sessions';
 
 // Read lazily: callers may load .env after importing this module.
 export const model = () => process.env.BOOKER_MODEL || 'claude-haiku-4-5';
+/** The long-term calls (season plan, off-season) are few and benefit from a stronger model. */
+export const planModel = () => process.env.BOOKER_PLAN_MODEL || 'claude-sonnet-5';
 
 export type Source = 'llm' | 'cache' | 'offline';
 
@@ -44,6 +52,8 @@ interface ToolSpec {
   description: string;
   schema: z.ZodType;
   system: string;
+  /** Model override (defaults to BOOKER_MODEL). */
+  model?: () => string;
 }
 
 /** A plain (non-strict) tool: the schema is guidance, and Zod + our reviewers validate. */
@@ -54,16 +64,22 @@ function toolFor(spec: ToolSpec): Anthropic.Tool {
 }
 
 async function callTool(spec: ToolSpec, messages: Anthropic.MessageParam[]) {
-  const m = model();
-  const res = await getClient().messages.create({
+  const m = (spec.model ?? model)();
+  const haiku = /haiku/.test(m);
+  // Streaming, so thinking models (Sonnet/Opus plan the season) get a big output budget
+  // without HTTP timeouts; medium effort keeps their thinking from eating it all.
+  const res = await getClient().messages.stream({
     model: m,
-    max_tokens: 16000,
+    max_tokens: haiku ? 16000 : 48000,
+    ...(haiku ? {} : { output_config: { effort: 'medium' as const } }),
     // Tools render before the system prompt, so this breakpoint caches schema + instructions.
     system: [{ type: 'text', text: spec.system, cache_control: { type: 'ephemeral' } }],
     tools: [toolFor(spec)],
-    tool_choice: NO_FORCED_TOOLS.test(m) ? { type: 'auto' } : { type: 'tool', name: spec.name },
+    // Forced tool use is only safe on models that don't think by default (Haiku);
+    // elsewhere the prompt asks for the tool and a missing call gets a retry.
+    tool_choice: haiku && !NO_FORCED_TOOLS.test(m) ? { type: 'tool', name: spec.name } : { type: 'auto' },
     messages,
-  });
+  }).finalMessage();
   const u = res.usage;
   console.error(`[booker] ${m} ${spec.name}: in=${u.input_tokens} cache_write=${u.cache_creation_input_tokens ?? 0} ` +
     `cache_read=${u.cache_read_input_tokens ?? 0} out=${u.output_tokens} stop=${res.stop_reason}`);
@@ -129,9 +145,74 @@ const PROMOTION_TOOL: ToolSpec = {
   system: GENESIS_PROMPT,
 };
 
+const PLAN_TOOL: ToolSpec = {
+  name: 'plan_season',
+  description: 'Submit the season plan: theme, the three PPVs, and the long-term arcs.',
+  schema: SeasonPlanSchema,
+  system: PLAN_PROMPT,
+  model: planModel,
+};
+
+const TRANSITION_TOOL: ToolSpec = {
+  name: 'season_transition',
+  description: 'Submit the off-season: season recap, departures and arrivals.',
+  schema: SeasonTransitionSchema,
+  system: TRANSITION_PROMPT,
+  model: planModel,
+};
+
+/** Keep only known ids in a plan, and make sure all three PPVs exist. */
+function reviewPlan(input: unknown, world: World, season: number): { value: SeasonPlan | null; problems: string[] } {
+  const parsed = SeasonPlanSchema.safeParse(resolveIds(unstringify(input), world));
+  if (!parsed.success) return { value: null, problems: parsed.error.issues.slice(0, 8).map((i) => `${i.path.join('.')}: ${i.message}`) };
+  const plan = parsed.data;
+  const ids = new Set(world.characters.map((c) => c.id));
+  for (const a of plan.arcs) a.characters = a.characters.filter((id) => ids.has(id));
+  const fallback = offlinePlan(season);
+  plan.ppvs = PPV_EPISODES.map((e) => plan.ppvs.find((p) => p.episode === e) ?? fallback.ppvs.find((p) => p.episode === e)!);
+  return plan.arcs.length ? { value: plan, problems: [] } : { value: null, problems: ['the plan needs 3-5 arcs'] };
+}
+
+function reviewTransition(input: unknown, world: World): { value: SeasonTransition | null; problems: string[] } {
+  const parsed = SeasonTransitionSchema.safeParse(resolveIds(unstringify(input), world));
+  if (!parsed.success) return { value: null, problems: parsed.error.issues.slice(0, 8).map((i) => `${i.path.join('.')}: ${i.message}`) };
+  const t = parsed.data;
+  t.departures = t.departures.filter((d) => world.characters.some((c) => c.id === d.id && c.role !== 'interviewer'));
+  return { value: t, problems: [] };
+}
+
+/** Off-season shuffle + season plan, with the LLM when available (offline otherwise). */
+async function seasonStartFor(world: World, season: number): Promise<SeasonStart> {
+  let transition: SeasonTransition | null = null;
+  if (season > 1) {
+    if (llmAvailable()) {
+      try {
+        transition = (await callWithRetry(TRANSITION_TOOL, buildTransitionPrompt(world, season - 1), (i) => reviewTransition(i, world))).value;
+      } catch (err) {
+        logError('season_transition', err);
+      }
+    }
+    transition ??= offlineTransition(world, season);
+    console.error(`[booker] season ${season}: ${transition.departures.length} leave, ${transition.arrivals.length} arrive`);
+  }
+  const shuffled = applyTransition(world, transition, season);
+  let plan: SeasonPlan | null = null;
+  if (llmAvailable()) {
+    try {
+      plan = (await callWithRetry(PLAN_TOOL, buildPlanPrompt(shuffled, season), (i) => reviewPlan(i, shuffled, season))).value;
+    } catch (err) {
+      logError('plan_season', err);
+    }
+  }
+  plan ??= offlinePlan(season);
+  console.error(`[booker] season ${season} plan: ${plan.ppvs.map((p) => p.name).join(' / ')}; ${plan.arcs.length} arcs`);
+  return { season, transition, plan };
+}
+
 /**
  * Book the next episode: reuse a stored one for this world and episode number, else ask
- * the LLM (and store the result), else fall back to the offline booker.
+ * the LLM (and store the result), else fall back to the offline booker. A season's first
+ * episode also carries the off-season shuffle and the season plan.
  */
 export async function bookEpisode(world: World): Promise<Booked> {
   const number = world.episode + 1;
@@ -142,36 +223,27 @@ export async function bookEpisode(world: World): Promise<Booked> {
   }
   if (llmAvailable()) {
     try {
-      const r = await callWithRetry(EPISODE_TOOL, buildUserPrompt(world), (input) => {
-        const rv = reviewEpisode(input, world);
+      const seasonStart = isSeasonStart(number) ? await seasonStartFor(world, seasonOf(number)) : null;
+      const base = seasonStart ? applySeasonStart(world, seasonStart) : world;
+      const r = await callWithRetry(EPISODE_TOOL, buildUserPrompt(base), (input) => {
+        const rv = reviewEpisode(input, base);
         return { value: rv.episode, problems: rv.problems };
       });
       if (r.value) {
-        saveEpisode(world.seed, number, r.value);
-        return { episode: r.value, source: 'llm', problems: r.problems };
+        const episode = seasonStart ? { ...r.value, seasonStart } : r.value;
+        saveEpisode(world.seed, number, episode);
+        return { episode, source: 'llm', problems: r.problems };
       }
       console.error(`[booker] unusable episode, using offline booker: ${r.problems.join(' | ')}`);
     } catch (err) {
       logError('book_episode', err);
     }
   }
-  return { episode: fallbackEpisode(world), source: 'offline', problems: [] };
+  return { episode: offlineBook(world), source: 'offline', problems: [] };
 }
 
-/**
- * Create a brand-new promotion (roster, titles, feuds) with the LLM, or offline.
- * With `cached`, reuse the most recently created promotion instead (and its stored
- * episodes replay for free).
- */
-export async function createPromotion(direction: string, seed: number, cached = false): Promise<Created> {
-  if (cached) {
-    const latest = latestPromotion();
-    if (latest) {
-      console.error(`[booker] --cached: reusing "${latest.world.showName}" (${latest.episodes} stored episodes)`);
-      return { world: latest.world, source: 'cache', problems: [] };
-    }
-    console.error('[booker] --cached: no stored promotion yet, creating one');
-  }
+/** Create a brand-new promotion (roster, titles, feuds) with the LLM, or offline. */
+export async function createPromotion(direction: string, seed: number): Promise<Created> {
   if (llmAvailable()) {
     try {
       const r = await callWithRetry(PROMOTION_TOOL, buildGenesisPrompt(direction, seed), (input) => {

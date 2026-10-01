@@ -4,3 +4,4 @@ dist/
 world.json
 shows/
 sessions/
+booker-debug-*.json

@@ -1,16 +1,18 @@
 {
-  "name": "gptww",
+  "name": "infinite-wrestling",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "A never-ending, AI-booked, NWA-style wrestling TV show rendered in ASCII.",
+  "description": "Never-ending generative pro wrestling",
   "scripts": {
     "dev": "vite",
     "server": "tsx server/index.ts",
-    "preview": "tsx src/cli/preview.ts",
     "build": "tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "preview": "tsx src/cli/preview.ts",
+    "pregen": "tsx src/cli/pregen.ts",
+    "library": "tsx src/cli/library.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.129.0",

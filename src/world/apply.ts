@@ -1,6 +1,9 @@
+import { farthestColor } from '../engine/colors';
+import { profileOf } from './genesis';
+import { applySeasonStart } from './season';
 import type { Episode, Finish } from '../schema/episode';
 import {
-  ANGLE_LOG_LIMIT, type Character, cloneWorld, DEBUT_COLORS, HISTORY_LIMIT, NOTES_LIMIT, type World,
+  ANGLE_LOG_LIMIT, type Character, cloneWorld, CREW_COLORS, HISTORY_LIMIT, NOTES_LIMIT, type World,
 } from './state';
 
 export type TitleOutcome = 'retain' | 'new_champion' | 'protected' | 'none';
@@ -9,7 +12,7 @@ export type TitleOutcome = 'retain' | 'new_champion' | 'protected' | 'none';
 export function titleOutcome(holder: string | null, winner: string | null, finish: Finish): TitleOutcome {
   if (!winner) return 'none';
   if (holder === winner) return 'retain';
-  const clean = finish === 'pin' || finish === 'rollup' || finish === 'cheat_pin' || finish === 'submission';
+  const clean = ['pin', 'rollup', 'cheat_pin', 'submission', 'escape', 'retrieve', 'elimination'].includes(finish);
   return clean ? 'new_champion' : 'protected';
 }
 
@@ -37,17 +40,23 @@ export function angleKinds(ep: Episode): string[] {
 
 /** Return the world as it will be after this episode airs. Pure: the input is not modified. */
 export function applyEpisode(world: World, ep: Episode): World {
-  const w = cloneWorld(world);
+  const w = cloneWorld(ep.seasonStart ? applySeasonStart(world, ep.seasonStart) : world);
   const n = w.episode + 1;
   w.episode = n;
 
   for (const d of ep.debuts) {
     if (w.characters.some((c) => c.id === d.id)) continue;
     const used = new Set(w.characters.map((c) => c.color));
-    const color = DEBUT_COLORS.find((c) => !used.has(c)) ?? DEBUT_COLORS[w.characters.length % DEBUT_COLORS.length];
+    const color = farthestColor([...used, ...Object.values(CREW_COLORS)]);
     const c: Character = {
       id: d.id, name: d.name, role: d.role, alignment: d.alignment, division: d.division, style: d.style,
-      gimmick: d.gimmick, entrance: d.entrance, finisher: { name: d.finisherName, move: d.finisherMove }, color,
+      gimmick: d.gimmick, entrance: d.entrance, color,
+      finisher: {
+        name: d.finisherName, move: d.finisherMove,
+        ...(d.finisherDescription.trim() ? { description: d.finisherDescription.trim() } : {}),
+        ...(d.finisherCall.trim() ? { call: d.finisherCall.trim() } : {}),
+      },
+      ...profileOf(d),
     };
     w.characters.push(c);
   }

@@ -2,8 +2,10 @@
 // server down, bad output). Simpler than the LLM, but valid and varied enough to keep
 // the screensaver running forever.
 import { hashSeed, Rng } from '../engine/rng';
-import type { Beat, Episode, Finish, Segment, Spot, StateChange, Story } from '../schema/episode';
+import type { Beat, BeatOf, Episode, Finish, Segment, Spot, StateChange, Stipulation, Story } from '../schema/episode';
+import type { SeasonStart } from '../schema/season';
 import { isHardcore } from '../world/genesis';
+import { applySeasonStart, isPPV, isSeasonStart, offlinePlan, offlineTransition, seasonOf } from '../world/season';
 import {
   alliesOf, type Character, charById, interviewer, titleHeldBy, type World, wrestlers,
 } from '../world/state';
@@ -62,7 +64,7 @@ const REASONS = [
   '{A} ruined {B}\'s birthday celebration.',
   '{A} says {B} is past it.',
 ];
-const MATCH_TITLES = ['Grudge Match', 'Showdown', 'Collision Course', 'Main Event', 'Opening Contest', 'Featured Bout'];
+const MATCH_TITLES = ['Grudge Match', 'Showdown', 'Collision Course', 'Featured Bout', 'Special Attraction', 'Midcard Mayhem'];
 const EPISODE_TITLES = [
   'Night of Betrayal', 'Collision Course', 'Blood and Glitter', 'The Reckoning', 'Saturday Night Stampede',
   'No Mercy in Motown', 'Chaos Theory', 'Thunder in the Arena', 'The Big Payback', 'Bad Blood Boulevard',
@@ -131,9 +133,9 @@ export function fallbackEpisode(world: World): Episode {
     const titleOnLine = opts.main && holder && rng.chance(0.6) ? holder.id : 'none';
     return {
       beat: {
-        type: 'match', wrestlers: [a.id, b.id], winner: winner?.id ?? 'none', finish, story,
+        type: 'match', stipulation: 'singles', wrestlers: [a.id, b.id], winner: winner?.id ?? 'none', finish, story,
         length: opts.main ? rng.pick(['medium', 'long'] as const) : rng.pick(['short', 'medium'] as const),
-        titleOnLine, spots,
+        titleOnLine, spots, moments: [],
       },
       winner,
       finish,
@@ -224,7 +226,7 @@ export function fallbackEpisode(world: World): Episode {
         beats: [
           { type: 'promo', who: f.id, where: 'ring', mood: 'excited', lines: [lineFor(f, h), 'Thank you all for the support!'] },
           { type: 'attack', attackers: [h.id, ...alliesOf(world, h.id).filter((id) => charById(world, id)?.alignment === 'heel').slice(0, 1)], victim: f.id, where: 'ring', style: rng.pick(['from_behind', 'beatdown', 'weapon'] as const) },
-          { type: 'narrate', text: rng.pick(['Somebody get some help out here!', 'This is a disgrace!', 'Why won\'t anybody help?']), style: 'shock' },
+          { type: 'narrate', text: rng.pick(['Somebody get some help out here!', 'This is a disgrace!', 'Why won\'t anybody help?']), style: 'shock', speaker: 'pbp' },
         ],
         stateChanges: rng.chance(0.5) ? [{ type: 'feud_start', a: f.id, b: h.id, reason: `${short(h)} ambushed ${short(f)} during a promo.` }] : [],
         recap: `${short(h)} ambushed ${short(f)} in the middle of a promo.`,
@@ -239,7 +241,7 @@ export function fallbackEpisode(world: World): Episode {
       beats: [
         { type: 'promo', who: who.id, where: 'ring', mood: 'excited', lines: ['I have something to get off my chest.', 'Something nobody in this building knows...'] },
         { type: 'reveal', who: who.id, line: text, reactions: [{ who: y.id, reaction: rng.pick(['shock', 'disbelief', 'faint', 'anger'] as const) }] },
-        { type: 'narrate', text: rng.pick(['I did not see that coming!', 'This changes everything!', 'Fans, I am speechless!']), style: 'shock' },
+        { type: 'narrate', text: rng.pick(['I did not see that coming!', 'This changes everything!', 'Fans, I am speechless!']), style: 'shock', speaker: 'pbp' },
       ],
       stateChanges: [{ type: 'storyline_note', text: `${short(who)} revealed: "${text}"` }],
       recap: `${short(who)} revealed: "${text}"`,
@@ -277,7 +279,7 @@ export function fallbackEpisode(world: World): Episode {
     segments.push({
       title: `${short(c)} Has Something to Say`,
       beats: [
-        { type: 'promo', who: c.id, where: rng.pick(['ring', 'stage'] as const), mood: c.alignment === 'heel' ? 'cocky' : 'angry', lines: [lineFor(c, r), lineFor(c, r)] },
+        { type: 'promo', who: c.id, where: rng.pick(['ring', 'stage', 'aisle'] as const), mood: c.alignment === 'heel' ? 'cocky' : 'angry', lines: [lineFor(c, r), lineFor(c, r)] },
         { type: 'interrupt', who: r.id, where: 'stage', lines: [lineFor(r, c)], then: rng.pick(['stays', 'walks_to_ring', 'leaves'] as const), target: 'none' },
       ],
       stateChanges: [],
@@ -285,11 +287,62 @@ export function fallbackEpisode(world: World): Episode {
     });
   }
 
-  // --- 5. Main event
+  const ppv = isPPV(n);
+
+  // --- 4b. Tag team match between two alliances (weekly TV)
+  const pairs = world.alliances
+    .map((al) => al.members.map((id) => charById(world, id)!).filter((c) => c?.role === 'wrestler' && c.division === 'men' && !used.has(c.id)))
+    .filter((t) => t.length >= 2)
+    .map((t) => t.slice(0, 2));
+  if (!ppv && pairs.length >= 2 && rng.chance(0.4)) {
+    const [t1, t2] = rng.shuffle(pairs).slice(0, 2);
+    if (!t1.some((c) => t2.includes(c)) && !t1.concat(t2).some((c) => mainPair?.includes(c.id))) {
+      t1.concat(t2).forEach((c) => used.add(c.id));
+      const winner = rng.pick([...t1, ...t2]);
+      segments.push({
+        title: `Tag Team Action: ${short(t1[0])} & ${short(t1[1])} vs. ${short(t2[0])} & ${short(t2[1])}`,
+        beats: [{
+          type: 'match', stipulation: 'tag', wrestlers: [...t1, ...t2].map((c) => c.id), winner: winner.id,
+          finish: rng.pick(['pin', 'pin', 'rollup', 'dq'] as const), story: 'back_and_forth', length: 'medium', titleOnLine: 'none', spots: [], moments: [],
+        }],
+        stateChanges: [],
+        recap: `${short(winner)}'s team won the tag match.`,
+      });
+    }
+  }
+
+  // --- 4c. Battle royal on PPV nights: pushes someone into title contention
+  const field = rng.shuffle(men.filter((c) => !used.has(c.id) && !mainPair?.includes(c.id))).slice(0, rng.int(6, 8));
+  if (ppv && field.length >= 5) {
+    field.forEach((c) => used.add(c.id));
+    const winner = rng.pick(field);
+    segments.push({
+      title: 'Battle Royal',
+      beats: [{
+        type: 'match', stipulation: 'battle_royal', wrestlers: field.map((c) => c.id), winner: winner.id,
+        finish: 'elimination', story: 'even', length: 'medium', titleOnLine: 'none', spots: [], moments: [],
+      }],
+      stateChanges: [{ type: 'storyline_note', text: `${short(winner)} won a battle royal and earned a title shot.` }],
+      recap: `${short(winner)} won the battle royal.`,
+    });
+  }
+
+  // --- 5. Main event (PPVs often settle it in a cage or a ladder match)
   const mp = pickPair(men, mainPair);
   if (mp) {
     const [a, b] = mp;
     const m = match(a, b, { main: true });
+    const mb = m.beat as BeatOf<'match'>;
+    if (ppv && rng.chance(0.6)) {
+      mb.stipulation = rng.pick(['cage', 'ladder'] as const);
+      mb.spots = [];
+      if (!m.winner) {
+        m.winner = a;
+        mb.winner = a.id;
+      }
+      mb.finish = mb.stipulation === 'ladder' ? 'retrieve' : rng.chance(0.5) ? 'escape' : 'pin';
+      m.finish = mb.finish;
+    }
     const beats: Beat[] = [m.beat];
     const changes: StateChange[] = [];
     if (m.winner && (m.finish === 'dq' || m.finish === 'no_contest' || m.finish === 'cheat_pin')) {
@@ -308,5 +361,47 @@ export function fallbackEpisode(world: World): Episode {
     storySoFar: `${world.storySoFar.split('. ').slice(0, 3).join('. ')}. Champions — ${champs.join('; ')}.`.slice(0, 900),
     debuts: [],
     segments,
+  };
+}
+
+/**
+ * Offline booking with the season calendar: on a season's first episode it runs an
+ * offline off-season shuffle and plan, then books on the new roster.
+ */
+export function offlineBook(world: World): Episode {
+  const n = world.episode + 1;
+  if (!isSeasonStart(n)) return fallbackEpisode(world);
+  const season = seasonOf(n);
+  const seasonStart: SeasonStart = {
+    season,
+    transition: season > 1 ? offlineTransition(world, season) : null,
+    plan: offlinePlan(season),
+  };
+  return { ...fallbackEpisode(applySeasonStart(world, seasonStart)), seasonStart };
+}
+
+/** Dev/demo: a one-match episode showing off a stipulation (`?demo=cage|ladder|tag|royal`). */
+export function demoEpisode(world: World, kind: string): Episode {
+  const rng = new Rng(hashSeed('demo', world.seed, kind));
+  const men = rng.shuffle(wrestlers(world).filter((c) => c.division === 'men'));
+  const kinds: Record<string, Stipulation> = { cage: 'cage', ladder: 'ladder', tag: 'tag', royal: 'battle_royal' };
+  const stipulation: Stipulation = kinds[kind] ?? 'singles';
+  const size = stipulation === 'tag' ? 4 : stipulation === 'battle_royal' ? Math.min(8, men.length) : 2;
+  const field = men.slice(0, size);
+  const finish = ({ cage: 'escape', ladder: 'retrieve', battle_royal: 'elimination', tag: 'pin', singles: 'pin' } as const)[stipulation];
+  const winner = rng.pick(field);
+  return {
+    title: `Demo: ${stipulation.replace('_', ' ')}`,
+    storySoFar: world.storySoFar,
+    debuts: [],
+    segments: [{
+      title: `${stipulation.replace('_', ' ').toUpperCase()} DEMO`,
+      beats: [{
+        type: 'match', stipulation, wrestlers: field.map((c) => c.id), winner: winner.id, finish,
+        story: 'back_and_forth', length: 'short', titleOnLine: 'none', spots: [], moments: [],
+      }],
+      stateChanges: [],
+      recap: 'Demo match.',
+    }],
   };
 }

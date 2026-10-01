@@ -3,6 +3,7 @@ import { hashSeed } from '../engine/rng';
 import { Stage } from '../engine/stage';
 import type { Episode } from '../schema/episode';
 import { applyEpisode } from '../world/apply';
+import { episodeLabel, isFinale, ppvName } from '../world/season';
 import type { World } from '../world/state';
 
 /** Seed for an episode's staging, so the same episode always plays out identically. */
@@ -27,5 +28,6 @@ export function prepareStage(stage: Stage, before: World, ep: Episode): { direct
   };
   stage.setCast(cast);
   stage.reseed(episodeSeed(before.seed, number, ep));
-  return { director: new Director(stage, ep, number), after };
+  const meta = { label: episodeLabel(after, number), ppv: ppvName(after, number), finale: isFinale(number) };
+  return { director: new Director(stage, ep, number, meta), after };
 }

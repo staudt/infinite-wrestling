@@ -7,25 +7,27 @@
     <meta name="description" content="Never-ending generative pro wrestling." />
   </head>
   <body>
-    <header id="hud">
-      <span id="show" class="brand"></span>
-      <span id="ep"></span>
-      <span id="seg"></span>
-    </header>
-    <main>
-      <div id="left">
-        <pre id="map" aria-label="Arena"></pre>
-        <ul id="feed" aria-live="polite" aria-label="Play-by-play"></ul>
-      </div>
-      <aside id="side">
-        <div id="champs" aria-label="Champions"></div>
-        <section id="card" aria-label="Tonight's card"></section>
-      </aside>
-    </main>
-    <footer>
-      <span><span id="conn"></span> · <span id="status"></span></span>
-      <span class="keys"><kbd>space</kbd> pause <kbd>1</kbd>–<kbd>4</kbd> speed <kbd>d</kbd> debug <kbd>f</kbd> fullscreen <kbd>N</kbd> shows</span>
-    </footer>
+    <div id="frame">
+      <header id="hud">
+        <span id="show" class="brand"></span>
+        <span id="ep"></span>
+        <span id="seg"></span>
+      </header>
+      <main>
+        <div id="left">
+          <pre id="map" aria-label="Arena"></pre>
+          <ul id="feed" aria-live="polite" aria-label="Play-by-play"></ul>
+        </div>
+        <aside id="side">
+          <div id="champs" aria-label="Champions"></div>
+          <section id="card" aria-label="Tonight's card"></section>
+        </aside>
+      </main>
+      <footer>
+        <span><span id="conn"></span> · <span id="status"></span></span>
+        <span class="keys"><kbd>space</kbd> pause <kbd>1</kbd>–<kbd>4</kbd> speed <kbd>d</kbd> debug <kbd>f</kbd> fullscreen <kbd>N</kbd> shows</span>
+      </footer>
+    </div>
     <div id="start" hidden>
       <div class="start-panel">
         <h1>Choose your show</h1>

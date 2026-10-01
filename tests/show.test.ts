@@ -484,3 +484,23 @@ describe('stipulations', () => {
     expect(bad.problems.some((p) => p.includes('tag match needs exactly 4'))).toBe(true);
   });
 });
+
+describe('episode size', () => {
+  it('trims weekly TV to 7 segments, keeping matches and the main event', () => {
+    const w = classicWorld();
+    const talk = (i: number) => ({ title: `Talk ${i}`, stateChanges: [], recap: 'r', beats: [{ type: 'promo', who: 'vega', where: 'ring', mood: 'cocky', lines: ['Hi'] }] });
+    const match = (a: string, b: string, t: string) => ({
+      title: t, stateChanges: [], recap: 'r',
+      beats: [{ type: 'match', stipulation: 'singles', wrestlers: [a, b], winner: a, finish: 'pin', story: 'even', length: 'short', titleOnLine: 'none', spots: [], moments: [] }],
+    });
+    const ep = {
+      title: 'Long', storySoFar: '', debuts: [],
+      segments: [match('rex', 'vega', 'Opener'), talk(1), talk(2), match('earl', 'maddog', 'Mid'), talk(3), talk(4), talk(5), talk(6), talk(7), match('lightning', 'kaos', 'Main')],
+    } as unknown as Episode;
+    expect(reviewEpisode(ep, w).episode!.segments).toHaveLength(10); // stored episodes replay untouched
+    const r = reviewEpisode(ep, w, { trim: true });
+    expect(r.episode!.segments).toHaveLength(7);
+    expect(r.episode!.segments.map((s) => s.title)).toEqual(expect.arrayContaining(['Opener', 'Mid', 'Main']));
+    expect(r.episode!.segments.at(-1)!.title).toBe('Main');
+  });
+});

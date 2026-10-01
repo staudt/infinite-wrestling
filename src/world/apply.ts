@@ -25,6 +25,7 @@ export function angleKinds(ep: Episode): string[] {
   for (const seg of ep.segments) {
     for (const b of seg.beats) {
       if (b.type === 'match') {
+        kinds.push(`stip:${b.stipulation}`);
         if (b.finish !== 'pin') kinds.push(`finish:${b.finish}`);
         for (const s of b.spots) kinds.push(`spot:${s.type}`);
       } else if (b.type === 'turn') {

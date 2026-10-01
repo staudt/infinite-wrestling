@@ -394,8 +394,9 @@ window.addEventListener('keydown', (e) => {
 
 function fit(): void {
   // The arena is the main event: as big as fits beside the card and above the log.
-  const phone = window.innerWidth <= 700;
-  const side = window.innerWidth > 900 ? 320 : 0;
+  // Up to 900px wide the layout stacks (arena, card, log); wider, the card has its own column.
+  const phone = window.innerWidth <= 900;
+  const side = phone ? 0 : 454; // the card column (440px) + gap
   const width = Math.min(window.innerWidth - (phone ? 30 : 48) - side, 1500);
   let px = Math.min(24, width / (arena.width * 0.61));
   if (!phone) {

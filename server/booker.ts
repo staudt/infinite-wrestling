@@ -226,7 +226,7 @@ export async function bookEpisode(world: World): Promise<Booked> {
       const seasonStart = isSeasonStart(number) ? await seasonStartFor(world, seasonOf(number)) : null;
       const base = seasonStart ? applySeasonStart(world, seasonStart) : world;
       const r = await callWithRetry(EPISODE_TOOL, buildUserPrompt(base), (input) => {
-        const rv = reviewEpisode(input, base);
+        const rv = reviewEpisode(input, base, { trim: true });
         return { value: rv.episode, problems: rv.problems };
       });
       if (r.value) {

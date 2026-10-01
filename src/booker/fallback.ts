@@ -294,7 +294,7 @@ export function fallbackEpisode(world: World): Episode {
     .map((al) => al.members.map((id) => charById(world, id)!).filter((c) => c?.role === 'wrestler' && c.division === 'men' && !used.has(c.id)))
     .filter((t) => t.length >= 2)
     .map((t) => t.slice(0, 2));
-  if (!ppv && pairs.length >= 2 && rng.chance(0.4)) {
+  if (!ppv && pairs.length >= 2 && rng.chance(0.65)) {
     const [t1, t2] = rng.shuffle(pairs).slice(0, 2);
     if (!t1.some((c) => t2.includes(c)) && !t1.concat(t2).some((c) => mainPair?.includes(c.id))) {
       t1.concat(t2).forEach((c) => used.add(c.id));
@@ -333,7 +333,7 @@ export function fallbackEpisode(world: World): Episode {
     const [a, b] = mp;
     const m = match(a, b, { main: true });
     const mb = m.beat as BeatOf<'match'>;
-    if (ppv && rng.chance(0.6)) {
+    if (ppv && rng.chance(0.85)) {
       mb.stipulation = rng.pick(['cage', 'ladder'] as const);
       mb.spots = [];
       if (!m.winner) {

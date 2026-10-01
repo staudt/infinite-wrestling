@@ -128,13 +128,13 @@ export function seasonContext(world: World): string {
   const nextName = ppvName(world, n - e + next);
   const lines = [`SEASON ${s}, EPISODE ${e} OF ${SEASON_LENGTH}.`];
   if (isFinale(n)) {
-    lines.push(`THIS IS THE SEASON FINALE PPV: "${nextName}". The biggest show of the year: pay off the season's arcs, bring the main feuds to a close (feud_end), crown or confirm champions, and plant one or two long-term cliffhangers for next season. Book 7-9 segments, long matches for the top of the card.`);
+    lines.push(`THIS IS THE SEASON FINALE PPV: "${nextName}". The biggest show of the year: pay off the season's arcs, settle the main feuds in gimmick matches (cage, ladder) and close them (feud_end), crown or confirm champions, and plant one or two long-term cliffhangers for next season. Book 7-9 segments, long matches for the top of the card.`);
   } else if (isPPV(n)) {
-    lines.push(`THIS IS A PAY-PER-VIEW: "${nextName}". Big matches, title matches, payoffs for this month's builds. Book 7-9 segments, long matches for the top of the card.`);
+    lines.push(`THIS IS A PAY-PER-VIEW: "${nextName}". Big matches, title matches, payoffs for this month's builds, and at least one cage or ladder match to settle a feud. Book 7-9 segments, long matches for the top of the card.`);
   } else if (next - e === 1) {
-    lines.push(`GO-HOME SHOW: next week is the PPV "${nextName}". Confirm the PPV card, final face-offs and contract signings, make fans want to see it.`);
+    lines.push(`GO-HOME SHOW: next week is the PPV "${nextName}". Confirm the PPV card (including its gimmick match), final face-offs and contract signings, make fans want to see it. About 6 segments, 1-3 matches.`);
   } else {
-    lines.push(`Weekly TV. The next PPV, "${nextName}", is ${next - e} weeks away: build toward its card.`);
+    lines.push(`Weekly TV. The next PPV, "${nextName}", is ${next - e} weeks away: build toward its card. About 6 segments, 1-3 matches, a tag match if it moves a feud.`);
   }
   if (plan) {
     if (plan.theme) lines.push(`SEASON THEME: ${plan.theme}`);
@@ -147,6 +147,27 @@ export function seasonContext(world: World): string {
         lines.push(`- ${a.title} [${a.archetype}] (${a.characters.join(', ')}): ${a.summary} Payoff ep ${a.payoff.episode}: ${a.payoff.outcome}` +
           (now.length ? `\n    THIS WEEK: ${now.join(' / ')}` : '') + (soon.length ? `\n    next week: ${soon.join(' / ')}` : ''));
       }
+    }
+  }
+  // What this season has used so far, so gaps get noticed (no gimmick match yet, etc).
+  const seasonStart = n - e + 1;
+  const used = new Map<string, number>();
+  for (const l of world.angleLog ?? []) {
+    if (l.episode < seasonStart) continue;
+    for (const k of l.kinds) if (k.startsWith('stip:') && k !== 'stip:singles') used.set(k.slice(5), (used.get(k.slice(5)) ?? 0) + 1);
+  }
+  if (e > 1) {
+    const count = (k: string) => used.get(k) ?? 0;
+    lines.push(`STIPULATIONS SO FAR THIS SEASON: tag ×${count('tag')}, cage ×${count('cage')}, ladder ×${count('ladder')}, battle royal ×${count('battle_royal')}.`);
+  }
+  if (world.plan || e > 1) {
+    const heelVsHeel = world.feuds.filter((f) => {
+      const a = world.characters.find((c) => c.id === f.a)?.alignment;
+      const b = world.characters.find((c) => c.id === f.b)?.alignment;
+      return a === 'heel' && b === 'heel';
+    });
+    if (heelVsHeel.length) {
+      lines.push(`NOTE: heel vs heel feuds (${heelVsHeel.map((f) => `${f.a} vs ${f.b}`).join(', ')}) don't draw for long: wrap them up, or turn one of them.`);
     }
   }
   if (world.seasonHistory?.length) lines.push(`PAST SEASONS:\n${world.seasonHistory.map((h) => `- Season ${h.season}: ${h.recap}`).join('\n')}`);

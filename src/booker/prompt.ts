@@ -19,7 +19,7 @@ STIPULATIONS (set "stipulation" on every match)
 - cage: steel cage, no DQ, no count-out; win by pin, submission, or "escape" over the top. The classic way to END a feud, usually at a PPV.
 - ladder: the prize hangs above the ring and the only finish is "retrieve" (put a title in titleOnLine for a title ladder match; otherwise it's a briefcase for a future title shot). A PPV showpiece.
 - battle_royal: 5-12 wrestlers, over the top rope; finish "elimination". Pushes new or midcard talent (the winner earns a title shot) or crowns a vacant champion.
-- Use them for storytelling, sparingly: at most one or two per episode, mostly at PPVs and the finale.
+- Use them for storytelling: a tag match most weeks on TV, at least one cage or ladder match on every PPV (the finale settles its top feuds in gimmick matches), and a battle royal or two per season.
 
 MATCH MOMENTS (this is where matches get their story)
 - The engine picks the individual moves; you give every match 3-6 "moments": short lines tied to a phase (early, mid, late, after).
@@ -29,10 +29,16 @@ MATCH MOMENTS (this is where matches get their story)
 - Never announce interference, run-ins or weapons in moments: the engine stages those from "spots" (put what the interferer shouts in the spot's lines). Only "after" lines may react to them, and to the result.
 - Characters only speak if they are out there (in the match, or brought out by an entrance/spot/escort).
 
-EPISODE STRUCTURE (5-7 segments on weekly TV, 7-9 on a pay-per-view)
+EPISODE STRUCTURE
+- Weekly TV: about 6 segments (never more than 7) with 1-3 matches; promos, interviews and angles are short. Pay-per-views: 7-9 segments, mostly matches.
 - Open hot (a match or an angle), build through interviews/promos and midcard matches, and put the main event last, ending on a cliffhanger (post-match attack, reveal, turn, or a challenge).
 - Matches are short and simple. Each wrestler wrestles at most once per episode; matches are usually within a division (a mixed match is a rare special attraction, and titles are only defended within their division).
 - Keep the story moving every week: advance the active feuds, pay off earlier setups, and plant new seeds.
+
+FEUDS THAT DRAW
+- Build the major feuds as face vs heel: a babyface chasing a heel champion, or a heel menacing a popular face. Face vs face with mutual respect works now and then; a long heel vs heel feud does not draw, so keep those short or turn one of them.
+- Tag matches let you advance a feud without a direct pin (partners take the fall, enemies are forced to team, a heel turns on his partner).
+- Gimmick matches (cage, ladder) are how big feuds END, usually on a PPV.
 
 BOOKING RULES
 - Only use character ids from the roster exactly as listed (plus any you debut this episode), never names. Only wrestlers wrestle; managers, valets and the interviewer never do.
@@ -82,7 +88,8 @@ export function buildUserPrompt(world: World): string {
     return `- ${c.id} | ${c.name} | ${c.role} | ${c.alignment} | ${c.division} | ${c.style} | finisher: ${c.finisher.name || '—'} | ${c.gimmick}${allies.length ? ` | allies: ${allies.join(', ')}` : ''}`;
   });
   const titles = world.titles.map((t) => `- ${t.id} (${t.name}, ${t.division}): ${t.holder ? `${t.holder} (${name(t.holder)})` : 'VACANT'}`);
-  const feuds = world.feuds.map((f) => `- ${f.a} vs ${f.b} (since ep ${f.since}): ${f.reason}`);
+  const align = (id: string) => world.characters.find((c) => c.id === id)?.alignment ?? '?';
+  const feuds = world.feuds.map((f) => `- ${f.a} (${align(f.a)}) vs ${f.b} (${align(f.b)}), since ep ${f.since}: ${f.reason}`);
   const alliances = world.alliances.map((a) => `- ${a.name}: ${a.members.join(', ')}`);
   const notes = world.notes.map((x) => `- (ep ${x.episode}) ${x.text}`);
   const history = world.history.slice(-24).map((h) => `- ep ${h.episode} — ${h.segment}: ${h.recap}`);
@@ -182,6 +189,8 @@ Plan:
 - ppvs: exactly three (episodes 4, 8, 12) with a name, the intended main event, and the rest of the planned card.
 - arcs: 3-5 long-term storylines. Each has the characters involved (by id), an archetype, a summary, beats on specific episodes (build tension: setbacks before triumphs, not every week), and a payoff at a PPV. Arcs should intertwine and escalate; at least one arc pays off at the finale. The finale should close most feuds and leave a cliffhanger for next season.
 - Respect the current champions, feuds, alliances and recent history; give every title a direction.
+- Make the main feuds face vs heel: a babyface chasing a heel champion, or a heel menacing a popular face. No season-long heel vs heel program.
+- Plan stipulations: weekly tag matches to move feuds without direct pins; at least one cage or ladder match on each PPV (name it in that PPV's card); the finale settles the top feuds in gimmick matches; one battle royal to push someone new.
 - Only use character ids from the roster exactly as listed.
 
 ${ARCHETYPES}

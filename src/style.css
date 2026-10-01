@@ -20,11 +20,21 @@ html, body {
 }
 
 body {
+  padding: 12px 16px;
+}
+
+/* Everything sits in one centered frame: as wide as the arena plus the card. */
+#frame {
   display: flex;
   flex-direction: column;
-  padding: 12px 16px;
   gap: 10px;
+  height: 100%;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
 }
+/* The header and footer wrap inside the frame instead of widening it. */
+#frame > #hud, #frame > footer { width: 0; min-width: 100%; }
 
 #hud {
   display: flex;
@@ -104,9 +114,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  flex: 1;
-  min-width: 220px;
-  max-width: 520px;
+  flex: none;
+  width: 440px;
   min-height: 0;
   overflow-y: auto;
   padding-right: 4px;
@@ -215,9 +224,11 @@ kbd { background: #1a1a26; border: 1px solid #2a2a3a; border-radius: 3px; paddin
 
 
 /* Phones (portrait): stack everything and let the page scroll. */
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   html, body { height: auto; }
   body { padding: 8px; display: block; }
+  #frame { width: auto; height: auto; }
+  #frame > #hud, #frame > footer { width: auto; }
   #hud { font-size: 12px; gap: 2px 10px; margin-bottom: 8px; }
   /* Stack: arena, then the card, then the log. */
   main { display: flex; flex-direction: column; gap: 10px; }

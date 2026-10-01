@@ -2,7 +2,7 @@
 // to the LLM for a retry) and returns a sanitized episode that is always safe to play.
 import { Beat, Episode, type Segment } from '../schema/episode';
 import { hasMove } from '../sim/moves';
-import { applySeasonStart } from '../world/season';
+import { applySeasonStart, isPPV } from '../world/season';
 import { matchCharacter, unstringify } from './json';
 import type { World } from '../world/state';
 
@@ -14,6 +14,8 @@ export interface Review {
 const MAX_LINES = 6;
 const MIN_SEGMENTS = 3;
 const MAX_SEGMENTS = 10;
+/** Weekly TV should feel tight: about 6 segments. */
+const WEEKLY_MAX_SEGMENTS = 7;
 
 function cleanLines(lines: string[]): string[] {
   return lines.map((l) => l.trim()).filter(Boolean).slice(0, MAX_LINES);
@@ -100,7 +102,28 @@ export function resolveIds(v: unknown, world: World): unknown {
   return walk(v);
 }
 
-export function reviewEpisode(raw: unknown, world: World): Review | { episode: null; problems: string[] } {
+/**
+ * Keep weekly TV tight: drop the smallest talk-only segments from the middle (never
+ * matches, turns or reveals, never the opener or the main event) until it fits, moving
+ * their storyline changes to the next segment.
+ */
+function trimWeeklyTv(ep: Episode, limit: number, problems: string[]): void {
+  const keep = new Set(['match', 'turn', 'reveal']);
+  while (ep.segments.length > limit) {
+    let pick = -1;
+    for (let i = 1; i < ep.segments.length - 1; i++) {
+      if (ep.segments[i].beats.some((b) => keep.has(b.type))) continue;
+      if (pick < 0 || ep.segments[i].beats.length < ep.segments[pick].beats.length) pick = i;
+    }
+    if (pick < 0) return;
+    const [gone] = ep.segments.splice(pick, 1);
+    ep.segments[pick].stateChanges.unshift(...gone.stateChanges);
+    problems.push(`trimmed "${gone.title}": weekly TV is capped at ${limit} segments`);
+  }
+}
+
+/** `trim` applies to freshly booked episodes; stored ones replay exactly as saved. */
+export function reviewEpisode(raw: unknown, world: World, opts: { trim?: boolean } = {}): Review | { episode: null; problems: string[] } {
   const problems: string[] = [];
   const nested = draftToEpisode(resolveIds(unstringify(raw), world));
   // Drop malformed beats one by one rather than rejecting the whole episode.
@@ -323,5 +346,6 @@ export function reviewEpisode(raw: unknown, world: World): Review | { episode: n
     return { episode: null, problems };
   }
   if (!ep.segments.some((s) => s.beats.some((b) => b.type === 'match'))) problems.push('an episode needs at least one match');
+  if (opts.trim) trimWeeklyTv(ep, isPPV(world.episode + 1) ? MAX_SEGMENTS : WEEKLY_MAX_SEGMENTS, problems);
   return { episode: ep, problems };
 }

@@ -39,19 +39,21 @@ body {
 #hud #seg { color: #9ad; }
 #champs { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; font-size: 12px; color: var(--dim); padding-bottom: 8px; border-bottom: 1px solid #1c1c28; }
 
+/* Desktop: the arena with the log under it on the left (same width), the card on the
+   right taking the rest; both columns scroll on their own, the footer stays visible. */
 main {
   flex: 1;
   min-height: 0;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
-#arena {
+#left {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  flex: none;
 }
 
 #map {
@@ -104,7 +106,10 @@ main {
   gap: 14px;
   flex: 1;
   min-width: 220px;
-  max-width: 420px;
+  max-width: 520px;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 .tag { font-size: 10px; padding: 0 4px; border-radius: 3px; text-transform: uppercase; background: #222; color: #aaa; }
 .tag-face { background: #123a6a; color: #9cc8ff; }
@@ -116,8 +121,10 @@ main {
 
 #feed {
   flex: 1;
-  min-height: 110px;
-  max-height: 32vh;
+  min-height: 80px;
+  /* As wide as the arena above it, never wider. */
+  width: 0;
+  min-width: 100%;
   overflow-y: auto;
   list-style: none;
   margin: 0;
@@ -206,32 +213,20 @@ kbd { background: #1a1a26; border: 1px solid #2a2a3a; border-radius: 3px; paddin
 @keyframes in { from { opacity: 0; transform: translateY(4px); } }
 @keyframes flash { 50% { opacity: 0.35; } }
 
-#subtitles { display: none; }
 
-/* Phones (portrait): stack everything, let the page scroll, subtitles under the arena. */
+/* Phones (portrait): stack everything and let the page scroll. */
 @media (max-width: 700px) {
   html, body { height: auto; }
   body { padding: 8px; display: block; }
   #hud { font-size: 12px; gap: 2px 10px; margin-bottom: 8px; }
-  main { display: block; }
-  #arena { flex-direction: column; flex-wrap: nowrap; gap: 8px; }
-  #stagecol { width: 100%; }
-  #map { padding: 4px; }
-  #subtitles {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    min-height: 4.6em;
-    padding: 6px 8px;
-    background: var(--panel);
-    border: 1px solid #1c1c28;
-    border-radius: 4px;
-    font-size: 13px;
-    line-height: 1.35;
-    margin-top: 6px;
-  }
+  /* Stack: arena, then the card, then the log. */
+  main { display: flex; flex-direction: column; gap: 10px; }
+  #left { display: contents; }
+  #map { order: 1; padding: 4px; }
+  #side { order: 2; overflow: visible; padding-right: 0; }
+  #feed { order: 3; width: auto; }
   #side { max-width: none; width: 100%; min-width: 0; }
-  #feed { font-size: 12px; max-height: 40vh; min-height: 0; margin-top: 10px; }
+  #feed { font-size: 12px; max-height: 40vh; min-height: 0; }
   footer { flex-direction: column; gap: 4px; margin-top: 8px; }
   footer .keys { display: none; }
   .start-panel { padding: 14px; }

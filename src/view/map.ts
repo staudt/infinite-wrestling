@@ -128,28 +128,8 @@ export class MapView {
   private names: NameIndex;
   private shoutSeed = 0;
 
-  private subtitleHtml = '';
-
-  constructor(private el: HTMLElement, private stage: Stage, private subtitles: HTMLElement | null = null) {
+  constructor(private el: HTMLElement, private stage: Stage) {
     this.names = new NameIndex(stage);
-  }
-
-  /**
-   * Phones: the arena is small, so whatever is being said also shows as subtitles under
-   * it at a readable size (speaker in their color, names colored).
-   */
-  private renderSubtitles(t: number): void {
-    if (!this.subtitles) return;
-    const live = [...this.balloons.values()].filter((b) => b.until > t).sort((a, b) => b.at - a.at).slice(0, 3);
-    const html = live.map((b) => {
-      const who = this.stage.actors.get(b.who);
-      const name = who ? who.name.replace(/"[^"]*"\s*/g, '').trim() : '';
-      return `<div><b style="color:${b.color}">${esc(name)}:</b> ${this.names.html(b.text, esc)}</div>`;
-    }).join('');
-    if (html !== this.subtitleHtml) {
-      this.subtitleHtml = html;
-      this.subtitles.innerHTML = html;
-    }
   }
 
   onEvent(e: EngineEvent): void {
@@ -275,7 +255,6 @@ export class MapView {
     }
 
     this.drawBalloons(g, t);
-    this.renderSubtitles(t);
     this.el.innerHTML = g.map((row) => this.rowHtml(row)).join('\n');
   }
 

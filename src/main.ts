@@ -29,7 +29,7 @@ const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as 
 // Every episode plays on a fresh stage, so replaying an episode (to jump to a segment or a
 // log line) reproduces it exactly: the engine is deterministic for a given world + episode.
 let stage = new Stage(0);
-let map = new MapView($('map'), stage, $('subtitles'));
+let map = new MapView($('map'), stage);
 let feed = new FeedView($('feed'), stage);
 let card = new CardView($('card'), stage);
 
@@ -44,7 +44,7 @@ function onEvent(e: EngineEvent): void {
 
 function freshStage(): void {
   stage = new Stage(0);
-  map = new MapView($('map'), stage, $('subtitles'));
+  map = new MapView($('map'), stage);
   feed = new FeedView($('feed'), stage);
   feed.clear();
   card = new CardView($('card'), stage);
@@ -393,11 +393,17 @@ window.addEventListener('keydown', (e) => {
 });
 
 function fit(): void {
-  // The arena is the main event: size it to the space left of the card.
+  // The arena is the main event: as big as fits beside the card and above the log.
+  const phone = window.innerWidth <= 700;
   const side = window.innerWidth > 900 ? 320 : 0;
-  const gutter = window.innerWidth <= 700 ? 30 : 48;
-  const width = Math.min(window.innerWidth - gutter - side, 1500);
-  const px = Math.max(7, Math.min(24, width / (arena.width * 0.61)));
+  const width = Math.min(window.innerWidth - (phone ? 30 : 48) - side, 1500);
+  let px = Math.min(24, width / (arena.width * 0.61));
+  if (!phone) {
+    // Leave room under the arena for the log (and the header/footer around them).
+    const rows = arena.depth + 2;
+    px = Math.min(px, (window.innerHeight - 260) / (rows * 1.3));
+  }
+  px = Math.max(7, px);
   document.documentElement.style.setProperty('--cell', `${px}px`);
 }
 window.addEventListener('resize', fit);

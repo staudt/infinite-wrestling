@@ -127,6 +127,7 @@ export class MapView {
   private shouts: Shout[] = [];
   private names: NameIndex;
   private shoutSeed = 0;
+  private lastHtml = '';
 
   constructor(private el: HTMLElement, private stage: Stage) {
     this.names = new NameIndex(stage);
@@ -255,7 +256,11 @@ export class MapView {
     }
 
     this.drawBalloons(g, t);
-    this.el.innerHTML = g.map((row) => this.rowHtml(row)).join('\n');
+    const html = g.map((row) => this.rowHtml(row)).join('\n');
+    if (html !== this.lastHtml) {
+      this.lastHtml = html;
+      this.el.innerHTML = html;
+    }
   }
 
   private paint(g: Cell[][], r: number, c: number, text: string, color: string, cls: string): void {

@@ -22,6 +22,23 @@ import { loadWorldFromStorage, randomSeed, saveWorldToStorage, type World } from
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 
+// Render mode (?render=1, used by `npm run render`): no real-time loop. The renderer
+// script steps the simulation frame by frame through window.__render and screenshots
+// each frame; it stops at the end of the episode (or of one segment with &clip=1).
+const RENDER = new URLSearchParams(location.search).has('render');
+const CLIP_SEGMENT = (() => {
+  const p = new URLSearchParams(location.search);
+  return p.has('clip') && p.get('seg') ? Number(p.get('seg')) - 1 : null;
+})();
+const renderState = { ready: false, done: false, changed: true };
+if (RENDER) {
+  document.body.classList.add('render');
+  // Lets the renderer reuse the previous frame when nothing on screen changed.
+  new MutationObserver(() => (renderState.changed = true)).observe(document.body, {
+    subtree: true, childList: true, characterData: true, attributes: true,
+  });
+}
+
 // ------------------------------------------------------------------ stage + views
 
 // Every episode plays on a fresh stage, so replaying an episode (to jump to a segment or a
@@ -187,6 +204,11 @@ async function run(n: number, target?: Target): Promise<void> {
   document.title = after.showName;
   card.setEpisode(episodeLabel(after, n), entry.episode, ppvName(after, n), { prev: n > 1, next: true });
   renderChamps();
+  if (RENDER && CLIP_SEGMENT !== null) {
+    stage.on((e) => {
+      if (e.type === 'segmentEnd' && e.index === CLIP_SEGMENT) renderState.done = true;
+    });
+  }
   const task = stage.spawn(director.play());
   if (target) {
     if ('segment' in target) {
@@ -199,6 +221,13 @@ async function run(n: number, target?: Target): Promise<void> {
     } else {
       fastForward(task, () => stage.time >= target.time - 0.05);
     }
+  }
+  if (RENDER) {
+    // The renderer takes over from here: it steps this episode and stops at its end.
+    map.render();
+    playing = { task, done: () => {} };
+    renderState.ready = true;
+    return;
   }
   const from = entry.source === 'stored' ? 'from storage' : `booked by ${entry.source}`;
   setStatus(`episode ${n} ${from} · preparing the next one…`);
@@ -461,5 +490,39 @@ function fit(): void {
 window.addEventListener('resize', fit);
 fit();
 
-requestAnimationFrame(frame);
+if (RENDER) {
+  let owed = 0;
+  (window as unknown as { __render: object }).__render = {
+    get ready() {
+      return renderState.ready;
+    },
+    get done() {
+      return renderState.done;
+    },
+    get time() {
+      return stage.time;
+    },
+    get label() {
+      return $('ep').textContent ?? '';
+    },
+    /** Advance the show by `seconds` of show time and redraw; true if anything changed. */
+    step(seconds: number): boolean {
+      // Carry the fractional tick over so the video runs at exactly real show speed
+      // (1/24 s is 2.5 ticks).
+      owed += seconds / TICK;
+      const ticks = Math.floor(owed + 1e-9);
+      owed -= ticks;
+      for (let i = 0; i < ticks && !renderState.done; i++) {
+        stage.update();
+        if (playing?.task.done) renderState.done = true;
+      }
+      map.render();
+      const changed = renderState.changed;
+      renderState.changed = false;
+      return changed;
+    },
+  };
+} else {
+  requestAnimationFrame(frame);
+}
 main().catch((err) => setStatus(`show crashed: ${(err as Error).message}`));

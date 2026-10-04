@@ -65,6 +65,19 @@ To publish a show to the demo, pregen it, `npm run library -- add <seed>`, commi
 
 Saved shows live in `sessions/<seed>/` (git-ignored); curated shows live in `library/<seed>/` (committed). Both are read the same way, and a stored episode is always used before generating a new one. A season on Haiku (plus one Sonnet plan and one off-season call) costs roughly $0.40–0.50.
 
+### Rendering videos
+
+Any stored show (library or your saved ones) renders to silent MP4, ready for YouTube or Shorts. The show is deterministic, so instead of screen-recording in real time the renderer steps it frame by frame in headless Chromium and pipes the frames into ffmpeg. That takes roughly half the episode's length.
+
+```bash
+npm run render -- --show stw --ep 3                        # one episode -> renders/stw-s1e03.mp4
+npm run render -- --show stw --ep 3 --seg 2                # just one segment (a clip)
+npm run render -- --show wzw --season 1                    # every stored episode of a season
+npm run render -- --show stw --ep 12 --format vertical     # 1080x1920 for Shorts/Reels (default: 1920x1080)
+```
+
+Options: `--fps 24`, `--out renders`. The renderer needs `ffmpeg` on the PATH and Chrome or Chromium; set `CHROMIUM_PATH` if it isn't found.
+
 Headless preview (prints the play-by-play and saves `shows/ep-XXX.{md,json}` + `world.json`):
 
 ```bash

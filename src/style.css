@@ -336,3 +336,17 @@ kbd { background: #1a1a26; border: 1px solid #2a2a3a; border-radius: 3px; paddin
 #ended button.primary { background: #3a2f08; border-color: var(--accent); color: #fff; }
 #ended button:hover { border-color: var(--accent); }
 .start-panel button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Render mode (npm run render): a clean, deterministic frame for video. */
+body.render footer, body.render #ended, body.render #start { display: none !important; }
+body.render *, body.render *::before, body.render *::after { animation: none !important; transition: none !important; }
+body.render #feed, body.render #side { scrollbar-width: none; }
+body.render #feed::-webkit-scrollbar, body.render #side::-webkit-scrollbar { display: none; }
+/* Vertical videos: everything fits on one screen and the log fills the rest (newest lines). */
+@media (max-width: 900px) {
+  body.render { height: 100vh; overflow: hidden; }
+  body.render #frame { height: 100%; display: flex; flex-direction: column; }
+  body.render main { flex: 1; min-height: 0; }
+  body.render #map, body.render #side { flex: none; }
+  body.render #feed { flex: 1; max-height: none; }
+}

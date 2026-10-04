@@ -12,7 +12,8 @@
     "test": "vitest run",
     "preview": "tsx src/cli/preview.ts",
     "pregen": "tsx src/cli/pregen.ts",
-    "library": "tsx src/cli/library.ts"
+    "library": "tsx src/cli/library.ts",
+    "render": "tsx src/cli/render.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.129.0",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.6.3",
+    "playwright-core": "^1.63.0",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vite": "^8.3.1",

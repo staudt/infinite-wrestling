@@ -1,5 +1,6 @@
 import { hashSeed, Rng } from '../engine/rng';
 import { MOVES } from '../sim/moves';
+import type { PromotionNames } from '../world/genesis';
 import { seasonContext } from '../world/season';
 import { alliesOf, type World } from '../world/state';
 
@@ -155,13 +156,15 @@ const FLAVORS = [
   'a promotion run by a feuding family where the owner\'s kids wrestle',
 ];
 
-export function buildGenesisPrompt(direction: string, seed: number): string {
+export function buildGenesisPrompt(direction: string, seed: number, names: PromotionNames = {}): string {
   const moves = MOVES.filter((m) => !['pin', 'cheat', 'weapon', 'outside', 'toss'].includes(m.kind)).map((m) => m.id);
   const flavor = new Rng(hashSeed('flavor', seed)).pick(FLAVORS);
   return [
     direction
       ? `PROMOTION DIRECTION (build everything around this):\n${direction}`
       : `No direction was given. For variety, loosely inspire it by: ${flavor}.`,
+    ...(names.showName ? ['', `The promotion is called "${names.showName}": use exactly that as showName.`] : []),
+    ...(names.shortName ? [`Its initials are "${names.shortName}": use exactly that as shortName.`] : []),
     '',
     `Wrestling styles: brawler, technician, powerhouse, highflyer, showman.`,
     `MOVE IDS (for finisherMove): ${moves.join(', ')}`,

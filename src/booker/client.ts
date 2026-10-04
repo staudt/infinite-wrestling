@@ -4,7 +4,8 @@
 // When neither has the episode the show stops and says why: viewers only ever see
 // LLM-written shows.
 import type { Episode } from '../schema/episode';
-import type { World } from '../world/state';
+import type { PromotionNames } from '../world/genesis';
+import { showId, type World } from '../world/state';
 import { reviewEpisode } from './validate';
 
 export type BookSource = 'llm' | 'stored';
@@ -19,6 +20,8 @@ export interface Unavailable {
 export interface Health { llm: boolean; model: string; planModel: string }
 
 export interface LibraryEntry {
+  /** Folder name and link id, e.g. "stw" (older shows: the seed). */
+  id: string;
   seed: number;
   source: 'sessions' | 'library';
   showName: string;
@@ -66,20 +69,20 @@ export async function fetchLibrary(): Promise<LibraryEntry[]> {
   return (await getJson<LibraryEntry[]>(`${LIBRARY}/index.json`)) ?? [];
 }
 
-export async function fetchStoredPromotion(seed: number): Promise<World | null> {
-  const w = await getJson<World>(`${LIBRARY}/${seed}/promotion.json`);
-  return w?.version === 2 ? w : null;
+export async function fetchStoredPromotion(id: string): Promise<World | null> {
+  const w = await getJson<World>(`${LIBRARY}/${encodeURIComponent(id)}/promotion.json`);
+  return w?.version === 2 ? { ...w, id } : null;
 }
 
 /** One stored episode, as stored (callers review it against the world it follows). */
-export async function fetchStoredEpisode(seed: number, n: number): Promise<unknown | null> {
-  return getJson<unknown>(`${LIBRARY}/${seed}/ep-${pad(n)}.json`);
+export async function fetchStoredEpisode(id: string, n: number): Promise<unknown | null> {
+  return getJson<unknown>(`${LIBRARY}/${encodeURIComponent(id)}/ep-${pad(n)}.json`);
 }
 
 /** The next episode for this world: stored first, then the LLM. */
 export async function fetchEpisode(world: World): Promise<{ episode: Episode; source: BookSource } | ({ episode: null } & Unavailable)> {
   // Re-check everything on the client: the page must never play what it can't stage.
-  const stored = await getJson<unknown>(`${LIBRARY}/${world.seed}/ep-${pad(world.episode + 1)}.json`);
+  const stored = await getJson<unknown>(`${LIBRARY}/${encodeURIComponent(showId(world))}/ep-${pad(world.episode + 1)}.json`);
   if (stored) {
     const review = reviewEpisode(stored, world);
     if (review.episode) return { episode: review.episode, source: 'stored' };
@@ -103,13 +106,13 @@ export async function fetchEpisode(world: World): Promise<{ episode: Episode; so
 }
 
 /** Ask the booker server to create a new promotion (needs the LLM). */
-export async function fetchPromotion(direction: string, seed: number): Promise<{ world: World; source: BookSource } | ({ world: null } & Unavailable)> {
+export async function fetchPromotion(direction: string, seed: number, names: PromotionNames = {}): Promise<{ world: World; source: BookSource } | ({ world: null } & Unavailable)> {
   if (OFFLINE) return { world: null, ...OFFLINE_REASON };
   try {
     const res = await fetch('/api/promotion', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ direction, seed }),
+      body: JSON.stringify({ direction, seed, ...names }),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
     if (!res.ok) return { world: null, ...(await unavailable(res)) };

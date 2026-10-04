@@ -34,7 +34,21 @@ export function profileOf(c: { hometown: string; weight: number; catchphrase: st
   };
 }
 
-export function reviewPromotion(raw: unknown, direction: string, seed: number): PromotionReview {
+/** Names the user picked for a new promotion (both optional; the booker invents the rest). */
+export interface PromotionNames {
+  showName?: string;
+  shortName?: string;
+}
+
+/** Trim and bound user-picked names: up to 60 characters, initials up to 6. */
+export function cleanNames(n: PromotionNames): PromotionNames {
+  const showName = (n.showName ?? '').replace(/\s+/g, ' ').trim().slice(0, 60);
+  const shortName = (n.shortName ?? '').replace(/[^\p{L}\p{N}]/gu, '').slice(0, 6).toUpperCase();
+  return { ...(showName ? { showName } : {}), ...(shortName ? { shortName } : {}) };
+}
+
+export function reviewPromotion(raw: unknown, direction: string, seed: number, picked: PromotionNames = {}): PromotionReview {
+  const names = cleanNames(picked);
   const parsed = Promotion.safeParse(unstringify(raw));
   if (!parsed.success) {
     return { world: null, problems: parsed.error.issues.slice(0, 12).map((i) => `${i.path.join('.')}: ${i.message}`) };
@@ -134,8 +148,8 @@ export function reviewPromotion(raw: unknown, direction: string, seed: number): 
 
   const world: World = {
     version: 2,
-    showName: p.showName.trim() || 'Wrestling Weekly',
-    shortName: (p.shortName.trim() || p.showName.trim()).slice(0, 6).toUpperCase(),
+    showName: names.showName || p.showName.trim() || 'Wrestling Weekly',
+    shortName: names.shortName || (p.shortName.trim() || p.showName.trim()).slice(0, 6).toUpperCase(),
     direction,
     seed,
     crew: crewOf({ seed, crew: { pbp: p.commentators.playByPlay.trim(), color: p.commentators.color.trim() } }),

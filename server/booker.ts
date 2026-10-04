@@ -10,9 +10,9 @@ import { applySeasonStart, applyTransition, isSeasonStart, offlinePlan, PPV_EPIS
 import { reviewEpisode } from '../src/booker/validate';
 import { type Episode, EpisodeDraft } from '../src/schema/episode';
 import { Promotion } from '../src/schema/promotion';
-import { reviewPromotion } from '../src/world/genesis';
+import { cleanNames, type PromotionNames, reviewPromotion } from '../src/world/genesis';
 import type { World } from '../src/world/state';
-import { loadEpisode, saveEpisode, saveFailure, savePromotion } from './sessions';
+import { loadEpisode, newShowId, saveEpisode, saveFailure, savePromotion } from './sessions';
 
 // Read lazily: callers may load .env after importing this module.
 export const model = () => process.env.BOOKER_MODEL || 'claude-haiku-4-5';
@@ -219,7 +219,7 @@ async function seasonStartFor(world: World, season: number): Promise<SeasonStart
  */
 export async function bookEpisode(world: World): Promise<Booked> {
   const number = world.episode + 1;
-  const stored = loadEpisode(world.seed, number);
+  const stored = loadEpisode(world, number);
   if (stored) {
     const rv = reviewEpisode(stored, world);
     if (rv.episode) return { episode: rv.episode, source: 'cache', problems: [] };
@@ -234,7 +234,7 @@ export async function bookEpisode(world: World): Promise<Booked> {
       });
       if (r.value) {
         const episode = seasonStart ? { ...r.value, seasonStart } : r.value;
-        saveEpisode(world.seed, number, episode);
+        saveEpisode(world, number, episode);
         return { episode, source: 'llm', problems: r.problems };
       }
       console.error(`[booker] unusable episode: ${r.problems.join(' | ')}`);
@@ -248,16 +248,18 @@ export async function bookEpisode(world: World): Promise<Booked> {
 }
 
 /** Create a brand-new promotion (roster, titles, feuds) with the LLM, or offline. */
-export async function createPromotion(direction: string, seed: number): Promise<Created> {
+export async function createPromotion(direction: string, seed: number, names: PromotionNames = {}): Promise<Created> {
   if (llmAvailable()) {
     try {
-      const r = await callWithRetry(PROMOTION_TOOL, buildGenesisPrompt(direction, seed), (input) => {
-        const rv = reviewPromotion(input, direction, seed);
+      names = cleanNames(names);
+      const r = await callWithRetry(PROMOTION_TOOL, buildGenesisPrompt(direction, seed, names), (input) => {
+        const rv = reviewPromotion(input, direction, seed, names);
         return { value: rv.world, problems: rv.problems };
       });
       if (r.value) {
-        savePromotion(r.value);
-        return { world: r.value, source: 'llm', problems: r.problems };
+        const world: World = { ...r.value, id: newShowId(r.value.shortName, seed) };
+        savePromotion(world);
+        return { world, source: 'llm', problems: r.problems };
       }
       console.error(`[booker] unusable promotion: ${r.problems.join(' | ')}`);
       return { world: null, reason: 'error', message: 'the booker wrote an unusable promotion' };

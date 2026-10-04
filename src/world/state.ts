@@ -47,6 +47,8 @@ export interface World {
   direction: string;
   /** Random per-world seed: two worlds never stage the same show. */
   seed: number;
+  /** Storage id (folder name), from the initials; older saves use the seed (see showId). */
+  id?: string;
   /** Announce team at the desk (older saves lack it; see crewOf). */
   crew?: Crew;
   /** The current season's long-term plan (see world/season.ts). */
@@ -77,6 +79,16 @@ export interface Crew {
 
 const PBP_NAMES = ['Gordon Sollie', 'Jim Rossiter', 'Tony Chiavone', 'Vince Kirby', 'Joey Styles-Bennett', 'Bob Caudle-Hayes', 'Lance Russo'];
 const COLOR_NAMES = ['Jesse "The Mouth" Ventano', 'Bobby "The Brain" Heenly', 'Dusty "Big Talk" Rhodes', 'Mean Gene Dorsey', 'Rowdy Roddy MacLeod', 'Cornette the Racketeer'];
+
+/** A show's storage id: its folder under sessions/ and library/. */
+export function showId(w: Pick<World, 'id' | 'seed'>): string {
+  return w.id || String(w.seed >>> 0);
+}
+
+/** "Mid-South Wrestling" -> "mid-south-wrestling": safe for folders, ids and URLs. */
+export function slugId(s: string): string {
+  return s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
+}
 
 export function crewOf(w: Pick<World, 'crew' | 'seed'>): Crew {
   if (w.crew?.pbp && w.crew.color) return w.crew;

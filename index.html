@@ -38,15 +38,26 @@
         <h1>Choose your show</h1>
         <p id="start-conn" class="conn-line"></p>
         <section id="start-continue"></section>
-        <section>
+        <section id="new-section">
           <h2>New live promotion</h2>
-          <p class="hint">Optional direction for the booker: era, style, tone, the stars you want (e.g. "a veteran called 'Cowboy' Bob Tate"), match styles, factions, crowd. Leave empty to be surprised.</p>
-          <div id="presets"></div>
-          <textarea id="direction" rows="4" placeholder="e.g. ECW-style hardcore promotion in a Philadelphia bingo hall, rabid fans, tables and barbed wire, a cult-like heel faction and an aging hometown hero"></textarea>
-          <button id="create" class="primary">Create promotion</button>
-          <p id="create-note" class="hint"></p>
+          <p id="create-note" class="create-note" hidden></p>
+          <fieldset id="create-area">
+            <div class="names">
+              <label><span>Promotion name <span class="opt">optional</span></span>
+                <input id="promo-name" maxlength="60" placeholder="e.g. Southern Territory Wrestling" autocomplete="off" />
+              </label>
+              <label class="initials"><span>Initials <span class="opt">optional</span></span>
+                <input id="promo-initials" maxlength="6" placeholder="STW" autocomplete="off" />
+              </label>
+            </div>
+            <p class="hint">The initials go on the ring apron and name the show's link and save folder (<code>?show=stw</code>). Leave both empty and the booker names it.</p>
+            <p class="hint">Optional direction for the booker: era, style, tone, the stars you want (e.g. "a veteran called 'Cowboy' Bob Tate"), match styles, factions, crowd. Leave empty to be surprised.</p>
+            <div id="presets"></div>
+            <textarea id="direction" rows="4" placeholder="e.g. ECW-style hardcore promotion in a Philadelphia bingo hall, rabid fans, tables and barbed wire, a cult-like heel faction and an aging hometown hero"></textarea>
+            <button id="create" class="primary">Create promotion</button>
+          </fieldset>
         </section>
-        <section>
+        <section id="stored-section">
           <h2>Stored shows</h2>
           <p class="hint">Every show you watch live is saved here and plays back for free, even offline.</p>
           <ul id="library-list"></ul>

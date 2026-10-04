@@ -14,6 +14,12 @@ const PRESETS: { label: string; text: string }[] = [
   { label: 'Territory days', text: 'A 1970s southern territory run by a feuding family: the owner\'s sons wrestle, a hated foreign menace, a traveling world champion comes to town for the big shows.' },
 ];
 
+/** "Southern Territory Wrestling" -> "STW" (a suggestion; the user can change it). */
+function initialsOf(name: string): string {
+  const words = name.split(/[^\p{L}\p{N}]+/u).filter((w) => w && !/^(of|the|and|de|la|el)$/i.test(w));
+  return words.map((w) => w[0]).join('').slice(0, 6).toUpperCase();
+}
+
 function esc(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
@@ -29,7 +35,7 @@ export function connectionText(h: Health | null | undefined): { text: string; cl
 /** A link that opens straight into a stored show, e.g. https://…/infinite-wrestling/?show=wzw */
 function shareLink(e: LibraryEntry): string {
   const name = (e.shortName || e.showName).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-  return `${location.origin}${location.pathname}?show=${encodeURIComponent(name || String(e.seed))}`;
+  return `${location.origin}${location.pathname}?show=${encodeURIComponent(name || e.id)}`;
 }
 
 /** Reload into a program, keeping dev flags like ?offline. */
@@ -50,12 +56,23 @@ export class StartScreen {
       if (i !== undefined) (el.querySelector('#direction') as HTMLTextAreaElement).value = PRESETS[Number(i)].text;
     });
     el.querySelector('#create')!.addEventListener('click', () => {
-      const direction = (el.querySelector('#direction') as HTMLTextAreaElement).value.trim();
-      go({ play: 'new', ...(direction ? { direction } : {}) });
+      const value = (sel: string) => (el.querySelector(sel) as HTMLInputElement | HTMLTextAreaElement).value.trim();
+      const play: Record<string, string> = { play: 'new' };
+      if (value('#direction')) play.direction = value('#direction');
+      if (value('#promo-name')) play.name = value('#promo-name');
+      if (value('#promo-initials')) play.initials = value('#promo-initials').toUpperCase();
+      go(play);
+    });
+    // Suggest initials from the name until the user types their own.
+    const initials = el.querySelector('#promo-initials') as HTMLInputElement;
+    initials.addEventListener('input', () => (initials.dataset.touched = initials.value ? '1' : ''));
+    el.querySelector('#promo-name')!.addEventListener('input', (e) => {
+      if (initials.dataset.touched) return;
+      initials.value = initialsOf((e.target as HTMLInputElement).value);
     });
     el.querySelector('#library-list')!.addEventListener('click', (e) => {
-      const seed = (e.target as HTMLElement).dataset.seed;
-      if (seed) go({ play: 'library', seed });
+      const id = (e.target as HTMLElement).dataset.show;
+      if (id) go({ play: 'library', id });
     });
     el.querySelector('#start-continue')!.addEventListener('click', (e) => {
       if ((e.target as HTMLElement).dataset.continue !== undefined) {
@@ -80,12 +97,13 @@ export class StartScreen {
 
     // New promotions are written by the AI booker; without it, only stored shows play.
     const canCreate = !!opts.health?.llm;
-    const create = this.el.querySelector('#create') as HTMLButtonElement;
-    create.disabled = !canCreate;
-    create.title = canCreate ? '' : 'Needs the booker server with an API key (npm run server)';
-    this.el.querySelector('#create-note')!.textContent = canCreate
-      ? ''
-      : 'Creating a promotion needs the AI booker: run `npm run server` with an API key. Stored shows below play without it.';
+    (this.el.querySelector('#create-area') as HTMLFieldSetElement).disabled = !canCreate;
+    this.el.querySelector('.start-panel')!.classList.toggle('no-llm', !canCreate);
+    const note = this.el.querySelector('#create-note') as HTMLElement;
+    note.hidden = canCreate;
+    note.innerHTML = opts.health === null
+      ? '<b>Not connected to an AI booker.</b> New promotions are written live by an LLM, and no booker server is reachable from here (the online demo has none). You can watch the stored shows; to create your own, run the project locally with <code>npm run server</code> and an Anthropic API key.'
+      : '<b>The booker server has no API key.</b> New promotions are written live by an LLM. Set <code>ANTHROPIC_API_KEY</code> in <code>.env</code> and restart <code>npm run server</code>. Stored shows play without it.';
 
     const cont = this.el.querySelector('#start-continue')!;
     cont.innerHTML = opts.current && opts.canClose
@@ -101,12 +119,12 @@ export class StartScreen {
         return `<li>
           <div><b>${esc(e.showName)}</b> <span class="badge">${e.source === 'library' ? 'library' : 'saved'}</span></div>
           <div class="hint">${esc(e.direction || 'no direction')}</div>
-          <div class="row"><span class="hint">${stored} · <a class="share" href="${shareLink(e)}" title="Link that starts this show right away">share link</a></span><button data-seed="${e.seed}">Watch from the start</button></div>
+          <div class="row"><span class="hint">${stored} · <a class="share" href="${shareLink(e)}" title="Link that starts this show right away">share link</a></span><button data-show="${esc(e.id)}">Watch from the start</button></div>
         </li>`;
       }).join('')
       : '<li class="hint">Nothing stored yet. Shows you create are saved automatically when the booker server is running.</li>';
     this.el.hidden = false;
-    (this.el.querySelector('#direction') as HTMLTextAreaElement).focus();
+    if (canCreate) (this.el.querySelector('#promo-name') as HTMLInputElement).focus();
   }
 
   close(): void {

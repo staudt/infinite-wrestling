@@ -11,9 +11,9 @@ import { MatchSim } from '../src/sim/match';
 import { MOVES } from '../src/sim/moves';
 import { prepareStage } from '../src/show/runner';
 import { applyEpisode, titleOutcome } from '../src/world/apply';
-import { reviewPromotion } from '../src/world/genesis';
+import { cleanNames, reviewPromotion } from '../src/world/genesis';
 import { offlineWorld, randomPromotion } from '../src/dev/offline-roster';
-import { classicWorld, type World } from '../src/world/state';
+import { classicWorld, showId, slugId, type World } from '../src/world/state';
 
 function playEpisode(world: World, ep: Episode): { events: EngineEvent[]; after: World } {
   const stage = new Stage(0);
@@ -282,6 +282,22 @@ describe('new promotions', () => {
     expect(w.characters.every((c) => /^[a-z][a-z0-9_]*$/.test(c.id))).toBe(true);
     expect(w.characters.find((c) => c.id === w.titles[0].holder)?.role).toBe('wrestler');
     expect(w.direction).toBe('x');
+  });
+
+  it('uses the names the user picked, cleaned up', () => {
+    const w = reviewPromotion(randomPromotion(9), '', 9, { showName: '  Mid-South   Wrestling ', shortName: 'm.s.w' }).world!;
+    expect(w.showName).toBe('Mid-South Wrestling');
+    expect(w.shortName).toBe('MSW');
+    expect(cleanNames({ showName: '', shortName: 'toolonginitials' })).toEqual({ shortName: 'TOOLON' });
+    // Nothing picked: the booker's names stand.
+    const p = randomPromotion(9);
+    expect(reviewPromotion(p, '', 9).world!.showName).toBe(p.showName.trim());
+  });
+
+  it('show ids: initials for new shows, the seed for older ones', () => {
+    expect(slugId('Mid-South Wrestling!')).toBe('mid-south-wrestling');
+    expect(showId({ id: 'msw', seed: 5 })).toBe('msw');
+    expect(showId({ seed: 1679858903 })).toBe('1679858903');
   });
 });
 

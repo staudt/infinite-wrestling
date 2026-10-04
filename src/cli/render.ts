@@ -33,12 +33,12 @@ function fail(msg: string): never {
   process.exit(1);
 }
 
-/** Same matching as the ?show= links: seed, short name, or (part of) the name. */
+/** Same matching as the ?show= links: id, seed, short name, or (part of) the name. */
 function findShow(query: string): LibraryEntry | undefined {
   const slug = (x: string) => x.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   const q = slug(query);
   const all = listLibrary();
-  return all.find((e) => String(e.seed) === query)
+  return all.find((e) => e.id === query || String(e.seed) === query)
     ?? all.find((e) => slug(e.shortName) === q || slug(e.showName) === q)
     ?? all.find((e) => slug(e.showName).split('-').includes(q) || slug(e.showName).startsWith(q));
 }
@@ -53,7 +53,7 @@ function findBrowser(): string | undefined {
   return candidates.find((p) => p && existsSync(p));
 }
 
-const showArg = arg('show') ?? fail('missing --show <short name | name | seed>');
+const showArg = arg('show') ?? fail('missing --show <id | initials | name>');
 const show = findShow(showArg) ?? fail(`no stored show matches "${showArg}" (see npm run library)`);
 const format = FORMATS[(arg('format') ?? 'landscape') as keyof typeof FORMATS] ?? fail('--format is landscape or vertical');
 const fps = Number(arg('fps') ?? 24);
@@ -99,7 +99,7 @@ async function renderEpisode(n: number, file: string): Promise<void> {
     viewport: { width: format.width, height: format.height },
     deviceScaleFactor: format.scale,
   });
-  const params = new URLSearchParams({ render: '1', offline: '1', show: String(show.seed), ep: String(n) });
+  const params = new URLSearchParams({ render: '1', offline: '1', show: show.id, ep: String(n) });
   if (seg) {
     params.set('seg', String(seg));
     params.set('clip', '1');

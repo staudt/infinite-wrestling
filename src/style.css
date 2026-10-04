@@ -336,6 +336,35 @@ kbd { background: #1a1a26; border: 1px solid #2a2a3a; border-radius: 3px; paddin
 #ended button.primary { background: #3a2f08; border-color: var(--accent); color: #fff; }
 #ended button:hover { border-color: var(--accent); }
 .start-panel button:disabled { opacity: 0.4; cursor: not-allowed; }
+#create-area { border: 0; margin: 0; padding: 0; min-width: 0; }
+#create-area:disabled { opacity: 0.35; filter: grayscale(1); }
+#create-area:disabled * { cursor: not-allowed; }
+.names { display: flex; gap: 10px; margin-bottom: 6px; }
+.names label { display: flex; flex-direction: column; gap: 4px; flex: 1; font-size: 12px; color: #cfd3ea; }
+.names label.initials { flex: 0 0 110px; }
+.names .opt { color: #8c8ca6; font-size: 11px; }
+.start-panel input {
+  background: #0a0a12;
+  color: var(--fg);
+  border: 1px solid #2a2a3a;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font: inherit;
+  font-size: 13px;
+}
+#promo-initials { text-transform: uppercase; }
+.start-panel input:focus, .start-panel textarea:focus { outline: none; border-color: var(--accent); }
+/* Shown when no AI booker is reachable: explains why creating is grayed out. */
+.create-note { margin: 0 0 10px; padding: 8px 10px; border: 1px solid #5a3a1a; border-left: 3px solid #ffb86b; border-radius: 4px; background: #1e1408; color: #ffd9a8; font-size: 12px; line-height: 1.5; }
+.create-note b { color: #ffb86b; }
+/* Without the booker, the stored shows are what you can do: list them first. */
+.start-panel.no-llm #stored-section { order: 1; }
+.start-panel.no-llm #new-section { order: 2; }
+.start-panel.no-llm > p.hint:last-child { order: 3; }
+@media (max-width: 900px) {
+  .names { flex-direction: column; }
+  .names label.initials { flex: none; }
+}
 
 /* Render mode (npm run render): a clean, deterministic frame for video. */
 body.render footer, body.render #ended, body.render #start { display: none !important; }

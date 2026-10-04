@@ -55,15 +55,15 @@ The booker is told to save cages and ladders for settling feuds at PPVs, and to 
 ### Pre-generating and the library
 
 ```bash
-npm run pregen -- --direction "80s Mid-South, a veteran's last run" --seasons 1   # book a season ahead (nothing airs)
-npm run pregen -- --seed <seed> --seasons 1                                        # extend a stored show
+npm run pregen -- --direction "80s Mid-South, a veteran's last run" --name "Mid-South Wrestling" --initials MSW --seasons 1
+npm run pregen -- --show <id> --seasons 1                                          # extend a stored show
 npm run library                                                                    # list stored shows
-npm run library -- add <seed>                                                      # copy a saved show into library/ to commit it
+npm run library -- add <id>                                                        # copy a saved show into library/ to commit it
 ```
 
-To publish a show to the demo, pregen it, `npm run library -- add <seed>`, commit `library/` and push. The GitHub Pages workflow (`.github/workflows/pages.yml`) builds the static site and bundles the library into it.
+To publish a show to the demo, pregen it, `npm run library -- add <id>`, commit `library/` and push. The GitHub Pages workflow (`.github/workflows/pages.yml`) builds the static site and bundles the library into it.
 
-Saved shows live in `sessions/<seed>/` (git-ignored); curated shows live in `library/<seed>/` (committed). Both are read the same way, and a stored episode is always used before generating a new one. A season on Haiku (plus one Sonnet plan and one off-season call) costs roughly $0.40–0.50.
+Saved shows live in `sessions/<id>/` (git-ignored); curated shows live in `library/<id>/` (committed). The id comes from the promotion's initials (`stw`, or `stw-2` if taken; older shows use their seed) and is also the share link: `?show=stw`. `--name` and `--initials` are optional, as are the name fields on the start screen; the booker names the promotion otherwise. Both are read the same way, and a stored episode is always used before generating a new one. A season on Haiku (plus one Sonnet plan and one off-season call) costs roughly $0.40–0.50.
 
 ### Rendering videos
 

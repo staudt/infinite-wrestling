@@ -18,7 +18,7 @@ import { MapView } from './view/map';
 import { connectionText, StartScreen } from './view/start';
 import { applyEpisode } from './world/apply';
 import { episodeLabel, ppvName } from './world/season';
-import { loadWorldFromStorage, randomSeed, saveWorldToStorage, type World } from './world/state';
+import { loadWorldFromStorage, randomSeed, saveWorldToStorage, showId, type World } from './world/state';
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 
@@ -144,7 +144,7 @@ function entryFor(n: number): Promise<Entry | null> {
       const prev = await entryFor(n - 1);
       if (prev) before = applyEpisode(prev.before, prev.episode);
     } else {
-      return rebuildFromStorage(n, base.world.seed);
+      return rebuildFromStorage(n, showId(base.world));
     }
     if (!before) return null;
     const booked = await fetchEpisode(before);
@@ -162,11 +162,11 @@ function entryFor(n: number): Promise<Entry | null> {
 }
 
 /** Re-apply stored episodes 1..n from the stored promotion (pure and instant). */
-async function rebuildFromStorage(n: number, seed: number): Promise<Entry | null> {
-  let world = await fetchStoredPromotion(seed);
+async function rebuildFromStorage(n: number, id: string): Promise<Entry | null> {
+  let world = await fetchStoredPromotion(id);
   if (!world) return null;
   for (let k = 1; k <= n; k++) {
-    const raw = await fetchStoredEpisode(seed, k);
+    const raw = await fetchStoredEpisode(id, k);
     const review = raw ? reviewEpisode(raw, world) : null;
     if (!review?.episode) return null;
     const entry: Entry = { before: world, episode: review.episode, source: 'stored' };
@@ -356,19 +356,22 @@ async function main(): Promise<void> {
     const direction = params.get('direction') ?? '';
     setStatus(`creating a new promotion${direction ? ` (${direction.slice(0, 60)}…)` : ''}`);
     feed.onEvent({ type: 'narrated', text: 'Creating a brand-new promotion…', style: 'info', t: 0 });
-    const created = await fetchPromotion(direction, randomSeed());
+    const created = await fetchPromotion(direction, randomSeed(), {
+      showName: params.get('name') ?? undefined,
+      shortName: params.get('initials') ?? undefined,
+    });
     world = created.world;
     if (!created.world) setStatus(`couldn't create a promotion: ${created.message}`);
   } else if (program === 'library') {
-    const seed = showParam ? findShow(await fetchLibrary(), showParam)?.seed : Number(params.get('seed'));
-    world = seed ? await fetchStoredPromotion(seed) : null;
-    if (!world) setStatus(`couldn't find the stored show "${showParam ?? params.get('seed')}"`);
+    const id = showParam ? findShow(await fetchLibrary(), showParam)?.id : params.get('id');
+    world = id ? await fetchStoredPromotion(id) : null;
+    if (!world) setStatus(`couldn't find the stored show "${showParam ?? params.get('id')}"`);
   } else {
     world = loadWorldFromStorage();
   }
   const deep = { ep: params.get('ep'), seg: params.get('seg') };
   // Keep the URL clean so a reload continues the show instead of restarting it.
-  for (const k of ['play', 'direction', 'seed', 'show', 'skip', 'ep', 'seg']) params.delete(k);
+  for (const k of ['play', 'direction', 'name', 'initials', 'id', 'show', 'skip', 'ep', 'seg']) params.delete(k);
   history.replaceState(null, '', `${location.pathname}${params.size ? `?${params}` : ''}`);
   if (!world) {
     if (!status.startsWith("couldn't")) setStatus('choose a show');
@@ -401,11 +404,11 @@ async function main(): Promise<void> {
   startShow(world, target);
 }
 
-/** Match a ?show= value against stored shows: seed, short name, or (part of) the name. */
+/** Match a ?show= value against stored shows: id, seed, short name, or (part of) the name. */
 function findShow(library: LibraryEntry[], query: string): LibraryEntry | undefined {
   const slug = (x: string) => x.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   const q = slug(query);
-  return library.find((e) => String(e.seed) === query)
+  return library.find((e) => e.id === query || String(e.seed) === query)
     ?? library.find((e) => slug(e.shortName) === q || slug(e.showName) === q)
     ?? library.find((e) => slug(e.showName).split('-').includes(q) || slug(e.showName).startsWith(q));
 }

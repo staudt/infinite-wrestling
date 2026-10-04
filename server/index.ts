@@ -32,7 +32,10 @@ const server = createServer(async (req, res) => {
         const direction = String(body.direction ?? '').slice(0, 2000);
         const seed = Number(body.seed) >>> 0;
         const t0 = Date.now();
-        const created = await createPromotion(direction, seed);
+        const created = await createPromotion(direction, seed, {
+          showName: String(body.showName ?? ''),
+          shortName: String(body.shortName ?? ''),
+        });
         if (!created.world) return send(503, { error: created.reason, message: created.message });
         console.error(`[server] promotion "${created.world.showName}" created by ${created.source} in ${Date.now() - t0}ms`);
         return send(200, created);
